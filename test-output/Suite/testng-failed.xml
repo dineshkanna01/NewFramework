@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test thread-count="5" name="CancelReservation(failed)">
+    <classes>
+      <class name="testcases.CancelReservation">
+        <methods>
+          <include name="setup"/>
+          <include name="browerClose"/>
+          <include name="cancel"/>
+        </methods>
+      </class> <!-- testcases.CancelReservation -->
+    </classes>
+  </test> <!-- CancelReservation(failed) -->
+  <test thread-count="5" name="HomePage(failed)">
+    <classes>
+      <class name="testcases.HomePage">
+        <methods>
+          <include name="firstpage"/>
+          <include name="report"/>
+          <include name="setup"/>
+          <include name="jdbcCon"/>
+          <include name="browerClose"/>
+        </methods>
+      </class> <!-- testcases.HomePage -->
+    </classes>
+  </test> <!-- HomePage(failed) -->
+</suite> <!-- Failed suite [Suite] -->
