@@ -23,7 +23,7 @@ public class ExcelData {
 	public String getCellData(String sheetName, String colName, int rowNo) throws Exception {
 		FileInputStream fileInputStream;
 		try {
-			fileInputStream = new FileInputStream(System.getProperty("user.dir") + "\\Excel\\Data2.xlsx");
+			fileInputStream = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\resources\\testData\\Data2.xlsx");
 			workbook=new XSSFWorkbook(fileInputStream);
 			int colNum=-1;
 			sheet=workbook.getSheet(sheetName);
