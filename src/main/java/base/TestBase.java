@@ -179,7 +179,7 @@ public class TestBase {
 		prop = new Properties();
 		File file=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		try {
-			FileUtils.copyFile(file, new File("ScreenshotPath/"+fileName+".jpg"));
+			FileUtils.copyFile(file, new File("target/ScreenshotPath/"+fileName+".jpg"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -252,7 +252,7 @@ public class TestBase {
 			Multipart multipart= new MimeMultipart();
 			multipart.addBodyPart(messageBodyPart);
 
-			File file=new File("C:\\Users\\Dinesh.Kanna\\eclipse-workspace\\Sample\\test-output\\emailable-report.html");
+			File file=new File(System.getProperty("user.dir") + "\\test-output\\emailable-report.html");
 
 			messageBodyPart = new MimeBodyPart();
 			DataSource source=new FileDataSource(file.getAbsolutePath());
