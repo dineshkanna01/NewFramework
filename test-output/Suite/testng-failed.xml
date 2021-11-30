@@ -1,28 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <test thread-count="5" name="CancelReservation(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="methods">
+  <test thread-count="5" name="FirefoxTest(failed)" parallel="methods">
+    <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="testcases.CancelReservation">
+      <class name="parallelbrowser.CancelBooking">
         <methods>
-          <include name="setup"/>
-          <include name="browerClose"/>
           <include name="cancel"/>
-        </methods>
-      </class> <!-- testcases.CancelReservation -->
-    </classes>
-  </test> <!-- CancelReservation(failed) -->
-  <test thread-count="5" name="HomePage(failed)">
-    <classes>
-      <class name="testcases.HomePage">
-        <methods>
-          <include name="firstpage"/>
-          <include name="report"/>
           <include name="setup"/>
-          <include name="jdbcCon"/>
           <include name="browerClose"/>
         </methods>
-      </class> <!-- testcases.HomePage -->
+      </class> <!-- parallelbrowser.CancelBooking -->
     </classes>
-  </test> <!-- HomePage(failed) -->
+  </test> <!-- FirefoxTest(failed) -->
+  <test thread-count="5" name="ChromeTest(failed)" parallel="methods">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="parallelbrowser.CancelBooking">
+        <methods>
+          <include name="cancel"/>
+          <include name="setup"/>
+          <include name="browerClose"/>
+        </methods>
+      </class> <!-- parallelbrowser.CancelBooking -->
+    </classes>
+  </test> <!-- ChromeTest(failed) -->
+  <test thread-count="5" name="EdgeTest(failed)" parallel="methods">
+    <parameter name="browser" value="edge"/>
+    <classes>
+      <class name="parallelbrowser.CancelBooking">
+        <methods>
+          <include name="cancel"/>
+          <include name="setup"/>
+          <include name="browerClose"/>
+        </methods>
+      </class> <!-- parallelbrowser.CancelBooking -->
+    </classes>
+  </test> <!-- EdgeTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

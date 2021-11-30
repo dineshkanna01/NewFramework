@@ -5,15 +5,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import Utility.ExcelData;
 import base.TestBase;
 
 public class BookingPages extends TestBase{
 
+	ExcelData e = new ExcelData();
+	
 	public BookingPages() {
 		PageFactory.initElements(driver, this);
 	}
-	
-	
 	
 	public String UrlTilte() {
 		return driver.getTitle();
@@ -65,7 +66,6 @@ public class BookingPages extends TestBase{
 	@FindBy(id="booking_zip_code")
 	WebElement zipCode;
 	
-	
 	@FindBy(id="booking_phone_number")
 	WebElement phNo;
 	
@@ -75,43 +75,78 @@ public class BookingPages extends TestBase{
 	@FindBy(id="submit-booking")
 	WebElement subBook;
 	
+	@FindBy(id="card_holder_name")
+	WebElement cardHolder;
 	
+	@FindBy(id="card_number")
+	WebElement cardNo;
 	
-	public BookingPages firstPage(String dateIn) throws Exception {
-//		List<Map<String, String>> testDataMap = ExcelUtility.getTestData();
-//		arrivalDate.sendKeys(testDataMap.get(1).get("dateIn"));
-		arrivalDate.sendKeys(dateIn);
-		Thread.sleep(1000);
-//		departureDate.sendKeys(dateOut);
+	@FindBy(id="expiration_date_month")
+	WebElement expireMonth;
+	
+	@FindBy(id="expiration_date_year")
+	WebElement expireYear;
+	
+	@FindBy(id="security_code")
+	WebElement SecCode;
+	
+	@FindBy(id="summary_reservation_confirmation_code")
+	WebElement conCode;
+	
+	@FindBy(xpath="//strong[contains(text(),'qtest')]")
+	WebElement qtestCode;
+	
+	public BookingPages firstPage() throws Exception {
+		arrivalDate.sendKeys(e.getCellData("FirstPage", "dateIn", 2));
+		implict(8);
+		departureDate.clear();
+		departureDate.sendKeys(e.getCellData("FirstPage", "dateOut", 2));
 		availability.click();
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		gotIt.click();
+		Thread.sleep(4000);
 		booknow.click();
 		screenShot("FirstPage");
 		return null;
 	}
 	
-	public BookingPages secondpage(String fname, String lname, String email, String comment) throws Exception {
-		firstname.sendKeys(fname);
-		lastname.sendKeys(lname);
-		bookingEmail.sendKeys(email);
-		feedBack.sendKeys(comment);
+	public BookingPages secondpage() throws Exception {
+		firstname.sendKeys(e.getCellData("SecondPage", "firstName", 2));
+		lastname.sendKeys(e.getCellData("SecondPage", "lname", 2));
+		bookingEmail.sendKeys(e.getCellData("SecondPage", "email", 2));
+		feedBack.sendKeys(e.getCellData("SecondPage", "feedBack", 2));
 		confirmDetails.click();
+		screenShot("SecondPage");
 		return null;
 	}
 	
-	public BookingPages thirdPage(String name, String address, String cityAdd, String stateAdd, String code, String number) throws Exception {
-		country.sendKeys(name);
-		streetAdd.sendKeys(address);
-		city.sendKeys(cityAdd);
-		state.sendKeys(stateAdd);
-		zipCode.sendKeys(code);
-		phNo.sendKeys(number);
+	public BookingPages thirdPage(String cardNum) throws Exception {
+		cardHolder.sendKeys(e.getCellData("ThirdPage", "cardHolder", 2));
+		implict(8);
+		cardNo.sendKeys(cardNum);
+		cardNo.sendKeys(cardNum);
+		cardNo.sendKeys(cardNum);
+		cardNo.sendKeys(cardNum);
+		expireMonth.sendKeys(e.getCellData("ThirdPage", "expireMonth", 2));
+		expireYear.sendKeys(e.getCellData("ThirdPage", "expireYear", 2));
+		SecCode.sendKeys(e.getCellData("ThirdPage", "SecCode", 2));
+		country.sendKeys(e.getCellData("ThirdPage", "country", 2));
+		streetAdd.sendKeys(e.getCellData("ThirdPage", "streetAdd", 2));
+		city.sendKeys(e.getCellData("ThirdPage", "city", 2));
+		state.sendKeys(e.getCellData("ThirdPage", "state", 2));
+		zipCode.sendKeys(e.getCellData("ThirdPage", "zipCode", 2));
+		phNo.sendKeys(e.getCellData("ThirdPage", "phNo", 2));
 		accept.click();
 		subBook.click();
+		screenShot("ThirdPage");
 		return null;
 	}
 	
-	
+	public BookingPages confirmPage() throws Exception {
+		String txtCode = qtestCode.getText();
+		System.out.println("Confirmation Code: "+txtCode);
+		screenShot("ConfirmationID");
+		return null;
+	}
 	
 }

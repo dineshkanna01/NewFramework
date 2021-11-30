@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import base.TestBase;
 
@@ -33,6 +34,12 @@ public class CancelBookingPage extends TestBase{
 	@FindBy(xpath ="//span[text()=\"No\"]")
 	WebElement clickNo;
 	
+	@FindBy(id="summary_reservation_confirmation_code")
+	WebElement confirmCode;
+	
+	@FindBy(xpath="//strong[contains(text(),'qtest')]")
+	WebElement qtestCode;
+	
 	
 	public CancelBookingPage cancelBooking(String code, String email) throws Exception {
 		myBooking.click();
@@ -41,6 +48,9 @@ public class CancelBookingPage extends TestBase{
 		screenShot("MybookingPage");
 		lookup.click();
 		Thread.sleep(1000);
+		String txtCode = qtestCode.getText();
+		System.out.println(txtCode);
+		Assert.assertEquals(txtCode, "QTEST1100001762");
 		gotIt.click();
 		canReservation.click();
 		Thread.sleep(1000);

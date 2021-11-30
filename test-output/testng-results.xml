@@ -1,17 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="3" ignored="0" total="3" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="569" started-at="2021-11-23T04:58:36Z" finished-at="2021-11-23T04:58:37Z">
+  <suite name="Suite" duration-ms="29171" started-at="2021-11-30T04:30:03Z" finished-at="2021-11-30T04:30:32Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="569" started-at="2021-11-23T04:58:36Z" finished-at="2021-11-23T04:58:37Z">
-      <class name="testcases.ExcelTestCase">
-        <test-method status="PASS" signature="test()[pri:0, instance:testcases.ExcelTestCase@793be5ca]" name="test" duration-ms="484" started-at="2021-11-23T04:58:36Z" finished-at="2021-11-23T04:58:37Z">
+    <test name="FirefoxTest" duration-ms="12759" started-at="2021-11-30T04:30:03Z" finished-at="2021-11-30T04:30:16Z">
+      <class name="parallelbrowser.CancelBooking">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:parallelbrowser.CancelBooking@2f217633]" name="setup" is-config="true" duration-ms="11931" started-at="2021-11-30T04:30:03Z" finished-at="2021-11-30T04:30:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test -->
-      </class> <!-- testcases.ExcelTestCase -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- setup -->
+        <test-method status="FAIL" signature="cancel()[pri:0, instance:parallelbrowser.CancelBooking@2f217633]" name="cancel" duration-ms="48" started-at="2021-11-30T04:30:15Z" finished-at="2021-11-30T04:30:15Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy17.click(Unknown Source)
+at pages.CancelBookingPage.cancelBooking(CancelBookingPage.java:45)
+at parallelbrowser.CancelBooking.cancel(CancelBooking.java:61)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+at java.lang.Thread.run(Unknown Source)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cancel -->
+        <test-method status="PASS" signature="browerClose()[pri:0, instance:parallelbrowser.CancelBooking@2f217633]" name="browerClose" is-config="true" duration-ms="680" started-at="2021-11-30T04:30:15Z" finished-at="2021-11-30T04:30:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browerClose -->
+      </class> <!-- parallelbrowser.CancelBooking -->
+    </test> <!-- FirefoxTest -->
+    <test name="ChromeTest" duration-ms="7172" started-at="2021-11-30T04:30:16Z" finished-at="2021-11-30T04:30:23Z">
+      <class name="parallelbrowser.CancelBooking">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:parallelbrowser.CancelBooking@485966cc]" name="setup" is-config="true" duration-ms="6469" started-at="2021-11-30T04:30:16Z" finished-at="2021-11-30T04:30:22Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="FAIL" signature="cancel()[pri:0, instance:parallelbrowser.CancelBooking@485966cc]" name="cancel" duration-ms="4" started-at="2021-11-30T04:30:22Z" finished-at="2021-11-30T04:30:22Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy17.click(Unknown Source)
+at pages.CancelBookingPage.cancelBooking(CancelBookingPage.java:45)
+at parallelbrowser.CancelBooking.cancel(CancelBooking.java:61)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+at java.lang.Thread.run(Unknown Source)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cancel -->
+        <test-method status="PASS" signature="browerClose()[pri:0, instance:parallelbrowser.CancelBooking@485966cc]" name="browerClose" is-config="true" duration-ms="693" started-at="2021-11-30T04:30:22Z" finished-at="2021-11-30T04:30:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browerClose -->
+      </class> <!-- parallelbrowser.CancelBooking -->
+    </test> <!-- ChromeTest -->
+    <test name="EdgeTest" duration-ms="9205" started-at="2021-11-30T04:30:23Z" finished-at="2021-11-30T04:30:32Z">
+      <class name="parallelbrowser.CancelBooking">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:parallelbrowser.CancelBooking@5b03b9fe]" name="setup" is-config="true" duration-ms="8493" started-at="2021-11-30T04:30:23Z" finished-at="2021-11-30T04:30:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="FAIL" signature="cancel()[pri:0, instance:parallelbrowser.CancelBooking@5b03b9fe]" name="cancel" duration-ms="7" started-at="2021-11-30T04:30:32Z" finished-at="2021-11-30T04:30:32Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy17.click(Unknown Source)
+at pages.CancelBookingPage.cancelBooking(CancelBookingPage.java:45)
+at parallelbrowser.CancelBooking.cancel(CancelBooking.java:61)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+at java.lang.Thread.run(Unknown Source)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cancel -->
+        <test-method status="PASS" signature="browerClose()[pri:0, instance:parallelbrowser.CancelBooking@5b03b9fe]" name="browerClose" is-config="true" duration-ms="700" started-at="2021-11-30T04:30:32Z" finished-at="2021-11-30T04:30:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browerClose -->
+      </class> <!-- parallelbrowser.CancelBooking -->
+    </test> <!-- EdgeTest -->
+  </suite> <!-- Suite -->
 </testng-results>

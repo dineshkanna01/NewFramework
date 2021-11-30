@@ -12,9 +12,9 @@ public class MBrowser extends TestBase{
 	@BeforeClass
 	public void beforeclass(String browser) {
 
-		// broser is firefox
+		// browser is firefox
 		if(browser.equalsIgnoreCase("firefox")) {
-			initilizationmultibrowser("Firefox");
+			initilizationmultibrowser("firefox");
 
 		}
 		// browser is chrome
@@ -23,8 +23,8 @@ public class MBrowser extends TestBase{
 
 		} 
 		// browser if edge 
-		else if(browser.equalsIgnoreCase("ie")) {
-			initilizationmultibrowser("IE");
+		else if(browser.equalsIgnoreCase("edge")) {
+			initilizationmultibrowser("edge");
 
 		}
 	}
@@ -32,6 +32,7 @@ public class MBrowser extends TestBase{
 
 	@Test
 	public void test() {
+		
 		driver.get(prop.getProperty("url"));
 	}
 
