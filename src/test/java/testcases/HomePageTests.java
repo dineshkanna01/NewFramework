@@ -15,24 +15,21 @@ import io.qameta.allure.Story;
 import logfile.Utilitylog;
 import pages.BookingPages;
 
-public class HomePage extends TestBase{
+public class HomePageTests extends TestBase{
 	
 	
-	public static BookingPages bp;
 	public static Utilitylog logger;
 	
-	public HomePage() {
+	public HomePageTests() {
 		super();
+		logger=new Utilitylog(HomePageTests.class.getName());
 	}
-	
+
 	@BeforeMethod
 	public void setup() {
 		initilization();
-		bp = new BookingPages();
-		logger=new Utilitylog(HomePage.class.getName());
-		
 	}
-	
+
 	@Test(priority=1)
 	@Description("Verify the company Title on the HomePage...")
 	@Severity(SeverityLevel.CRITICAL)
@@ -40,14 +37,15 @@ public class HomePage extends TestBase{
 	@Feature("Feature1: Title")
 	@Story("Story: Title Presence")
 	@Step("Verify Title Presence")
-	public void title() {
-		String title = bp.UrlTilte();
+	public void verifyPageTitleTest() {
+		BookingPages bookingPages = new BookingPages(getDriver());
+		String title = bookingPages.UrlTilte();
 		System.out.println(title);
 		logger.info(title);
 		Assert.assertEquals(title, "Make a reservation on qatest1");
 	}
 	
-	@Test(priority=2)
+	//@Test(priority=2)
 	@Description("Verify the Booking HomePage...")
 	@Severity(SeverityLevel.MINOR)
 	@Epic("EP01")
@@ -56,6 +54,7 @@ public class HomePage extends TestBase{
 	@Step("Verify Booking HomePage Presence")
 	public void firstpage() throws Exception {
 		logger.info("Booking Started");
+		BookingPages bp = new BookingPages(getDriver());
 		bp.firstPage();
 		implict(8);
 		bp.secondpage();
@@ -70,7 +69,7 @@ public class HomePage extends TestBase{
 	
 	@AfterMethod
 	public void browerClose() {
-		driver.quit();
+		getDriver().quit();
 	}
 	
 	@AfterSuite

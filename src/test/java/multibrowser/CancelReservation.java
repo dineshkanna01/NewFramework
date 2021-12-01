@@ -41,13 +41,7 @@ public class CancelReservation extends TestBase{
 	@BeforeMethod
 	public void setup(String browserName) {
 		initilizationmultibrowser(browserName);
-//		driver=BrowserFactory.initilizationmultibrowser(browserName);
-//		DriverFactory.getInstance().setDriver(driver);
-//		driver=DriverFactory.getInstance().getDriver();
-		
-		CP = new CancelBookingPage();
 		logger=new Utilitylog(CancelReservation.class.getName());
-		
 	}
 	
 	@Test()

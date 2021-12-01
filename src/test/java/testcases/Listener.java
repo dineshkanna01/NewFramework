@@ -39,7 +39,7 @@ public abstract class Listener implements ITestListener{
 	public void onTestFailure(ITestResult iTestResult) {
 		System.out.println("I am in onTestFailure method "+getTestMethodName(iTestResult) +"Failed");
 		Object testClass = iTestResult.getInstance();
-		WebDriver driver=TestBase.driver;
+		WebDriver driver=TestBase.getDriver();
 		if (driver instanceof WebDriver) {
 			System.out.println("Screenshot Captured for testcase "+getTestMethodName(iTestResult));
 			saveFailureScreenshot(driver);
@@ -58,7 +58,7 @@ public abstract class Listener implements ITestListener{
 
 	public void onStart(ITestContext iTestContext) {
 		System.out.println("I am in onStart method "+iTestContext.getName());
-		iTestContext.setAttribute("WebDriver", TestBase.driver);
+		iTestContext.setAttribute("WebDriver", TestBase.getDriver());
 	}
 
 	public void onFinish(ITestContext iTestContext) {

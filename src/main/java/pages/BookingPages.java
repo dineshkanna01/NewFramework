@@ -1,6 +1,7 @@
 package pages;
 
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -8,11 +9,12 @@ import org.openqa.selenium.support.PageFactory;
 import Utility.ExcelData;
 import base.TestBase;
 
-public class BookingPages extends TestBase{
+public class BookingPages extends AbstractBasePage {
 
 	ExcelData e = new ExcelData();
 	
-	public BookingPages() {
+	public BookingPages(WebDriver driver) {
+		super(driver);
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -98,7 +100,7 @@ public class BookingPages extends TestBase{
 	
 	public BookingPages firstPage() throws Exception {
 		arrivalDate.sendKeys(e.getCellData("FirstPage", "dateIn", 2));
-		implict(8);
+		TestBase.implict(8);
 		departureDate.clear();
 		departureDate.sendKeys(e.getCellData("FirstPage", "dateOut", 2));
 		availability.click();
@@ -106,7 +108,7 @@ public class BookingPages extends TestBase{
 		gotIt.click();
 		Thread.sleep(4000);
 		booknow.click();
-		screenShot("FirstPage");
+		TestBase.screenShot("FirstPage");
 		return null;
 	}
 	
@@ -116,13 +118,13 @@ public class BookingPages extends TestBase{
 		bookingEmail.sendKeys(e.getCellData("SecondPage", "email", 2));
 		feedBack.sendKeys(e.getCellData("SecondPage", "feedBack", 2));
 		confirmDetails.click();
-		screenShot("SecondPage");
+		TestBase.screenShot("SecondPage");
 		return null;
 	}
 	
 	public BookingPages thirdPage(String cardNum) throws Exception {
 		cardHolder.sendKeys(e.getCellData("ThirdPage", "cardHolder", 2));
-		implict(8);
+		TestBase.implict(8);
 		cardNo.sendKeys(cardNum);
 		cardNo.sendKeys(cardNum);
 		cardNo.sendKeys(cardNum);
@@ -138,14 +140,14 @@ public class BookingPages extends TestBase{
 		phNo.sendKeys(e.getCellData("ThirdPage", "phNo", 2));
 		accept.click();
 		subBook.click();
-		screenShot("ThirdPage");
+		TestBase.screenShot("ThirdPage");
 		return null;
 	}
 	
 	public BookingPages confirmPage() throws Exception {
 		String txtCode = qtestCode.getText();
 		System.out.println("Confirmation Code: "+txtCode);
-		screenShot("ConfirmationID");
+		TestBase.screenShot("ConfirmationID");
 		return null;
 	}
 	

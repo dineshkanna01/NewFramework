@@ -1,18 +1,11 @@
 package testcases;
 
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import base.SendEmail;
 import base.TestBase;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -26,7 +19,6 @@ import pages.CancelBookingPage;
 
 public class CancelReservation extends TestBase{
 	
-	public static CancelBookingPage CP;
 	public static Utilitylog logger;
 	MBrowser mb;
 	
@@ -37,9 +29,7 @@ public class CancelReservation extends TestBase{
 	@BeforeMethod
 	public void setup() {
 		initilization();
-		CP = new CancelBookingPage();
-		logger=new Utilitylog(HomePage.class.getName());
-		
+		logger=new Utilitylog(HomePageTests.class.getName());
 	}
 	
 	@Test(priority=2)
@@ -51,15 +41,15 @@ public class CancelReservation extends TestBase{
 	@Step("Verify Booking CancelReservationPage")
 	public void cancel() throws Exception {
 		logger.info("Cancel Reservation started");
+		CancelBookingPage CP = new CancelBookingPage(getDriver());
 		CP.cancelBooking("qtest1100001711", "dinesh.kanna@igtsolutions.com");
 		screenShot("cancellation page");
 		logger.info("Cancel Reservation done");
-		
 	}
 	
 	@AfterMethod
 	public void browerClose() {
-		driver.quit();
+		getDriver().quit();
 	}
 	
 	@AfterClass

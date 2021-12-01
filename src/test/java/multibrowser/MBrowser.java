@@ -33,7 +33,7 @@ public class MBrowser extends TestBase{
 	@Test
 	public void test() {
 		
-		driver.get(prop.getProperty("url"));
+		getDriver().get(prop.getProperty("url"));
 	}
 
 }

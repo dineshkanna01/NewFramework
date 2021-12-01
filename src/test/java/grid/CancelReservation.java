@@ -5,35 +5,21 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Platform;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Utility.TestUtils;
-import base.SendEmail;
 import base.TestBase;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Step;
-import io.qameta.allure.Story;
 import logfile.Utilitylog;
-import multibrowser.MBrowser;
 import pages.CancelBookingPage;
-import testcases.HomePage;
+import testcases.HomePageTests;
 
 public class CancelReservation extends TestBase{
 	
@@ -49,8 +35,9 @@ public class CancelReservation extends TestBase{
 	public void setup(String portNo) throws Exception {
 
 
-		if (portNo.equalsIgnoreCase("4455")) {
-			nodeURL = "http://192.168.1.2:4455/wd/hub";
+		if (portNo.equalsIgnoreCase("8888")) {
+//			nodeURL = "http://192.168.1.6:4444/wd/hub";
+			nodeURL = " http://192.168.1.6:5647/wd/hub";
 			DesiredCapabilities capabilities= new DesiredCapabilities();
 			capabilities.setBrowserName("chrome");
 			capabilities.setPlatform(Platform.WIN10);
@@ -59,7 +46,7 @@ public class CancelReservation extends TestBase{
 			options.merge(capabilities);
 
 			try {
-				driver = new RemoteWebDriver(new URL(nodeURL), options);
+				tdriver.set(new RemoteWebDriver(new URL(nodeURL), options));
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
 			}
@@ -75,19 +62,19 @@ public class CancelReservation extends TestBase{
 			options2.merge(capabilities);
 
 			try {
-				driver = new RemoteWebDriver(new URL(nodeURL), options2);
+				tdriver.set(new RemoteWebDriver(new URL(nodeURL), options2));
 				
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
 			}
 
 		}
-		driver.manage().window().maximize();
-		driver.manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
-		driver.get("https://qatest1.qa-igt.reztrip3-qa.com/");
-		CP = new CancelBookingPage();
-		logger=new Utilitylog(HomePage.class.getName());
+		getDriver().manage().window().maximize();
+		getDriver().manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
+		getDriver().get("https://qatest1.qa-igt.reztrip3-qa.com/");
+		CP = new CancelBookingPage(getDriver());
+		logger=new Utilitylog(HomePageTests.class.getName());
 		
 	}
 	
@@ -102,7 +89,7 @@ public class CancelReservation extends TestBase{
 	
 	@AfterMethod
 	public void browerClose() {
-		driver.quit();
+		getDriver().quit();
 	}
 	
 	@AfterClass

@@ -31,7 +31,7 @@ public class DiffAdults extends TestBase{
 	public void setup() {
 		initilization();
 		bda = new BookingDiffAdults();
-		logger=new Utilitylog(HomePage.class.getName());
+		logger=new Utilitylog(HomePageTests.class.getName());
 		
 	}
 	

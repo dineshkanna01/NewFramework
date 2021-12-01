@@ -34,9 +34,7 @@ public class HomePage extends TestBase{
 	@BeforeMethod
 	public void setup(String browserName) {
 		initilizationmultibrowser(browserName);
-		bp = new BookingPages();
 		logger=new Utilitylog(HomePage.class.getName());
-		
 	}
 	
 	@Test(priority=1)
@@ -76,7 +74,7 @@ public class HomePage extends TestBase{
 	
 	@AfterMethod
 	public void browerClose() {
-		driver.quit();
+		getDriver().quit();
 	}
 	
 }

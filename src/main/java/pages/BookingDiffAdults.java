@@ -9,13 +9,13 @@ import base.TestBase;
 public class BookingDiffAdults extends TestBase{
 
 	public BookingDiffAdults() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	
 	
 	public String UrlTilte() {
-		return driver.getTitle();
+		return getDriver().getTitle();
 	}
 	
 	@FindBy(id="search_arrival_date")

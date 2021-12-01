@@ -1,5 +1,7 @@
 package pages;
 
+import Utility.BrowserFactory;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -7,9 +9,10 @@ import org.testng.Assert;
 
 import base.TestBase;
 
-public class CancelBookingPage extends TestBase{
+public class CancelBookingPage extends AbstractBasePage{
 
-	public CancelBookingPage() {
+	public CancelBookingPage(WebDriver driver) {
+		super(driver);
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -45,7 +48,7 @@ public class CancelBookingPage extends TestBase{
 		myBooking.click();
 		conCode.sendKeys(code);
 		conEmail.sendKeys(email);
-		screenShot("MybookingPage");
+		BrowserFactory.screenShot("MybookingPage");
 		lookup.click();
 		Thread.sleep(1000);
 		String txtCode = qtestCode.getText();

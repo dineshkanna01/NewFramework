@@ -35,6 +35,7 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import logfile.Utilitylog;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.Email;
@@ -54,6 +55,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
 import com.google.gson.JsonIOException;
@@ -63,11 +65,13 @@ import Utility.TestUtils;
 import cmdprompt.SyncPipe;
 import helper.JsonHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import pages.BookingPages;
 
 
 public class TestBase {
 
-	public static WebDriver driver=null;
+
+	public static ThreadLocal<WebDriver> tdriver= new ThreadLocal<WebDriver>();
 	public static Properties prop; 
 	public static WebDriver driver1;
 	public static Platform WIN10;
@@ -89,42 +93,41 @@ public class TestBase {
 		String browserName = prop.getProperty("browser");
 		if (browserName.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
-			driver=new ChromeDriver();
+			tdriver.set(new ChromeDriver());
 		}
 		else if(browserName.equals("Firefox")) {
 			WebDriverManager.firefoxdriver().setup();
-			driver=new FirefoxDriver();
+			tdriver.set(new FirefoxDriver());
 		}else if(browserName.equals("edge")) {
 			WebDriverManager.edgedriver().setup();
-			driver=new EdgeDriver();
+			tdriver.set(new EdgeDriver());
 		}else {
 			System.out.println("No browser");
 		}
 
-		driver.manage().window().maximize();
-		driver.manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
+		getDriver().manage().window().maximize();
+		getDriver().manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
 
-		driver.get(prop.getProperty("url"));
+		getDriver().get(prop.getProperty("url"));
 	}
 
 	public static void initilizationmultibrowser(String browserName) {
 		if (browserName.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
-			driver=new ChromeDriver();
+			tdriver.set(new ChromeDriver());
 		}
 		else if(browserName.equals("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
-			driver=new FirefoxDriver();
+			tdriver.set(new FirefoxDriver());
 		}else if(browserName.equals("edge")) {
 			WebDriverManager.edgedriver().setup();
-			driver=new EdgeDriver();
+			tdriver.set(new EdgeDriver());
 		}
-		WebDriverManager.chromedriver().setup();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
-		driver.get("https://qatest1.qa-igt.reztrip3-qa.com/");
+		getDriver().manage().window().maximize();
+		getDriver().manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
+		getDriver().get("https://qatest1.qa-igt.reztrip3-qa.com/");
 	}
 
 	public static void setUp(String portNo) {
@@ -136,13 +139,13 @@ public class TestBase {
 
 			ChromeOptions options= new ChromeOptions();
 			options.merge(capabilities);
-
+			WebDriver driver = null;
 			try {
-				driver = new RemoteWebDriver(new URL(nodeURL), options);
-				driver.manage().window().maximize();
-				driver.manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
-				driver.manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
-				driver.get(prop.getProperty("url"));
+				tdriver.set(new RemoteWebDriver(new URL(nodeURL), options));
+				getDriver().manage().window().maximize();
+				getDriver().manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+				getDriver().manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
+				getDriver().get(prop.getProperty("url"));
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
 			}
@@ -158,11 +161,11 @@ public class TestBase {
 			options2.merge(capabilities);
 
 			try {
-				driver = new RemoteWebDriver(new URL(nodeURL), options2);
-				driver.manage().window().maximize();
-				driver.manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
-				driver.manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
-				driver.get(prop.getProperty("url"));
+				tdriver.set(new RemoteWebDriver(new URL(nodeURL), options2));
+				getDriver().manage().window().maximize();
+				getDriver().manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+				getDriver().manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
+				getDriver().get(prop.getProperty("url"));
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
 			}
@@ -177,17 +180,16 @@ public class TestBase {
 
 	public static void screenShot(String fileName) {
 		prop = new Properties();
-		File file=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		File file=((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
 		try {
 			FileUtils.copyFile(file, new File("target/ScreenshotPath/"+fileName+".jpg"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
-	public void implict(int num) {
-		driver.manage().timeouts().implicitlyWait(num, TimeUnit.SECONDS);
+	public static void implict(int num) {
+		getDriver().manage().timeouts().implicitlyWait(num, TimeUnit.SECONDS);
 	}
 
 
@@ -318,4 +320,7 @@ public class TestBase {
 		return value;
 	}
 
+	public static WebDriver getDriver() {
+		return tdriver.get();
+	}
 }
