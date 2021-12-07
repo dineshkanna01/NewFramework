@@ -25,15 +25,20 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestReport {
 
-	public WebDriver driver;
-	public ExtentReports extent;
-	public ExtentTest extentTest;
+	public static ThreadLocal<WebDriver> tdriver= new ThreadLocal<WebDriver>();
+//	public WebDriver driver;
+	public static ExtentReports extent;
+	public static ExtentTest extentTest;
+	
 
+	public static WebDriver getDriver() {
+		return tdriver.get();
+	}
 	
 	@BeforeTest
 	public void setExtent(){
 		extent = new ExtentReports(System.getProperty("user.dir")+"/Html/ExtentReport.html", true);
-		
+
 	}
 	
 	@AfterTest
@@ -42,32 +47,18 @@ public class TestReport {
 		extent.close();
 	}
 	
-	public static String getScreenshot(WebDriver driver, String screenshotName) throws IOException{
+	public static String getScreenshot(WebDriver tdriver, String screenshotName) throws IOException{
 		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-		TakesScreenshot ts = (TakesScreenshot) driver;
+		TakesScreenshot ts = (TakesScreenshot) tdriver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		// after execution, you could see a folder "FailedTestsScreenshots"
 		// under src folder
-		String destination = System.getProperty("user.dir") + "/FailedTestsScreenshots/" + screenshotName + dateName + ".png";
+		String destination = System.getProperty("user.dir") + "/target/FailedTestsScreenshots/" + screenshotName + dateName + ".png";
 		File finalDestination = new File(destination);
 		FileUtils.copyFile(source, finalDestination);
 		return destination;
 	}
 	
-	@BeforeMethod
-	public void setup(){
-		
-//		System.setProperty("webdriver.chrome.driver","D:\\Software\\chrome Jar\\chromedriver_win32\\chromedriver.exe");	
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(); 
-		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
-		driver.get("https://www.google.com/");
-		
-	}
 	
 	@AfterMethod
 	public void tearDown(ITestResult result) throws IOException{
@@ -76,7 +67,7 @@ public class TestReport {
 			extentTest.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getName()); //to add name in extent report
 			extentTest.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getThrowable()); //to add error/exception in extent report
 			
-			String screenshotPath = TestReport.getScreenshot(driver, result.getName());
+			String screenshotPath = TestReport.getScreenshot(getDriver(), result.getName());
 			extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture(screenshotPath)); //to add screenshot in extent report
 			//extentTest.log(LogStatus.FAIL, extentTest.addScreencast(screenshotPath)); //to add screencast/video in extent report
 		}
@@ -84,12 +75,12 @@ public class TestReport {
 			extentTest.log(LogStatus.SKIP, "Test Case SKIPPED IS " + result.getName());
 		}
 		else if(result.getStatus()==ITestResult.SUCCESS){
-			extentTest.log(LogStatus.PASS, "Test Case PASSED IS " + result.getName());
-
+			extentTest.log(LogStatus.PASS, "Test Case PASSED IS ==>" + result.getName());
+			extentTest.log(LogStatus.PASS, "Test Case STATUS IS ==>" + result.getStatus());
+			extentTest.log(LogStatus.PASS, "Test Case PACKAGENAME IS ==>" + result.getInstanceName());
 		}
 		
-		
 		extent.endTest(extentTest); //ending test and ends the current test and prepare to create html report
-		driver.quit();
+		
 	}
 }

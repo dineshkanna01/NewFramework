@@ -37,8 +37,8 @@ public class CancelBookingTests {
 	public void cancelBookingTests() throws Exception {
 		logger.info("Cancel Reservation started");
 		CancelBookingPage cancelBookingPage = new CancelBookingPage(BrowserFactory.getDriver());
-		cancelBookingPage.cancelBooking("qtest1100001762", "dinesh.kanna@igtsolutions.com");
-		BrowserFactory.screenShot("cancellation page");
+		cancelBookingPage.cancelBooking("qtest1100001797", "dinesh.kanna@igtsolutions.com");
+//		BrowserFactory.screenShot("cancellation page");
 		logger.info("Cancel Booking done");
 	}
 

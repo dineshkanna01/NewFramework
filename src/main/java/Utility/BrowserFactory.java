@@ -49,11 +49,12 @@ public class BrowserFactory {
 	public static void screenShot(String fileName) {
 		File file=((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
 		try {
-			FileUtils.copyFile(file, new File("target/ScreenshotPath/"+fileName+".jpg"));
+			FileUtils.copyFile(file, new File("/target/ScreenshotPath/"+fileName+".jpg"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+	
 	public static void cmdPrompt() {
 		String [] command = {"cmd"};
 		Process p;

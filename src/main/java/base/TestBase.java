@@ -76,6 +76,7 @@ public class TestBase {
 	public static WebDriver driver1;
 	public static Platform WIN10;
 	public static String nodeURL;
+	public static String portNo;
 
 	public TestBase() {
 		try {
@@ -130,16 +131,16 @@ public class TestBase {
 		getDriver().get("https://qatest1.qa-igt.reztrip3-qa.com/");
 	}
 
-	public static void setUp(String portNo) {
+	public static void setUp() {
+		
 		if (portNo.equalsIgnoreCase("4455")) {
-			nodeURL = "http://192.168.1.2:4455/wd/hub";
+			nodeURL = "http://192.168.1.5:4455/wd/hub";
 			DesiredCapabilities capabilities= new DesiredCapabilities();
 			capabilities.setBrowserName("chrome");
 			capabilities.setPlatform(Platform.WIN10);
 
 			ChromeOptions options= new ChromeOptions();
 			options.merge(capabilities);
-			WebDriver driver = null;
 			try {
 				tdriver.set(new RemoteWebDriver(new URL(nodeURL), options));
 				getDriver().manage().window().maximize();
@@ -151,7 +152,7 @@ public class TestBase {
 			}
 
 		}else if(portNo.equalsIgnoreCase("4456")) {
-			nodeURL = "http://192.168.1.2:4456/wd/hub";
+			nodeURL = "http://192.168.1.5:4456/wd/hub";
 
 			DesiredCapabilities capabilities= new DesiredCapabilities();
 			capabilities.setBrowserName("firefox");

@@ -37,7 +37,7 @@ public class HomePage extends TestBase{
 		logger=new Utilitylog(HomePage.class.getName());
 	}
 	
-	@Test(priority=1)
+//	@Test(priority=1)
 	@Description("Verify the company Title on the HomePage...")
 	@Severity(SeverityLevel.CRITICAL)
 	@Epic("EP01")

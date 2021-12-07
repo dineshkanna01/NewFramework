@@ -54,7 +54,7 @@ public class CancelReservation extends TestBase{
 	public void cancel() throws Exception {
 		logger.info("Cancel Reservation started");
 		CP.cancelBooking("qtest1100001762", "dinesh.kanna@igtsolutions.com");
-		screenShot("cancellation page");
+//		screenShot("cancellation page");
 		logger.info("Cancel Reservation done");
 		
 	}

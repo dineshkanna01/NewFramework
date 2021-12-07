@@ -4,7 +4,11 @@ package testcases;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+
 import base.TestBase;
+import extend.TestReport;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -17,6 +21,9 @@ import pages.BookingPages;
 
 public class HomePageTests extends TestBase{
 	
+	TestReport tp = new TestReport();
+	ExtentReports extent;
+	ExtentTest extentTest;
 	
 	public static Utilitylog logger;
 	
@@ -39,13 +46,14 @@ public class HomePageTests extends TestBase{
 	@Step("Verify Title Presence")
 	public void verifyPageTitleTest() {
 		BookingPages bookingPages = new BookingPages(getDriver());
+//		extentTest = extent.startTest("verifyPageTitleTest");
 		String title = bookingPages.UrlTilte();
 		System.out.println(title);
 		logger.info(title);
 		Assert.assertEquals(title, "Make a reservation on qatest1");
 	}
 	
-	//@Test(priority=2)
+//	@Test(priority=2)
 	@Description("Verify the Booking HomePage...")
 	@Severity(SeverityLevel.MINOR)
 	@Epic("EP01")
