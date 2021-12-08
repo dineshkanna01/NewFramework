@@ -43,7 +43,7 @@ public class CancelReservation2 extends TestReport{
 
 
 		if (portNo.equalsIgnoreCase("4455")) {
-			nodeURL = "http://192.168.1.5:4455/wd/hub";
+			nodeURL = "http://192.168.1.7:4455/wd/hub";
 			DesiredCapabilities capabilities= new DesiredCapabilities();
 			capabilities.setBrowserName("chrome");
 			capabilities.setPlatform(Platform.WIN10);
@@ -58,7 +58,7 @@ public class CancelReservation2 extends TestReport{
 			}
 
 		}else if(portNo.equalsIgnoreCase("4456")) {
-			nodeURL = "http://192.168.1.5:4456/wd/hub";
+			nodeURL = "http://192.168.1.7:4456/wd/hub";
 			DesiredCapabilities capabilities= new DesiredCapabilities();
 			capabilities.setBrowserName("firefox");
 			capabilities.setPlatform(Platform.WIN10);
@@ -82,14 +82,14 @@ public class CancelReservation2 extends TestReport{
 	
 	
 	@Test(priority=3)
-	public void cancel2() throws Exception {
+	public void cancel3() throws Exception {
 		logger.info("Cancel Reservation started");
-		extentTest = extent.startTest("cancel2");
+		extentTest = extent.startTest("Third Cancellation");
 		CP.cancelBooking("qtest1100001800", "dinesh.kanna@igtsolutions.com");
 //		BrowserFactory.screenShot("cancellation page");
 		String title = getDriver().getTitle();
 		System.out.println(title);
-		Assert.assertEquals(title, "Reservation1167 confirmation on qatest1");
+		Assert.assertEquals(title, "Reservation1 confirmation on qatest1");
 		logger.info("Cancel Reservation done");
 		
 	}

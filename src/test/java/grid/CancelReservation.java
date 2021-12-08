@@ -41,7 +41,7 @@ public class CancelReservation extends TestReport{
 	public void setup(String portNo) throws Exception {
 
 		if (portNo.equalsIgnoreCase("4455")) {
-			nodeURL = "http://192.168.1.5:4455/wd/hub";
+			nodeURL = "http://192.168.1.7:4455/wd/hub";
 			DesiredCapabilities capabilities= new DesiredCapabilities();
 			capabilities.setBrowserName("chrome");
 			capabilities.setPlatform(Platform.WIN10);
@@ -61,7 +61,7 @@ public class CancelReservation extends TestReport{
 			logger=new Utilitylog(HomePageTests.class.getName());
 
 		}else if(portNo.equalsIgnoreCase("4456")) {
-			nodeURL = "http://192.168.1.5:4456/wd/hub";
+			nodeURL = "http://192.168.1.7:4456/wd/hub";
 
 			DesiredCapabilities capabilities= new DesiredCapabilities();
 			capabilities.setBrowserName("firefox");
@@ -88,7 +88,7 @@ public class CancelReservation extends TestReport{
 	@Test(priority=2)
 	public void cancel() throws Exception {
 		logger.info("Cancel Reservation started");
-		extentTest = extent.startTest("cancel");
+		extentTest = extent.startTest("First Cancellation");
 		CP.cancelBooking("qtest1100001797", "dinesh.kanna@igtsolutions.com");
 //		screenShot("cancellation page");
 		String title = CP.UrlTilte();
@@ -98,15 +98,15 @@ public class CancelReservation extends TestReport{
 		
 	}
 	
-	@Test(priority=2)
+	@Test(priority=3)
 	public void cancel2() throws Exception {
 		logger.info("Cancel Reservation started");
-//		extentTest = extent.startTest("cancel2");
+		extentTest = extent.startTest("Second Cancellation");
 		CP.cancelBooking("qtest1100001800", "dinesh.kanna@igtsolutions.com");
 //		screenShot("cancellation page");
 		String title = CP.UrlTilte();
 		System.out.println(title);
-		Assert.assertEquals(title, "Reservation confirmation on qatest1");
+		Assert.assertEquals(title, "Reservation1 confirmation on qatest1");
 		logger.info("Cancel Reservation done");
 		
 	}

@@ -48,8 +48,9 @@ public class BrowserFactory {
 
 	public static void screenShot(String fileName) {
 		File file=((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
+		String path1 = System.getProperty("user.dir")+"\\target\\ScreenshotPath";
 		try {
-			FileUtils.copyFile(file, new File("/target/ScreenshotPath/"+fileName+".jpg"));
+			FileUtils.copyFile(file, new File(path1+fileName+".jpg"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

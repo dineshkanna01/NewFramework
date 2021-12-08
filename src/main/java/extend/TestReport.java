@@ -66,6 +66,7 @@ public class TestReport {
 		if(result.getStatus()==ITestResult.FAILURE){
 			extentTest.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getName()); //to add name in extent report
 			extentTest.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getThrowable()); //to add error/exception in extent report
+			extentTest.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getHost());
 			
 			String screenshotPath = TestReport.getScreenshot(getDriver(), result.getName());
 			extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture(screenshotPath)); //to add screenshot in extent report
