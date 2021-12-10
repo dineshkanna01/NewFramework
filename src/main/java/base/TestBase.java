@@ -40,6 +40,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailAttachment;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
@@ -56,7 +57,9 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
@@ -173,7 +176,23 @@ public class TestBase {
 
 		}
 	}
-
+	
+	public static void mobileTest(String emulation, int w, int h) throws Exception {
+		WebDriverManager.chromedriver().setup();
+		Map<String, String> deviceMobEmu= new HashMap<String, String>();
+		deviceMobEmu.put("deviceName", emulation);
+//		deviceMobEmu.put("deviceName", "Moto G4");
+		ChromeOptions chromeOptions=new ChromeOptions();
+		chromeOptions.setExperimentalOption("mobileEmulation", deviceMobEmu);
+		tdriver.set(new ChromeDriver(chromeOptions));
+		Dimension d = new Dimension(w, h);
+		getDriver().manage().window().setSize(d);
+		
+		getDriver().manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
+		getDriver().get("https://qatest1.qa-igt.reztrip3-qa.com/");
+		
+	}
 	public void launchUrl() {
 		// TODO Auto-generated method stub
 

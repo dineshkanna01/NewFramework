@@ -64,7 +64,6 @@ public class BookingPages extends AbstractBasePage {
 	@FindBy(id="booking_state")
 	WebElement state;
 	
-	
 	@FindBy(id="booking_zip_code")
 	WebElement zipCode;
 	
