@@ -2,6 +2,7 @@ package mobiletesting;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -28,22 +29,22 @@ public static Utilitylog logger;
 	@BeforeMethod
 	public void setup() throws Exception {
 		mobileTest("Moto G4", 318, 850);
-//		mobileTest("iPhone 6", 380, 850);
 	}
 	
 	@Test(priority=1)
 	@Description("Verify the Mobile Booking HomePage...")
-	@Severity(SeverityLevel.MINOR)
+	@Severity(SeverityLevel.CRITICAL)
 	@Epic("EP01")
-	@Feature("Feature2: Mobile Booking")
+	@Feature("Feature1: Mobile Booking")
 	@Story("Story: Mobile Booking Page")
 	@Step("Verify Mobile Booking Page Presence")
 	public void mobileBookPage() throws Exception {
+		
 		logger.info("Booking Started");
 		MobileBookingPage mp = new MobileBookingPage(getDriver());
 		mp.completeReservation();
 		String title = mp.UrlTilte();
-		System.out.println(title);
+		System.out.println("Title of Page : " +title);
 		Assert.assertEquals(title, "qatest1");
 		logger.info("Booking Ended");
 		
@@ -52,6 +53,12 @@ public static Utilitylog logger;
 	@AfterMethod
 	public void browerClose() {
 		getDriver().quit();
+	}
+	
+	@AfterSuite
+	public void report() throws Exception {
+		mail();
+		cmdPrompt();
 	}
 
 }

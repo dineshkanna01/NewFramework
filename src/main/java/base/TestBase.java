@@ -135,7 +135,7 @@ public class TestBase {
 	}
 
 	public static void setUp() {
-		
+
 		if (portNo.equalsIgnoreCase("4455")) {
 			nodeURL = "http://192.168.1.5:4455/wd/hub";
 			DesiredCapabilities capabilities= new DesiredCapabilities();
@@ -176,36 +176,34 @@ public class TestBase {
 
 		}
 	}
-	
+
 	public static void mobileTest(String emulation, int w, int h) throws Exception {
+
 		WebDriverManager.chromedriver().setup();
 		Map<String, String> deviceMobEmu= new HashMap<String, String>();
 		deviceMobEmu.put("deviceName", emulation);
-//		deviceMobEmu.put("deviceName", "Moto G4");
+		//		deviceMobEmu.put("deviceName", "Moto G4");
 		ChromeOptions chromeOptions=new ChromeOptions();
 		chromeOptions.setExperimentalOption("mobileEmulation", deviceMobEmu);
 		tdriver.set(new ChromeDriver(chromeOptions));
+
 		Dimension d = new Dimension(w, h);
 		getDriver().manage().window().setSize(d);
-		
+
 		getDriver().manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		getDriver().manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
 		getDriver().get("https://qatest1.qa-igt.reztrip3-qa.com/");
-		
+
 	}
 	public void launchUrl() {
 		// TODO Auto-generated method stub
 
 	}
 
-	public static void screenShot(String fileName) {
-		prop = new Properties();
+	public static void screenShot(String fileName) throws Exception {
 		File file=((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
-		try {
-			FileUtils.copyFile(file, new File("target/ScreenshotPath/"+fileName+".jpg"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+
+		FileUtils.copyFile(file, new File(".//target//ScreenshotPath/"+fileName+".jpg"));
 	}
 
 	public static void implict(int num) {
@@ -222,7 +220,8 @@ public class TestBase {
 			new Thread(new SyncPipe(p.getErrorStream(), System.err)).start();
 			new Thread(new SyncPipe(p.getInputStream(), System.err)).start();
 			PrintWriter stdin = new PrintWriter(p.getOutputStream());
-			stdin.println("allure serve C:\\Users\\Dinesh.Kanna\\eclipse-workspace\\FrameworkIGT\\allure-results");
+			String path = System.getProperty("user.dir")+"\\allure-results";
+			stdin.println("allure serve " + path);
 
 			stdin.close();
 			try {

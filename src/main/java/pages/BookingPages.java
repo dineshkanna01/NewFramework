@@ -107,7 +107,7 @@ public class BookingPages extends AbstractBasePage {
 		gotIt.click();
 		Thread.sleep(4000);
 		booknow.click();
-//		TestBase.screenShot("FirstPage");
+		TestBase.screenShot("FirstPage");
 		return null;
 	}
 	
@@ -117,7 +117,7 @@ public class BookingPages extends AbstractBasePage {
 		bookingEmail.sendKeys(e.getCellData("SecondPage", "email", 2));
 		feedBack.sendKeys(e.getCellData("SecondPage", "feedBack", 2));
 		confirmDetails.click();
-//		TestBase.screenShot("SecondPage");
+		TestBase.screenShot("SecondPage");
 		return null;
 	}
 	
@@ -139,14 +139,14 @@ public class BookingPages extends AbstractBasePage {
 		phNo.sendKeys(e.getCellData("ThirdPage", "phNo", 2));
 		accept.click();
 		subBook.click();
-//		TestBase.screenShot("ThirdPage");
+		TestBase.screenShot("ThirdPage");
 		return null;
 	}
 	
 	public BookingPages confirmPage() throws Exception {
 		String txtCode = qtestCode.getText();
 		System.out.println("Confirmation Code: "+txtCode);
-//		TestBase.screenShot("ConfirmationID");
+		TestBase.screenShot("ConfirmationID");
 		return null;
 	}
 	

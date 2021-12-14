@@ -37,7 +37,7 @@ public class HomePageTests extends TestBase{
 		initilization();
 	}
 
-	@Test(priority=1)
+//	@Test(priority=1)
 	@Description("Verify the company Title on the HomePage...")
 	@Severity(SeverityLevel.CRITICAL)
 	@Epic("EP01")
@@ -53,7 +53,7 @@ public class HomePageTests extends TestBase{
 		Assert.assertEquals(title, "Make a reservation on qatest1");
 	}
 	
-//	@Test(priority=2)
+	@Test(priority=2)
 	@Description("Verify the Booking HomePage...")
 	@Severity(SeverityLevel.MINOR)
 	@Epic("EP01")

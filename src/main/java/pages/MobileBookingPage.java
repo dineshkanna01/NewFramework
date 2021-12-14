@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utility.ExcelData;
+import base.TestBase;
 
 public class MobileBookingPage extends AbstractBasePage{
 	
@@ -108,7 +109,7 @@ ExcelData e = new ExcelData();
 	
 	
 	
-	public MobileBookingPage completeReservation() {
+	public MobileBookingPage completeReservation() throws Exception {
 		
 		gotIt.click();
 		arrivalDate.click();
@@ -142,8 +143,10 @@ ExcelData e = new ExcelData();
 		cZip.sendKeys("600044");
 		accept.click();
 		resComplete.click();
+		
 		String text = conId.getText();
-		System.out.println(text);
+		System.out.println("Confirmation Code: "+text);
+		TestBase.screenShot("Mobile Booking Confirmation");
 		
 		return null;
 
