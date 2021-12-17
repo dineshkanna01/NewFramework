@@ -35,7 +35,7 @@ public class CancelBookingPage extends AbstractBasePage{
 	@FindBy(xpath ="//a[text()=\"Got it!\"]")
 	WebElement gotIt;
 	
-	@FindBy(xpath ="//a[text()=\"Cancel reservation\"]")
+	@FindBy(xpath ="//a[contains(text(),'Cancel reservation')]")
 	WebElement canReservation;
 	
 	@FindBy(xpath ="//span[text()=\"No\"]")
