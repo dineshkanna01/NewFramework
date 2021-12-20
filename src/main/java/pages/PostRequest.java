@@ -17,7 +17,7 @@ public class PostRequest extends TestBase{
 	
 	@Test
 	public void post() throws Exception {
-		TestResponse();
+//		TestResponse();
 	}
 	
 	@AfterClass

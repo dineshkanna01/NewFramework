@@ -9,7 +9,7 @@
                     <Rates>
                         <Rate Start="2021-12-25" End="2021-12-26" CurrencyCode="USD" RateTimeUnit="Day" UnitMultiplier="1" Mon="1" Tue="1" Weds="1" Thur="1" Fri="1" Sat="1" Sun="1">
                             <BaseByGuestAmts>
-                                <BaseByGuestAmt AmountAfterTax="200.00" CurrencyCode="USD" NumberOfGuests="2"/>
+                                <BaseByGuestAmt AmountAfterTax="400.00" CurrencyCode="USD" NumberOfGuests="2"/>
                             </BaseByGuestAmts>
                         </Rate>
                     </Rates>

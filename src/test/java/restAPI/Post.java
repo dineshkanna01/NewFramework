@@ -1,5 +1,7 @@
 package restAPI;
 
+import java.io.IOException;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -16,8 +18,9 @@ public class Post extends TestBase{
 	}
 	
 	@Test
-	public void post() {
-		PostResponse();
+	public void post() throws Exception {
+//		PostResponse();
+		otaHotelService("RatePlan");
 	}
 	
 	@AfterClass

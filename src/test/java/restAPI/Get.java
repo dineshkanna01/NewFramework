@@ -17,7 +17,7 @@ public class Get extends TestBase{
 	
 	@Test
 	public void get() {
-		getResponse();
+//		getResponse();
 	}
 	
 	@AfterClass
