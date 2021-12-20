@@ -18,7 +18,7 @@
                     "Start": "2021-12-22",
                     "BaseByGuestAmts": {"BaseByGuestAmt": {
                         "CurrencyCode": "USD",
-                        "AmountAfterTax": 200,
+                        "AmountAfterTax": 300,
                         "NumberOfGuests": 2
                     }},
                     "Mon": 1,
