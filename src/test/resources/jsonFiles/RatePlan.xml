@@ -1,0 +1,16 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ns="http://www.opentravel.org/OTA/2003/05">
+   <soap:Header/>
+   <soap:Body>
+      <OTA_HotelRatePlanRQ Version="1.000" EchoToken="1381056768" TimeStamp="2020-06-24T06:55:18" xmlns="http://www.opentravel.org/OTA/2003/05">
+         <RatePlans>
+            <RatePlan>
+               <DateRange Start="2021-12-26" End="2021-12-27"/>
+               <RatePlanCandidates>
+                  <RatePlanCandidate RatePlanCode="FRP2"/>
+               </RatePlanCandidates>
+               <HotelRef ChainCode="UI" HotelCode="qtest1"/>
+            </RatePlan>
+         </RatePlans>
+      </OTA_HotelRatePlanRQ>
+   </soap:Body>
+</soap:Envelope>
