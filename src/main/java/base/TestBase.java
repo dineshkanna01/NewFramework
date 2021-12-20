@@ -377,17 +377,17 @@ public class TestBase {
 				System.out.println("Status Code  is:  "+statusLine);
 				Assert.assertEquals(statusLine, "HTTP/1.1 200 OK");
 
-		//		Response res = RestAssured.get("http://dummy.restapiexample.com/api/v1/employees");
-		//		System.out.println("Response : "+res);
-		//		System.out.println("Response Body: "+res.asString());
-		//		System.out.println("Response Body: "+res.getBody().asString());
-		//		System.out.println("Status code: "+res.getStatusCode());
-		//		System.out.println("Status: "+res.getStatusLine());
-		//		System.out.println("Header: "+res.getHeader("content-type"));
-		//		System.out.println("RunTime: "+res.getTime());
+				Response res = RestAssured.get("http://dummy.restapiexample.com/api/v1/employees");
+				System.out.println("Response : "+res);
+				System.out.println("Response Body: "+res.asString());
+				System.out.println("Response Body: "+res.getBody().asString());
+				System.out.println("Status code: "+res.getStatusCode());
+				System.out.println("Status: "+res.getStatusLine());
+				System.out.println("Header: "+res.getHeader("content-type"));
+				System.out.println("RunTime: "+res.getTime());
 	}
 
-		public static void PutResponse() {
+		public static void PostResponse() {
 			RestAssured.baseURI=BASE_URL;
 			RequestSpecification httpRequest = RestAssured.given();
 			JSONObject requestParam = new JSONObject();
@@ -410,7 +410,7 @@ public class TestBase {
 			
 			int statusCode = response.statusCode();
 			System.out.println("Status Code: "+statusCode);
-			Assert.assertEquals(statusCode, 200);
+//			Assert.assertEquals(statusCode, 200);
 	
 			Headers allheaders = response.headers();
 			for (Header header : allheaders) {

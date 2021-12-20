@@ -17,7 +17,7 @@ public class Post extends TestBase{
 	
 	@Test
 	public void post() {
-		PutResponse();
+		PostResponse();
 	}
 	
 	@AfterClass
