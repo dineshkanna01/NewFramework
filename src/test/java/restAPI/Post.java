@@ -13,14 +13,13 @@ public class Post extends TestBase{
 
 	@BeforeClass
 	public void setup() {
-		RestAssured.useRelaxedHTTPSValidation();
 		System.out.println("------------Execution Started------------");
 	}
 	
 	@Test
 	public void post() throws Exception {
 //		PostResponse();
-		otaHotelService("RatePlan");
+		otaHotelService("RateAmount");
 	}
 	
 	@AfterClass

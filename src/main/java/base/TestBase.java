@@ -538,7 +538,9 @@ public class TestBase {
             System.out.println("Protocol : " +response.protocol());
             System.out.println("ResponseBody : "+response.body().string());
             System.out.println("ContentType : "+response.body().contentType());
-            System.out.println("isSuccessful : "+response.isSuccessful());
+            boolean successful = response.isSuccessful();
+            System.out.println("isSuccessful : "+successful);
+            Assert.assertEquals(successful, true);
             System.out.println("Header : "+response.headers());
             
         } catch (NoSuchAlgorithmException e) {
