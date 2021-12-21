@@ -445,26 +445,26 @@ public class TestBase {
 //
 //		RestAssured.baseURI="http://qa-igt-ttconnect.ttaws.com";
 //		
-////		String rBody="<soap:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n" + 
-////				"    <soap:Header/>\r\n" + 
-////				"    <soap:Body>\r\n" + 
-////				"        <OTA_HotelRateAmountNotifRQ Version=\"1\" EchoToken=\"1019173874\" TimeStamp=\"2020-08-18T12:52:20.0Z\" xmlns:schemalocation=\"http://www.opentravel.org/OTA/2003/05 OTA_HotelRateAmountNotifRQ.xsd\" xmlns=\"http://www.opentravel.org/OTA/2003/05\">\r\n" + 
-////				"            <UniqueID ID=\"1590555868\" Type=\"16\"/>\r\n" + 
-////				"            <RateAmountMessages ChainCode=\"UI\" HotelCode=\"qtest1\">\r\n" + 
-////				"                <RateAmountMessage>\r\n" + 
-////				"                    <StatusApplicationControl InvTypeCode=\"SRK\" IsRoom=\"1\" RatePlanCode=\"FRP2\"/>\r\n" + 
-////				"                    <Rates>\r\n" + 
-////				"                        <Rate Start=\"2021-12-25\" End=\"2021-12-26\" CurrencyCode=\"USD\" RateTimeUnit=\"Day\" UnitMultiplier=\"1\" Mon=\"1\" Tue=\"1\" Weds=\"1\" Thur=\"1\" Fri=\"1\" Sat=\"1\" Sun=\"1\">\r\n" + 
-////				"                            <BaseByGuestAmts>\r\n" + 
-////				"                                <BaseByGuestAmt AmountAfterTax=\"300.00\" CurrencyCode=\"USD\" NumberOfGuests=\"2\"/>\r\n" + 
-////				"                            </BaseByGuestAmts>\r\n" + 
-////				"                        </Rate>\r\n" + 
-////				"                    </Rates>\r\n" + 
-////				"                </RateAmountMessage>\r\n" + 
-////				"            </RateAmountMessages>\r\n" + 
-////				"        </OTA_HotelRateAmountNotifRQ>\r\n" + 
-////				"    </soap:Body>\r\n" + 
-////				"</soap:Envelope>";
+//		String rBody="<soap:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n" + 
+//				"    <soap:Header/>\r\n" + 
+//				"    <soap:Body>\r\n" + 
+//				"        <OTA_HotelRateAmountNotifRQ Version=\"1\" EchoToken=\"1019173874\" TimeStamp=\"2020-08-18T12:52:20.0Z\" xmlns:schemalocation=\"http://www.opentravel.org/OTA/2003/05 OTA_HotelRateAmountNotifRQ.xsd\" xmlns=\"http://www.opentravel.org/OTA/2003/05\">\r\n" + 
+//				"            <UniqueID ID=\"1590555868\" Type=\"16\"/>\r\n" + 
+//				"            <RateAmountMessages ChainCode=\"UI\" HotelCode=\"qtest1\">\r\n" + 
+//				"                <RateAmountMessage>\r\n" + 
+//				"                    <StatusApplicationControl InvTypeCode=\"SRK\" IsRoom=\"1\" RatePlanCode=\"FRP2\"/>\r\n" + 
+//				"                    <Rates>\r\n" + 
+//				"                        <Rate Start=\"2021-12-25\" End=\"2021-12-26\" CurrencyCode=\"USD\" RateTimeUnit=\"Day\" UnitMultiplier=\"1\" Mon=\"1\" Tue=\"1\" Weds=\"1\" Thur=\"1\" Fri=\"1\" Sat=\"1\" Sun=\"1\">\r\n" + 
+//				"                            <BaseByGuestAmts>\r\n" + 
+//				"                                <BaseByGuestAmt AmountAfterTax=\"300.00\" CurrencyCode=\"USD\" NumberOfGuests=\"2\"/>\r\n" + 
+//				"                            </BaseByGuestAmts>\r\n" + 
+//				"                        </Rate>\r\n" + 
+//				"                    </Rates>\r\n" + 
+//				"                </RateAmountMessage>\r\n" + 
+//				"            </RateAmountMessages>\r\n" + 
+//				"        </OTA_HotelRateAmountNotifRQ>\r\n" + 
+//				"    </soap:Body>\r\n" + 
+//				"</soap:Envelope>";
 //		
 //		RequestSpecification httpRequest = RestAssured.given();
 //
@@ -523,13 +523,16 @@ public class TestBase {
             MediaType mediaType = MediaType.parse("text/xml; charset=utf-8");
             String path = "src/test/resources/xmlFiles/";
             File input = new File(path +xmlName +".xml");
-
+            
+            
             RequestBody body = RequestBody.create(input, mediaType);
+            
             Request request = new Request.Builder()
-                    .url("https://qa-igt-ttconnect.ttaws.com/services/soap/ota/2008a/HotelService/clid/availpro")
+                    .url(BASE_URL)
                     .method("POST", body)
                     .addHeader("Content-Type", "text/xml; charset=utf-8")
                     .build();
+            
             Response response = client.newCall(request).execute();
 //            Response response2 = response.networkResponse();
             int statusCode = response.code();
@@ -554,7 +557,40 @@ public class TestBase {
 
     }
 
-
+//	public static void postResp() throws Exception {
+////		FileInputStream fi = new FileInputStream(new File("D:\\fw\\NewFramework\\src\\test\\resources\\jsonFiles\\RatePlan.xml"));
+//		RestAssured.baseURI=BASE_URL;
+//		RestAssured.given().body("<soap:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n" + 
+//				"    <soap:Header/>\r\n" + 
+//				"    <soap:Body>\r\n" + 
+//				"        <OTA_HotelRateAmountNotifRQ Version=\"1\" EchoToken=\"1019173874\" TimeStamp=\"2020-08-18T12:52:20.0Z\" xmlns:schemalocation=\"http://www.opentravel.org/OTA/2003/05 OTA_HotelRateAmountNotifRQ.xsd\" xmlns=\"http://www.opentravel.org/OTA/2003/05\">\r\n" + 
+//				"            <UniqueID ID=\"1590555868\" Type=\"16\"/>\r\n" + 
+//				"            <RateAmountMessages ChainCode=\"UI\" HotelCode=\"qtest1\">\r\n" + 
+//				"                <RateAmountMessage>\r\n" + 
+//				"                    <StatusApplicationControl InvTypeCode=\"SRK\" IsRoom=\"1\" RatePlanCode=\"FRP2\"/>\r\n" + 
+//				"                    <Rates>\r\n" + 
+//				"                        <Rate Start=\"2021-12-25\" End=\"2021-12-26\" CurrencyCode=\"USD\" RateTimeUnit=\"Day\" UnitMultiplier=\"1\" Mon=\"1\" Tue=\"1\" Weds=\"1\" Thur=\"1\" Fri=\"1\" Sat=\"1\" Sun=\"1\">\r\n" + 
+//				"                            <BaseByGuestAmts>\r\n" + 
+//				"                                <BaseByGuestAmt AmountAfterTax=\"300.00\" CurrencyCode=\"USD\" NumberOfGuests=\"2\"/>\r\n" + 
+//				"                            </BaseByGuestAmts>\r\n" + 
+//				"                        </Rate>\r\n" + 
+//				"                    </Rates>\r\n" + 
+//				"                </RateAmountMessage>\r\n" + 
+//				"            </RateAmountMessages>\r\n" + 
+//				"        </OTA_HotelRateAmountNotifRQ>\r\n" + 
+//				"    </soap:Body>\r\n" + 
+//				"</soap:Envelope>").post().then().log().all().assertThat().statusCode(200);
+//		
+//	}
+	
+	public static void postResp(String fileXmlName) throws Exception {
+		String path = "src/test/resources/xmlFiles/";
+		FileInputStream fi = new FileInputStream(path +fileXmlName+".xml");
+		RestAssured.baseURI=BASE_URL;
+		RestAssured.given().body(IOUtils.toString(fi,"UTF-8")).post().then().log().all().assertThat().statusCode(200);
+		
+	}
+	
 	public static WebDriver getDriver() {
 		return tdriver.get();
 	}

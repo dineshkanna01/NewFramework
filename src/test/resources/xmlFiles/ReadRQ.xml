@@ -1,0 +1,12 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soap:Header/>
+   <soap:Body>
+      <OTA_ReadRQ TimeStamp="2020-08-18T13:09:46.0Z" Version="1" EchoToken="532432242" xmlns="http://www.opentravel.org/OTA/2003/05">
+         <ReadRequests>
+            <HotelReadRequest ChainCode="UI" HotelCode="qtest1">
+               <SelectionCriteria SelectionType="Delivered"/>
+            </HotelReadRequest>
+         </ReadRequests>
+      </OTA_ReadRQ>
+   </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,19 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ns="http://www.opentravel.org/OTA/2003/05">
+   <soap:Header/>
+   <soap:Body>
+      <OTA_HotelAvailNotifRQ Version="1" EchoToken="2109845410" TransactionIdentifier="1986179504" TimeStamp="2020-08-18T12:41:47.0Z" MessageContentCode="3" xmlns:schemalocation="http://www.opentravel.org/OTA/2003/05 OTA_HotelAvailNotifRQ.xsd" xmlns="http://www.opentravel.org/OTA/2003/05">
+         <AvailStatusMessages ChainCode="UI" HotelCode="qtest1">
+            <AvailStatusMessage BookingLimitMessageType="SetLimit" BookingLimit="20">
+               <StatusApplicationControl Start="2021-12-25" End="2021-12-26" RatePlanCode="FRP2" InvTypeCode="SRK" Mon="1" Tue="1" Weds="1" Thur="1" Fri="1" Sat="1" Sun="1"/>
+               <UniqueID Type="16" ID="1"/>
+               <LengthsOfStay>
+                  <LengthOfStay MinMaxMessageType="SetMinLOS" Time="1" TimeUnit="Day"/>
+                  <LengthOfStay MinMaxMessageType="SetMaxLOS" Time="1" TimeUnit="Day"/>
+               </LengthsOfStay>
+               <RestrictionStatus Restriction="Master" Status="Open"/>
+            </AvailStatusMessage>
+            </AvailStatusMessages>
+      </OTA_HotelAvailNotifRQ>
+   </soap:Body>
+</soap:Envelope>
+
