@@ -31,7 +31,7 @@ public class Post extends TestBase{
 //		TestResponse();
 		
 		logger.info("------------Execution Started------------");
-		postResp("RatePlan");
+		postResp("RateAmount");
 		//		otaHotelService("AvailNotif");
 		logger.info("------------Execution Ended------------");
 	}
