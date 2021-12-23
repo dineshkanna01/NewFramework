@@ -1,4 +1,4 @@
-package restAPI;
+package API;
 
 import okhttp3.*;
 import org.testng.annotations.Test;

@@ -1,4 +1,4 @@
-package restAPI;
+package API;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
