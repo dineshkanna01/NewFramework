@@ -35,14 +35,14 @@ public class RestAssuredPost extends TestBase{
 		logger.info("------------AvailNotif Execution Ended------------");
 	}
 
-	@Test()
+//	@Test()
 	public void post2() throws Exception {
 		logger.info("------------RateAmount Execution Started------------");
 		TestResponse("RateAmount");
 		logger.info("------------RateAmount Execution Ended------------");
 	}
 
-	@Test()
+//	@Test()
 	public void post3() throws Exception {
 		logger.info("------------RatePlan Execution Started------------");
 		TestResponse("RatePlan");

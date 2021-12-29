@@ -91,6 +91,7 @@ import org.testng.Assert;
 
 import Utility.ConfigManager;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.http.Header;
 import io.restassured.http.Headers;
 import io.restassured.http.Method;
@@ -370,79 +371,7 @@ public class TestBase {
 
 	static String BASE_URL = ConfigManager.getInstance().getString("base_url");
 
-	//	public static void getResponse() {
-	//
-	//		RestAssured.baseURI=BASE_URL;
-	//
-	//		RequestSpecification httpRequest = RestAssured.given();
-	//		Response response = httpRequest.request(Method.GET,"/services/soap/ota/2008a/HotelService/clid/availpro");
-	//
-	//		System.out.println("======Body======");
-	//		String responseBody = response.getBody().asString();
-	//		System.out.println("Respose Body is: " +responseBody);
-	//		Assert.assertEquals(responseBody.contains("success"), true);
-	//
-	//		int statusCode = response.statusCode();
-	//		System.out.println("Status Code: "+statusCode);
-	//		Assert.assertEquals(statusCode, 200);
-	//
-	//		System.out.println("*******Headers*******");
-	//		Headers allheaders = response.headers();
-	//		for (Header header : allheaders) {
-	//			System.out.println(header.getName()+"  :  "+header.getValue());
-	//		}
-	//
-	//		String statusLine = response.getStatusLine();
-	//		System.out.println("Status Code  is:  "+statusLine);
-	//		Assert.assertEquals(statusLine, "HTTP/1.1 200 OK");
-	//
-	//		Response res = RestAssured.get("http://dummy.restapiexample.com/api/v1/employees");
-	//		System.out.println("Response : "+res);
-	//		System.out.println("Response Body: "+res.asString());
-	//		System.out.println("Response Body: "+res.getBody().asString());
-	//		System.out.println("Status code: "+res.getStatusCode());
-	//		System.out.println("Status: "+res.getStatusLine());
-	//		System.out.println("Header: "+res.getHeader("content-type"));
-	//		System.out.println("RunTime: "+res.getTime());
-	//	}
-
-	//	public static void PostResponse() {
-	//		RestAssured.baseURI=BASE_URL;
-	//		RequestSpecification httpRequest = RestAssured.given();
-	//		JSONObject requestParam = new JSONObject();
-	//
-	//		//			requestParam.put("name", "dk02");
-	//		//			requestParam.put("salary", "66666");
-	//		//			requestParam.put("age", "28");
-	//
-	//		httpRequest.header("Content-Type", "application/json");
-	//
-	//		httpRequest.body(requestParam.toJSONString());
-	//
-	//		Response response = httpRequest.request(Method.POST,"/services/soap/ota/2008a/HotelService/clid/availpro");
-	//
-	//		String responseBody = response.getBody().toString();
-	//		System.out.println("Respose Body is: " +responseBody);
-	//
-	//		System.out.println("Response Body: "+response.getBody().asString());
-	//		Assert.assertEquals(responseBody.contains("success"), false);
-	//
-	//		int statusCode = response.statusCode();
-	//		System.out.println("Status Code: "+statusCode);
-	//		Assert.assertEquals(statusCode, 204);
-	//
-	//		Headers allheaders = response.headers();
-	//		for (Header header : allheaders) {
-	//			System.out.println(header.getName()+"  :  "+header.getValue());
-	//		}
-	//
-	//		//		String successCode = response.jsonPath().get("SuccessCode");
-	//		//		Assert.assertEquals(successCode, "token");
-	//
-	//		//		String statusLine = response.getStatusLine();
-	//		//		System.out.println("Status Code  is:  "+statusLine);
-	//		//		Assert.assertEquals(statusLine, "HTTP/1.1 200 OK");
-	//	}
+	
 
 	public static void TestResponse(String fileXmlName) throws Exception {
 
@@ -469,6 +398,8 @@ public class TestBase {
 		String responseBody = response.getBody().asString();
 		System.out.println("Respose Body : " +responseBody);
 		Assert.assertEquals(responseBody.contains("Success"), true);
+		
+		
 
 		System.out.println("Headers : "+response.getHeaders()+"\n");
 		

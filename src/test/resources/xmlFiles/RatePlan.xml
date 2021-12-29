@@ -4,7 +4,7 @@
       <OTA_HotelRatePlanRQ Version="1.000" EchoToken="1381056768" TimeStamp="2020-06-24T06:55:18" xmlns="http://www.opentravel.org/OTA/2003/05">
          <RatePlans>
             <RatePlan>
-               <DateRange Start="2021-12-26" End="2021-12-27"/>
+               <DateRange Start="2021-12-29" End="2021-12-30"/>
                <RatePlanCandidates>
                   <RatePlanCandidate RatePlanCode="FRP2"/>
                </RatePlanCandidates>
