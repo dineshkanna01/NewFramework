@@ -50,19 +50,22 @@ public class CancelBookingPage extends AbstractBasePage{
 	
 	public CancelBookingPage cancelBooking(String code, String email) throws Exception {
 		myBooking.click();
-		Thread.sleep(2000);
+//		Thread.sleep(2000);
+		TestBase.implict(3);
 		conCode.sendKeys(code);
 		conEmail.sendKeys(email);
 //		BrowserFactory.screenShot("MybookingPage");
-		Thread.sleep(2000);
+//		Thread.sleep(2000);
+		TestBase.implict(3);
 		lookup.click();
-		Thread.sleep(3000);
+//		Thread.sleep(3000);
+		TestBase.implict(3);
 		String txtCode = qtestCode.getText();
 		Thread.sleep(1000);
-		System.out.println(txtCode);
+		System.out.println("Cancellation ID: "+txtCode);
 		
 //		Assert.assertEquals(txtCode, "QTEST1100001797");
-		gotIt.click();
+//		gotIt.click();
 		canReservation.click();
 		Thread.sleep(1000);
 		clickNo.click();

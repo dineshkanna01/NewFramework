@@ -371,8 +371,6 @@ public class TestBase {
 
 	static String BASE_URL = ConfigManager.getInstance().getString("base_url");
 
-	
-
 	public static void TestResponse(String fileXmlName) throws Exception {
 
 		String path = "src/test/resources/xmlFiles/";
@@ -382,7 +380,6 @@ public class TestBase {
 		RequestSpecification httpRequest = RestAssured.given();
 
 		httpRequest.body(IOUtils.toString(fi,"UTF-8"));
-
 
 		io.restassured.response.Response response = httpRequest.request(Method.POST);
 		httpRequest.header("Content-Type", "application/xml");
@@ -394,13 +391,10 @@ public class TestBase {
 		System.out.println("ContentType : "+response.contentType());
 		System.out.println("Status : "+response.getStatusLine());
 		
-		
 		String responseBody = response.getBody().asString();
 		System.out.println("Respose Body : " +responseBody);
 		Assert.assertEquals(responseBody.contains("Success"), true);
 		
-		
-
 		System.out.println("Headers : "+response.getHeaders()+"\n");
 		
 	}
@@ -423,6 +417,7 @@ public class TestBase {
 	}
 
 	public void otaHotelService(String xmlName) throws IOException {
+		
 		try {
 			final TrustManager[] trustAllCerts = new TrustManager[]{
 					new X509TrustManager() {

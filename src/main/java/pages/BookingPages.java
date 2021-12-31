@@ -104,8 +104,8 @@ public class BookingPages extends AbstractBasePage {
 		departureDate.sendKeys(e.getCellData("FirstPage", "dateOut", 2));
 		availability.click();
 		Thread.sleep(4000);
-		gotIt.click();
-		Thread.sleep(4000);
+//		gotIt.click();
+//		Thread.sleep(4000);
 		booknow.click();
 		TestBase.screenShot("FirstPage");
 		return null;
