@@ -23,21 +23,21 @@ public class HttpClientAPI extends TestBase{
 	}
 
 	@Test()
-	public void post() throws Exception {
+	public void availNotif() throws Exception {
 		logger.info("------------AvailNotif Execution Started------------");
 		otaHotelService("AvailNotif");
 		logger.info("------------AvailNotif Execution Ended------------");
 	}
 
 	@Test()
-	public void post2() throws Exception {
+	public void rateAmnt() throws Exception {
 		logger.info("------------RateAmount Execution Started------------");
 		otaHotelService("RateAmount");
 		logger.info("------------RateAmount Execution Ended------------");
 	}
 
 	@Test()
-	public void post3() throws Exception {
+	public void ratePlan() throws Exception {
 		logger.info("------------RatePlan Execution Started------------");
 		otaHotelService("RatePlan");
 		logger.info("------------RatePlan Execution Ended------------");

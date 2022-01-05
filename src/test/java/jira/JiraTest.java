@@ -10,6 +10,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import Utility.BrowserFactory;
 import Utility.JiraPolicy;
 import base.TestBase;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -45,8 +46,8 @@ public static Utilitylog logger;
 		
 		logger.info("Cancel Reservation started");
 		CancelBookingPage CP = new CancelBookingPage(getDriver());
-		CP.cancelBooking("QTEST1100002220", "dinesh.kanna@igtsolutions.com");
-//		BrowserFactory.screenShot("cancellation page");
+		CP.cancelBooking("QTEST1100002237", "dinesh.kanna@igtsolutions.com");
+		BrowserFactory.screenShot("cancellation page");
 		String title = CP.UrlTilte();
 		System.out.println(title);
 		Assert.assertEquals(title, "Reservation confirmation on qatest12");

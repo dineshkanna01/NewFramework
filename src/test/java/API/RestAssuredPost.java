@@ -29,30 +29,30 @@ public class RestAssuredPost extends TestBase{
 	}
 
 	@Test()
-	public void post() throws Exception {
+	public void availNotif() throws Exception {
 		logger.info("------------AvailNotif Execution Started------------");
 		TestResponse("AvailNotif");
 		logger.info("------------AvailNotif Execution Ended------------");
 	}
 
-//	@Test()
-	public void post2() throws Exception {
+	@Test()
+	public void rateAmnt() throws Exception {
 		logger.info("------------RateAmount Execution Started------------");
 		TestResponse("RateAmount");
 		logger.info("------------RateAmount Execution Ended------------");
 	}
 
-//	@Test()
-	public void post3() throws Exception {
+	@Test()
+	public void ratePlan() throws Exception {
 		logger.info("------------RatePlan Execution Started------------");
 		TestResponse("RatePlan");
 		logger.info("------------RatePlan Execution Ended------------");
 	}
 
 //	@Test(priority=4)
-	public void post4() throws Exception {
+	public void readRQ() throws Exception {
 		logger.info("------------Execution Started------------");
-//		otaHotelService("ReadRQ");
+		otaHotelService("ReadRQ");
 		logger.info("------------Execution Ended------------");
 	}
 
