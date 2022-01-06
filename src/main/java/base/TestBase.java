@@ -103,7 +103,6 @@ import javax.net.ssl.*;
 
 public class TestBase {
 
-
 	public static ThreadLocal<WebDriver> tdriver= new ThreadLocal<WebDriver>();
 	public static Properties prop; 
 	public static WebDriver driver1;
@@ -112,6 +111,7 @@ public class TestBase {
 	public static String portNo;
 
 	public TestBase() {
+		
 		try {
 			prop = new Properties();
 			FileInputStream ip=new FileInputStream(System.getProperty("user.dir") +"\\src\\main\\java\\config\\Configuration.properties");
@@ -143,7 +143,7 @@ public class TestBase {
 		getDriver().manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		getDriver().manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
 
-		getDriver().get(prop.getProperty("url"));
+		getDriver().get(prop.getProperty("admin_url"));
 	}
 
 	public static void initilizationmultibrowser(String browserName) {
