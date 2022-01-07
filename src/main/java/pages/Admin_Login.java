@@ -20,6 +20,8 @@ public class Admin_Login extends AbstractBasePage{
 	@FindBy(name="j_username")
 	WebElement uName;
 	
+	
+	
 	@FindBy(name="j_password")
 	WebElement pWord;
 	

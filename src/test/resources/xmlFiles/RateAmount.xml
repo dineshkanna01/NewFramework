@@ -7,7 +7,7 @@
                 <RateAmountMessage>
                     <StatusApplicationControl InvTypeCode="SRK" IsRoom="1" RatePlanCode="FRP2"/>
                     <Rates>
-                        <Rate Start="2022-01-05" End="2022-01-07" CurrencyCode="USD" RateTimeUnit="Day" UnitMultiplier="1" Mon="1" Tue="1" Weds="1" Thur="1" Fri="1" Sat="1" Sun="1">
+                        <Rate Start="2022-01-15" End="2022-01-20" CurrencyCode="USD" RateTimeUnit="Day" UnitMultiplier="1" Mon="1" Tue="1" Weds="1" Thur="1" Fri="1" Sat="1" Sun="1">
                             <BaseByGuestAmts>
                                 <BaseByGuestAmt AmountAfterTax="30.00" CurrencyCode="USD" NumberOfGuests="2"/>
                             </BaseByGuestAmts>
