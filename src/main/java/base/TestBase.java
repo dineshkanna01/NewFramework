@@ -159,6 +159,29 @@ public class TestBase {
 
 		getDriver().get(prop.getProperty("url"));
 	}
+	
+	public static void initilization_Admin() {
+		String browserName = prop.getProperty("browser");
+		if (browserName.equals("chrome")) {
+			WebDriverManager.chromedriver().setup();
+			tdriver.set(new ChromeDriver());
+		}
+		else if(browserName.equals("Firefox")) {
+			WebDriverManager.firefoxdriver().setup();
+			tdriver.set(new FirefoxDriver());
+		}else if(browserName.equals("edge")) {
+			WebDriverManager.edgedriver().setup();
+			tdriver.set(new EdgeDriver());
+		}else {
+			System.out.println("No browser");
+		}
+
+		getDriver().manage().window().maximize();
+		getDriver().manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
+
+		getDriver().get(prop.getProperty("admin_url"));
+	}
 
 	public static void initilizationmultibrowser(String browserName) {
 		if (browserName.equals("chrome")) {
@@ -320,7 +343,7 @@ public class TestBase {
 			Multipart multipart= new MimeMultipart();
 			multipart.addBodyPart(messageBodyPart);
 
-			File file=new File(System.getProperty("user.dir") + "\\Html\\ExtentReport.html");
+			File file=new File(System.getProperty("user.dir") + "\\test-output\\emailable-report.html");
 
 			messageBodyPart = new MimeBodyPart();
 			DataSource source=new FileDataSource(file.getAbsolutePath());

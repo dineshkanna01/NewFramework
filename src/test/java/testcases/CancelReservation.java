@@ -72,13 +72,13 @@ public class CancelReservation extends TestBase{
 		getDriver().quit();
 	}
 	
-	@AfterClass
+//	@AfterClass
 	public void report() throws Exception {
 		mail();
 		
 	}
 	
-	@AfterSuite
+//	@AfterSuite
 	public void extendReport() {
 //		TestReport.extentTest = TestReport.extent.startTest("Make a reservation");
 //		String title = driver.getTitle();
