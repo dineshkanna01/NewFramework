@@ -1,5 +1,9 @@
 package testcases;
 
+import java.io.ByteArrayInputStream;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -14,6 +18,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import Utility.BrowserFactory;
 import base.TestBase;
 import extend.TestReport;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -27,10 +32,11 @@ import pages.CancelBookingPage;
 
 public class CancelReservation extends TestBase{
 	
-	TestReport tp = new TestReport();
+//	TestReport tp = new TestReport();
 //	WebDriver driver;
 //	ExtentReports extent;
 //	ExtentTest extentTest;
+	
 	
 	public static Utilitylog logger;
 	
@@ -54,8 +60,10 @@ public class CancelReservation extends TestBase{
 	public void cancel() throws Exception {
 		logger.info("Cancel Reservation started");
 		CancelBookingPage CP = new CancelBookingPage(getDriver());
-		CP.cancelBooking("qtest1100001797", "dinesh.kanna@igtsolutions.com");
-//		BrowserFactory.screenShot("cancellation page");
+		extentTest = extent.startTest("Cancel a reservation");
+		CP.cancelBooking("qtest1100002261", "dinesh.kanna@igtsolutions.com");
+//		allureScreenshot("CancelPage");
+		screenShot("New Cancel Page");
 		logger.info("Cancel Reservation done");
 	}
 	
@@ -66,16 +74,17 @@ public class CancelReservation extends TestBase{
 	
 	@AfterClass
 	public void report() throws Exception {
-//		mail();
-//		BrowserFactory.cmdPrompt();
+		mail();
+		
 	}
 	
-//	@AfterSuite
+	@AfterSuite
 	public void extendReport() {
-//		extentTest = extent.startTest("Make a reservation");
+//		TestReport.extentTest = TestReport.extent.startTest("Make a reservation");
 //		String title = driver.getTitle();
 //		System.out.println(title);
 //		Assert.assertEquals(title,"Reservation confirmation on qatest1");
+		cmdPrompt();
 	}
 	
 	

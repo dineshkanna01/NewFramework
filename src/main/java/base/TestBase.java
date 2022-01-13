@@ -1,6 +1,7 @@
 package base;
 
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -17,7 +18,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -71,23 +74,32 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.TestUtils;
 import cmdprompt.SyncPipe;
+import extend.TestReport;
 import helper.JsonHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Allure;
 import pages.BookingPages;
 
 import org.json.simple.JSONObject;
 import org.testng.Assert;
+import org.testng.ITestResult;
 
 import Utility.ConfigManager;
 import io.restassured.RestAssured;
@@ -109,7 +121,9 @@ public class TestBase {
 	public static Platform WIN10;
 	public static String nodeURL;
 	public static String portNo;
-
+	public static ExtentReports extent;
+	public static ExtentTest extentTest;
+	
 	public TestBase() {
 		
 		try {
@@ -143,7 +157,7 @@ public class TestBase {
 		getDriver().manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		getDriver().manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
 
-		getDriver().get(prop.getProperty("admin_url"));
+		getDriver().get(prop.getProperty("url"));
 	}
 
 	public static void initilizationmultibrowser(String browserName) {
@@ -240,7 +254,10 @@ public class TestBase {
 		getDriver().manage().timeouts().implicitlyWait(num, TimeUnit.SECONDS);
 	}
 
-
+	public void allureScreenshot(String screenshotName) {
+		Allure.addAttachment(screenshotName, new ByteArrayInputStream(((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES)));
+	}
+	
 	public static void cmdPrompt() {
 		String [] command = {"cmd"};
 		Process p;
@@ -292,18 +309,18 @@ public class TestBase {
 			m.setSubject("Email Report");
 			m.setText("New Mail");
 
-			//			Date dt=new Date();
-			//			SimpleDateFormat format=new SimpleDateFormat("MM/dd/yyyy");
-			//			String stDate=format.format(dt);
-			//
-			//			m.setSubject("Execution report on"+stDate);
+			Date dt=new Date();
+			SimpleDateFormat format=new SimpleDateFormat("MM/dd/yyyy");
+			String stDate=format.format(dt);
+			
+			m.setSubject("Execution report on "+stDate);
 			BodyPart messageBodyPart=new MimeBodyPart();
 			messageBodyPart.setText("Hi \n"
 					+ "Updated reports are attached. Kindly check..");
 			Multipart multipart= new MimeMultipart();
 			multipart.addBodyPart(messageBodyPart);
 
-			File file=new File(System.getProperty("user.dir") + "\\test-output\\emailable-report.html");
+			File file=new File(System.getProperty("user.dir") + "\\Html\\ExtentReport.html");
 
 			messageBodyPart = new MimeBodyPart();
 			DataSource source=new FileDataSource(file.getAbsolutePath());
@@ -319,6 +336,55 @@ public class TestBase {
 
 	}
 
+	@BeforeTest
+	public void setExtent(){
+		extent = new ExtentReports(System.getProperty("user.dir")+"/Html/ExtentReport.html", true);
+
+	}
+	
+	@AfterTest
+	public void endReport(){
+		extent.flush();
+		extent.close();
+	}
+	
+	public static String getScreenshot(WebDriver tdriver, String screenshotName) throws IOException{
+		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+		TakesScreenshot ts = (TakesScreenshot) tdriver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		// after execution, you could see a folder "FailedTestsScreenshots"
+		// under src folder
+		String destination = System.getProperty("user.dir") + "/target/FailedTestsScreenshots/" + screenshotName + dateName + ".png";
+		File finalDestination = new File(destination);
+		FileUtils.copyFile(source, finalDestination);
+		return destination;
+	}
+	
+	
+	@AfterMethod
+	public void tearDown(ITestResult result) throws IOException{
+		
+		if(result.getStatus()==ITestResult.FAILURE){
+			extentTest.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getName()); //to add name in extent report
+			extentTest.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getThrowable()); //to add error/exception in extent report
+			extentTest.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getHost());
+			
+			String screenshotPath = TestReport.getScreenshot(getDriver(), result.getName());
+			extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture(screenshotPath)); //to add screenshot in extent report
+			//extentTest.log(LogStatus.FAIL, extentTest.addScreencast(screenshotPath)); //to add screencast/video in extent report
+		}
+		else if(result.getStatus()==ITestResult.SKIP){
+			extentTest.log(LogStatus.SKIP, "Test Case SKIPPED IS " + result.getName());
+		}
+		else if(result.getStatus()==ITestResult.SUCCESS){
+			extentTest.log(LogStatus.PASS, "Test Case PASSED IS ==>" + result.getName());
+			extentTest.log(LogStatus.PASS, "Test Case STATUS IS ==>" + result.getStatus());
+			extentTest.log(LogStatus.PASS, "Test Case PACKAGENAME IS ==>" + result.getInstanceName());
+		}
+		
+		extent.endTest(extentTest); //ending test and ends the current test and prepare to create html report
+		
+	}
 
 
 	public static Connection con() {

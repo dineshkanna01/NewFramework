@@ -40,6 +40,7 @@ public class Login extends TestBase {
 	public void login() {
 		Admin_Login al = new Admin_Login(getDriver());
 		al.loginPage();
+		
 	}
 	
 	@AfterMethod
