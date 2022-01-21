@@ -28,10 +28,6 @@ public class PropertyCreationTestCases extends TestBase{
 		logger = new Utilitylog(PropertyCreationTestCases.class.getName());
 	}
 
-	@BeforeMethod
-	public void setup() {
-		initilization();
-	}
 	
 	@Test(priority = 1)
 	@Description("Verify that the user is able to create a new property")

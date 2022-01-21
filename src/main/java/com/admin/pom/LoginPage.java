@@ -80,20 +80,21 @@ ExcelData e = new ExcelData();
 		}
 	
 	public LoginPage username() throws Exception {
-
+		Thread.sleep(3000);
 		username.sendKeys(e.getCellData("LoginPage", "Username", 2));
 		Thread.sleep(1000);
 		return null;
 	}
 
 	public LoginPage password() throws Exception {
-
+		Thread.sleep(3000);
 		password.sendKeys(e.getCellData("LoginPage", "Password", 2));
 		Thread.sleep(1000);
 		return null;
 	}
 
 	public LoginPage loginButton() throws Exception {
+		Thread.sleep(3000);
 		loginButton.click();
 		Thread.sleep(1000);
 		return null;
@@ -168,6 +169,7 @@ ExcelData e = new ExcelData();
 	}
 
 	public LoginPage invalidUserName() throws Exception {
+		Thread.sleep(3000);
 		username.sendKeys(e.getCellData("LoginPage", "InvalidUserName", 2));
 		Thread.sleep(1000);
 		return null;
@@ -181,14 +183,14 @@ ExcelData e = new ExcelData();
 	}
 
 	public LoginPage invalidPassword() throws Exception {
-
+		Thread.sleep(3000);
 		password.sendKeys(e.getCellData("LoginPage", "InvalidPassword", 2));
 		return null;
 
 	}
 	
 	public LoginPage logout() throws InterruptedException {
-
+		Thread.sleep(3000);
 		myAccount.click();
 		logoutButton.click();
 		driver.close();
