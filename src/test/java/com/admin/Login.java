@@ -1,11 +1,13 @@
-package admin;
+package com.admin;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import extend.TestReport;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -18,6 +20,7 @@ import pages.Admin_Login;
 
 public class Login extends TestBase {
 	
+	TestReport tp = new TestReport();
 	public static Utilitylog logger;
 	
 	public Login() {
@@ -27,7 +30,8 @@ public class Login extends TestBase {
 	
 	@BeforeMethod
 	public void setup() {
-		initilization();
+		initilization_Admin();
+//		initilization_Gmail();
 	}
 	
 	@Test
@@ -37,18 +41,23 @@ public class Login extends TestBase {
 	@Feature("Feature1: Login")
 	@Story("Story: Admin Page Login")
 	@Step("Verify Admin Page Login Presence")
-	public void login() {
+	public void login() throws Exception {
+		
 		Admin_Login al = new Admin_Login(getDriver());
+		extentTest = extent.startTest("Cancel a reservation");
 		al.loginPage();
+//		al.logOut();
+		
+//		al.otp();
 		
 	}
 	
-	@AfterMethod
+//	@AfterMethod
 	public void browerClose() {
-		getDriver().quit();
+//		getDriver().quit();
 	}
 	
-	@AfterSuite
+//	@AfterSuite
 	public void report() throws Exception {
 		//mail();
 		cmdPrompt();

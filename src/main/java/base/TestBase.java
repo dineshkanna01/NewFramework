@@ -18,10 +18,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -117,7 +119,7 @@ public class TestBase {
 
 	public static ThreadLocal<WebDriver> tdriver= new ThreadLocal<WebDriver>();
 	public static Properties prop; 
-	public static WebDriver driver1;
+	public static WebDriver driver;
 	public static Platform WIN10;
 	public static String nodeURL;
 	public static String portNo;
@@ -164,7 +166,19 @@ public class TestBase {
 		String browserName = prop.getProperty("browser");
 		if (browserName.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
-			tdriver.set(new ChromeDriver());
+			String downloadFilepath = System.getProperty("user.dir") + "\\target\\CrsReports";
+			Map<String, Object> preferences = new Hashtable<String, Object>();
+			preferences.put("profile.default_content_settings.popups", 0);
+			preferences.put("download.prompt_for_download", "false");
+			preferences.put("download.default_directory", downloadFilepath);
+
+			// disable flash and the PDF viewer
+			preferences.put("plugins.plugins_disabled", new String[] { "Adobe Flash Player", "Chrome PDF Viewer" });
+
+			ChromeOptions options = new ChromeOptions();
+			options.setExperimentalOption("prefs", preferences);
+			options.addArguments("user-data-dir=C:\\Users\\Dinesh.Kanna\\AppData\\Local\\Google\\Chrome\\User Data");
+			tdriver.set(new ChromeDriver(options));
 		}
 		else if(browserName.equals("Firefox")) {
 			WebDriverManager.firefoxdriver().setup();
@@ -181,6 +195,39 @@ public class TestBase {
 		getDriver().manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
 
 		getDriver().get(prop.getProperty("admin_url"));
+	}
+	
+	public static void initilization_Gmail() {
+		String browserName = prop.getProperty("browser");
+		if (browserName.equals("chrome")) {
+			WebDriverManager.chromedriver().setup();
+			tdriver.set(new ChromeDriver());
+		}
+		else if(browserName.equals("Firefox")) {
+			WebDriverManager.firefoxdriver().setup();
+			tdriver.set(new FirefoxDriver());
+		}else if(browserName.equals("edge")) {
+			WebDriverManager.edgedriver().setup();
+			tdriver.set(new EdgeDriver());
+		}else {
+			System.out.println("No browser");
+		}
+
+		getDriver().manage().window().maximize();
+		getDriver().manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
+
+		getDriver().get("https://accounts.google.com/signin/v2/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F%26ogbl%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin");
+	}
+	
+	public static void initGmail() {
+		WebDriverManager.chromedriver().setup();
+		tdriver.set(new ChromeDriver());
+		getDriver().get("https://www.google.co.in/");
+		getDriver().manage().window().maximize();
+		getDriver().manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
+
 	}
 
 	public static void initilizationmultibrowser(String browserName) {
@@ -360,9 +407,21 @@ public class TestBase {
 	}
 
 	@BeforeTest
-	public void setExtent(){
-		extent = new ExtentReports(System.getProperty("user.dir")+"/Html/ExtentReport.html", true);
+//	public void setExtent(){
+//		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+//		extent = new ExtentReports(System.getProperty("user.dir")+"/Html/ExtentReport.html", true);
+//	}
+	public void generateReport() {
 
+		initilization_Admin();// for single time login and logout
+
+		DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+		Date date = new Date();
+		String strDate = dateFormat.format(date);
+
+		String f1 = ".\\target\\" + File.separator + "ExtentReport" + File.separator + "TestReport_" + strDate + ".html";
+		System.out.println("path" + f1);
+		TestBase.extent = new ExtentReports(f1, Boolean.valueOf(true));
 	}
 	
 	@AfterTest
@@ -395,15 +454,19 @@ public class TestBase {
 			String screenshotPath = TestReport.getScreenshot(getDriver(), result.getName());
 			extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture(screenshotPath)); //to add screenshot in extent report
 			//extentTest.log(LogStatus.FAIL, extentTest.addScreencast(screenshotPath)); //to add screencast/video in extent report
+			getDriver().quit();
 		}
 		else if(result.getStatus()==ITestResult.SKIP){
 			extentTest.log(LogStatus.SKIP, "Test Case SKIPPED IS " + result.getName());
+			getDriver().quit();
 		}
 		else if(result.getStatus()==ITestResult.SUCCESS){
 			extentTest.log(LogStatus.PASS, "Test Case PASSED IS ==>" + result.getName());
 			extentTest.log(LogStatus.PASS, "Test Case STATUS IS ==>" + result.getStatus());
 			extentTest.log(LogStatus.PASS, "Test Case PACKAGENAME IS ==>" + result.getInstanceName());
 		}
+		
+//		getDriver().quit();
 		
 		extent.endTest(extentTest); //ending test and ends the current test and prepare to create html report
 		

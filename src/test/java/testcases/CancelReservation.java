@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -32,7 +33,7 @@ import pages.CancelBookingPage;
 
 public class CancelReservation extends TestBase{
 	
-//	TestReport tp = new TestReport();
+	TestReport tp = new TestReport();
 //	WebDriver driver;
 //	ExtentReports extent;
 //	ExtentTest extentTest;
@@ -63,20 +64,52 @@ public class CancelReservation extends TestBase{
 		extentTest = extent.startTest("Cancel a reservation");
 		CP.cancelBooking("qtest1100002261", "dinesh.kanna@igtsolutions.com");
 //		allureScreenshot("CancelPage");
+		String txtCode = CancelBookingPage.qtestCode.getText();
+		Thread.sleep(1000);
+		System.out.println("Cancellation ID: "+txtCode);
+		Assert.assertEquals(txtCode, "QTEST1100002261");
+		screenShot("New Cancel Page");
+		logger.info("Cancel Reservation done");
+		
+	}
+	
+	@Test(priority=4)
+	@Description("Verify the Booking firstpage...")
+	@Severity(SeverityLevel.MINOR)
+	@Epic("EP01")
+	@Feature("Feature2: CancelReservationPage of Booking")
+	@Story("Story: Booking CancelReservationPage")
+	@Step("Verify Booking CancelReservationPage")
+	public void cancel2() throws Exception {
+		logger.info("Cancel Reservation started");
+		CancelBookingPage CP = new CancelBookingPage(getDriver());
+		extentTest = extent.startTest("Cancel a reservation");
+		CP.cancelBooking("qtest1100002261", "dinesh.kanna@igtsolutions.com");
+//		allureScreenshot("CancelPage");
+		String txtCode1 = CancelBookingPage.qtestCode.getText();
+		Thread.sleep(1000);
+		System.out.println("Cancellation ID: "+txtCode1);
+		Assert.assertEquals(txtCode1, "QTEST1100002262");
 		screenShot("New Cancel Page");
 		logger.info("Cancel Reservation done");
 	}
 	
-	@AfterMethod
+	@AfterTest
+	public void report() throws Exception {
+		mail();
+		
+	}
+	
+	@AfterClass
 	public void browerClose() {
 		getDriver().quit();
 	}
 	
 //	@AfterClass
-	public void report() throws Exception {
-		mail();
-		
-	}
+//	public void report() throws Exception {
+//		mail();
+//		
+//	}
 	
 //	@AfterSuite
 	public void extendReport() {

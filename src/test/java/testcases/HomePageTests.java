@@ -37,7 +37,7 @@ public class HomePageTests extends TestBase{
 		initilization();
 	}
 
-//	@Test(priority=1)
+	@Test(priority=1)
 	@Description("Verify the company Title on the HomePage...")
 	@Severity(SeverityLevel.CRITICAL)
 	@Epic("EP01")
@@ -46,14 +46,14 @@ public class HomePageTests extends TestBase{
 	@Step("Verify Title Presence")
 	public void verifyPageTitleTest() {
 		BookingPages bookingPages = new BookingPages(getDriver());
-//		extentTest = extent.startTest("verifyPageTitleTest");
+		extentTest = extent.startTest("verifyPageTitleTest");
 		String title = bookingPages.UrlTilte();
 		System.out.println(title);
 		logger.info(title);
-		Assert.assertEquals(title, "Make a reservation on qatest1");
+		Assert.assertEquals(title, "Make a reservation on qatest12");
 	}
 	
-	@Test(priority=2)
+//	@Test(priority=2)
 	@Description("Verify the Booking HomePage...")
 	@Severity(SeverityLevel.MINOR)
 	@Epic("EP01")
