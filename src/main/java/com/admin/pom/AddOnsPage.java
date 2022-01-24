@@ -13,7 +13,6 @@ import base.TestBase;
 import pages.AbstractBasePage;
 
 public class AddOnsPage extends AbstractBasePage {
-	
 	ExcelData e = new ExcelData();
 
 	public AddOnsPage(WebDriver driver) {
@@ -51,6 +50,21 @@ public class AddOnsPage extends AbstractBasePage {
 
 	@FindBy(xpath = "//*[text()='Duplicate Code']")
 	WebElement duplicate;
+
+	@FindBy(xpath = "//input[@type='radio' and @value='true']")
+	WebElement addOnActive;
+
+	@FindBy(name = "addOnStartDate")
+	WebElement addOnStartDate;
+
+	@FindBy(xpath = "(//*[contains(@href,'/admin/action/editAddOn.do')])[last()]")
+	WebElement e2;
+
+	@FindBy(xpath = "//li[text()='No Add On available ']")
+	WebElement e3;
+	
+	@FindBy(xpath = "//*[@value='Cancel']")
+	WebElement cancelButton;
 
 	public AddOnsPage inputTextFieldsAddOnsTc01() throws Exception {
 		nameTextField.click();
@@ -105,6 +119,28 @@ public class AddOnsPage extends AbstractBasePage {
 		return null;
 	}
 
+	public AddOnsPage inputTextFieldsAddOnsRatePlan() throws Exception {
+		nameTextField.click();
+
+		nameTextField.sendKeys(e.getCellData("AddOnsData", "Name_TC02", 2));
+		TestBase.implict(2);
+
+		codeTextField.sendKeys(e.getCellData("AddOnsData", "Code_TC02", 2));
+		TestBase.implict(2);
+
+		shortDescriptionTextField.sendKeys(e.getCellData("AddOnsData", "ShortDescription_TC02", 2));
+		TestBase.implict(2);
+
+		priceField.sendKeys(e.getCellData("AddOnsData", "Price_TC02", 2));
+		TestBase.implict(2);
+
+		addOnActive.click();
+
+		addOnStartDate.sendKeys(e.getCellData("RatePlanPageData", "AddOnStartDate", 2));
+
+		return null;
+	}
+
 	public AddOnsPage clickOnSave() throws InterruptedException {
 		savebutton.click();
 		TestBase.implict(4);
@@ -114,69 +150,43 @@ public class AddOnsPage extends AbstractBasePage {
 
 	public boolean verifyAddOnName_tc01() throws Exception {
 
-		String AddOnName = driver.findElement(By.xpath("(//*[contains(@href,'/admin/action/editAddOn.do')])[last()]"))
-				.getText();
-		AddOnName = AddOnName.replaceAll("\\s+", "");
-		System.out.println(AddOnName + "####");
-
-		String ExcelAddOnName = e.getCellData("AddOnsData", "Name_TC01", 2);
-		ExcelAddOnName = ExcelAddOnName.replaceAll("\\s+", "");
-
-		System.out.println(ExcelAddOnName + "$$$");
-
-		if (AddOnName.equals(ExcelAddOnName)) {
-			System.out.println("Strings Matched");
+		if (e2.isDisplayed()) {
+			String AddOnName = e2.getText();
+			System.out.println(AddOnName + ": AddOn created");
 			return true;
-		} else {
-			System.out.println("AddOn not found after deletion");
-			return false;
 
-		}
+		} else
+			return false;
 	}
 
 	public boolean verifyAddOnName_tc02() throws Exception {
-
-		String AddOnName = driver.findElement(By.xpath("(//*[contains(@href,'/admin/action/editAddOn.do')])[last()]"))
-				.getText();
-		AddOnName = AddOnName.replaceAll("\\s+", "");
-		System.out.println(AddOnName + "####");
-
-		String ExcelAddOnName = e.getCellData("AddOnsData", "Name_TC02", 2);
-		ExcelAddOnName = ExcelAddOnName.replaceAll("\\s+", "");
-
-		System.out.println(ExcelAddOnName + "$$$");
-
-		if (AddOnName.equals(ExcelAddOnName)) {
-			System.out.println("Strings Matched");
+		if (e2.isDisplayed()) {
+			String AddOnName = e2.getText();
+			System.out.println(AddOnName + ": AddOn created");
 			return true;
-		} else {
-			System.out.println("AddOn not found after deletion");
-			return false;
 
-		}
+		} else
+			return false;
 	}
 
 	public boolean verifyAddOnName_tc03() throws Exception {
-
-		String AddOnName = driver.findElement(By.xpath("(//*[contains(@href,'/admin/action/editAddOn.do')])[last()]"))
-				.getText();
-		AddOnName = AddOnName.replaceAll("\\s+", "");
-		System.out.println(AddOnName + "####");
-
-		String ExcelAddOnName = e.getCellData("AddOnsData", "Name_TC03", 2);
-		ExcelAddOnName = ExcelAddOnName.replaceAll("\\s+", "");
-
-		System.out.println(ExcelAddOnName + "$$$");
-
-		if (AddOnName.equals(ExcelAddOnName)) {
-			System.out.println("Strings Matched");
+		if (e2.isDisplayed()) {
+			String AddOnName = e2.getText();
+			System.out.println(AddOnName + ": AddOn created");
 			return true;
-		} else {
-			System.out.println("AddOn not found after deletion");
-			return false;
 
-		}
+		} else
+			return false;
 	}
+
+	public boolean verifyAddOnName_Delete() throws Exception {
+		if (e3.isDisplayed()) {
+			System.out.println("Add-On is Deleted");
+			return true;
+		} else
+			return false;
+	}
+
 
 	public AddOnsPage clickOnCheckbox() throws InterruptedException {
 		selectCheckbox.click();
@@ -214,4 +224,11 @@ public class AddOnsPage extends AbstractBasePage {
 
 	}
 
+	public AddOnsPage clickOnCancel() throws InterruptedException {
+		cancelButton.click();
+		driver.findElement(By.xpath("//*[@id='7']/li[1]/a")).click();
+		TestBase.implict(3);
+
+		return null;
+	}
 }

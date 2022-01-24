@@ -27,7 +27,6 @@ import logfile.Utilitylog;
 
 public class Guest_Preferences_Questions extends TestBase {
 
-
 	public static Utilitylog logger;
 
 	public Guest_Preferences_Questions() {
@@ -86,7 +85,13 @@ public class Guest_Preferences_Questions extends TestBase {
 		screenShot("Guest preference question created");
 
 		Assert.assertTrue(gpp.verifyGuestPrefQuesName_tc01());
-//		lp.logout();
+
+		gpp.clickOnDelete();
+		gpp.clickOnOK();
+
+		Assert.assertTrue(gpp.verifyGuestPrefQuesName_Delete());
+
+		// lp.logout();
 		logger.info("TestCase Ended");
 
 	}
@@ -128,6 +133,12 @@ public class Guest_Preferences_Questions extends TestBase {
 		screenShot("Guest preference question created");
 
 		Assert.assertTrue(gpp.verifyGuestPrefQuesName_tc02());
+
+		gpp.clickOnDelete();
+		gpp.clickOnOK();
+
+		Assert.assertTrue(gpp.verifyGuestPrefQuesName_Delete());
+
 //		lp.logout();
 		logger.info("TestCase Ended");
 	}
@@ -173,6 +184,11 @@ public class Guest_Preferences_Questions extends TestBase {
 		screenShot("Guest preference question created");
 
 		Assert.assertTrue(gpp.verifyGuestPrefQuesName_tc03());
+
+		gpp.clickOnDelete();
+		gpp.clickOnOK();
+
+		Assert.assertTrue(gpp.verifyGuestPrefQuesName_Delete());
 		// lp.logout();
 		logger.info("TestCase Ended");
 	}
@@ -219,7 +235,7 @@ public class Guest_Preferences_Questions extends TestBase {
 		allureScreenshot("Guest preference question Deleted");
 		screenShot("Guest preference question Deleted");
 
-		Assert.assertFalse(gpp.verifyGuestPrefQuesName_tc01());
+		Assert.assertTrue(gpp.verifyGuestPrefQuesName_Delete());
 //		lp.logout();
 		logger.info("TestCase Ended");
 	}
@@ -247,10 +263,13 @@ public class Guest_Preferences_Questions extends TestBase {
 		 * ahp.clickGuestPreferenceQuestionsTab();
 		 */
 
-		ahp.clickListAllGuestPreference();
+		ahp.clickAddNewGuestPreference();
 
-		allureScreenshot("List All GuestPreference Questions Page");
-		screenShot("List All GuestPreference Questions Page");
+		gpp.inputTextFieldsSingleType();
+		gpp.clickOnSave();
+
+		allureScreenshot("Guest preference question created");
+		screenShot("Guest preference question created");
 
 		Assert.assertTrue(gpp.verifyGuestPrefQuesCategory());
 
@@ -265,6 +284,9 @@ public class Guest_Preferences_Questions extends TestBase {
 		screenShot("Guest preference question Category changed");
 
 		Assert.assertFalse(gpp.verifyGuestPrefQuesCategory());
+
+		gpp.clickOnDelete();
+		gpp.clickOnOK();
 		lp.logout();
 		logger.info("TestCase Ended");
 	}

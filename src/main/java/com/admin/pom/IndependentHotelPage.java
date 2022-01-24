@@ -11,7 +11,6 @@ import pages.AbstractBasePage;
 
 public class IndependentHotelPage extends AbstractBasePage {
 
-
 	ExcelData e = new ExcelData();
 
 	public IndependentHotelPage(WebDriver driver) {

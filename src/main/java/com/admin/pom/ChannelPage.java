@@ -1,11 +1,13 @@
 package com.admin.pom;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utility.ExcelData;
+import base.TestBase;
 import pages.AbstractBasePage;
 
 public class ChannelPage extends AbstractBasePage{
@@ -87,34 +89,41 @@ public class ChannelPage extends AbstractBasePage{
 	WebElement verifyMaxRetryCountBlankText;
 
 	public ChannelPage openPropertyTab() throws InterruptedException {
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		propertyManagementTab.click();
 		return null;
 	}
+	
+	public void alertPopUp() throws InterruptedException {
+		TestBase.implict(3);
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
+	}
 
 	public ChannelPage openChannels() throws InterruptedException {
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		channelsOption.click();
+		TestBase.implict(3);
 		return null;
 	}
 
 	public ChannelPage selectingChannel() throws InterruptedException {
 		addNewChannel.click();
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		selectChannel.click();
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		return null;
 	}
 
 	public ChannelPage addGDS() throws Exception {
 		GDSChannel.click();
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		channelType.click();
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		chainCode.sendKeys(e.getCellData("Channel", "ChainCode", 2));
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		hotelCode.sendKeys(e.getCellData("Channel", "HotelCode", 2));
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		return null;
 	}
 
@@ -126,7 +135,7 @@ public class ChannelPage extends AbstractBasePage{
 
 	public ChannelPage saveButton() throws InterruptedException {
 		saveChannelButton.click();
-		Thread.sleep(2000);
+		TestBase.implict(3);
 		return null;
 	}
 
@@ -137,7 +146,7 @@ public class ChannelPage extends AbstractBasePage{
 	}
 
 	public ChannelPage deleteChannelSelected() throws InterruptedException {
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		selectToDelete.click();
 		return null;
 	}
@@ -149,61 +158,61 @@ public class ChannelPage extends AbstractBasePage{
 	}
 
 	public ChannelPage deleteButton() throws InterruptedException {
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		deleteButton.click();
-		Thread.sleep(5000);
+		TestBase.implict(3);
 		return null;
 	}
 
 	public ChannelPage addPMS() throws Exception {
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		PMSChannel.click();
-		Thread.sleep(3000);
+		TestBase.implict(3);
 		newChannelPMS.click();
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		channelTypePMS.click();
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		selectChannelTypePMS.click();
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		return null;
 	}
 
 	public ChannelPage URI() throws Exception {
 		externalURI.sendKeys(e.getCellData("Channel", "ExternalURI", 2));
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		return null;
 	}
 
 	public String verifyURIBlankText() throws InterruptedException {
 		String s = verifyURIBlankText.getText();
 		System.out.println(s);
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		return s;
 	}
 
 	public ChannelPage retryInterval() throws Exception {
 		retryInterval.sendKeys(e.getCellData("Channel", "RetryInterval", 2));
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		return null;
 	}
 	
 	public String verifyRetryIntervalBlankText() throws InterruptedException {
 		String s = verifyRetryIntervalBlankText.getText();
 		System.out.println(s);
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		return s;
 	}
 
 	public ChannelPage maxRetryCount() throws Exception {
 		maxRetryCount.sendKeys(e.getCellData("Channel", "MaxRetryCount", 2));
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		return null;
 	}
 
 	public String verifyMaxRetryCountBlankText() throws InterruptedException {
 		String s = verifyMaxRetryCountBlankText.getText();
 		System.out.println(s);
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		return s;
 	}
 	

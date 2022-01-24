@@ -21,7 +21,7 @@ import io.qameta.allure.Story;
 import logfile.Utilitylog;
 
 public class AdminLogin extends TestBase{
-
+	
 	public static Utilitylog logger;
 //	LoginPage lp = new LoginPage(getDriver());
 
@@ -30,12 +30,15 @@ public class AdminLogin extends TestBase{
 		logger = new Utilitylog(AdminLogin.class.getName());
 	}
 
-//	@BeforeMethod
-//	public void setup() {
-//		initilization_Admin();
-//	}
+	LoginPage lp;
+	
+	@BeforeMethod
+	public void setup() throws Exception {
+		lp = new LoginPage(getDriver());
+		lp.clearButton();
+	}
 
-	@Test(priority = 1)
+//	@Test(priority = 1)
 	@Description("Verify the Admin Login")
 	@Severity(SeverityLevel.CRITICAL)
 	@Epic("EP01")
@@ -43,18 +46,21 @@ public class AdminLogin extends TestBase{
 	@Story("Story: Admin Page Login")
 	@Step("Verify Admin Page Login Presence")
 	public void Admin_Login_TC_01() throws Exception {
-		LoginPage lp = new LoginPage(getDriver());
 		extentTest = extent.startTest("Admin_Login_TC_01");
+		
 		lp.clearButton();
 		lp.username();
 		lp.password();
 		lp.loginButton();
 //		lp.TwoFactorAuthentication();
+		
 		allureScreenshot("Administrator Home After Login");
 		screenShot("Administrator Home After Login");
+		
 		String home = lp.verifyLogin();
 		System.out.println(home);
 		Assert.assertEquals(home, "Administrator Home");
+		
 		lp.logout();
 	}
 
@@ -66,20 +72,25 @@ public class AdminLogin extends TestBase{
 	@Story("Story: Clear Fields")
 	@Step("Verify fields are being cleared")
 	public void Admin_Login_TC_02() throws Exception {
-		LoginPage lp = new LoginPage(getDriver());
 		extentTest = extent.startTest("Admin_Login_TC_02");
+		
 		lp.clearButton();
 		lp.username();
 		lp.password();
+		
 		allureScreenshot("Before Fields Cleared");
 		screenShot("Before Fields Cleared");
+		
 		String clearbtn = lp.verifyClearButton();
 		System.out.println(clearbtn);
 		Assert.assertEquals(clearbtn, "Clear");
+		
 		assertFalse(lp.verifyFieldsCleared());
 		lp.clearButton();
+		
 		allureScreenshot("After Fields Cleared");
 		screenShot("After Fields Cleared");
+		
 		assertTrue(lp.verifyFieldsCleared());
 	}
 
@@ -91,13 +102,19 @@ public class AdminLogin extends TestBase{
 	@Story("Story: Change Password by Forgot Password")
 	@Step("Verify Forgot Password works")
 	public void Admin_Login_TC_03() throws Exception {
-		LoginPage lp = new LoginPage(getDriver());
 		extentTest = extent.startTest("Admin_Login_TC_03");
+		
+		lp.clearButton();
 		lp.forgotPassword();
+		
 		allureScreenshot("Reset Sent Password");
 		screenShot("Reset Sent Password");
+		
 		String ForgotPassSent = lp.verifyForgotPassword();
 		Assert.assertEquals(ForgotPassSent, "A password request has been made.");
+		
+		lp.ReturnHome();
+//		lp.logout();
 	}
 
 	@Test(priority = 4)
@@ -108,14 +125,16 @@ public class AdminLogin extends TestBase{
 	@Story("Story: Can't login")
 	@Step("Verify login won't happen")
 	public void Admin_Login_TC_04() throws Exception {
-		LoginPage lp = new LoginPage(getDriver());
 		extentTest = extent.startTest("Admin_Login_TC_04");
-		lp.clearButton();
+		
+//		lp.clearButton();
 		lp.invalidUserName();
 		lp.password();
 		lp.loginButton();
+		
 		allureScreenshot("Incorrect Username Typed");
 		screenShot("Incorrect Username Error");
+		
 		String fail = lp.verifyLoginNotSuccess();
 		System.out.println("Username is incorrect.");
 		Assert.assertEquals(fail, "Username and/or password is incorrect. Please try again.");
@@ -129,22 +148,19 @@ public class AdminLogin extends TestBase{
 	@Story("Story: Can't login")
 	@Step("Verify login won't happen")
 	public void Admin_Login_TC_05() throws Exception {
-		LoginPage lp = new LoginPage(getDriver());
 		extentTest = extent.startTest("Admin_Login_TC_05");
-		lp.clearButton();
+		
+//		lp.clearButton();
 		lp.username();
 		lp.invalidPassword();
 		lp.loginButton();
+		
 		allureScreenshot("Incorrect Password Typed");
 		screenShot("Incorrect Password Error");
+		
 		String fail = lp.verifyLoginNotSuccess();
 		System.out.println("Password is incorrect.");
 		Assert.assertEquals(fail, "Username and/or password is incorrect. Please try again.");
-	}
-
-//	@AfterMethod
-	public void browerClose() {
-		getDriver().quit();
 	}
 
 	@AfterSuite

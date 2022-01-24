@@ -11,7 +11,6 @@ import pages.AbstractBasePage;
 
 public class PropertyBrandingPage extends AbstractBasePage {
 
-
 	ExcelData e = new ExcelData();
 
 	public PropertyBrandingPage(WebDriver driver) {

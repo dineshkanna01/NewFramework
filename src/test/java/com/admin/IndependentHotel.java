@@ -24,18 +24,22 @@ import logfile.Utilitylog;
 
 public class IndependentHotel extends TestBase{
 
-
 	public static Utilitylog logger;
-	LoginPage lp = new LoginPage(getDriver());
 	
 	public IndependentHotel() {
 		super();
 		logger = new Utilitylog(IndependentHotel.class.getName());
 	}
 
+	LoginPage lp;
+	IndependentHotelPage ihp;
+	NewPropertyPage npp;
+	
 	@BeforeMethod
 	public void setup() {
-		initilization();
+		lp = new LoginPage(getDriver());
+		ihp = new IndependentHotelPage(getDriver());
+		npp = new NewPropertyPage(getDriver());
 	}
 
 	@Test(priority = 1)
@@ -46,38 +50,50 @@ public class IndependentHotel extends TestBase{
 	@Story("Story: Independent Hotel Created")
 	@Step("Verify New Independent Hotel Created")
 	public void Admin_CreateIndependentHotel_TC_01() throws Throwable {
-		LoginPage lp = new LoginPage(getDriver());
 		extentTest = extent.startTest("Admin_CreateIndependentHotel_TC_01");
+		
 		lp.clearButton();
 		lp.username();
 		lp.password();
 		lp.loginButton();
 //		lp.TwoFactorAuthentication();
+		
 		allureScreenshot("Logged In");
-		IndependentHotelPage ihp = new IndependentHotelPage(getDriver());
+		screenShot("Logged In");
+		
 		ihp.selectingIndependentHotel();
+		
 		allureScreenshot("Independent Hotel");
-		NewPropertyPage npp = new NewPropertyPage(getDriver());
+		screenShot("Independent Hotel");
+		
 		npp.newPropertyEditPage();
+		
 		allureScreenshot("Property Edit Page Filled");
+		screenShot("Property Edit Page Filled");
+		
 		String editSave = npp.verifyEditSaveButton();
 		Assert.assertEquals(editSave, "Save");
+		
 		npp.propertyEditPageSaveButton();
 		npp.propertyDefaultPage();
+		
 		allureScreenshot("Property Default Page Filled");
+		screenShot("Property Default Page Filled");
+		
 		String DefaultSave = npp.verifyDefaultSaveButton();
 		Assert.assertEquals(DefaultSave, "  Save  ");
+		
 		npp.propertyDefaultPageSaveButton();
+		
 		ihp.independentHotels();
+		
 		allureScreenshot("Independent Hotel Found");
+		screenShot("Independent Hotel Found");
+		
 		assertTrue(ihp.verifyIndependentHotelCreated());
+		
 		lp.logout();
 
-	}
-
-//	@AfterMethod
-	public void browerClose() throws InterruptedException {
-		getDriver().quit();
 	}
 
 	@AfterSuite

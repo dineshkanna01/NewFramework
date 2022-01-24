@@ -30,10 +30,14 @@ public class BrandTestCase extends TestBase{
 		logger = new Utilitylog(BrandTestCase.class.getName());
 	}
 
-//	@BeforeMethod
-//	public void setup() {
-//		initilization_Admin();
-//	}
+	LoginPage lp;
+	BrandPage bp;
+	
+	@BeforeMethod
+	public void setup() {
+		lp = new LoginPage(getDriver());
+		bp = new BrandPage(getDriver());
+	}
 
 	@Test(priority = 1)
 	@Description("Verify that the user is able to create a new brand in the CRS system")
@@ -43,20 +47,24 @@ public class BrandTestCase extends TestBase{
 	@Story("Story: Create New Brand")
 	@Step("Verify New Brand Created")
 	public void Admin_AddNewBrand_TC_01() throws Throwable {
-		LoginPage lp = new LoginPage(getDriver());
 		extentTest = extent.startTest("Admin_AddNewBrand_TC_01");
+		
 		lp.clearButton();
 		lp.username();
 		lp.password();
 		lp.loginButton();
 //		lp.twoFactorAuthentication();
+		
 		allureScreenshot("Logged In");
-		BrandPage bp = new BrandPage(getDriver());
+		screenShot("Logged In");
+		
 		bp.openBrands();
 		bp.createNewBrand();
+		
 		allureScreenshot("Administrator Home After Save");
+		screenShot("Administrator Home After Save");
+		
 		assertTrue(bp.verifyBrandCreated());
-		lp.logout();
 	}
 	
 	@Test(priority = 2)
@@ -67,22 +75,21 @@ public class BrandTestCase extends TestBase{
 	@Story("Story: Cannot create New Brand")
 	@Step("Verify New Brand not Created")
 	public void Admin_AddNewBrand_TC_02() throws Exception {
-		LoginPage lp = new LoginPage(getDriver());
 		extentTest = extent.startTest("Admin_AddNewBrand_TC_02");
-		lp.clearButton();
-		lp.username();
-		lp.password();
-		lp.loginButton();
-//		lp.twoFactorAuthentication();
+		
 		allureScreenshot("Logged In");
-		BrandPage bp = new BrandPage(getDriver());
-		bp.openBrands();
+		screenShot("Logged In");
+		
 		bp.duplicateBrand();
+		
 		allureScreenshot("Duplicate Brand Name Error");
+		screenShot("Duplicate Brand Name Error");
+		
 		String dupError = bp.verifyDuplicateBrand();
 		System.out.println(dupError);
 		Assert.assertEquals(dupError, "Brand Name already used.");
-		lp.logout();
+		
+		bp.cancelButton();
 	}
 	
 	@Test(priority = 3)
@@ -93,28 +100,21 @@ public class BrandTestCase extends TestBase{
 	@Story("Story: Cannot create New Brand due to blank brand name")
 	@Step("Verify New Brand not Created")
 	public void Admin_AddNewBrand_TC_03() throws Exception {
-		LoginPage lp = new LoginPage(getDriver());
 		extentTest = extent.startTest("Admin_AddNewBrand_TC_03");
-		lp.clearButton();
-		lp.username();
-		lp.password();
-		lp.loginButton();
-//		lp.twoFactorAuthentication();
+		
 		allureScreenshot("Logged In");
-		BrandPage bp = new BrandPage(getDriver());
-		bp.openBrands();
+		screenShot("Logged In");
+		
 		bp.blankBrandName();
+		
 		allureScreenshot("Blank Brand Name Error");
+		screenShot("Blank Brand Name Error");
+		
 		String blankField = bp.verifyBlankBrandName();
 		System.out.println(blankField);
 		Assert.assertEquals(blankField, "Brand Name is required.");
+		
 		lp.logout();
-	}
-
-
-//	@AfterMethod
-	public void browerClose() throws InterruptedException {
-		getDriver().quit();
 	}
 
 	@AfterSuite

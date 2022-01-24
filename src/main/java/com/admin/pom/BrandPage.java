@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utility.ExcelData;
+import base.TestBase;
 import pages.AbstractBasePage;
 
 public class BrandPage extends AbstractBasePage {
@@ -20,7 +21,7 @@ public class BrandPage extends AbstractBasePage {
 
 	@FindBy(xpath = "//*[text()='Brands']")
 	WebElement brands;
-
+	
 	@FindBy(xpath = "//a[text()='Add a New Brand']")
 	WebElement addBrand;
 
@@ -41,21 +42,26 @@ public class BrandPage extends AbstractBasePage {
 
 	@FindBy(xpath = "//a[text()='RTest']")
 	WebElement selectBrand;
+	
+	@FindBy(xpath = "//input[@value = 'Cancel']")
+	WebElement cancelButton;
 
 	public void openBrands() throws Exception {
-
+		TestBase.implict(3);
 		brands.click();
-		Thread.sleep(2000);
+		TestBase.implict(3);
 	}
 
 	public BrandPage createNewBrand() throws Exception {
-
+		TestBase.implict(3);
 		addBrand.click();
+		TestBase.implict(3);
 		brandName.sendKeys(e.getCellData("Brand", "BrandName", 2));
+		TestBase.implict(3);
 		brandCode.sendKeys(e.getCellData("Brand", "BrandCode", 2));
-		Thread.sleep(2000);
+		TestBase.implict(3);
 		saveButton.click();
-		Thread.sleep(2000);
+		TestBase.implict(3);
 		return null;
 	}
 
@@ -73,13 +79,22 @@ public class BrandPage extends AbstractBasePage {
 	}
 
 	public BrandPage duplicateBrand() throws Exception {
-
+		TestBase.implict(3);
 		addBrand.click();
+		TestBase.implict(3);
 		brandName.sendKeys(e.getCellData("Brand", "BrandName", 2));
+		TestBase.implict(3);
 		brandCode.sendKeys(e.getCellData("Brand", "BrandCode", 2));
-		Thread.sleep(2000);
+		TestBase.implict(3);
 		saveButton.click();
-		Thread.sleep(2000);
+		TestBase.implict(3);
+		return null;
+	}
+	
+	public BrandPage cancelButton() throws Exception {
+		TestBase.implict(3);
+		cancelButton.click();
+		TestBase.implict(3);
 		return null;
 	}
 
@@ -90,13 +105,13 @@ public class BrandPage extends AbstractBasePage {
 	}
 
 	public BrandPage blankBrandName() throws Exception {
-
+		TestBase.implict(3);
 		addBrand.click();
-//		BrandName.sendKeys(e.getCellDataUZA("Brand", "BrandName", 2));
+		TestBase.implict(3);
 		brandCode.sendKeys(e.getCellData("Brand", "BrandCode", 2));
-		Thread.sleep(2000);
+		TestBase.implict(3);
 		saveButton.click();
-		Thread.sleep(2000);
+		TestBase.implict(3);
 		return null;
 	}
 
@@ -107,8 +122,9 @@ public class BrandPage extends AbstractBasePage {
 	}
 
 	public BrandPage brandSelect() {
+		TestBase.implict(3);
 		selectBrand.click();
+		TestBase.implict(3);
 		return null;
 	}
-
 }

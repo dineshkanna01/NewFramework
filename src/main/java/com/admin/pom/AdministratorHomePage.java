@@ -83,6 +83,47 @@ public class AdministratorHomePage extends AbstractBasePage {
 
 	@FindBy(xpath = "//*[@id='13' and text()='Reports']")
 	WebElement reports;
+	
+	 @FindBy(xpath="//a[text()='Brands']")
+	 WebElement brand;
+	
+	@FindBy(xpath="(//input[@type='radio'])[5]")
+	 WebElement radioButton;
+	
+	@FindBy(xpath="//input[@value='Select Property']")
+	 WebElement selectProperty;
+	
+	@FindBy(xpath="//div[text()='Property Management']")
+	 WebElement propertyManagement;
+	
+	@FindBy(xpath="//a[contains(@href,'/admin/action/getRT3')]")
+	 WebElement alternateProperties;
+	
+	@FindBy(xpath="//a[contains(@href,'/admin/action/displayN')]")
+	 WebElement nearByAttraction;
+	
+	@FindBy(xpath="//a[text()='Payment Gateway']")
+	WebElement paymentGateway;
+	
+	@FindBy(xpath="//div[text()='Rooms']")
+	WebElement room;
+	
+	@FindBy(xpath="//a[contains(@href,'/admin/action/displayRoomH')]")
+	WebElement roomHierarchy;
+	
+	@FindBy(xpath="//a[contains(@href,'/admin/action/displayCallCenter')]") 
+	WebElement callCentersetting;
+	
+	@FindBy(id="add_new_room")
+	WebElement addNew;
+	
+	@FindBy(xpath="//a[contains(@href,'TypesList')]")
+	WebElement listAllRoom;
+	
+	@FindBy(xpath="//a[text()='Amenities']")
+	WebElement amenities;
+	
+	
 
 	public AdministratorHomePage selectBrand() throws Exception {
 		brands.click();
@@ -193,5 +234,56 @@ public class AdministratorHomePage extends AbstractBasePage {
 		TestBase.implict(3);
 		return null;
 	}
+	
+	public AdministratorHomePage clickPropertyManagementTab() throws InterruptedException {
+	   propertyManagement.click();
+	   return null;
+	}
+	
+	public AdministratorHomePage clickAlternatePropertyTab() {
+		 alternateProperties.click();
+	     return null;
+	}
+	     
+	 public AdministratorHomePage clickNearbyAttractionTab() {
+		 nearByAttraction.click();
+		 return null;
+	}
+	
+     
+    public AdministratorHomePage clickPaymentGatewayTab() {
+	    paymentGateway.click();
+	    return null;
+    }
+
+    public AdministratorHomePage clickOnRoomTab() {
+	   room.click();
+	   return null;
+    }	
+	
+     public AdministratorHomePage clickOnRoomHierarchy() {
+  	 roomHierarchy.click();
+  	    return null;
+      }
+     
+     public AdministratorHomePage callCenterSettings() {
+      callCentersetting.click();
+      return null;
+          }
+     
+     public AdministratorHomePage clickOnAddNew() {
+      addNew.click();
+      return null;
+          }
+     
+     public AdministratorHomePage clickOnListAllRoom() {
+         listAllRoom.click();
+         return null;
+             }
+     
+     public AdministratorHomePage clickOnAmenities() {
+         amenities.click();
+         return null;
+             }
 
 }

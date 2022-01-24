@@ -78,12 +78,19 @@ public class AddOn_Scenario extends TestBase {
 		screenShot("AddOn created");
 
 		Assert.assertTrue(aop.verifyAddOnName_tc01());
-//		lp.logout();
+
+		aop.clickOnCheckbox();
+		aop.clickOnDelete();
+		aop.clickOnYes();
+
+		Assert.assertTrue(aop.verifyAddOnName_Delete());
+
+		// lp.logout();
 		logger.info("TestCase Ended");
 	}
 
 	@Test(priority = 2)
-	@Description("Verify that the user is able to Create and Delete an Add On")
+	@Description("Verify that the user is able to Create and Delete a different Add On")
 	@Severity(SeverityLevel.CRITICAL)
 	@Epic("EP01")
 	@Feature("Feature1:AddOn")
@@ -92,6 +99,7 @@ public class AddOn_Scenario extends TestBase {
 	public void AddOn_TC_02() throws Exception {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("AddOn_TC_02");
+
 		/*
 		 * lp.login();
 		 * 
@@ -103,7 +111,6 @@ public class AddOn_Scenario extends TestBase {
 		 * 
 		 * ahp.clickAddOnsTab();
 		 */
-
 		ahp.clickAddNewAddOnsTab();
 
 		aop.inputTextFieldsAddOnsTc02();
@@ -121,7 +128,8 @@ public class AddOn_Scenario extends TestBase {
 		allureScreenshot("AddOn Deleted");
 		screenShot("AddOn Deleted");
 
-		Assert.assertFalse(aop.verifyAddOnName_tc02());
+		Assert.assertTrue(aop.verifyAddOnName_Delete());
+
 		// lp.logout();
 		logger.info("TestCase Ended");
 	}
@@ -136,6 +144,7 @@ public class AddOn_Scenario extends TestBase {
 	public void AddOn_TC_03() throws Exception {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("AddOn_TC_03");
+
 		/*
 		 * lp.login();
 		 * 
@@ -164,7 +173,14 @@ public class AddOn_Scenario extends TestBase {
 		screenShot("Duplicate code error message");
 
 		Assert.assertTrue(aop.verifyDuplicate_tc03());
-		// lp.logout();
+
+		aop.clickOnCancel();
+
+		aop.clickOnCheckbox();
+		aop.clickOnDelete();
+		aop.clickOnYes();
+
+		lp.logout();
 		logger.info("TestCase Ended");
 	}
 
@@ -173,5 +189,5 @@ public class AddOn_Scenario extends TestBase {
 		mail();
 		cmdPrompt();
 	}
-	
+
 }

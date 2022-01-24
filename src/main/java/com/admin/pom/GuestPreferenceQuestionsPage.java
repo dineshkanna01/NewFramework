@@ -12,7 +12,7 @@ import Utility.ExcelData;
 import base.TestBase;
 import pages.AbstractBasePage;
 public class GuestPreferenceQuestionsPage extends AbstractBasePage {
-	
+
 	ExcelData e = new ExcelData();
 
 	public GuestPreferenceQuestionsPage(WebDriver driver) {
@@ -59,6 +59,12 @@ public class GuestPreferenceQuestionsPage extends AbstractBasePage {
 
 	@FindBy(xpath = "(//*[contains(@href,'editQuestion')])[last()]")
 	WebElement editButton;
+	
+	@FindBy(xpath = "//*[@id='dataTable']/tbody/tr[last()]/td[2]")
+	WebElement e2;
+	
+	@FindBy(xpath = "(//*[text()='Guest Preference Questions']/following::font)[last()]")
+	WebElement e3;
 
 	public GuestPreferenceQuestionsPage selectSingleType() throws InterruptedException {
 		selectionTypeDropdown.click();
@@ -168,63 +174,43 @@ public class GuestPreferenceQuestionsPage extends AbstractBasePage {
 	}
 
 	public boolean verifyGuestPrefQuesName_tc01() throws Exception {
-		String QuesName = driver.findElement(By.xpath("//*[@id='dataTable']/tbody/tr[last()]/td[2]")).getText();
-		QuesName = QuesName.replaceAll("\\s+", "");
-		System.out.println(QuesName + "####");
-
-		String ExcelQuesName = e.getCellData("GuestPrefQuesData", "Question_TC_01", 2);
-		ExcelQuesName = ExcelQuesName.replaceAll("\\s+", "");
-
-		System.out.println(ExcelQuesName + "$$$");
-
-		if (QuesName.equals(ExcelQuesName)) {
-			System.out.println("Strings Matched");
+		if (e2.isDisplayed()) {
+			String QuesName = e2.getText();
+			System.out.println(QuesName + ": GuestPrefQues created");
 			return true;
-		} else {
-			System.out.println("Strings UnMatched after deletion");
-			return false;
 
-		}
+		} else
+			return false;
 	}
 	
+	
 	public boolean verifyGuestPrefQuesName_tc02() throws Exception {
-		String QuesName = driver.findElement(By.xpath("//*[@id='dataTable']/tbody/tr[last()]/td[2]")).getText();
-		QuesName = QuesName.replaceAll("\\s+", "");
-		System.out.println(QuesName + "####");
-
-		String ExcelQuesName = e.getCellData("GuestPrefQuesData", "Question_TC_02", 2);
-		ExcelQuesName = ExcelQuesName.replaceAll("\\s+", "");
-
-		System.out.println(ExcelQuesName + "$$$");
-
-		if (QuesName.equals(ExcelQuesName)) {
-			System.out.println("Strings Matched");
+		if (e2.isDisplayed()) {
+			String QuesName = e2.getText();
+			System.out.println(QuesName + ": GuestPrefQues created");
 			return true;
-		} else {
-			System.out.println("Strings UnMatched after deletion");
-			return false;
 
-		}
+		} else
+			return false;
 	}
+	
 
 	public boolean verifyGuestPrefQuesName_tc03() throws Exception {
-		String QuesName = driver.findElement(By.xpath("//*[@id='dataTable']/tbody/tr[last()]/td[2]")).getText();
-		QuesName = QuesName.replaceAll("\\s+", "");
-		System.out.println(QuesName + "####");
-
-		String ExcelQuesName = e.getCellData("GuestPrefQuesData", "Question_TC_03", 2);
-		ExcelQuesName = ExcelQuesName.replaceAll("\\s+", "");
-
-		System.out.println(ExcelQuesName + "$$$");
-
-		if (QuesName.equals(ExcelQuesName)) {
-			System.out.println("Strings Matched");
+		if (e2.isDisplayed()) {
+			String QuesName = e2.getText();
+			System.out.println(QuesName + ": GuestPrefQues created");
 			return true;
-		} else {
-			System.out.println("Strings UnMatched after deletion");
-			return false;
 
-		}
+		} else
+			return false;
+	}
+	
+	public boolean verifyGuestPrefQuesName_Delete() throws Exception {
+		if (e3.isDisplayed()) {
+			System.out.println("Guest Preference Question is Deleted");
+			return true;
+		} else
+			return false;
 	}
 	
 	
@@ -283,5 +269,4 @@ public class GuestPreferenceQuestionsPage extends AbstractBasePage {
 
 		}
 	}
-
 }
