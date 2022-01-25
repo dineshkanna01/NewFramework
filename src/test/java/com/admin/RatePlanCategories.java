@@ -21,25 +21,25 @@ import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import logfile.Utilitylog;
 
+/*
+ * Test class for Rate plan categories
+ * @author Rudraksh Aggarwal
+ */
 public class RatePlanCategories extends TestBase{
-
-
 	public static Utilitylog logger;
-
-	public RatePlanCategories() {
-		super();
-		logger = new Utilitylog(RatePlanCategories.class.getName());
-	}
 
 	// objects
 	LoginPage lp;
 	AdministratorHomePage ahp;
 	RatePlanCategoriesPage rcp;
 
-
+	public RatePlanCategories() {
+		super();
+		logger = new Utilitylog(RatePlanCategories.class.getName());
+	}
 
 	@BeforeMethod
-	public void setup() throws Exception {
+	public void setup()  {
 		lp = new LoginPage(getDriver());
 		ahp = new AdministratorHomePage(getDriver());
 		rcp = new RatePlanCategoriesPage(getDriver());
@@ -52,8 +52,8 @@ public class RatePlanCategories extends TestBase{
 	@Feature("Feature1:RatePlan Categories")
 	@Story("RatePlan Categories Page")
 	@Step("Verify user is able to enable rate plan categories ")
-	public void RatePlanCategories_TC_01() throws Exception {
-		
+	public void RatePlanCategories_TC_01()  {
+
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("RatePlanCategories_TC_01");
 		lp.login();
@@ -90,7 +90,7 @@ public class RatePlanCategories extends TestBase{
 	@Feature("Feature1:RatePlan Categories")
 	@Story("RatePlan Categories Page")
 	@Step("Verify user is able to add and single Delete rate plan category")
-	public void RatePlanCategories_TC_02() throws Exception {
+	public void RatePlanCategories_TC_02()  {
 		extentTest = extent.startTest("RatePlanCategories_TC_02");
 		logger.info("TestCase Started");
 
@@ -131,7 +131,7 @@ public class RatePlanCategories extends TestBase{
 	@Feature("Feature1:RatePlan Categories")
 	@Story("RatePlan Categories Page")
 	@Step("Verify user is able to add and multiple Delete rate plan categories")
-	public void RatePlanCategories_TC_03() throws Exception {
+	public void RatePlanCategories_TC_03()  {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("RatePlanCategories_TC_03");
 
@@ -173,7 +173,7 @@ public class RatePlanCategories extends TestBase{
 		screenShot("Category Deleted");
 
 		Assert.assertTrue(rcp.verifyMessage());
-		
+
 		rcp.selectRadioButtonNo();
 		rcp.clickOnSave();
 		Assert.assertFalse(rcp.verifyAddNewCategory());
@@ -182,10 +182,14 @@ public class RatePlanCategories extends TestBase{
 		logger.info("TestCase Ended");
 	}
 
-
 	@AfterSuite
-	public void report() throws Exception {
-		mail();
+	public void report()  {
+		try {
+			mail();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		cmdPrompt();
 	}
 }

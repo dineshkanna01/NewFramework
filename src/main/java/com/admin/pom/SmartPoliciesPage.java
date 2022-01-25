@@ -12,9 +12,36 @@ import Utility.ExcelData;
 import base.TestBase;
 import pages.AbstractBasePage;
 
+/*
+ * Pom class for Smart Policies
+ * @author Rudraksh Aggarwal
+ */
 public class SmartPoliciesPage extends AbstractBasePage{
-	
 	ExcelData e = new ExcelData();
+
+	@FindBy(xpath = "//*[@name='name']")
+	WebElement inputPolicyName;
+
+	@FindBy(xpath = "//*[@name='defaultPolicyId']")
+	WebElement categoryDropdown;
+
+	@FindBy(xpath = "//*[@value='Save']")
+	WebElement saveButton;
+
+	@FindBy(xpath = "//*[@value='Cancel']")
+	WebElement cancelButton;
+
+	@FindBy(xpath = "((//*[@name='policyIdCheckbox'])[last()]/following::td)[1]")
+	WebElement policyNameVerify;
+
+	@FindBy(xpath = "(//*[@name='policyIdCheckbox'])[last()]")
+	WebElement policyNameCheckbox;
+
+	@FindBy(xpath = "//*[@value='Delete']")
+	WebElement deleteButton;
+
+	@FindBy(xpath = "//font[text()=' Smart Policies not found']")
+	WebElement e3;
 
 	public SmartPoliciesPage(WebDriver driver) {
 		super(driver);
@@ -25,148 +52,126 @@ public class SmartPoliciesPage extends AbstractBasePage{
 		return driver.getTitle();
 	}
 
-	@FindBy(xpath = "//*[@name='name']")
-	WebElement inputPolicyName;
-	
-	@FindBy(xpath = "//*[@name='defaultPolicyId']")
-	WebElement categoryDropdown;
-	
-	@FindBy(xpath = "//*[@value='Save']")
-	WebElement saveButton;
-	
+	/*
+	 * Method to select category
+	 *
+	 */
+	public SmartPoliciesPage selectCategoryFromDropdown() {
 
-	@FindBy(xpath = "//*[@value='Cancel']")
-	WebElement cancelButton;
-	
-	@FindBy(xpath = "((//*[@name='policyIdCheckbox'])[last()]/following::td)[1]")
-	WebElement policyNameVerify;
-	
-
-	@FindBy(xpath = "(//*[@name='policyIdCheckbox'])[last()]")
-	WebElement policyNameCheckbox;
-	
-	@FindBy(xpath = "//*[@value='Delete']")
-	WebElement deleteButton;
-	
-	public SmartPoliciesPage selectCategoryFromDropdown() throws InterruptedException {
-		
 		Select dropdown = new Select(categoryDropdown);
 		dropdown.selectByVisibleText("Default Property 24-Hour-Cancel Policy");
 		TestBase.implict(1);
 
 		return null;
-		
+
 	}
 
-	public SmartPoliciesPage clickOnSave() throws InterruptedException {
+	/*
+	 * Method to click save button
+	 *
+	 */
+	public SmartPoliciesPage clickOnSave() {
 		saveButton.click();
 		TestBase.implict(3);
 
 		return null;
 	}
-	
-	public SmartPoliciesPage inputTextFieldsSmartPoliciesTc01() throws Exception {
+
+	/*
+	 * Method to input field TC01
+	 *
+	 */
+	public SmartPoliciesPage inputTextFieldsSmartPoliciesTc01() {
 		inputPolicyName.sendKeys(e.getCellData("SmartPoliciesData", "SmartPolicyNameTC01", 2));
 		TestBase.implict(1);
 
 		return null;
 	}
-	
-	public SmartPoliciesPage clickOnCancel() throws InterruptedException {
+
+	/*
+	 * Method to click cancel button
+	 *
+	 */
+	public SmartPoliciesPage clickOnCancel() {
 		cancelButton.click();
 		TestBase.implict(3);
 
 		return null;
 	}
-	
-	
-	public boolean verifySmartPolicyName_tc01() throws Exception {
 
-		String PolicyName = policyNameVerify.getText();
-		PolicyName = PolicyName.replaceAll("\\s+", "");
-		System.out.println(PolicyName + "####");
+	/*
+	 * Method to verify created policy name
+	 * 
+	 * @return boolean value
+	 *
+	 */
+	public boolean verifySmartPolicyName() {
 
-		String ExcelPolicyName = e.getCellData("SmartPoliciesData", "SmartPolicyNameTC01", 2);
-		ExcelPolicyName = ExcelPolicyName.replaceAll("\\s+", "");
-
-		System.out.println(ExcelPolicyName + "$$$");
-
-		if (PolicyName.equals(ExcelPolicyName)) {
-			System.out.println("Smart Policy Created");
+		if (policyNameVerify.isDisplayed()) {
+			String SmartPolicyName = policyNameVerify.getText();
+			System.out.println(SmartPolicyName + ": SmartPolicy created");
 			return true;
-		} else {
-			System.out.println("Smart Policy not found after deletion");
-			return false;
 
-		}
+		} else
+			return false;
 	}
-	
-	public SmartPoliciesPage deleteSmartPolicies() throws Exception {
+
+	/*
+	 * Method to verify deleted policy
+	 * 
+	 * @return boolean value
+	 *
+	 */
+	public boolean verifySmartPolicyName_Delete() {
+		if (e3.isDisplayed()) {
+			System.out.println("Add-On is Deleted");
+			return true;
+		} else
+			return false;
+	}
+
+	/*
+	 * Method to delete policy
+	 *
+	 */
+	public SmartPoliciesPage deleteSmartPolicies() {
 		policyNameCheckbox.click();
-		Thread.sleep(1000);
+		TestBase.implict(1);
 		deleteButton.click();
-		Thread.sleep(1000);
-		
-		Alert alert = driver.switchTo().alert();		
-        alert.accept();	
-        Thread.sleep(3000);
+		TestBase.implict(1);
+
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
+		TestBase.implict(3);
 		return null;
 	}
-	
-	
-	public SmartPoliciesPage inputTextFieldsSmartPoliciesTc02() throws Exception {
+
+	/*
+	 * Method to input field TC02
+	 *
+	 */
+	public SmartPoliciesPage inputTextFieldsSmartPoliciesTc02() {
 		inputPolicyName.sendKeys(e.getCellData("SmartPoliciesData", "SmartPolicyNameTC02", 2));
 		TestBase.implict(1);
 		return null;
 	}
-	public boolean verifySmartPolicyName_tc02() throws Exception {
 
-		String PolicyName = policyNameVerify.getText();
-		PolicyName = PolicyName.replaceAll("\\s+", "");
-		System.out.println(PolicyName + "####");
-
-		String ExcelPolicyName = e.getCellData("SmartPoliciesData", "SmartPolicyNameTC02", 2);
-		ExcelPolicyName = ExcelPolicyName.replaceAll("\\s+", "");
-
-		System.out.println(ExcelPolicyName + "$$$");
-
-		if (PolicyName.equals(ExcelPolicyName)) {
-			System.out.println("Smart Policy Created");
-			return true;
-		} else {
-			System.out.println("Smart Policy not found after deletion");
-			return false;
-
-		}
-	}
-	
-	public SmartPoliciesPage inputTextFieldsSmartPoliciesTc03() throws Exception {
+	/*
+	 * Method to input field TC03
+	 *
+	 */
+	public SmartPoliciesPage inputTextFieldsSmartPoliciesTc03() {
 		inputPolicyName.sendKeys(e.getCellData("SmartPoliciesData", "SmartPolicyNameTC03", 2));
 		TestBase.implict(1);
 		return null;
 	}
-	public boolean verifySmartPolicyName_tc03() throws Exception {
 
-		String PolicyName = policyNameVerify.getText();
-		PolicyName = PolicyName.replaceAll("\\s+", "");
-		System.out.println(PolicyName + "####");
-
-		String ExcelPolicyName = e.getCellData("SmartPoliciesData", "SmartPolicyNameTC03", 2);
-		ExcelPolicyName = ExcelPolicyName.replaceAll("\\s+", "");
-
-		System.out.println(ExcelPolicyName + "$$$");
-
-		if (PolicyName.equals(ExcelPolicyName)) {
-			System.out.println("Smart Policy Created");
-			return true;
-		} else {
-			System.out.println("Smart Policy not found after deletion");
-			return false;
-
-		}
-	}
-	
-	public boolean verifyDuplicateErrorMessage_tc03() throws Exception {
+	/*
+	 * Method to verify duplicate error message
+	 * 
+	 * @return boolean value
+	 */
+	public boolean verifyDuplicateErrorMessage_tc03() {
 
 		String Duplicate = driver.findElement(By.xpath("//*[@id='nameselectedwarning']")).getText();
 		Duplicate = Duplicate.replaceAll("\\s+", "");
@@ -178,10 +183,9 @@ public class SmartPoliciesPage extends AbstractBasePage{
 		System.out.println(error + "$$$");
 
 		if (Duplicate.equals(error)) {
-			System.out.println("error- Duplicate Code");	
+			System.out.println("error- Duplicate Code");
 		}
 		return true;
 
 	}
-
 }

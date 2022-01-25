@@ -12,17 +12,12 @@ import Utility.ExcelData;
 import base.TestBase;
 import pages.AbstractBasePage;
 
+/*
+ * Pom class for Add-Ons
+ * @author Rudraksh Aggarwal
+ */
 public class AddOnsPage extends AbstractBasePage {
 	ExcelData e = new ExcelData();
-
-	public AddOnsPage(WebDriver driver) {
-		super(driver);
-		PageFactory.initElements(driver, this);
-	}
-
-	public String UrlTilte() {
-		return driver.getTitle();
-	}
 
 	@FindBy(xpath = "//input[@name='name']")
 	WebElement nameTextField;
@@ -62,11 +57,23 @@ public class AddOnsPage extends AbstractBasePage {
 
 	@FindBy(xpath = "//li[text()='No Add On available ']")
 	WebElement e3;
-	
+
 	@FindBy(xpath = "//*[@value='Cancel']")
 	WebElement cancelButton;
 
-	public AddOnsPage inputTextFieldsAddOnsTc01() throws Exception {
+	public AddOnsPage(WebDriver driver) {
+		super(driver);
+		PageFactory.initElements(driver, this);
+	}
+
+	public String UrlTilte() {
+		return driver.getTitle();
+	}
+
+	/*
+	 * Method to input data in fields for TC01
+	 */
+	public AddOnsPage inputTextFieldsAddOnsTc01() {
 		nameTextField.click();
 
 		nameTextField.sendKeys(e.getCellData("AddOnsData", "Name_TC01", 2));
@@ -83,7 +90,10 @@ public class AddOnsPage extends AbstractBasePage {
 		return null;
 	}
 
-	public AddOnsPage inputTextFieldsAddOnsTc02() throws Exception {
+	/*
+	 * Method to input data in fields for TC02
+	 */
+	public AddOnsPage inputTextFieldsAddOnsTc02() {
 		nameTextField.click();
 
 		nameTextField.sendKeys(e.getCellData("AddOnsData", "Name_TC02", 2));
@@ -101,7 +111,10 @@ public class AddOnsPage extends AbstractBasePage {
 		return null;
 	}
 
-	public AddOnsPage inputTextFieldsAddOnsTc03() throws Exception {
+	/*
+	 * Method to input data in fields for TC03
+	 */
+	public AddOnsPage inputTextFieldsAddOnsTc03() {
 		nameTextField.click();
 
 		nameTextField.sendKeys(e.getCellData("AddOnsData", "Name_TC03", 2));
@@ -119,7 +132,10 @@ public class AddOnsPage extends AbstractBasePage {
 		return null;
 	}
 
-	public AddOnsPage inputTextFieldsAddOnsRatePlan() throws Exception {
+	/*
+	 * Method to input data for creating AddOn to be included in rate plan
+	 */
+	public AddOnsPage inputTextFieldsAddOnsRatePlan() {
 		nameTextField.click();
 
 		nameTextField.sendKeys(e.getCellData("AddOnsData", "Name_TC02", 2));
@@ -141,14 +157,21 @@ public class AddOnsPage extends AbstractBasePage {
 		return null;
 	}
 
-	public AddOnsPage clickOnSave() throws InterruptedException {
+	/*
+	 * Method to click on Save of AddOn
+	 */
+	public AddOnsPage clickOnSave() {
 		savebutton.click();
 		TestBase.implict(4);
 
 		return null;
 	}
 
-	public boolean verifyAddOnName_tc01() throws Exception {
+	/*
+	 * Method to Verify the created AddOn
+	 * @return boolean value
+	 */
+	public boolean verifyAddOnName() {
 
 		if (e2.isDisplayed()) {
 			String AddOnName = e2.getText();
@@ -159,27 +182,11 @@ public class AddOnsPage extends AbstractBasePage {
 			return false;
 	}
 
-	public boolean verifyAddOnName_tc02() throws Exception {
-		if (e2.isDisplayed()) {
-			String AddOnName = e2.getText();
-			System.out.println(AddOnName + ": AddOn created");
-			return true;
-
-		} else
-			return false;
-	}
-
-	public boolean verifyAddOnName_tc03() throws Exception {
-		if (e2.isDisplayed()) {
-			String AddOnName = e2.getText();
-			System.out.println(AddOnName + ": AddOn created");
-			return true;
-
-		} else
-			return false;
-	}
-
-	public boolean verifyAddOnName_Delete() throws Exception {
+	/*
+	 * Method to Verify the deleted AddOn
+	 * @return boolean value
+	 */
+	public boolean verifyAddOnName_Delete() {
 		if (e3.isDisplayed()) {
 			System.out.println("Add-On is Deleted");
 			return true;
@@ -187,26 +194,38 @@ public class AddOnsPage extends AbstractBasePage {
 			return false;
 	}
 
-
-	public AddOnsPage clickOnCheckbox() throws InterruptedException {
+	/*
+	 * Method to select the AddOn
+	 */
+	public AddOnsPage clickOnCheckbox() {
 		selectCheckbox.click();
 		TestBase.implict(2);
 		return null;
 	}
 
-	public AddOnsPage clickOnDelete() throws InterruptedException {
+	/*
+	 * Method to click on Delete button
+	 */
+	public AddOnsPage clickOnDelete() {
 		deleteButton.click();
 		TestBase.implict(2);
 		return null;
 	}
 
-	public AddOnsPage clickOnYes() throws InterruptedException {
+	/*
+	 * Method to click on Yes button
+	 */
+	public AddOnsPage clickOnYes() {
 		yesButton.click();
 		TestBase.implict(2);
 		return null;
 	}
 
-	public boolean verifyDuplicate_tc03() throws Exception {
+	/*
+	 * Method to verify the Duplicate error message
+	 * @return boolean value
+	 */
+	public boolean verifyDuplicate_tc03() {
 
 		String Duplicate = driver.findElement(By.xpath("//*[text()='Duplicate Code']")).getText();
 		Duplicate = Duplicate.replaceAll("\\s+", "");
@@ -224,7 +243,10 @@ public class AddOnsPage extends AbstractBasePage {
 
 	}
 
-	public AddOnsPage clickOnCancel() throws InterruptedException {
+	/*
+	 * Method to click on Cancel button
+	 */
+	public AddOnsPage clickOnCancel() {
 		cancelButton.click();
 		driver.findElement(By.xpath("//*[@id='7']/li[1]/a")).click();
 		TestBase.implict(3);

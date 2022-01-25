@@ -3,6 +3,7 @@ package Utility;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -19,14 +20,20 @@ import org.jsoup.helper.DataUtil;
 
 public class ExcelUtility {
 	
-	public static List<Map<String, String>>  getTestData() throws Exception {
+	public static List<Map<String, String>>  getTestData() {
 		List<Map<String, String>> testDataAllRows=null;
 		Map<String, String> testData=null;
 //		String data;
 //		String cellValue;
 		try {
 			FileInputStream fileInputStream=new FileInputStream("C:\\Users\\Dinesh.Kanna\\eclipse-workspace\\FrameworkIGT\\Excel\\Data.xlsx");
-			Workbook workbook=new XSSFWorkbook(fileInputStream);
+			Workbook workbook = null;
+			try {
+				workbook = new XSSFWorkbook(fileInputStream);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			Sheet sheet=workbook.getSheet("Sheet1");
 			int lastRowNum = sheet.getLastRowNum();
 			int lastColNum = sheet.getRow(0).getLastCellNum();

@@ -25,19 +25,23 @@ import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import logfile.Utilitylog;
 
+/*
+ *Test class for Guest Preference Questions
+ * @author Rudraksh Aggarwal
+ */
 public class Guest_Preferences_Questions extends TestBase {
 
 	public static Utilitylog logger;
-
-	public Guest_Preferences_Questions() {
-		super();
-		logger = new Utilitylog(Guest_Preferences_Questions.class.getName());
-	}
 
 	// objects
 	LoginPage lp;
 	AdministratorHomePage ahp;
 	GuestPreferenceQuestionsPage gpp;
+
+	public Guest_Preferences_Questions() {
+		super();
+		logger = new Utilitylog(Guest_Preferences_Questions.class.getName());
+	}
 
 	@BeforeMethod
 	public void setup() {
@@ -54,7 +58,7 @@ public class Guest_Preferences_Questions extends TestBase {
 	@Feature("Feature1:GuestPreferenceQuestions")
 	@Story("GuestPreferenceQuestions Page")
 	@Step("Verify that the user is able to add Guest Preference Questions")
-	public void GuestPreferencesQuestions_01() throws Exception {
+	public void GuestPreferencesQuestions_01() {
 
 		extentTest = extent.startTest("GuestPreferencesQuestions_01");
 		logger.info("TestCase Started");
@@ -84,7 +88,7 @@ public class Guest_Preferences_Questions extends TestBase {
 		allureScreenshot("Guest preference question created");
 		screenShot("Guest preference question created");
 
-		Assert.assertTrue(gpp.verifyGuestPrefQuesName_tc01());
+		Assert.assertTrue(gpp.verifyGuestPrefQuesName());
 
 		gpp.clickOnDelete();
 		gpp.clickOnOK();
@@ -103,7 +107,7 @@ public class Guest_Preferences_Questions extends TestBase {
 	@Feature("Feature1:GuestPreferenceQuestions")
 	@Story("GuestPreferenceQuestions Page")
 	@Step("Verify that the user is able to add Guest Preference Questions")
-	public void GuestPreferencesQuestions_02() throws Exception {
+	public void GuestPreferencesQuestions_02() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("GuestPreferencesQuestions_02");
 
@@ -132,7 +136,7 @@ public class Guest_Preferences_Questions extends TestBase {
 		allureScreenshot("Guest preference question created");
 		screenShot("Guest preference question created");
 
-		Assert.assertTrue(gpp.verifyGuestPrefQuesName_tc02());
+		Assert.assertTrue(gpp.verifyGuestPrefQuesName());
 
 		gpp.clickOnDelete();
 		gpp.clickOnOK();
@@ -150,7 +154,7 @@ public class Guest_Preferences_Questions extends TestBase {
 	@Feature("Feature1:GuestPreferenceQuestions")
 	@Story("GuestPreferenceQuestions Page")
 	@Step("Verify that the user is able to add Guest Preference Questions")
-	public void GuestPreferencesQuestions_03() throws Exception {
+	public void GuestPreferencesQuestions_03() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("GuestPreferencesQuestions_03");
 
@@ -183,7 +187,7 @@ public class Guest_Preferences_Questions extends TestBase {
 		allureScreenshot("Guest preference question created");
 		screenShot("Guest preference question created");
 
-		Assert.assertTrue(gpp.verifyGuestPrefQuesName_tc03());
+		Assert.assertTrue(gpp.verifyGuestPrefQuesName());
 
 		gpp.clickOnDelete();
 		gpp.clickOnOK();
@@ -200,7 +204,7 @@ public class Guest_Preferences_Questions extends TestBase {
 	@Feature("Feature1:GuestPreferenceQuestions")
 	@Story("GuestPreferenceQuestions Page")
 	@Step("Verify that the user is able to add Guest Preference Questions")
-	public void GuestPreferencesQuestions_04() throws Exception {
+	public void GuestPreferencesQuestions_04() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("GuestPreferencesQuestions_04");
 
@@ -227,7 +231,7 @@ public class Guest_Preferences_Questions extends TestBase {
 		allureScreenshot("Guest preference question created");
 		screenShot("Guest preference question created");
 
-		Assert.assertTrue(gpp.verifyGuestPrefQuesName_tc01());
+		Assert.assertTrue(gpp.verifyGuestPrefQuesName());
 
 		gpp.clickOnDelete();
 		gpp.clickOnOK();
@@ -247,7 +251,7 @@ public class Guest_Preferences_Questions extends TestBase {
 	@Feature("Feature1:GuestPreferenceQuestions")
 	@Story("GuestPreferenceQuestions Page")
 	@Step("Verify that the user is able to add Guest Preference Questions")
-	public void GuestPreferencesQuestions_05() throws Exception {
+	public void GuestPreferencesQuestions_05() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("GuestPreferencesQuestions_05");
 
@@ -292,9 +296,12 @@ public class Guest_Preferences_Questions extends TestBase {
 	}
 
 	@AfterSuite
-	public void report() throws Exception {
-		mail();
+	public void report() {
+		try {
+			mail();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		cmdPrompt();
 	}
-
 }

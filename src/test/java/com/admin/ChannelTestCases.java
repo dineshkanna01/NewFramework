@@ -21,19 +21,22 @@ import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import logfile.Utilitylog;
 
+/*
+* Test class for Channel creation
+* @Author : UzairAsar
+*/
 public class ChannelTestCases extends TestBase{
-
 	public static Utilitylog logger;
-	public ChannelTestCases() {
-		super();
-		logger = new Utilitylog(ChannelTestCases.class.getName());
-	}
-	
 	LoginPage lp;
 	BrandPage bp;
 	PropertyBrandingPage pbp;
 	ChannelPage cp;
 	
+	public ChannelTestCases() {
+		super();
+		logger = new Utilitylog(ChannelTestCases.class.getName());
+	}
+
 	@BeforeMethod
 	public void setup() {
 		lp = new LoginPage(getDriver());
@@ -49,7 +52,7 @@ public class ChannelTestCases extends TestBase{
 	@Feature("Feature1: New  GDS Added")
 	@Story("Story: GDS Channel Created and Deleted")
 	@Step("Verify GDS Channel Created")
-	public void Admin_Channel_TC_01() throws Throwable {
+	public void Admin_Channel_TC_01(){
 		extentTest = extent.startTest("Admin_Channel_TC_01");
 		
 		lp.clearButton();
@@ -109,7 +112,7 @@ public class ChannelTestCases extends TestBase{
 	@Feature("Feature1: New  PMS Added")
 	@Story("Story: PMS Channel Created and Deleted")
 	@Step("Verify PMS Channel Created")
-	public void Admin_Channel_TC_02() throws Throwable {
+	public void Admin_Channel_TC_02(){
 		extentTest = extent.startTest("Admin_Channel_TC_02");
 		
 		cp.openPropertyTab();
@@ -157,7 +160,7 @@ public class ChannelTestCases extends TestBase{
 	@Feature("Feature1: New PMS not Added")
 	@Story("Story: PMS Channel not Created")
 	@Step("Verify PMS Channel not Created due to blank URI")
-	public void Admin_Channel_TC_03() throws Throwable {
+	public void Admin_Channel_TC_03() {
 		extentTest = extent.startTest("Admin_Channel_TC_03");
 		
 		cp.openPropertyTab();
@@ -190,7 +193,7 @@ public class ChannelTestCases extends TestBase{
 	@Feature("Feature1: New PMS not Added")
 	@Story("Story: PMS Channel not Created")
 	@Step("Verify PMS Channel not Created due to blank Retry Interva")
-	public void Admin_Channel_TC_04() throws Throwable {
+	public void Admin_Channel_TC_04(){
 		extentTest = extent.startTest("Admin_Channel_TC_04");
 		
 		cp.openPropertyTab();
@@ -223,7 +226,7 @@ public class ChannelTestCases extends TestBase{
 	@Feature("Feature1: New PMS not Added")
 	@Story("Story: PMS Channel not Created")
 	@Step("Verify PMS Channel not Created due to blank Retry Interva")
-	public void Admin_Channel_TC_05() throws Throwable {
+	public void Admin_Channel_TC_05(){
 		extentTest = extent.startTest("Admin_Channel_TC_05");
 		
 		cp.openPropertyTab();

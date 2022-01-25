@@ -9,18 +9,14 @@ import Utility.ExcelData;
 import base.TestBase;
 import pages.AbstractBasePage;
 
+/*
+* POM class to login to AdminPortal
+* @Author Uzair Asar
+*/
 public class LoginPage extends AbstractBasePage{
 
 	ExcelData e = new ExcelData();
 
-	public LoginPage(WebDriver driver) {
-		super(driver);
-		PageFactory.initElements(driver, this);
-	}
-
-	public String UrlTilte() {
-		return driver.getTitle();
-	}
 	@FindBy(xpath="//input[@name='j_username']")
 	WebElement username;
 	@FindBy(xpath="//input[@name='j_password']")
@@ -72,12 +68,21 @@ public class LoginPage extends AbstractBasePage{
 	@FindBy(xpath = "//a[text()='Return Home']")
 	WebElement returnLoginPage2;
 
-	public LoginPage login() throws Exception {
-		Thread.sleep(3000);
+	public LoginPage(WebDriver driver) {
+		super(driver);
+		PageFactory.initElements(driver, this);
+	}
+
+	public String UrlTilte() {
+		return driver.getTitle();
+	}
+	
+	public LoginPage login() {
+		TestBase.implict(6);
 		username.click();
 		username.clear();;
 		username.sendKeys(e.getCellData("LoginPageData", "Username", 2));
-		Thread.sleep(3000);
+		TestBase.implict(6);
 		password.click();
 		password.clear();
 		password.sendKeys(e.getCellData("LoginPageData", "Password", 2));
@@ -86,28 +91,49 @@ public class LoginPage extends AbstractBasePage{
 		return null;
 	}
 
-	public LoginPage username() throws Exception {
-		TestBase.implict(3);
+	/*
+	 * Method to provide user name to the login
+	 */
+
+	public LoginPage username() {
+		TestBase.implict(6);
+		username.click();
+		username.clear();
 		username.sendKeys(e.getCellData("LoginPageData", "Username", 2));
 		TestBase.implict(3);
 		return null;
 	}
 
-	public LoginPage password() throws Exception {
+	/*
+	 * Method to provide password to the login
+	 */
+
+	public LoginPage password() {
+		TestBase.implict(6);
+		password.click();
+		password.clear();
 		TestBase.implict(3);
 		password.sendKeys(e.getCellData("LoginPageData", "Password", 2));
 		TestBase.implict(3);
 		return null;
 	}
 
-	public LoginPage loginButton() throws Exception {
+	/*
+	 * Method to click on loginButton
+	 */
+
+	public LoginPage loginButton() {
 		TestBase.implict(3);
 		loginButton.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public LoginPage twoFactorAuthentication() throws Exception {
+	/*
+	 * 2FA
+	 */
+
+	public LoginPage twoFactorAuthentication() {
 		nextButton.click();
 
 		TestBase.implict(3);
@@ -117,14 +143,22 @@ public class LoginPage extends AbstractBasePage{
 		return null;
 	}
 
-	public String verifyLogin() throws Exception {
+	/*
+	 * Method to verify successfully login
+	 * returns string s
+	 */
+
+	public String verifyLogin() {
 		TestBase.implict(3);
 		String s = header1.getText();
 		return s;
 	}
 
-	public LoginPage clearButton() throws Exception {
-//		Thread.sleep(2000);
+	/*
+	 * Method to clear user name and password fields
+	 */
+
+	public LoginPage clearButton() {
 		TestBase.implict(3);
 		clearButton.click();
 		TestBase.implict(3);
@@ -133,6 +167,11 @@ public class LoginPage extends AbstractBasePage{
 
 	}
 
+	/*
+	 * Method to verify clear button is visible
+	 * returns string s
+	 */
+
 	public String verifyClearButton() {
 		TestBase.implict(3);
 		String clear = clearButton.getAttribute("value");
@@ -140,12 +179,15 @@ public class LoginPage extends AbstractBasePage{
 		return clear;
 	}
 
+	/*
+	 * Method to verify fields are cleared
+	 * return boolean value
+	 */
+
 	public boolean verifyFieldsCleared() {
 		TestBase.implict(3);
 		String pass = password.getAttribute("value");
 		String ele = username.getAttribute("value");
-//		System.out.println(ele);
-//		System.out.println(pass);
 		TestBase.implict(3);
 		if (ele.isEmpty() && pass.isEmpty()) {
 			System.out.println("Fields are cleared");
@@ -155,7 +197,11 @@ public class LoginPage extends AbstractBasePage{
 		return false;
 	}
 
-	public LoginPage forgotPassword() throws Exception {
+	/*
+	 * Method to click on Forgot password and generating new password
+	 */
+
+	public LoginPage forgotPassword() {
 		TestBase.implict(3);
 		forgotPassword.click();
 		TestBase.implict(3);
@@ -170,16 +216,25 @@ public class LoginPage extends AbstractBasePage{
 		return null;
 
 	}
-	
-	public LoginPage ReturnHome() throws Exception {
-		
+
+	/*
+	 * Method to return back to login page
+	 */
+
+	public LoginPage ReturnHome() {
+
 		returnLoginPage2.click();
 		TestBase.implict(3);
 
 		return null;
 
 	}
-	
+
+	/*
+	 * Method to verify password change request sent
+	 * returns string s
+	 */
+
 	public String verifyForgotPassword() {
 		TestBase.implict(3);
 		String s = forgotPasswordText.getText();
@@ -187,30 +242,61 @@ public class LoginPage extends AbstractBasePage{
 		return s;
 	}
 
-	public LoginPage invalidUserName() throws Exception {
-		TestBase.implict(3);
+	/*
+	 * Method to provide invalid user name
+	 */
+
+	public LoginPage invalidUserName() {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e1) {
+
+			e1.printStackTrace();
+		}
+		username.click();
+		username.clear();
 		username.sendKeys(e.getCellData("LoginPageData", "InvalidUserName", 2));
 		TestBase.implict(3);
 		return null;
 
 	}
 
-	public String verifyLoginNotSuccess() throws Exception {
+	/*
+	 * Method verify user can't login with invalid user name and invalid password
+	 * returns string s
+	 */
+
+	public String verifyLoginNotSuccess() {
 		TestBase.implict(3);
 		String s = header3.getText();
 		return s;
 	}
 
-	public LoginPage invalidPassword() throws Exception {
-		
-		TestBase.implict(3);
+	/*
+	 * Method to provide invalid password
+	 */
+
+	public LoginPage invalidPassword() {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e1) {
+
+			e1.printStackTrace();
+		}
+		password.click();
+		password.clear();
+
 		password.sendKeys(e.getCellData("LoginPageData", "InvalidPassword", 2));
 		return null;
 
 	}
 
-	public LoginPage logout() throws InterruptedException {
-		Thread.sleep(3000);
+	/*
+	 * Method to logout after login
+	 */
+
+	public LoginPage logout() {
+		TestBase.implict(3);
 		myAccount.click();
 		logoutButton.click();
 		driver.close();

@@ -20,35 +20,36 @@ import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import logfile.Utilitylog;
 
+/*
+* Test class for Admin login
+* @Author : UzairAsar
+*/
 public class AdminLogin extends TestBase{
-	
 	public static Utilitylog logger;
-//	LoginPage lp = new LoginPage(getDriver());
+	LoginPage lp;
 
 	public AdminLogin() {
 		super();
 		logger = new Utilitylog(AdminLogin.class.getName());
 	}
-
-	LoginPage lp;
 	
 	@BeforeMethod
-	public void setup() throws Exception {
+	public void setup() throws Exception  {
 		lp = new LoginPage(getDriver());
 		lp.clearButton();
 	}
 
-//	@Test(priority = 1)
+	@Test(priority = 1)
 	@Description("Verify the Admin Login")
 	@Severity(SeverityLevel.CRITICAL)
 	@Epic("EP01")
 	@Feature("Feature1: Login")
 	@Story("Story: Admin Page Login")
 	@Step("Verify Admin Page Login Presence")
-	public void Admin_Login_TC_01() throws Exception {
+	public void Admin_Login_TC_01(){
 		extentTest = extent.startTest("Admin_Login_TC_01");
 		
-		lp.clearButton();
+//		lp.clearButton();
 		lp.username();
 		lp.password();
 		lp.loginButton();
@@ -71,7 +72,7 @@ public class AdminLogin extends TestBase{
 	@Feature("Feature1: Clear Username Password")
 	@Story("Story: Clear Fields")
 	@Step("Verify fields are being cleared")
-	public void Admin_Login_TC_02() throws Exception {
+	public void Admin_Login_TC_02(){
 		extentTest = extent.startTest("Admin_Login_TC_02");
 		
 		lp.clearButton();
@@ -101,7 +102,7 @@ public class AdminLogin extends TestBase{
 	@Feature("Feature1: Frogot Password")
 	@Story("Story: Change Password by Forgot Password")
 	@Step("Verify Forgot Password works")
-	public void Admin_Login_TC_03() throws Exception {
+	public void Admin_Login_TC_03(){
 		extentTest = extent.startTest("Admin_Login_TC_03");
 		
 		lp.clearButton();
@@ -114,7 +115,6 @@ public class AdminLogin extends TestBase{
 		Assert.assertEquals(ForgotPassSent, "A password request has been made.");
 		
 		lp.ReturnHome();
-//		lp.logout();
 	}
 
 	@Test(priority = 4)
@@ -124,7 +124,7 @@ public class AdminLogin extends TestBase{
 	@Feature("Feature1: Invalid User")
 	@Story("Story: Can't login")
 	@Step("Verify login won't happen")
-	public void Admin_Login_TC_04() throws Exception {
+	public void Admin_Login_TC_04(){
 		extentTest = extent.startTest("Admin_Login_TC_04");
 		
 //		lp.clearButton();
@@ -147,7 +147,7 @@ public class AdminLogin extends TestBase{
 	@Feature("Feature1: Invalid Password")
 	@Story("Story: Can't login")
 	@Step("Verify login won't happen")
-	public void Admin_Login_TC_05() throws Exception {
+	public void Admin_Login_TC_05(){
 		extentTest = extent.startTest("Admin_Login_TC_05");
 		
 //		lp.clearButton();
@@ -168,4 +168,5 @@ public class AdminLogin extends TestBase{
 		mail();
 		cmdPrompt();
 	}
+
 }

@@ -13,8 +13,11 @@ import Utility.ExcelData;
 import base.TestBase;
 import pages.AbstractBasePage;
 
+/*
+ * Pom class for Nearby Attraction Page
+ * @author Sudhakar Mourya
+ */
 public class NearbyAttractionPage extends AbstractBasePage {
-
 	ExcelData e = new ExcelData();
 
 	public NearbyAttractionPage(WebDriver driver) {
@@ -82,115 +85,181 @@ public class NearbyAttractionPage extends AbstractBasePage {
 	@FindBys(@FindBy(xpath="//table[@id='dataTable']//tr/td[2]"))
 	List<WebElement> allNearbyAttraction;
 
-
+/*
+ * Methd for click on add new
+ */
 	public NearbyAttractionPage clickAddNew() {
 		addNew.click();
 		return null;
 	}
 
+	/*
+	 * Methd for enter nearby attraction name
+	 */
 	public NearbyAttractionPage enterNearbyAttractionName(String attractionName){
 		name.sendKeys(attractionName);
 		return null;
 	}
 
-	public NearbyAttractionPage enterCategory1() throws Exception {
+	/*
+	 * Methd for enter category1
+	 */
+	public NearbyAttractionPage enterCategory1() {
 		category.sendKeys(e.getCellData("Sheet1","Category",2));
 		return null;
 	}
 
-	public NearbyAttractionPage enterCategory2() throws Exception {
+	/*
+	 * Methd for enter category2
+	 */
+	public NearbyAttractionPage enterCategory2() {
 		category.sendKeys(e.getCellData("Sheet1","Category",3));
 		return null;
 	}
 
+	/*
+	 * Methd for clear category
+	 */
 	public NearbyAttractionPage clearCategory() {
 		category.clear();
 		return null;
 	}
 
-	public NearbyAttractionPage enterDescription() throws Exception {
+	/*
+	 * Methd for enter description
+	 */
+	public NearbyAttractionPage enterDescription(){
 		description.sendKeys(e.getCellData("Sheet1","Description",2));
 		return null;
 	}
 
+	/*
+	 * Methd for select country
+	 */
 	public NearbyAttractionPage selectCountry(String CountryName) {
 		Select s=new Select(country);
 		s.selectByVisibleText(CountryName);
 		return null;
 	}
 
-	public NearbyAttractionPage enterAddress() throws Exception {
+	/*
+	 * Method for enter address
+	 */
+	public NearbyAttractionPage enterAddress(){
 		address.sendKeys(e.getCellData("Sheet1","Address",2));
 		return null;
 	}
 
-	public NearbyAttractionPage enterZipcode() throws Exception {
+	/*
+	 * Method for enter zipcode
+	 */
+	public NearbyAttractionPage enterZipcode(){
 		zipcode.sendKeys(e.getCellData("Sheet1","Zipcode",2));
 		return null;
 	}
 
-	public NearbyAttractionPage clickFindLat() throws InterruptedException {
+	/*
+	 * Method for click on findlat
+	 */
+	public NearbyAttractionPage clickFindLat() throws InterruptedException{
 		TestBase.implict(5);
 		findLat.click();
 		Thread.sleep(2000);
 		return null;
 	}
 
-	public NearbyAttractionPage clickSave() throws InterruptedException {
+	/*
+	 * Method for click on save button
+	 */
+	public NearbyAttractionPage clickSave(){
 		save.click();
 		TestBase.implict(5);
 		return null;
 	}
 
+	/*
+	 * Method for click on yes button
+	 */
 	public NearbyAttractionPage clickYes() {
 		yesButton.click();
 		return null;
 	}
 
+	/*
+	 * Method for click on edit button
+	 */
 	public NearbyAttractionPage clickEdit() {
 		edit.click();
 		return null;
 	}
 
+	/*
+	 * Method for click on delete button
+	 */
 	public NearbyAttractionPage clickDelete() {
 		delete.click();
 		return null;
 	}
 
+	/*
+	 * Method for click on checkbox1
+	 */
 	public NearbyAttractionPage clickCheckbox1() {
 		checkbox1.click();
 		return null;
 	}
 
+	/*
+	 * Method for click on checkbox2
+	 */
 	public NearbyAttractionPage clickCheckbox2() {
 		checkbox2.click();
 		return null;
 	}
 
+	/*
+	 * Method for click on checkbox3
+	 */
 	public NearbyAttractionPage clickCheckbox3() {
 		checkbox3.click();
 		return null;
 	}
 
+	/*
+	 * Method for click on checkbox4
+	 */
 	public NearbyAttractionPage clickCheckbox4() {
 		checkbox4.click();
 		return null;
 	}
 
+	/*
+	 * Method for click on last checkbox
+	 */
 	public NearbyAttractionPage clickLastCheckbox() {
 		lastCheckbox.click();
 		return null;
 	}
 
+	/*
+	 * Method for getting administrator name text
+	 * @return String administrator name
+	 */
 	public String nearbyAttraction()  {
 		return nearbyAttractionName.getText();
 	}
 
+	/*
+	 * Method for getting nearby category text
+	 * @return String category text
+	 */
 	public String nearbyCategory()  {
 		return nearbyAttractionCategory.getText();
 	}
 
-	
+	/*
+	 * Method for checking nearby attraction deleted
+	 */
 	public boolean checkNearByAttractionDeleted(String DeletedAttraction) {
 		int a=0;
 		for (WebElement SingleProp : allNearbyAttraction) {

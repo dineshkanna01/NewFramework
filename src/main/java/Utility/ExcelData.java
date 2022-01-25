@@ -2,6 +2,7 @@ package Utility;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,11 +21,16 @@ public class ExcelData {
 	XSSFRow row;
 	XSSFCell cell;
 	
-	public String getCellData(String sheetName, String colName, int rowNo) throws Exception {
+	public String getCellData(String sheetName, String colName, int rowNo) {
 		FileInputStream fileInputStream;
 		try {
 			fileInputStream = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\resources\\testData\\Admin_Data.xlsx");
-			workbook=new XSSFWorkbook(fileInputStream);
+			try {
+				workbook=new XSSFWorkbook(fileInputStream);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			int colNum=-1;
 			sheet=workbook.getSheet(sheetName);
 			row = sheet.getRow(0);

@@ -20,6 +20,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -62,6 +63,7 @@ import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailAttachment;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
@@ -75,7 +77,10 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -115,6 +120,11 @@ import io.restassured.specification.ResponseSpecification;
 
 import javax.net.ssl.*;
 
+/*
+ * This is a BaseClass for reusable code
+ * @Author : Dineshkanna
+ */
+
 public class TestBase {
 
 	public static ThreadLocal<WebDriver> tdriver= new ThreadLocal<WebDriver>();
@@ -126,6 +136,7 @@ public class TestBase {
 	public static ExtentReports extent;
 	public static ExtentTest extentTest;
 	
+//	Properties of url and file path of the location
 	public TestBase() {
 		
 		try {
@@ -139,6 +150,7 @@ public class TestBase {
 		}
 	}
 
+//	Method to initilize the browser based on the parameter set in the properties file - Booking Engine Url
 	public static void initilization() {
 		String browserName = prop.getProperty("browser");
 		if (browserName.equals("chrome")) {
@@ -162,6 +174,7 @@ public class TestBase {
 		getDriver().get(prop.getProperty("url"));
 	}
 	
+//	Method to initilize the browser based on the parameter set in the properties file - Admin Portal Url
 	public static void initilization_Admin() {
 		String browserName = prop.getProperty("browser");
 		if (browserName.equals("chrome")) {
@@ -197,6 +210,7 @@ public class TestBase {
 		getDriver().get(prop.getProperty("admin_url"));
 	}
 	
+//	Method to initilize the browser based on the parameter set in the properties file - Gmail Url
 	public static void initilization_Gmail() {
 		String browserName = prop.getProperty("browser");
 		if (browserName.equals("chrome")) {
@@ -230,6 +244,7 @@ public class TestBase {
 
 	}
 
+//	Initilize the Multibrowser for Booking engine Url
 	public static void initilizationmultibrowser(String browserName) {
 		if (browserName.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -248,6 +263,7 @@ public class TestBase {
 		getDriver().get("https://qatest1.qa-igt.reztrip3-qa.com/");
 	}
 
+//	It is used for Selenium Grid Hub and Host launch for multiple system
 	public static void setUp() {
 
 		if (portNo.equalsIgnoreCase("4455")) {
@@ -291,6 +307,7 @@ public class TestBase {
 		}
 	}
 
+//	Mobile responsive testing and it is for change dimension of width and heigth of the screen
 	public static void mobileTest(String emulation, int w, int h) throws Exception {
 
 		WebDriverManager.chromedriver().setup();
@@ -314,20 +331,29 @@ public class TestBase {
 
 	}
 
-	public static void screenShot(String fileName) throws Exception {
+//	Taking screenshot for method level of execution
+	public static void screenShot(String fileName) {
 		File file=((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
 
-		FileUtils.copyFile(file, new File(".//target//ScreenshotPath/"+fileName+".jpg"));
+		try {
+			FileUtils.copyFile(file, new File(".//target//ScreenshotPath/"+fileName+".jpg"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
+//	Waits
 	public static void implict(int num) {
 		getDriver().manage().timeouts().implicitlyWait(num, TimeUnit.SECONDS);
 	}
 
+//	Allure Report Screenshot
 	public void allureScreenshot(String screenshotName) {
 		Allure.addAttachment(screenshotName, new ByteArrayInputStream(((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES)));
 	}
 	
+//	Command prompt for Allure report
 	public static void cmdPrompt() {
 		String [] command = {"cmd"};
 		Process p;
@@ -351,6 +377,7 @@ public class TestBase {
 		}
 	}
 
+//	Automatic email generation 
 	public static void mail() throws Exception {
 
 		final String username = "dinesh.kanna@pegs.com";
@@ -411,6 +438,8 @@ public class TestBase {
 //		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 //		extent = new ExtentReports(System.getProperty("user.dir")+"/Html/ExtentReport.html", true);
 //	}
+	
+//	Report generation for Extend Report
 	public void generateReport() {
 
 		initilization_Admin();// for single time login and logout
@@ -430,6 +459,7 @@ public class TestBase {
 		extent.close();
 	}
 	
+//	Extend Report Screenshot for failedtestcases
 	public static String getScreenshot(WebDriver tdriver, String screenshotName) throws IOException{
 		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 		TakesScreenshot ts = (TakesScreenshot) tdriver;
@@ -472,7 +502,7 @@ public class TestBase {
 		
 	}
 
-
+//	JDBC connection
 	public static Connection con() {
 		try {
 			String JDBC_Driver = "com.mysql.jdbc.Driver";
@@ -521,8 +551,10 @@ public class TestBase {
 		return value;
 	}
 
+	
 	static String BASE_URL = ConfigManager.getInstance().getString("base_url");
 
+//	RestAssured for API Rest Calls
 	public static void TestResponse(String fileXmlName) throws Exception {
 
 		String path = "src/test/resources/xmlFiles/";
@@ -552,22 +584,7 @@ public class TestBase {
 	}
 
 
-	public static void postResp(String fileXmlName) throws Exception {
-
-		String path = "src/test/resources/xmlFiles/";
-		FileInputStream fi = new FileInputStream(path +fileXmlName+".xml");
-		RestAssured.baseURI=BASE_URL;
-		RestAssured.given()
-		.body(IOUtils.toString(fi,"UTF-8"))
-		.post()
-		.then()
-		.log()
-		.all()
-		.assertThat()
-		.statusCode(200);
-
-	}
-
+//	HTTPClient for API Rest Calls
 	public void otaHotelService(String xmlName) throws IOException {
 		
 		try {
@@ -642,5 +659,12 @@ public class TestBase {
 
 	public static WebDriver getDriver() {
 		return tdriver.get();
+	}
+	
+	public static void explicitWait() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				  .withTimeout(Duration.ofSeconds(30))
+				  .pollingEvery(Duration.ofSeconds(5))
+				  .ignoring(NoSuchElementException.class);
 	}
 }

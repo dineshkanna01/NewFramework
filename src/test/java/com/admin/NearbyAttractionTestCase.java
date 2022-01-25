@@ -13,8 +13,11 @@ import com.admin.pom.NearbyAttractionPage;
 import Utility.ExcelData;
 import base.TestBase;
 
+/*
+ * Test class for Nearby Attraction Page
+ * @author Sudhakar Mourya
+ */
 public class NearbyAttractionTestCase extends TestBase {
-
 	ExcelData e = new ExcelData();
 	LoginPage lp;
 	AdministratorHomePage ahp;
@@ -33,10 +36,18 @@ public class NearbyAttractionTestCase extends TestBase {
 		soft= new SoftAssert();
 	}
 
+	/*
+	 * Method for nearby attraction TC01
+	 */
 	@Test
-	public void nearbyAttraction_TC_01() throws Exception {
+	public void nearbyAttraction_TC_01(){
 		extentTest = extent.startTest("nearbyAttraction_TC_01");
-		lp.login();
+		try {
+			lp.login();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		ahp.selectBrand();
 		ahp.selectProperty();
 		ahp.clickPropertyManagementTab();
@@ -48,7 +59,12 @@ public class NearbyAttractionTestCase extends TestBase {
 		nap.selectCountry("India");
 		nap.enterAddress();
 		nap.enterZipcode();
-		nap.clickFindLat();
+		try {
+			nap.clickFindLat();
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		nap.clickSave();
 		String actText=nap.nearbyAttraction();
 		String expText=e.getCellData("Sheet1","attractionName",2);
@@ -56,8 +72,11 @@ public class NearbyAttractionTestCase extends TestBase {
 		soft.assertAll();
 	}
 
+	/*
+	 * Method for nearby attraction TC02
+	 */
 	@Test
-	public void nearbyAttraction_TC_02() throws Exception {
+	public void nearbyAttraction_TC_02(){
 		extentTest = extent.startTest("nearbyAttraction_TC_02");
 		nap.clickAddNew();
 		nap.enterNearbyAttractionName(e.getCellData("Sheet1","attractionName",3));
@@ -66,7 +85,12 @@ public class NearbyAttractionTestCase extends TestBase {
 		nap.selectCountry("India");
 		nap.enterAddress();
 		nap.enterZipcode();
-		nap.clickFindLat();
+		try {
+			nap.clickFindLat();
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		nap.clickSave();
 		nap.clickEdit();
 		nap.clearCategory();
@@ -78,8 +102,11 @@ public class NearbyAttractionTestCase extends TestBase {
 		soft.assertAll();
 	}
 
+	/*
+	 * Method for nearby attraction TC03
+	 */
 	@Test
-	public void nearbyAttraction_TC_03() throws Exception {
+	public void nearbyAttraction_TC_03(){
 		extentTest = extent.startTest("nearbyAttraction_TC_03");
 		nap.clickAddNew();
 		nap.enterNearbyAttractionName(e.getCellData("Sheet1","attractionName",4));
@@ -88,7 +115,12 @@ public class NearbyAttractionTestCase extends TestBase {
 		nap.selectCountry("India");
 		nap.enterAddress();
 		nap.enterZipcode();
-		nap.clickFindLat();
+		try {
+			nap.clickFindLat();
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		nap.clickSave();
 		nap.clickLastCheckbox();
 		nap.clickDelete();
@@ -97,8 +129,11 @@ public class NearbyAttractionTestCase extends TestBase {
 	    soft.assertAll();
 	}
 	
+	/*
+	 * Method for nearby attraction TC04
+	 */
 	@Test
-	public void nearbyAttraction_TC_04() throws Exception {
+	public void nearbyAttraction_TC_04(){
 		extentTest = extent.startTest("nearbyAttraction_TC_04");
 		nap.clickAddNew();
 		nap.enterNearbyAttractionName(e.getCellData("Sheet1","attractionName",5));
@@ -107,7 +142,12 @@ public class NearbyAttractionTestCase extends TestBase {
 		nap.selectCountry("India");
 		nap.enterAddress();
 		nap.enterZipcode();
-		nap.clickFindLat();
+		try {
+			nap.clickFindLat();
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		nap.clickSave();
 
 		nap.clickAddNew();
@@ -117,7 +157,12 @@ public class NearbyAttractionTestCase extends TestBase {
 		nap.selectCountry("India");
 		nap.enterAddress();
 		nap.enterZipcode();
-		nap.clickFindLat();
+		try {
+			nap.clickFindLat();
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		nap.clickSave();
 		nap.clickCheckbox3();
 		nap.clickCheckbox4();
@@ -126,7 +171,7 @@ public class NearbyAttractionTestCase extends TestBase {
 	    soft.assertTrue(nap.checkNearByAttractionDeleted(e.getCellData("Sheet1","attractionName",5)));
 	    soft.assertTrue(nap.checkNearByAttractionDeleted(e.getCellData("Sheet1","attractionName",6)));
 	    soft.assertAll();
-	    lp.logout();
+			lp.logout();
 	  }
 
 	
@@ -135,5 +180,4 @@ public class NearbyAttractionTestCase extends TestBase {
 		mail();
 		cmdPrompt();
 	}
-    
 }

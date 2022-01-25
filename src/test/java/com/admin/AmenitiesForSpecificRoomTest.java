@@ -12,8 +12,11 @@ import com.admin.pom.LoginPage;
 import Utility.ExcelData;
 import base.TestBase;
 
+/*
+ * Test class for Amenities For Specific Room
+ * @author Sudhakar Mourya
+ */
 public class AmenitiesForSpecificRoomTest extends TestBase {
-
 	ExcelData e = new ExcelData();
 	LoginPage lp;
 	AdministratorHomePage ahp;
@@ -32,10 +35,18 @@ public class AmenitiesForSpecificRoomTest extends TestBase {
 		soft= new SoftAssert();
 	}
 	
+	 /*
+	  * Method for amenities for specific room TC01
+	  */
 	    @Test
-		public void amenitiesForSpecificRoom_TC_01() throws Exception {
+		public void amenitiesForSpecificRoom_TC_01(){
 	    	extentTest = extent.startTest("amenitiesForSpecificRoom_TC_01");
-			lp.login();
+			try {
+				lp.login();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			ahp.selectBrand();
 			ahp.selectProperty();
 			ahp.clickPropertyManagementTab();	
@@ -48,8 +59,11 @@ public class AmenitiesForSpecificRoomTest extends TestBase {
 			soft.assertAll();	
 		}
 	
+	    /*
+		 * Method for amenities for specific room TC02
+		 */
 		@Test
-		public void amenitiesForSpecificRoom_TC_02() throws Exception {
+		public void amenitiesForSpecificRoom_TC_02(){
 			extentTest = extent.startTest("amenitiesForSpecificRoom_TC_02");
 			asr.clickOnAddAmenities();
 			asr.enterAmenitiesName(e.getCellData("Sheet1","amenitiesName",3));
@@ -59,8 +73,11 @@ public class AmenitiesForSpecificRoomTest extends TestBase {
 			soft.assertAll();	
 		}
 		
+		/*
+		 * Method for amenities for specific room TC03
+		 */
 		@Test
-		public void amenitiesForSpecificRoom_TC_03() throws Exception {
+		public void amenitiesForSpecificRoom_TC_03(){
 			extentTest = extent.startTest("amenitiesForSpecificRoom_TC_03");
 			asr.clickOnAddAmenities();
 			asr.enterAmenitiesName(e.getCellData("Sheet1","amenitiesName",4));
@@ -70,8 +87,11 @@ public class AmenitiesForSpecificRoomTest extends TestBase {
 			soft.assertAll();	
 		}
 	
+		/*
+		 * Method for amenities for specific room TC04
+		 */
 		 @Test
-		public void amenitiesForSpecificRoom_TC_04() throws Exception {
+		public void amenitiesForSpecificRoom_TC_04(){
 			extentTest = extent.startTest("amenitiesForSpecificRoom_TC_04");
 			asr.clickOnEdit();
 			asr.clearAmenitiesName();
@@ -82,13 +102,16 @@ public class AmenitiesForSpecificRoomTest extends TestBase {
 			soft.assertAll();	
 		}
 	
+		 /*
+		  * Method for amenities for specific room TC04
+		  */
 		 @Test
-		 public void amenitiesForSpecificRoom_TC_05() throws Exception {
+		 public void amenitiesForSpecificRoom_TC_05(){
 			extentTest = extent.startTest("amenitiesForSpecificRoom_TC_05");
 			asr.clickOnDelete();
 		    soft.assertTrue(asr.verifyAmentitiesForSpecificRoom_TC05(e.getCellData("Sheet1","amenitiesName",5)));
 		    soft.assertAll();	
-		    lp.logout();	
+				lp.logout();
 		}
 	
     @AfterSuite

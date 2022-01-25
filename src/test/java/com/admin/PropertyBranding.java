@@ -21,19 +21,21 @@ import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import logfile.Utilitylog;
 
+/*
+* Test class for Property branding configuration
+* @Author : UzairAsar
+*/
 public class PropertyBranding extends TestBase{
-	
-
 	public static Utilitylog logger;
+	LoginPage lp;
+	BrandPage bp;
+	PropertyBrandingPage pbp;
+	
 	public PropertyBranding() {
 		super();
 		logger = new Utilitylog(PropertyBranding.class.getName());
 	}
 
-	LoginPage lp;
-	BrandPage bp;
-	PropertyBrandingPage pbp;
-	
 	@BeforeMethod
 	public void setup() {
 		lp = new LoginPage(getDriver());
@@ -48,7 +50,7 @@ public class PropertyBranding extends TestBase{
 	@Feature("Feature1: Branding Property")
 	@Story("Story: Property Branding Created")
 	@Step("Verify New Property Branding Created")
-	public void Admin_PropertyBrandingScenario_TC_01() throws Exception {
+	public void Admin_PropertyBrandingScenario_TC_01(){
 		extentTest = extent.startTest("Admin_PropertyBrandingScenario_TC_01");
 		lp.clearButton();
 		lp.username();

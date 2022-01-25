@@ -10,14 +10,12 @@ import Utility.ExcelData;
 import base.TestBase;
 import pages.AbstractBasePage;
 
+/*
+* POM class to Create Band
+* @Author Uzair Asar
+*/
 public class BrandPage extends AbstractBasePage {
-
 	ExcelData e = new ExcelData();
-
-	public BrandPage(WebDriver driver) {
-		super(driver);
-		PageFactory.initElements(driver, this);
-	}
 
 	@FindBy(xpath = "//*[text()='Brands']")
 	WebElement brands;
@@ -46,13 +44,30 @@ public class BrandPage extends AbstractBasePage {
 	@FindBy(xpath = "//input[@value = 'Cancel']")
 	WebElement cancelButton;
 
-	public void openBrands() throws Exception {
+	public BrandPage(WebDriver driver) {
+		super(driver);
+		PageFactory.initElements(driver, this);
+	}
+
+	public String UrlTilte() {
+		return driver.getTitle();
+	}
+
+	/*
+	 * Method to open brands
+	 */
+	
+	public void openBrands(){
 		TestBase.implict(3);
 		brands.click();
 		TestBase.implict(3);
 	}
 
-	public BrandPage createNewBrand() throws Exception {
+	/*
+	 * Method to Create a brand
+	 */
+	
+	public BrandPage createNewBrand() {
 		TestBase.implict(3);
 		addBrand.click();
 		TestBase.implict(3);
@@ -65,7 +80,12 @@ public class BrandPage extends AbstractBasePage {
 		return null;
 	}
 
-	public boolean verifyBrandCreated() throws Throwable {
+	/*
+	 * Method to verify brand created
+	 * returns boolean value
+	 */
+	
+	public boolean verifyBrandCreated() {
 		String bName = e.getCellData("Brand", "BrandName", 2);
 		WebElement w = driver.findElement(By.xpath("//a[text()='" + bName + "']"));
 //		WebElement w = driver.findElement(By.xpath("//*[text()='A2']"));
@@ -78,7 +98,11 @@ public class BrandPage extends AbstractBasePage {
 		}
 	}
 
-	public BrandPage duplicateBrand() throws Exception {
+	/*
+	 * Method to create brand with duplicate brand name
+	 */
+	
+	public BrandPage duplicateBrand(){
 		TestBase.implict(3);
 		addBrand.click();
 		TestBase.implict(3);
@@ -90,21 +114,34 @@ public class BrandPage extends AbstractBasePage {
 		TestBase.implict(3);
 		return null;
 	}
+
+	/*
+	 * Method to click on cancel button
+	 */
 	
-	public BrandPage cancelButton() throws Exception {
+	public BrandPage cancelButton(){
 		TestBase.implict(3);
 		cancelButton.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public String verifyDuplicateBrand() throws Exception {
+	/*
+	 * Method to verify brand name is duplicate
+	 * returns string s
+	 */
+	
+	public String verifyDuplicateBrand(){
 
 		String s = duplicateError.getText();
 		return s;
 	}
 
-	public BrandPage blankBrandName() throws Exception {
+	/*
+	 * Method to create brand with blank brand name field
+	 */
+	
+	public BrandPage blankBrandName(){
 		TestBase.implict(3);
 		addBrand.click();
 		TestBase.implict(3);
@@ -115,12 +152,21 @@ public class BrandPage extends AbstractBasePage {
 		return null;
 	}
 
-	public String verifyBlankBrandName() throws Exception {
+	/*
+	 * Method to verify blank name provided in brand name fields
+	 * returns string s
+	 */
+	
+	public String verifyBlankBrandName() {
 
 		String s = blankBrandName.getText();
 		return s;
 	}
 
+	/*
+	 * Method to select a brand
+	 */
+	
 	public BrandPage brandSelect() {
 		TestBase.implict(3);
 		selectBrand.click();

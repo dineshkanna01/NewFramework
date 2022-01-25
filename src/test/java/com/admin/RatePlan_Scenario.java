@@ -20,6 +20,10 @@ import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import logfile.Utilitylog;
 
+/*
+ * Test class for Rate plan
+ * @author Rudraksh Aggarwal
+ */
 public class RatePlan_Scenario extends TestBase{
 
 	public static Utilitylog logger;
@@ -72,7 +76,7 @@ public class RatePlan_Scenario extends TestBase{
 		allureScreenshot("Rate Plan Page");
 		screenShot("Rate Plan Page");
 
-		rpp.inputfields_tc01();
+		rpp.inputFields_tc01();
 		rpp.selectRoomType();
 		rpp.deriveRatesNo();
 		rpp.clickSaveButton();
@@ -121,7 +125,7 @@ public class RatePlan_Scenario extends TestBase{
 		screenShot("Rate Plan Page");
 
 		rpp.selectRoomType();
-		rpp.inputfields_tc02();
+		rpp.inputFields_tc02();
 		rpp.clickSaveButton();
 
 		allureScreenshot("Rate Plan Created");
@@ -168,7 +172,7 @@ public class RatePlan_Scenario extends TestBase{
 		allureScreenshot("AddOn created");
 		screenShot("AddOn created");
 
-		Assert.assertTrue(aop.verifyAddOnName_tc02());
+		Assert.assertTrue(aop.verifyAddOnName());
 
 		ahp.clickRatePlansTab();
 		ahp.clickAddNewRatePlansTab();
@@ -176,7 +180,7 @@ public class RatePlan_Scenario extends TestBase{
 		allureScreenshot("Rate Plan Page");
 		screenShot("Rate Plan Page");
 
-		rpp.inputfields_tc01();
+		rpp.inputFields_tc01();
 		rpp.selectRoomType();
 		rpp.deriveRatesNo();
 

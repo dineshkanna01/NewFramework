@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utility.ExcelData;
+import base.TestBase;
 import pages.AbstractBasePage;
 
 public class NewPropertyPage extends AbstractBasePage{
@@ -177,14 +178,14 @@ public class NewPropertyPage extends AbstractBasePage{
 		return s;
 	}
 	
-	public NewPropertyPage masterSaveButton() throws InterruptedException {
-		Thread.sleep(2000);
+	public NewPropertyPage masterSaveButton() {
+		TestBase.implict(3);
 		masterSaveButton.click();
 		return null;
 	}
 	
-	public String verifyAdministratorTextAfterSave() throws InterruptedException {
-		Thread.sleep(2000);
+	public String verifyAdministratorTextAfterSave() {
+		TestBase.implict(3);
 		String s = afterSaveVerifyText.getText();
 		System.out.println(s);
 		return s;

@@ -21,18 +21,20 @@ import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import logfile.Utilitylog;
 
+/*
+* Test class for Brand creation
+* @Author : UzairAsar
+*/
 public class BrandTestCase extends TestBase{
-
 	public static Utilitylog logger;
+	LoginPage lp;
+	BrandPage bp;
 
 	public BrandTestCase() {
 		super();
 		logger = new Utilitylog(BrandTestCase.class.getName());
 	}
 
-	LoginPage lp;
-	BrandPage bp;
-	
 	@BeforeMethod
 	public void setup() {
 		lp = new LoginPage(getDriver());
@@ -46,7 +48,7 @@ public class BrandTestCase extends TestBase{
 	@Feature("Feature1: New Brand")
 	@Story("Story: Create New Brand")
 	@Step("Verify New Brand Created")
-	public void Admin_AddNewBrand_TC_01() throws Throwable {
+	public void Admin_AddNewBrand_TC_01(){
 		extentTest = extent.startTest("Admin_AddNewBrand_TC_01");
 		
 		lp.clearButton();
@@ -74,11 +76,11 @@ public class BrandTestCase extends TestBase{
 	@Feature("Feature1: New Brand")
 	@Story("Story: Cannot create New Brand")
 	@Step("Verify New Brand not Created")
-	public void Admin_AddNewBrand_TC_02() throws Exception {
+	public void Admin_AddNewBrand_TC_02(){
 		extentTest = extent.startTest("Admin_AddNewBrand_TC_02");
 		
-		allureScreenshot("Logged In");
-		screenShot("Logged In");
+		allureScreenshot("Brands open");
+		screenShot("Brands open");
 		
 		bp.duplicateBrand();
 		
@@ -99,11 +101,11 @@ public class BrandTestCase extends TestBase{
 	@Feature("Feature1: New Brand")
 	@Story("Story: Cannot create New Brand due to blank brand name")
 	@Step("Verify New Brand not Created")
-	public void Admin_AddNewBrand_TC_03() throws Exception {
+	public void Admin_AddNewBrand_TC_03(){
 		extentTest = extent.startTest("Admin_AddNewBrand_TC_03");
 		
-		allureScreenshot("Logged In");
-		screenShot("Logged In");
+		allureScreenshot("Brands open");
+		screenShot("Brands open");
 		
 		bp.blankBrandName();
 		

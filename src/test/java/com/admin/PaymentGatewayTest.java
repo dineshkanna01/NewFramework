@@ -12,8 +12,11 @@ import com.admin.pom.PaymentGatewayPage;
 import Utility.ExcelData;
 import base.TestBase;
 
+/*
+ * Test class for Payment Gateway
+ * @author Sudhakar Mourya
+ */
 public class PaymentGatewayTest extends TestBase {
-
 	ExcelData e = new ExcelData();
 	LoginPage lp;
 	AdministratorHomePage ahp;
@@ -32,6 +35,9 @@ public class PaymentGatewayTest extends TestBase {
 		soft= new SoftAssert();
 	}
 
+	/*
+	 * Method for payment gateway TC01
+	 */
 	@Test
 	public void paymentGateway_TC_01() throws Exception {
 		extentTest = extent.startTest("PaymentGateway_TC_01");
@@ -58,6 +64,9 @@ public class PaymentGatewayTest extends TestBase {
 		soft.assertAll();
 	}
 	
+	/*
+	 * Method for payment gateway TC02
+	 */
 	@Test
 	public void paymentGateway_TC_02() throws Exception {
 		extentTest = extent.startTest("PaymentGateway_TC_02");
@@ -74,6 +83,9 @@ public class PaymentGatewayTest extends TestBase {
 		soft.assertAll();
 	}
 	
+	/*
+	 * Method for payment gateway TC03
+	 */
 	@Test
 	public void paymentGateway_TC_03() throws Exception {
 		extentTest = extent.startTest("PaymentGateway_TC_03");
@@ -93,6 +105,9 @@ public class PaymentGatewayTest extends TestBase {
 		soft.assertAll();
 	}
 	
+	/*
+	 * Method for payment gateway TC04
+	 */
 	@Test
 	public void paymentGateway_TC_04() throws Exception {
 		extentTest = extent.startTest("PaymentGateway_TC_04");
@@ -121,5 +136,5 @@ public class PaymentGatewayTest extends TestBase {
 	mail();
 	cmdPrompt();
 	}
-    
+
 }

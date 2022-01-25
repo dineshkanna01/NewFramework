@@ -26,19 +26,22 @@ import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import logfile.Utilitylog;
 
+/*
+ * Test Class for Add On Scenario
+ * @author Rudraksh Aggarwal
+ */
 public class AddOn_Scenario extends TestBase {
-	
 	public static Utilitylog logger;
-
-	public AddOn_Scenario() {
-		super();
-		logger = new Utilitylog(AddOn_Scenario.class.getName());
-	}
 
 	// objects
 	LoginPage lp;
 	AdministratorHomePage ahp;
 	AddOnsPage aop;
+
+	public AddOn_Scenario() {
+		super();
+		logger = new Utilitylog(AddOn_Scenario.class.getName());
+	}
 
 	@BeforeMethod
 	public void setup() {
@@ -54,7 +57,7 @@ public class AddOn_Scenario extends TestBase {
 	@Feature("Feature1:AddOn")
 	@Story("AddOns Page")
 	@Step("Verify user is able to Create Add On")
-	public void AddOn_TC_01() throws Exception {
+	public void AddOn_TC_01() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("AddOn_TC_01");
 		lp.login();
@@ -77,7 +80,7 @@ public class AddOn_Scenario extends TestBase {
 		allureScreenshot("AddOn created");
 		screenShot("AddOn created");
 
-		Assert.assertTrue(aop.verifyAddOnName_tc01());
+		Assert.assertTrue(aop.verifyAddOnName());
 
 		aop.clickOnCheckbox();
 		aop.clickOnDelete();
@@ -96,7 +99,7 @@ public class AddOn_Scenario extends TestBase {
 	@Feature("Feature1:AddOn")
 	@Story("AddOns Page")
 	@Step("Verify user is able to Create and Delete Add On")
-	public void AddOn_TC_02() throws Exception {
+	public void AddOn_TC_02() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("AddOn_TC_02");
 
@@ -119,7 +122,7 @@ public class AddOn_Scenario extends TestBase {
 		allureScreenshot("AddOn created");
 		screenShot("AddOn created");
 
-		Assert.assertTrue(aop.verifyAddOnName_tc02());
+		Assert.assertTrue(aop.verifyAddOnName());
 
 		aop.clickOnCheckbox();
 		aop.clickOnDelete();
@@ -141,7 +144,7 @@ public class AddOn_Scenario extends TestBase {
 	@Feature("Feature1:AddOn")
 	@Story("AddOns Page")
 	@Step("Verify user is able not able to Create Addon with same code")
-	public void AddOn_TC_03() throws Exception {
+	public void AddOn_TC_03() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("AddOn_TC_03");
 
@@ -185,9 +188,13 @@ public class AddOn_Scenario extends TestBase {
 	}
 
 	@AfterSuite
-	public void report() throws Exception {
-		mail();
+	public void report()  {
+		try {
+			mail();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		cmdPrompt();
 	}
-
 }

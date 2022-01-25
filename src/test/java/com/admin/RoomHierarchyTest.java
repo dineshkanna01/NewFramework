@@ -13,8 +13,11 @@ import com.admin.pom.RoomHierarchyPage;
 import Utility.ExcelData;
 import base.TestBase;
 
+/*
+ * Test class for Room Hierarchy
+ * @author Sudhakar Mourya
+ */
 public class RoomHierarchyTest extends TestBase {
-
 	ExcelData e = new ExcelData();
 	LoginPage lp;
 	AdministratorHomePage ahp;
@@ -33,10 +36,18 @@ public class RoomHierarchyTest extends TestBase {
 		soft = new SoftAssert();
 	}
 
+	/*
+	 * Method for room hierarchy TC01
+	 */
 	@Test
-	public void roomHierarchy_TC_01() throws Exception {
+	public void roomHierarchy_TC_01(){
 		extentTest = extent.startTest("roomHierarchy_TC_01");
-		lp.login();
+		try {
+			lp.login();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		ahp.selectBrand();
 		ahp.selectProperty();
 		ahp.clickOnRoomTab();
@@ -53,8 +64,11 @@ public class RoomHierarchyTest extends TestBase {
 		soft.assertAll();
 	}
 
+	/*
+	 * Method for room hierarchy TC02
+	 */
 	@Test
-	public void roomHierarchy_TC_02() throws Exception {
+	public void roomHierarchy_TC_02(){
 		extentTest = extent.startTest("roomHierarchy_TC_02");
 		ahp.clickOnRoomHierarchy();
 		rhp.selectBaseroom();
@@ -75,8 +89,11 @@ public class RoomHierarchyTest extends TestBase {
 		soft.assertAll();
 	}
 
+	/*
+	 * Method for room hierarchy TC03
+	 */
 	@Test
-	public void roomHierarchy_TC_03() throws Exception {
+	public void roomHierarchy_TC_03(){
 		extentTest = extent.startTest("roomHierarchy_TC_03");
 		ahp.clickOnRoomHierarchy();
 		rhp.selectBaseroom();
@@ -87,7 +104,7 @@ public class RoomHierarchyTest extends TestBase {
 		String expText=e.getCellData("Sheet1","roomHierarchyErrorMsg",2);
 		soft.assertEquals(actText, expText,"Room Hierarchy has not updated, TC is pass");
 		soft.assertAll();
-		lp.logout();
+			lp.logout();
 	}
 
 	@AfterSuite
@@ -96,5 +113,4 @@ public class RoomHierarchyTest extends TestBase {
 	cmdPrompt();
 
 	}
-	
 }

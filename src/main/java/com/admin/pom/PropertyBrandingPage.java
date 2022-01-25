@@ -7,16 +7,17 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utility.ExcelData;
+import base.TestBase;
 import pages.AbstractBasePage;
 
+
+/*
+* POM class to configure property branding
+* @Author Uzair Asar
+*/
+
 public class PropertyBrandingPage extends AbstractBasePage {
-
 	ExcelData e = new ExcelData();
-
-	public PropertyBrandingPage(WebDriver driver) {
-		super(driver);
-		PageFactory.initElements(driver, this);
-	}
 
 	@FindBy(xpath = "//input[@value='50']")
 	WebElement selectingProperty;
@@ -33,19 +34,41 @@ public class PropertyBrandingPage extends AbstractBasePage {
 	@FindBy(xpath = "//input[@value='Save']")
 	WebElement saveButton;
 
-	public PropertyBrandingPage selectProperty() throws InterruptedException {
+	public PropertyBrandingPage(WebDriver driver) {
+		super(driver);
+		PageFactory.initElements(driver, this);
+	}
+
+	public String UrlTilte() {
+		return driver.getTitle();
+	}
+
+	/*
+	 * Method to select a property
+	 */	
+
+	public PropertyBrandingPage selectProperty(){
 		selectingProperty.click();
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		selectPropertyButton.click();
 		return null;
 	}
 
-	public PropertyBrandingPage propertyBrandConfig() throws InterruptedException {
+	/*
+	 * Method to configure property branding
+	 */
+
+	public PropertyBrandingPage propertyBrandConfig(){
 		propertyManagementTab.click();
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		propertyBranding.click();
 		return null;
 	}
+
+	/*
+	 * Method to verify save button
+	 * returns string s
+	 */
 
 	public String verifySaveButton() {
 		String s = saveButton.getAttribute("value");
@@ -53,10 +76,14 @@ public class PropertyBrandingPage extends AbstractBasePage {
 		return s;
 	}
 
-	public PropertyBrandingPage saveButton() throws InterruptedException {
-		Thread.sleep(1000);
+	/*
+	 * Method to save property branding
+	 */
+
+	public PropertyBrandingPage saveButton(){
+		TestBase.implict(3);
 		saveButton.click();
-		Thread.sleep(1000);
+		TestBase.implict(3);
 		return null;
 	}
 }

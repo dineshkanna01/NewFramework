@@ -7,8 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import Utility.ExcelData;
+import base.TestBase;
 import pages.AbstractBasePage;
 
+/*
+ * Pom class for Room Hierarchy
+ * @author Sudhakar Mourya
+ */
 public class RoomHierarchyPage extends AbstractBasePage {
 	ExcelData e = new ExcelData();
 
@@ -36,57 +41,89 @@ public class RoomHierarchyPage extends AbstractBasePage {
 	@FindBy(xpath="//span[text()='Start Date and End Date should not be empty.']")
 	WebElement roomHierarchyErrorMsg ;
 
-	public RoomHierarchyPage selectBaseroom() throws Exception {
+	/*
+	 * Method for select base room
+	 */
+	public RoomHierarchyPage selectBaseroom(){
 		Select s=new Select(baseRoom);
 		s.selectByVisibleText(e.getCellData("Sheet1","baseRoom",2));
-		Thread.sleep(2000);
+		TestBase.implict(3);
 		return null;
 	}
 
-	public RoomHierarchyPage enterStarDate1() throws Exception {
+	/*
+	 * Method for enter start date1
+	 */
+	public RoomHierarchyPage enterStarDate1() {
 		startDate.sendKeys(e.getCellData("Sheet1","dateIn",2));
-		Thread.sleep(2000);
+		TestBase.implict(3);
 		return null;
 	}
 
-	public RoomHierarchyPage enterStarDate2() throws Exception {
+	/*
+	 * Method for enter start date2
+	 */
+	public RoomHierarchyPage enterStarDate2(){
 		startDate.sendKeys(e.getCellData("Sheet1","dateIn",3));
-		Thread.sleep(2000);
+		TestBase.implict(3);
 		return null;
 	}
 
-	public RoomHierarchyPage enterEndDate1() throws Exception {
+	/*
+	 * Method for enter end date1
+	 */
+	public RoomHierarchyPage enterEndDate1(){
 		endDate.sendKeys(e.getCellData("Sheet1","dateOut",2));
-		Thread.sleep(2000);
+		TestBase.implict(3);
 		return null;
 	}
 
-	public RoomHierarchyPage enterEndDate2() throws Exception {
+	/*
+	 * Method for enter end date2
+	 */
+	public RoomHierarchyPage enterEndDate2(){
 		endDate.sendKeys(e.getCellData("Sheet1","dateOut",3));
-		Thread.sleep(2000);
+		TestBase.implict(3);
 		return null;
 	}
 
-	public RoomHierarchyPage clickOnSave() throws InterruptedException {
+	/*
+	 * Method for click on save
+	 */
+	public RoomHierarchyPage clickOnSave(){
 		Save.click();
-		Thread.sleep(2000);
+		TestBase.implict(3);
 		return null;
 	}
 
+	/*
+	 * Method for clear start date
+	 */
 	public RoomHierarchyPage clearStartDate() {
 		startDate.clear();
 		return null;
 	}
 
+	/*
+	 * Method for clear end date
+	 */
 	public RoomHierarchyPage clearEndDate() {
 		endDate.clear();
 		return null;
 	}
 
+	/*
+	 * Method for getting administrator name text
+	 * @return String administrator name
+	 */
 	public String administratorname() {
 		return administratorName.getText();
 	}
 
+	/*
+	 * Method for getting room hierarchy error text
+	 * @return String error msg
+	 */
 	public String roomHierarchyError() {
 		return roomHierarchyErrorMsg.getText();
 	}	

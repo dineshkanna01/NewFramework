@@ -10,8 +10,11 @@ import Utility.ExcelData;
 import base.TestBase;
 import pages.AbstractBasePage;
 
+/*
+ * Pom class for Call Center Settings
+ * @author Sudhakar Mourya
+ */
 public class CallCenterSettingsPage extends AbstractBasePage {
-
 	ExcelData e = new ExcelData();
 
 	public CallCenterSettingsPage(WebDriver driver) {
@@ -34,34 +37,52 @@ public class CallCenterSettingsPage extends AbstractBasePage {
 	@FindBy(xpath="//h1[text()='Administrator Home']")
 	WebElement administratorName;
 
-	public CallCenterSettingsPage enterAnnouncementMsg() throws Exception {
+	/*
+	 * Method for enter announcement msg
+	 */
+	public CallCenterSettingsPage enterAnnouncementMsg(){
 		announcementMsg.sendKeys(e.getCellData("Sheet1","announcementMsg",2));
 		TestBase.implict(5);
 		return null;
 	}
 
+	/*
+	 * Method for click on activate announcement
+	 */
 	public CallCenterSettingsPage clickOnActivateAnnouncement() {
 		activateAnnouncement.click();
 		return null;
 	}
-
+	
+	/*
+	 * Method for click on save
+	 */
 	public CallCenterSettingsPage clickOnSave() {
 		saveButton.click();
 		return null;
 	} 
 
+	/*
+	 * Method for clear announcement msg
+	 */
 	public CallCenterSettingsPage clearAnnouncementMsg() {
 		announcementMsg.clear();
 		return null;
 	} 	 
 
+	/*
+	 * Method for click on deactivate announcement 
+	 */
 	public CallCenterSettingsPage clickOnDeactivateAnnouncement() {
 		deactivateAnnouncement.click();
 		return null;
 	}
-
+	
+	/*
+	 * Method for getting administrator name text
+	 * @return String administrator name
+	 */
 	public String administratorName() {
 		return administratorName.getText();
 	}
-
 }

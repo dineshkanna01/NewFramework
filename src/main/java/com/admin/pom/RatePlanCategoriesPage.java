@@ -13,18 +13,12 @@ import Utility.ExcelData;
 import base.TestBase;
 import pages.AbstractBasePage;
 
+/*
+ * Pom class for Rate plan categories
+ * @author Rudraksh Aggarwal
+ */
 public class RatePlanCategoriesPage extends AbstractBasePage{
-
 	ExcelData e = new ExcelData();
-
-	public RatePlanCategoriesPage(WebDriver driver) {
-		super(driver);
-		PageFactory.initElements(driver, this);
-	}
-
-	public String UrlTilte() {
-		return driver.getTitle();
-	}
 
 	@FindBy(xpath = "//*[@name='Submit3']")
 	WebElement saveButton;
@@ -37,14 +31,26 @@ public class RatePlanCategoriesPage extends AbstractBasePage{
 
 	@FindBy(xpath = "(//*[@name='editCategoryLink'])[1]")
 	WebElement verifyCategoryName;
-	
+
 	@FindBy(xpath = "(//*[@name='deleteCategoryLink'])[1]")
 	WebElement deleteCategory;
-	
+
 	@FindBy(xpath = "//*[@id='showSuccessMessage']")
 	WebElement verifyMessageDelete;
 
-	public RatePlanCategoriesPage selectRadioButton() throws InterruptedException {
+	public RatePlanCategoriesPage(WebDriver driver) {
+		super(driver);
+		PageFactory.initElements(driver, this);
+	}
+
+	public String UrlTilte() {
+		return driver.getTitle();
+	}
+
+	/*
+	 * Method to select radio button
+	 */
+	public RatePlanCategoriesPage selectRadioButton() {
 		List<WebElement> radbut = driver.findElements(By.xpath("//*[@type='radio']"));
 		for (int i = 0; i < radbut.size(); i++) {
 
@@ -56,8 +62,11 @@ public class RatePlanCategoriesPage extends AbstractBasePage{
 		}
 		return null;
 	}
-	
-	public RatePlanCategoriesPage selectRadioButtonNo() throws InterruptedException {
+
+	/*
+	 * Method to select radio button
+	 */
+	public RatePlanCategoriesPage selectRadioButtonNo() {
 		List<WebElement> radbut = driver.findElements(By.xpath("//*[@type='radio']"));
 		for (int i = 0; i < radbut.size(); i++) {
 
@@ -70,37 +79,51 @@ public class RatePlanCategoriesPage extends AbstractBasePage{
 		return null;
 	}
 
-	public RatePlanCategoriesPage clickOnSave() throws InterruptedException {
+	/*
+	 * Method to click on save button
+	 */
+	public RatePlanCategoriesPage clickOnSave() {
 		saveButton.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public boolean verifyAddNewCategory() throws InterruptedException {
+	/*
+	 * Method to verify add new category
+	 * 
+	 * @return boolean value
+	 */
+	public boolean verifyAddNewCategory() {
 		try {
-		if (addNewCategoryButton.isDisplayed()) {
-			System.out.println("Add New Category option is visible");
+			if (addNewCategoryButton.isDisplayed()) {
+				System.out.println("Add New Category option is visible");
+				return true;
+			} else {
+				System.out.println("Add New Category option is not visible");
+				return false;
+			}
+		} catch (Exception e) {
+			System.out.println("Add New Rate plan category option is already enabled");
 			return true;
-		} else {
-			System.out.println("Add New Category option is not visible");
-			return false;
 		}
-		}
-		catch(Exception e) {
-			System.out.println("Add New Rate plan category option is already enabled");	
-			return true;
-		}
-		
+
 	}
 
-	public RatePlanCategoriesPage inputfields_tc02() throws Exception {
+	/*
+	 * Method to input fields for TC02
+	 */
+	public RatePlanCategoriesPage inputfields_tc02() {
 		addNewCategoryButton.click();
 		TestBase.implict(1);
 		categoryName.sendKeys(e.getCellData("RatePlanCategoriesData", "CategoryName", 2));
 		return null;
 
 	}
-	public RatePlanCategoriesPage inputfields_tc03() throws Exception {
+
+	/*
+	 * Method to input fields for TC03
+	 */
+	public RatePlanCategoriesPage inputfields_tc03() {
 		addNewCategoryButton.click();
 		TestBase.implict(1);
 		categoryName.sendKeys(e.getCellData("RatePlanCategoriesData", "CategoryNameTC_03", 2));
@@ -108,7 +131,12 @@ public class RatePlanCategoriesPage extends AbstractBasePage{
 
 	}
 
-	public boolean verifyName() throws Exception {
+	/*
+	 * Method to verify policy name
+	 * 
+	 * @return boolean value
+	 */
+	public boolean verifyName() {
 		String CName = verifyCategoryName.getText();
 		CName = CName.replaceAll("\\s+", "");
 		System.out.println(CName + "####");
@@ -127,7 +155,13 @@ public class RatePlanCategoriesPage extends AbstractBasePage{
 
 		}
 	}
-	public boolean verifyName_tc03() throws Exception {
+
+	/*
+	 * Method to verify policy name TC03
+	 * 
+	 * @return boolean value
+	 */
+	public boolean verifyName_tc03() {
 		String CName = verifyCategoryName.getText();
 		CName = CName.replaceAll("\\s+", "");
 		System.out.println(CName + "####");
@@ -147,16 +181,29 @@ public class RatePlanCategoriesPage extends AbstractBasePage{
 		}
 	}
 
-	public RatePlanCategoriesPage deleteCategory() throws InterruptedException {
-		deleteCategory.click();    
-        Alert alert = driver.switchTo().alert();		
-        alert.accept();	
-    	Thread.sleep(3000);
-        
+	/*
+	 * Method to delete Category
+	 */
+	public RatePlanCategoriesPage deleteCategory() {
+		try {
+			deleteCategory.click();
+			Alert alert = driver.switchTo().alert();
+			alert.accept();
+
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
 		return null;
 	}
-	
-	public boolean verifyMessage() throws InterruptedException {
+
+	/*
+	 * Method to verify delete message
+	 * 
+	 * @return boolean value
+	 */
+	public boolean verifyMessage() {
 		if (verifyMessageDelete.isDisplayed()) {
 			System.out.println("Category is Deleted");
 			return true;
@@ -165,5 +212,4 @@ public class RatePlanCategoriesPage extends AbstractBasePage{
 			return false;
 		}
 	}
-
 }

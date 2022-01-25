@@ -12,8 +12,11 @@ import com.admin.pom.LoginPage;
 import Utility.ExcelData;
 import base.TestBase;
 
+/*
+ * Test class for Alternate Properties
+ * @author Sudhakar Mourya
+ */
 public class AlternatePropertyTest extends TestBase {
-
 	ExcelData e = new ExcelData();
 	LoginPage lp;
 	AdministratorHomePage ahp;
@@ -31,10 +34,19 @@ public class AlternatePropertyTest extends TestBase {
 		app=new AlternatePropertiesPage(getDriver());
 		soft= new SoftAssert();
 	}
+	
+	 /*
+	  * Method for alternate property TC01
+	  */
 	@Test
-	public void alternateProperty_TC_01() throws Exception {
+	public void alternateProperty_TC_01(){
 		extentTest = extent.startTest("alternateProperty_TC_01");
-		lp.login();
+		try {
+			lp.login();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		ahp.selectBrand();
 		ahp.selectProperty();
 		ahp.clickPropertyManagementTab();
@@ -48,8 +60,11 @@ public class AlternatePropertyTest extends TestBase {
 		soft.assertAll();
 	}
 
+	 /*
+	  * Method for alternate property TC02
+	  */
 	@Test
-	public void alternateProperty_TC_02() throws Exception {
+	public void alternateProperty_TC_02(){
 		extentTest = extent.startTest("alternateProperty_TC_02");
 		app.clickAddProperty();
 		app.enterPropertyCode2();
@@ -60,8 +75,11 @@ public class AlternatePropertyTest extends TestBase {
 		soft.assertAll();
 	}
 
+	 /*
+	  * Method for alternate property TC03
+	  */
 	@Test()
-	public void alternateProperty_TC_03() throws Exception {
+	public void alternateProperty_TC_03(){
 		extentTest = extent.startTest("alternateProperty_TC_03");
 		app.addMultipleProp();
 		app.clickMultipleCheckBox();
@@ -72,8 +90,11 @@ public class AlternatePropertyTest extends TestBase {
 		soft.assertAll();
 	}
 
+	 /*
+	  * Method for alternate property TC04
+	  */
 	@Test
-	public void alternateProperty_TC_04() throws Exception {
+	public void alternateProperty_TC_04(){
 		extentTest = extent.startTest("alternateProperty_TC_04");
 		app.clickAddProperty();
 		app.enterInvalidPropertyCode();
@@ -82,7 +103,7 @@ public class AlternatePropertyTest extends TestBase {
 		String expErrorMsg = e.getCellData("Sheet1","InvalidPropErrorMsg",2);
 		soft.assertEquals(actErrorMsg, expErrorMsg,"Actual msg is not match with expected");
 		soft.assertAll();
-		lp.logout();
+			lp.logout();
 	}
 
     @AfterSuite
@@ -90,5 +111,4 @@ public class AlternatePropertyTest extends TestBase {
 		mail();
 		cmdPrompt();
 	}
-    
 }

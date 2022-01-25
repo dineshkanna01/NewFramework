@@ -83,49 +83,52 @@ public class AdministratorHomePage extends AbstractBasePage {
 
 	@FindBy(xpath = "//*[@id='13' and text()='Reports']")
 	WebElement reports;
-	
-	 @FindBy(xpath="//a[text()='Brands']")
-	 WebElement brand;
-	
+
+	@FindBy(xpath="//a[text()='Brands']")
+	WebElement brand;
+
 	@FindBy(xpath="(//input[@type='radio'])[5]")
-	 WebElement radioButton;
-	
+	WebElement radioButton;
+
 	@FindBy(xpath="//input[@value='Select Property']")
-	 WebElement selectProperty;
-	
+	WebElement selectProperty;
+
 	@FindBy(xpath="//div[text()='Property Management']")
-	 WebElement propertyManagement;
-	
+	WebElement propertyManagement;
+
 	@FindBy(xpath="//a[contains(@href,'/admin/action/getRT3')]")
-	 WebElement alternateProperties;
-	
+	WebElement alternateProperties;
+
 	@FindBy(xpath="//a[contains(@href,'/admin/action/displayN')]")
-	 WebElement nearByAttraction;
-	
+	WebElement nearByAttraction;
+
 	@FindBy(xpath="//a[text()='Payment Gateway']")
 	WebElement paymentGateway;
-	
+
 	@FindBy(xpath="//div[text()='Rooms']")
 	WebElement room;
-	
+
 	@FindBy(xpath="//a[contains(@href,'/admin/action/displayRoomH')]")
 	WebElement roomHierarchy;
-	
+
 	@FindBy(xpath="//a[contains(@href,'/admin/action/displayCallCenter')]") 
 	WebElement callCentersetting;
-	
+
 	@FindBy(id="add_new_room")
 	WebElement addNew;
-	
+
 	@FindBy(xpath="//a[contains(@href,'TypesList')]")
 	WebElement listAllRoom;
-	
+
 	@FindBy(xpath="//a[text()='Amenities']")
 	WebElement amenities;
-	
-	
 
-	public AdministratorHomePage selectBrand() throws Exception {
+
+
+	/*
+	 * Method to select brand
+	 */
+	public AdministratorHomePage selectBrand() {
 		brands.click();
 		TestBase.implict(3);
 		brandName.click();
@@ -134,7 +137,10 @@ public class AdministratorHomePage extends AbstractBasePage {
 
 	}
 
-	public AdministratorHomePage selectProperty() throws Exception {
+	/*
+	 * Method to select property
+	 */
+	public AdministratorHomePage selectProperty() {
 		property.click();
 		TestBase.implict(3);
 		propertySelectButton.click();
@@ -142,148 +148,213 @@ public class AdministratorHomePage extends AbstractBasePage {
 		return null;
 	}
 
-	public AdministratorHomePage clickGuestPreferenceQuestionsTab() throws InterruptedException {
+	/*
+	 * Method to click Guest Preference Questions Tab
+	 */
+	public AdministratorHomePage clickGuestPreferenceQuestionsTab() {
 		guestPreferenceQuestionsTab.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public AdministratorHomePage clickAddOnsTab() throws InterruptedException {
+	/*
+	 * Method to click Add Ons Tab
+	 */
+	public AdministratorHomePage clickAddOnsTab() {
 		addOnsTab.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public AdministratorHomePage clickAddNewGuestPreference() throws InterruptedException {
+	/*
+	 * Method to click Add New Guest Preference
+	 */
+	public AdministratorHomePage clickAddNewGuestPreference() {
 		addNewGuestPreference.click();
 		TestBase.implict(5);
 		return null;
 	}
 
-	public AdministratorHomePage clickListAllAddOn() throws InterruptedException {
+	/*
+	 * Method to click List All AddOn
+	 */
+	public AdministratorHomePage clickListAllAddOn() {
 		listAllAddOns.click();
 		TestBase.implict(3);
 		return null;
 
 	}
 
-	public AdministratorHomePage clickListAllGuestPreference() throws InterruptedException {
+	/*
+	 * Method to click List All Guest Preference
+	 */
+	public AdministratorHomePage clickListAllGuestPreference() {
 		listAllGuestPreference.click();
 		TestBase.implict(5);
 		return null;
 
 	}
 
-	public AdministratorHomePage clickAddNewRatePlansTab() throws InterruptedException {
+	/*
+	 * Method to click Add New Rate Plans Tab
+	 */
+	public AdministratorHomePage clickAddNewRatePlansTab() {
 		addNewRatePlansTab.click();
 		TestBase.implict(5);
 		return null;
 	}
 
-	public AdministratorHomePage clickRatePlansTab() throws InterruptedException {
+	/*
+	 * Method to click Rate Plans Tab
+	 */
+	public AdministratorHomePage clickRatePlansTab() {
 		ratePlansTab.click();
 		TestBase.implict(5);
 		return null;
 	}
 
-	public AdministratorHomePage clickAddNewAddOnsTab() throws InterruptedException {
+	/*
+	 * Method to click Add new add ons tab
+	 */
+	public AdministratorHomePage clickAddNewAddOnsTab() {
 		addNewAddOnTab.click();
 		TestBase.implict(5);
 		return null;
 	}
 
-	public AdministratorHomePage clickRatePlanCategories() throws InterruptedException {
+	/*
+	 * Method to click Rate Plan Categories
+	 */
+	public AdministratorHomePage clickRatePlanCategories() {
 		ratePlanCategories.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public AdministratorHomePage clickSmartPoliciesTab() throws InterruptedException {
+	/*
+	 * Method to click Smart Policies Tab
+	 */
+	public AdministratorHomePage clickSmartPoliciesTab() {
 		smartPoliciesTab.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public AdministratorHomePage clickAddNewSmartPolicies() throws InterruptedException {
+	/*
+	 * Method to click Add New Smart Policies
+	 */
+	public AdministratorHomePage clickAddNewSmartPolicies() {
 		addNewSmartPolicies.click();
 		TestBase.implict(5);
 		return null;
 	}
 
-	public AdministratorHomePage clickPoliciesTab() throws InterruptedException {
+	/*
+	 * Method to click Policies Tab
+	 */
+	public AdministratorHomePage clickPoliciesTab() {
 		policiesTab.click();
 		TestBase.implict(2);
 		return null;
 	}
 
-	public AdministratorHomePage clickAddNewPolicy() throws InterruptedException {
+	/*
+	 * Method to click Add New Policy
+	 */
+	public AdministratorHomePage clickAddNewPolicy() {
 		addNewPolicy.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-
-	public AdministratorHomePage selectRatesandInventory() throws InterruptedException {
+	public AdministratorHomePage selectRatesandInventory() {
 		ratesandInventory.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public AdministratorHomePage selectReports() throws InterruptedException {
+	public AdministratorHomePage selectReports() {
 		reports.click();
 		TestBase.implict(3);
 		return null;
 	}
-	
-	public AdministratorHomePage clickPropertyManagementTab() throws InterruptedException {
-	   propertyManagement.click();
-	   return null;
-	}
-	
-	public AdministratorHomePage clickAlternatePropertyTab() {
-		 alternateProperties.click();
-	     return null;
-	}
-	     
-	 public AdministratorHomePage clickNearbyAttractionTab() {
-		 nearByAttraction.click();
-		 return null;
-	}
-	
-     
-    public AdministratorHomePage clickPaymentGatewayTab() {
-	    paymentGateway.click();
-	    return null;
-    }
 
-    public AdministratorHomePage clickOnRoomTab() {
-	   room.click();
-	   return null;
-    }	
-	
-     public AdministratorHomePage clickOnRoomHierarchy() {
-  	 roomHierarchy.click();
-  	    return null;
-      }
-     
-     public AdministratorHomePage callCenterSettings() {
-      callCentersetting.click();
-      return null;
-          }
-     
-     public AdministratorHomePage clickOnAddNew() {
-      addNew.click();
-      return null;
-          }
-     
-     public AdministratorHomePage clickOnListAllRoom() {
-         listAllRoom.click();
-         return null;
-             }
-     
-     public AdministratorHomePage clickOnAmenities() {
-         amenities.click();
-         return null;
-             }
+	/*
+	 * Method for click property management 
+	 */
+	public AdministratorHomePage clickPropertyManagementTab(){
+		propertyManagement.click();
+		return null;
+	}
+
+	/*
+	 * Method for click alternate property
+	 */
+	public AdministratorHomePage clickAlternatePropertyTab() {
+		alternateProperties.click();
+		return null;
+	}
+
+	/*
+	 * Method for click nearby attraction tab
+	 */  
+	public AdministratorHomePage clickNearbyAttractionTab() {
+		nearByAttraction.click();
+		return null;
+	}
+
+	/*
+	 * Method for click payment gateway tab
+	 */ 
+	public AdministratorHomePage clickPaymentGatewayTab() {
+		paymentGateway.click();
+		return null;
+	}
+
+	/*
+	 * Method for click on room tab
+	 */
+	public AdministratorHomePage clickOnRoomTab() {
+		room.click();
+		return null;
+	}	
+
+	/*
+	 * Method for click on room hierarchy
+	 */
+	public AdministratorHomePage clickOnRoomHierarchy() {
+		roomHierarchy.click();
+		return null;
+	}
+
+	/*
+	 * Method for click on call center settings 
+	 */
+	public AdministratorHomePage callCenterSettings() {
+		callCentersetting.click();
+		return null;
+	}
+
+	/*
+	 * Method for click on add new
+	 */
+	public AdministratorHomePage clickOnAddNew() {
+		addNew.click();
+		return null;
+	}
+	/*
+	 * Method for click on list all room
+	 */
+	public AdministratorHomePage clickOnListAllRoom() {
+		listAllRoom.click();
+		return null;
+	}
+	/*
+	 * Method for click on amenities
+	 */
+	public AdministratorHomePage clickOnAmenities() {
+		amenities.click();
+		return null;
+	}
 
 }

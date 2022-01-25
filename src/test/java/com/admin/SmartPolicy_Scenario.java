@@ -21,20 +21,25 @@ import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import logfile.Utilitylog;
 
+/*
+ * Test class for Smart Policies
+ * @author Rudraksh Aggarwal
+ */
 public class SmartPolicy_Scenario extends TestBase{
-
 
 	public static Utilitylog logger;
 
+	
+	// objects
+	LoginPage lp;
+	AdministratorHomePage ahp;
+	SmartPoliciesPage spp;
+	
 	public SmartPolicy_Scenario() {
 		super();
 		logger = new Utilitylog(SmartPolicy_Scenario.class.getName());
 	}
 
-	// objects
-	LoginPage lp;
-	AdministratorHomePage ahp;
-	SmartPoliciesPage spp;
 
 	@BeforeMethod
 	public void setup() {
@@ -50,7 +55,7 @@ public class SmartPolicy_Scenario extends TestBase{
 	@Feature("Feature1:SmartPolcies")
 	@Story("Smart Policies Page")
 	@Step("Verify user is able to add smart policy")
-	public void SmartPolicy_TC_01() throws Exception {
+	public void SmartPolicy_TC_01()  {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("SmartPolicy_TC_01");
 
@@ -73,11 +78,17 @@ public class SmartPolicy_Scenario extends TestBase{
 		spp.inputTextFieldsSmartPoliciesTc01();
 		spp.selectCategoryFromDropdown();
 		spp.clickOnSave();
+		
+
+		Assert.assertTrue(spp.verifySmartPolicyName());
 
 		allureScreenshot("Smart Policies Created");
 		screenShot("Smart Policies Created");
+		
+		spp.deleteSmartPolicies();
+		Assert.assertTrue(spp.verifySmartPolicyName_Delete());
+	
 
-		Assert.assertTrue(spp.verifySmartPolicyName_tc01());
 		logger.info("TestCase Ended");
 	}
 
@@ -88,7 +99,7 @@ public class SmartPolicy_Scenario extends TestBase{
 	@Feature("Feature1:SmartPolcies")
 	@Story("Smart Policies Page")
 	@Step("Verify user is able to Add or Delete Smart Policy")
-	public void SmartPolicy_TC_02() throws Exception {
+	public void SmartPolicy_TC_02()  {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("SmartPolicy_TC_02");
 
@@ -113,14 +124,14 @@ public class SmartPolicy_Scenario extends TestBase{
 		allureScreenshot("Smart Policies Created");
 		screenShot("Smart Policies Created");
 
-		Assert.assertTrue(spp.verifySmartPolicyName_tc02());
+		Assert.assertTrue(spp.verifySmartPolicyName());
 
 		spp.deleteSmartPolicies();
 
 		allureScreenshot("Smart Policies Deleted");
 		screenShot("Smart Policies Deleted");
 
-		Assert.assertFalse(spp.verifySmartPolicyName_tc02());
+		Assert.assertTrue(spp.verifySmartPolicyName_Delete());
 		logger.info("TestCase Ended");
 	}
 
@@ -131,7 +142,7 @@ public class SmartPolicy_Scenario extends TestBase{
 	@Feature("Feature1:SmartPolcies")
 	@Story("Smart Policies Page")
 	@Step("Verify user is not able to add smart policy having same name")
-	public void SmartPolicy_TC_03() throws Exception {
+	public void SmartPolicy_TC_03()  {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("SmartPolicy_TC_03");
 
@@ -157,7 +168,7 @@ public class SmartPolicy_Scenario extends TestBase{
 		allureScreenshot("Smart Policies Created");
 		screenShot("Smart Policies Created");
 
-		Assert.assertTrue(spp.verifySmartPolicyName_tc03());
+		Assert.assertTrue(spp.verifySmartPolicyName());
 
 		ahp.clickAddNewSmartPolicies();
 		spp.inputTextFieldsSmartPoliciesTc03();
@@ -177,9 +188,13 @@ public class SmartPolicy_Scenario extends TestBase{
 	}
 
 	@AfterSuite
-	public void report() throws Exception {
-		mail();
+	public void report()  {
+		try {
+			mail();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		cmdPrompt();
 	}
-
 }

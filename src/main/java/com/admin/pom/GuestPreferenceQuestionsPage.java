@@ -2,6 +2,11 @@ package com.admin.pom;
 
 import java.util.List;
 
+/*
+ * Pom class for Guest Preference Questions
+ * @author Rudraksh Aggarwal
+ */
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,17 +17,7 @@ import Utility.ExcelData;
 import base.TestBase;
 import pages.AbstractBasePage;
 public class GuestPreferenceQuestionsPage extends AbstractBasePage {
-
 	ExcelData e = new ExcelData();
-
-	public GuestPreferenceQuestionsPage(WebDriver driver) {
-		super(driver);
-		PageFactory.initElements(driver, this);
-	}
-
-	public String UrlTilte() {
-		return driver.getTitle();
-	}
 
 	@FindBy(xpath = "//*[@name='selectionType']")
 	WebElement selectionTypeDropdown;
@@ -59,23 +54,37 @@ public class GuestPreferenceQuestionsPage extends AbstractBasePage {
 
 	@FindBy(xpath = "(//*[contains(@href,'editQuestion')])[last()]")
 	WebElement editButton;
-	
+
 	@FindBy(xpath = "//*[@id='dataTable']/tbody/tr[last()]/td[2]")
 	WebElement e2;
-	
+
 	@FindBy(xpath = "(//*[text()='Guest Preference Questions']/following::font)[last()]")
 	WebElement e3;
 
-	public GuestPreferenceQuestionsPage selectSingleType() throws InterruptedException {
+	public GuestPreferenceQuestionsPage(WebDriver driver) {
+		super(driver);
+		PageFactory.initElements(driver, this);
+	}
+
+	public String UrlTilte() {
+		return driver.getTitle();
+	}
+
+	/*
+	 * Method to select single type
+	 */
+	public GuestPreferenceQuestionsPage selectSingleType() {
 		selectionTypeDropdown.click();
 		selectionSingleType.click();
 		TestBase.implict(5);
 
-
 		return null;
 	}
 
-	public GuestPreferenceQuestionsPage selectMultipleType() throws InterruptedException {
+	/*
+	 * Method to select multiple type
+	 */
+	public GuestPreferenceQuestionsPage selectMultipleType() {
 		selectionTypeDropdown.click();
 		selectionMultipleType.click();
 		TestBase.implict(5);
@@ -83,7 +92,10 @@ public class GuestPreferenceQuestionsPage extends AbstractBasePage {
 		return null;
 	}
 
-	public GuestPreferenceQuestionsPage selectFreeTextType() throws InterruptedException {
+	/*
+	 * Method to select Free Text Type
+	 */
+	public GuestPreferenceQuestionsPage selectFreeTextType() {
 		selectionTypeDropdown.click();
 		selectionFreeTextType.click();
 		TestBase.implict(5);
@@ -91,7 +103,10 @@ public class GuestPreferenceQuestionsPage extends AbstractBasePage {
 		return null;
 	}
 
-	public GuestPreferenceQuestionsPage inputTextFieldsSingleType() throws Exception {
+	/*
+	 * Method to input data for single type
+	 */
+	public GuestPreferenceQuestionsPage inputTextFieldsSingleType() {
 		questionTextField.click();
 		questionTextField.sendKeys(e.getCellData("GuestPrefQuesData", "Question_TC_01", 2));
 		TestBase.implict(2);
@@ -108,7 +123,10 @@ public class GuestPreferenceQuestionsPage extends AbstractBasePage {
 		return null;
 	}
 
-	public GuestPreferenceQuestionsPage inputTextFieldsMultipleType() throws Exception {
+	/*
+	 * Method to input data for multiple type
+	 */
+	public GuestPreferenceQuestionsPage inputTextFieldsMultipleType() {
 		questionTextField.click();
 		questionTextField.sendKeys(e.getCellData("GuestPrefQuesData", "Question_TC_02", 2));
 		TestBase.implict(2);
@@ -125,7 +143,10 @@ public class GuestPreferenceQuestionsPage extends AbstractBasePage {
 		return null;
 	}
 
-	public GuestPreferenceQuestionsPage inputTextFieldsFreeTextType() throws Exception {
+	/*
+	 * Method to input data for free text type
+	 */
+	public GuestPreferenceQuestionsPage inputTextFieldsFreeTextType() {
 		questionTextField.click();
 		questionTextField.sendKeys(e.getCellData("GuestPrefQuesData", "Question_TC_03", 2));
 		TestBase.implict(2);
@@ -135,32 +156,47 @@ public class GuestPreferenceQuestionsPage extends AbstractBasePage {
 		return null;
 	}
 
-	public GuestPreferenceQuestionsPage clickOnSave() throws InterruptedException {
+	/*
+	 * Method to click save button
+	 */
+	public GuestPreferenceQuestionsPage clickOnSave() {
 		savebutton.click();
 		TestBase.implict(4);
 
 		return null;
 	}
 
-	public GuestPreferenceQuestionsPage clickOnDelete() throws InterruptedException {
+	/*
+	 * Method to click delete button
+	 */
+	public GuestPreferenceQuestionsPage clickOnDelete() {
 		deletebutton.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public GuestPreferenceQuestionsPage clickOnOK() throws InterruptedException {
+	/*
+	 * Method to click Ok button
+	 */
+	public GuestPreferenceQuestionsPage clickOnOK() {
 		oKbutton.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public GuestPreferenceQuestionsPage clickOnEdit() throws InterruptedException {
+	/*
+	 * Method to click Edit button
+	 */
+	public GuestPreferenceQuestionsPage clickOnEdit() {
 		editButton.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public GuestPreferenceQuestionsPage selectCategoryRadioButton() throws InterruptedException {
+	/*
+	 * Method to select room category
+	 */
+	public GuestPreferenceQuestionsPage selectCategoryRadioButton() {
 		List<WebElement> radbut = driver.findElements(By.xpath("//*[@type='radio']"));
 		for (int i = 0; i < radbut.size(); i++) {
 
@@ -173,7 +209,11 @@ public class GuestPreferenceQuestionsPage extends AbstractBasePage {
 		return null;
 	}
 
-	public boolean verifyGuestPrefQuesName_tc01() throws Exception {
+	/*
+	 * Method to verify created guest preference question
+	 * @return boolean value
+	 */
+	public boolean verifyGuestPrefQuesName() {
 		if (e2.isDisplayed()) {
 			String QuesName = e2.getText();
 			System.out.println(QuesName + ": GuestPrefQues created");
@@ -182,40 +222,24 @@ public class GuestPreferenceQuestionsPage extends AbstractBasePage {
 		} else
 			return false;
 	}
-	
-	
-	public boolean verifyGuestPrefQuesName_tc02() throws Exception {
-		if (e2.isDisplayed()) {
-			String QuesName = e2.getText();
-			System.out.println(QuesName + ": GuestPrefQues created");
-			return true;
 
-		} else
-			return false;
-	}
-	
-
-	public boolean verifyGuestPrefQuesName_tc03() throws Exception {
-		if (e2.isDisplayed()) {
-			String QuesName = e2.getText();
-			System.out.println(QuesName + ": GuestPrefQues created");
-			return true;
-
-		} else
-			return false;
-	}
-	
-	public boolean verifyGuestPrefQuesName_Delete() throws Exception {
+	/*
+	 * Method to verify deleted guest preference question
+	 * @return boolean value
+	 */
+	public boolean verifyGuestPrefQuesName_Delete() {
 		if (e3.isDisplayed()) {
 			System.out.println("Guest Preference Question is Deleted");
 			return true;
 		} else
 			return false;
 	}
-	
-	
 
-	public boolean verifyGuestPrefQuesCategory() throws Exception {
+	/*
+	 * Method to verify guest preference question category
+	 * @return boolean value
+	 */
+	public boolean verifyGuestPrefQuesCategory() {
 		String CategoryName = driver.findElement(By.xpath("//*[@id='dataTable']/tbody/tr[last()]/td[3]")).getText();
 		CategoryName = CategoryName.replaceAll("\\s+", "");
 		System.out.println(CategoryName + "####");
@@ -223,7 +247,7 @@ public class GuestPreferenceQuestionsPage extends AbstractBasePage {
 		String CategoryNameExpected = "Reservation";
 		CategoryNameExpected = CategoryNameExpected.replaceAll("\\s+", "");
 
-		System.out.println(CategoryNameExpected+"$$$$");
+		System.out.println(CategoryNameExpected + "$$$$");
 
 		if (CategoryName.equals(CategoryNameExpected)) {
 			System.out.println("Category is Reservation");
@@ -235,7 +259,11 @@ public class GuestPreferenceQuestionsPage extends AbstractBasePage {
 		}
 	}
 
-	public boolean verifyMaxOptionsAllowedField() throws Exception {
+	/*
+	 * Method to verify Max Options Allowed Field enabled or not
+	 * @return boolean value
+	 */
+	public boolean verifyMaxOptionsAllowedField() {
 
 		WebElement e = driver.findElement(By.xpath("//*[contains(text(),'Max Options Allowed')]"));
 		TestBase.implict(3);
@@ -253,7 +281,12 @@ public class GuestPreferenceQuestionsPage extends AbstractBasePage {
 
 		}
 	}
-	public boolean verifyMaxOptionsAllowedInputField() throws Exception {
+
+	/*
+	 * Method to verify Max Options Allowed Field interactable or not
+	 * @return boolean value
+	 */
+	public boolean verifyMaxOptionsAllowedInputField() {
 
 		WebElement e = driver.findElement(By.xpath("//*[contains(text(),'Max Options Allowed')]/input"));
 		TestBase.implict(3);

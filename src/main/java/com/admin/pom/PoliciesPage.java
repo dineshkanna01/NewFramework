@@ -14,18 +14,12 @@ import Utility.ExcelData;
 import base.TestBase;
 import pages.AbstractBasePage;
 
+/*
+ * Pom class for Policies
+ * @author Rudraksh Aggarwal
+ */
 public class PoliciesPage extends AbstractBasePage{
-	
 	ExcelData e = new ExcelData();
-
-	public PoliciesPage(WebDriver driver) {
-		super(driver);
-		PageFactory.initElements(driver, this);
-	}
-
-	public String UrlTilte() {
-		return driver.getTitle();
-	}
 
 	@FindBy(xpath = "//*[@value='Delete']")
 	WebElement deleteButton;
@@ -65,11 +59,23 @@ public class PoliciesPage extends AbstractBasePage{
 
 	@FindBy(xpath = "//*[@name='selectedGuaranteeId']")
 	WebElement guarenteeDropdown;
-	
+
 	@FindBy(xpath = "//*[@value='Cancel']")
 	WebElement cancelButton;
 
-	public PoliciesPage inputTextFieldsPoliciesTc01() throws Exception {
+	public PoliciesPage(WebDriver driver) {
+		super(driver);
+		PageFactory.initElements(driver, this);
+	}
+
+	public String UrlTilte() {
+		return driver.getTitle();
+	}
+
+	/*
+	 * Method to input fields for TC01
+	 */
+	public PoliciesPage inputTextFieldsPoliciesTc01() {
 		policyName.sendKeys(e.getCellData("AddOrDeltePolicyData", "PolicyName_TC01", 2));
 		TestBase.implict(1);
 		policyCode.sendKeys(e.getCellData("AddOrDeltePolicyData", "PolicyCode_TC01", 2));
@@ -77,7 +83,10 @@ public class PoliciesPage extends AbstractBasePage{
 		return null;
 	}
 
-	public PoliciesPage inputTextFieldsPoliciesTc02() throws Exception {
+	/*
+	 * Method to input fields for TC02
+	 */
+	public PoliciesPage inputTextFieldsPoliciesTc02() {
 		policyName.sendKeys(e.getCellData("AddOrDeltePolicyData", "PolicyName_TC02", 2));
 		TestBase.implict(1);
 		policyCode.sendKeys(e.getCellData("AddOrDeltePolicyData", "PolicyCode_TC02", 2));
@@ -85,7 +94,10 @@ public class PoliciesPage extends AbstractBasePage{
 		return null;
 	}
 
-	public PoliciesPage inputTextFieldsPolicies() throws Exception {
+	/*
+	 * Method to input fields
+	 */
+	public PoliciesPage inputTextFieldsPolicies() {
 		policyName.sendKeys(e.getCellData("AddOrDeltePolicyData", "PolicyName_TC03", 2));
 		TestBase.implict(1);
 		policyCode.sendKeys(e.getCellData("AddOrDeltePolicyData", "PolicyCode_TC03", 2));
@@ -93,15 +105,21 @@ public class PoliciesPage extends AbstractBasePage{
 		return null;
 	}
 
-	public PoliciesPage inputTextFieldsPoliciesTc06() throws Exception {
+	/*
+	 * Method to input fields for TC06
+	 */
+	public PoliciesPage inputTextFieldsPoliciesTc06() {
 		policyName.sendKeys(e.getCellData("AddOrDeltePolicyData", "PolicyName_TC06", 2));
 		TestBase.implict(1);
 		policyCode.sendKeys(e.getCellData("AddOrDeltePolicyData", "PolicyCode_TC06", 2));
 		TestBase.implict(1);
 		return null;
 	}
-	
-	public PoliciesPage inputTextFieldsPoliciesTc07() throws Exception {
+
+	/*
+	 * Method to input fields for TC07
+	 */
+	public PoliciesPage inputTextFieldsPoliciesTc07() {
 		policyName.sendKeys(e.getCellData("AddOrDeltePolicyData", "PolicyName_TC07", 2));
 		TestBase.implict(1);
 		policyCode.sendKeys(e.getCellData("AddOrDeltePolicyData", "PolicyCode_TC07", 2));
@@ -109,12 +127,18 @@ public class PoliciesPage extends AbstractBasePage{
 		return null;
 	}
 
-	public PoliciesPage clickAddNewCancellationWindow() throws Exception {
+	/*
+	 * Method to click Add New Cancellation Window
+	 */
+	public PoliciesPage clickAddNewCancellationWindow() {
 		addanewCancellationwindow.click();
 		return null;
 	}
 
-	public PoliciesPage inputAddNewCancellationWindow() throws Exception {
+	/*
+	 * Method to click input fields for Cancellation Window
+	 */
+	public PoliciesPage inputAddNewCancellationWindow() {
 		cancellationWindow.sendKeys(e.getCellData("AddOrDeltePolicyData", "CancellationWindow", 2));
 		TestBase.implict(1);
 
@@ -133,13 +157,19 @@ public class PoliciesPage extends AbstractBasePage{
 		return null;
 	}
 
-	public PoliciesPage clickSave() throws Exception {
+	/*
+	 * Method to click save button
+	 */
+	public PoliciesPage clickSave() {
 		save.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public SmartPoliciesPage deletePolicies() throws Exception {
+	/*
+	 * Method to delete policies
+	 */
+	public SmartPoliciesPage deletePolicies() {
 		policyNameCheckbox.click();
 		TestBase.implict(1);
 		deleteButton.click();
@@ -151,7 +181,11 @@ public class PoliciesPage extends AbstractBasePage{
 		return null;
 	}
 
-	public boolean verifyPolicyName_tc01() throws Exception {
+	/*
+	 * Method to verify created policy TC01
+	 * @return boolean value
+	 */
+	public boolean verifyPolicyName_tc01() {
 
 		String PolicyName = policyNameVerify.getText();
 		PolicyName = PolicyName.replaceAll("\\s+", "");
@@ -172,7 +206,11 @@ public class PoliciesPage extends AbstractBasePage{
 		}
 	}
 
-	public boolean verifyPolicyName_tc02() throws Exception {
+	/*
+	 * Method to verify created policy TC02
+	 * @return boolean value
+	 */
+	public boolean verifyPolicyName_tc02() {
 
 		String PolicyName = policyNameVerify.getText();
 		PolicyName = PolicyName.replaceAll("\\s+", "");
@@ -193,7 +231,11 @@ public class PoliciesPage extends AbstractBasePage{
 		}
 	}
 
-	public boolean verifyPolicyName() throws Exception {
+	/*
+	 * Method to verify created policy
+	 * @return boolean value
+	 */
+	public boolean verifyPolicyName() {
 
 		String PolicyName = policyNameVerify.getText();
 		PolicyName = PolicyName.replaceAll("\\s+", "");
@@ -214,7 +256,11 @@ public class PoliciesPage extends AbstractBasePage{
 		}
 	}
 
-	public boolean verifyPolicyNameTc06() throws Exception {
+	/*
+	 * Method to verify created policy TC06
+	 * @return boolean value
+	 */
+	public boolean verifyPolicyNameTc06() {
 
 		String PolicyName = policyNameVerify.getText();
 		PolicyName = PolicyName.replaceAll("\\s+", "");
@@ -235,7 +281,10 @@ public class PoliciesPage extends AbstractBasePage{
 		}
 	}
 
-	public PoliciesPage selectGuarenteeDropdown_Tc02() throws InterruptedException {
+	/*
+	 * Method to select guarentee
+	 */
+	public PoliciesPage selectGuarenteeDropdown_Tc02() {
 
 		Select dropdown = new Select(guarenteeDropdown);
 		dropdown.selectByVisibleText("Direct Bill");
@@ -244,7 +293,10 @@ public class PoliciesPage extends AbstractBasePage{
 
 	}
 
-	public PoliciesPage selectGuarenteeDropdown_Tc03() throws Exception {
+	/*
+	 * Method to select guarentee
+	 */
+	public PoliciesPage selectGuarenteeDropdown_Tc03() {
 
 		Select dropdown = new Select(guarenteeDropdown);
 		dropdown.selectByVisibleText("Pre Payment/Deposit");
@@ -264,7 +316,10 @@ public class PoliciesPage extends AbstractBasePage{
 
 	}
 
-	public PoliciesPage selectGuarenteeDropdown_Tc04() throws Exception {
+	/*
+	 * Method to select guarentee
+	 */
+	public PoliciesPage selectGuarenteeDropdown_Tc04() {
 
 		Select dropdown = new Select(guarenteeDropdown);
 		dropdown.selectByVisibleText("Pre Payment/Deposit");
@@ -284,7 +339,10 @@ public class PoliciesPage extends AbstractBasePage{
 
 	}
 
-	public PoliciesPage selectGuarenteeDropdown_Tc05() throws Exception {
+	/*
+	 * Method to select guarentee
+	 */
+	public PoliciesPage selectGuarenteeDropdown_Tc05() {
 
 		Select dropdown = new Select(guarenteeDropdown);
 		dropdown.selectByVisibleText("Pre Payment/Deposit");
@@ -304,7 +362,10 @@ public class PoliciesPage extends AbstractBasePage{
 
 	}
 
-	public PoliciesPage selectGuarenteeDropdown_Tc06() throws Exception {
+	/*
+	 * Method to select guarentee
+	 */
+	public PoliciesPage selectGuarenteeDropdown_Tc06() {
 
 		Select dropdown = new Select(guarenteeDropdown);
 		dropdown.selectByVisibleText("Non-Guarantee");
@@ -323,9 +384,14 @@ public class PoliciesPage extends AbstractBasePage{
 
 	}
 
-	public boolean verifyDuplicateErrorMessage_tc07() throws Exception {
+	/*
+	 * Method to verify duplicate error message
+	 * @return boolean value
+	 */
+	public boolean verifyDuplicateErrorMessage_tc07() {
+		TestBase.implict(2);
 		String Duplicate = driver.findElement(By.xpath("(//*[text()='Language']/preceding::li)[last()]")).getText();
-		
+
 		Duplicate = Duplicate.replaceAll("\\s+", "");
 		System.out.println(Duplicate + "####");
 
@@ -340,12 +406,14 @@ public class PoliciesPage extends AbstractBasePage{
 		return true;
 
 	}
-	
-	public PoliciesPage clickOnCancel() throws InterruptedException {
+
+	/*
+	 * Method to click on Cancel button
+	 */
+	public PoliciesPage clickOnCancel() {
 		cancelButton.click();
 		TestBase.implict(3);
 
 		return null;
 	}
-
 }

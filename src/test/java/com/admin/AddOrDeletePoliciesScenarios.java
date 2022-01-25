@@ -21,18 +21,17 @@ import io.qameta.allure.Story;
 import logfile.Utilitylog;
 
 public class AddOrDeletePoliciesScenarios extends TestBase{
-
 	public static Utilitylog logger;
-
-	public AddOrDeletePoliciesScenarios() {
-		super();
-		logger = new Utilitylog(AddOrDeletePoliciesScenarios.class.getName());
-	}
 
 	// objects
 	LoginPage lp;
 	AdministratorHomePage ahp;
 	PoliciesPage pp;
+
+	public AddOrDeletePoliciesScenarios() {
+		super();
+		logger = new Utilitylog(AddOrDeletePoliciesScenarios.class.getName());
+	}
 
 	@BeforeMethod
 	public void setup() {
@@ -48,7 +47,7 @@ public class AddOrDeletePoliciesScenarios extends TestBase{
 	@Feature("Feature1:Polcies")
 	@Story("Policies Page")
 	@Step("Verify user is able to add or Delete policy")
-	public void AddOrDeletePolicies_TC_01() throws Exception {
+	public void AddOrDeletePolicies_TC_01()  {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("AddOrDeletePolicies_TC_01");
 
@@ -97,7 +96,7 @@ public class AddOrDeletePoliciesScenarios extends TestBase{
 	@Feature("Feature1:Polcies")
 	@Story("Policies Page")
 	@Step("Verify user is able to add or Delete policy")
-	public void AddOrDeletePolicies_TC_02() throws Exception {
+	public void AddOrDeletePolicies_TC_02()  {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("AddOrDeletePolicies_TC_02");
 
@@ -147,7 +146,7 @@ public class AddOrDeletePoliciesScenarios extends TestBase{
 	@Feature("Feature1:Polcies")
 	@Story("Policies Page")
 	@Step("Verify user is able to add or Delete policy")
-	public void AddOrDeletePolicies_TC_03() throws Exception {
+	public void AddOrDeletePolicies_TC_03()  {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("AddOrDeletePolicies_TC_03");
 
@@ -198,7 +197,7 @@ public class AddOrDeletePoliciesScenarios extends TestBase{
 	@Feature("Feature1:Polcies")
 	@Story("Policies Page")
 	@Step("Verify user is able to add or Delete policy")
-	public void AddOrDeletePolicies_TC_04() throws Exception {
+	public void AddOrDeletePolicies_TC_04()  {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("AddOrDeletePolicies_TC_04");
 
@@ -248,7 +247,7 @@ public class AddOrDeletePoliciesScenarios extends TestBase{
 	@Feature("Feature1:Polcies")
 	@Story("Policies Page")
 	@Step("Verify user is able to add or Delete policy")
-	public void AddOrDeletePolicies_TC_05() throws Exception {
+	public void AddOrDeletePolicies_TC_05()  {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("AddOrDeletePolicies_TC_05");
 
@@ -297,7 +296,7 @@ public class AddOrDeletePoliciesScenarios extends TestBase{
 	@Feature("Feature1:Polcies")
 	@Story("Policies Page")
 	@Step("Verify user is able to add or Delete policy")
-	public void addOrDeletePolicies_TC_06() throws Exception {
+	public void addOrDeletePolicies_TC_06()  {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("addOrDeletePolicies_TC_06");
 
@@ -347,7 +346,7 @@ public class AddOrDeletePoliciesScenarios extends TestBase{
 	@Feature("Feature1:Polcies")
 	@Story("Policies Page")
 	@Step("Verify user is not able to add policy having same code")
-	public void AddOrDeletePolicies_TC_07() throws Exception {
+	public void AddOrDeletePolicies_TC_07()  {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("AddOrDeletePolicies_TC_07");
 
@@ -400,9 +399,13 @@ public class AddOrDeletePoliciesScenarios extends TestBase{
 	}
 
 	@AfterSuite
-	public void report() throws Exception {
-		mail();
+	public void report()  {
+		try {
+			mail();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		cmdPrompt();
 	}
-
 }

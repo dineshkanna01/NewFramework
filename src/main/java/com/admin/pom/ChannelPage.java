@@ -10,14 +10,12 @@ import Utility.ExcelData;
 import base.TestBase;
 import pages.AbstractBasePage;
 
+/*
+* POM class to create different Channels
+* @Author Uzair Asar
+*/
 public class ChannelPage extends AbstractBasePage{
-
 	ExcelData e = new ExcelData();
-
-	public ChannelPage(WebDriver driver) {
-		super(driver);
-		PageFactory.initElements(driver, this);
-	}
 
 	@FindBy(xpath = "//div[text()='Property Management']")
 	WebElement propertyManagementTab;
@@ -88,26 +86,51 @@ public class ChannelPage extends AbstractBasePage{
 	@FindBy(xpath = "//li[text()='Max retry count is either not given, too big, or not a number. Enter a number that is not higher than 255. Use 0 for no max retry count.']")
 	WebElement verifyMaxRetryCountBlankText;
 
-	public ChannelPage openPropertyTab() throws InterruptedException {
+	public ChannelPage(WebDriver driver) {
+		super(driver);
+		PageFactory.initElements(driver, this);
+	}
+
+	public String UrlTilte() {
+		return driver.getTitle();
+	}
+	
+	/*
+	 * Method to open Property Tab
+	 */
+	
+	public ChannelPage openPropertyTab(){
 		TestBase.implict(3);
 		propertyManagementTab.click();
 		return null;
 	}
+
+	/*
+	 * Method to click ok on pop up
+	 */
 	
-	public void alertPopUp() throws InterruptedException {
+	public void alertPopUp(){
 		TestBase.implict(3);
 		Alert alert = driver.switchTo().alert();
 		alert.accept();
 	}
 
-	public ChannelPage openChannels() throws InterruptedException {
+	/*
+	 * Method to open channel
+	 */
+	
+	public ChannelPage openChannels() {
 		TestBase.implict(3);
 		channelsOption.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public ChannelPage selectingChannel() throws InterruptedException {
+	/*
+	 * Method to select a channel
+	 */
+	
+	public ChannelPage selectingChannel(){
 		addNewChannel.click();
 		TestBase.implict(3);
 		selectChannel.click();
@@ -115,56 +138,93 @@ public class ChannelPage extends AbstractBasePage{
 		return null;
 	}
 
-	public ChannelPage addGDS() throws Exception {
+	/*
+	 * Method to create a GDS channel
+	 */
+	
+	public ChannelPage addGDS() {
 		GDSChannel.click();
 		TestBase.implict(3);
 		channelType.click();
 		TestBase.implict(3);
+//		TestBase.explicit(3);
 		chainCode.sendKeys(e.getCellData("Channel", "ChainCode", 2));
+//		TestBase.explicit(3);
 		TestBase.implict(3);
 		hotelCode.sendKeys(e.getCellData("Channel", "HotelCode", 2));
 		TestBase.implict(3);
 		return null;
 	}
 
+	/*
+	 * Method to verify save button
+	 * returns string s
+	 */
+	
 	public String verifySaveButton() {
 		String s = saveChannelButton.getAttribute("value");
 		System.out.println(s);
 		return s;
 	}
 
-	public ChannelPage saveButton() throws InterruptedException {
+	/*
+	 * Method to click on save button
+	 */
+	
+	public ChannelPage saveButton() {
 		saveChannelButton.click();
 		TestBase.implict(3);
 		return null;
 	}
 
+	/*
+	 * Method to verify GDS created
+	 * returns string s
+	 */
+	
 	public String verifyGDSChannel() {
 		String s = verifyGDSText.getText();
 		System.out.println(s);
 		return s;
 	}
 
-	public ChannelPage deleteChannelSelected() throws InterruptedException {
+	/*
+	 * Method to select channel to delete
+	 */
+	
+	public ChannelPage deleteChannelSelected() {
 		TestBase.implict(3);
 		selectToDelete.click();
 		return null;
 	}
 
-	public String verifyDeleteButton() throws InterruptedException {
+	/*
+	 * Method to verify delete button
+	 * returns string s
+	 */
+	
+	public String verifyDeleteButton() {
 		String s = deleteButton.getAttribute("value");
 		System.out.println(s);
 		return s;
 	}
 
-	public ChannelPage deleteButton() throws InterruptedException {
+	/*
+	 * Method to click on delete button
+	 */
+	
+	public ChannelPage deleteButton() {
 		TestBase.implict(3);
 		deleteButton.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public ChannelPage addPMS() throws Exception {
+	/*
+	 * Method to add PMS channel
+	 */
+	
+	public ChannelPage addPMS() {
 		TestBase.implict(3);
 		PMSChannel.click();
 		TestBase.implict(3);
@@ -177,44 +237,76 @@ public class ChannelPage extends AbstractBasePage{
 		return null;
 	}
 
-	public ChannelPage URI() throws Exception {
+	/*
+	 * Method to provide uri
+	 */
+	
+	public ChannelPage URI() {
 		externalURI.sendKeys(e.getCellData("Channel", "ExternalURI", 2));
 		TestBase.implict(3);
 		return null;
 	}
 
-	public String verifyURIBlankText() throws InterruptedException {
+	/*
+	 * Method to verify blank URI error
+	 * returns string s
+	 */
+	
+	public String verifyURIBlankText() {
 		String s = verifyURIBlankText.getText();
 		System.out.println(s);
 		TestBase.implict(3);
 		return s;
 	}
 
-	public ChannelPage retryInterval() throws Exception {
+	/*
+	 * Method to provide retry interval data
+	 */
+	
+	public ChannelPage retryInterval(){
 		retryInterval.sendKeys(e.getCellData("Channel", "RetryInterval", 2));
 		TestBase.implict(3);
 		return null;
 	}
+
+	/*
+	 * Method to verify blank retry interval error
+	 * returns string s
+	 */
 	
-	public String verifyRetryIntervalBlankText() throws InterruptedException {
+	public String verifyRetryIntervalBlankText(){
 		String s = verifyRetryIntervalBlankText.getText();
 		System.out.println(s);
 		TestBase.implict(3);
 		return s;
 	}
 
-	public ChannelPage maxRetryCount() throws Exception {
+	/*
+	 * Method to provide max retry count data
+	 */
+	
+	public ChannelPage maxRetryCount(){
 		maxRetryCount.sendKeys(e.getCellData("Channel", "MaxRetryCount", 2));
 		TestBase.implict(3);
 		return null;
 	}
 
-	public String verifyMaxRetryCountBlankText() throws InterruptedException {
+	/*
+	 * Method to verify blank max retry count error
+	 * returns string s
+	 */
+	
+	public String verifyMaxRetryCountBlankText(){
 		String s = verifyMaxRetryCountBlankText.getText();
 		System.out.println(s);
 		TestBase.implict(3);
 		return s;
 	}
+
+	/*
+	 * Method to verify PMS channel created
+	 * returns string s
+	 */
 	
 	public String verifyPMSChannel() {
 		String s = verifyPMSText.getText();

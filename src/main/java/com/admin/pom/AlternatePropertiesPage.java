@@ -12,9 +12,11 @@ import Utility.ExcelData;
 import base.TestBase;
 import pages.AbstractBasePage;
 
+/*
+ * Pom class for Alternate Properties
+ * @author Sudhakar Mourya
+ */
 public class AlternatePropertiesPage extends AbstractBasePage {
-
-
 	ExcelData e = new ExcelData();
 
 
@@ -60,37 +62,54 @@ public class AlternatePropertiesPage extends AbstractBasePage {
 
 	@FindBys(@FindBy(xpath="//table[@width='600']//tr/td[2]"))
 	List<WebElement> allProperty;
-
+/*
+ * Method for click on add property
+ */
 	public AlternatePropertiesPage clickAddProperty() {
 		addProperty.click();
 		TestBase.implict(3);
 		return null; 
 	}
 
-	public AlternatePropertiesPage enterPropertyCode1() throws Exception {
+	/*
+	 * Method for enter property code
+	 */
+	public AlternatePropertiesPage enterPropertyCode1(){
 		propertyCode.sendKeys(e.getCellData("Sheet1","PropCode",2));
 		TestBase.implict(3);
 		return null;
 	}
 
-	public AlternatePropertiesPage enterPropertyCode2() throws Exception {
+	/*
+	 * Method for enter property code
+	 */
+	public AlternatePropertiesPage enterPropertyCode2(){
 		propertyCode.sendKeys(e.getCellData("Sheet1","PropCode",3));
 		TestBase.implict(3);
 		return null;
 	}
 	
-	public AlternatePropertiesPage enterInvalidPropertyCode() throws Exception {
+	/*
+	 * Method for enter invalid property code
+	 */
+	public AlternatePropertiesPage enterInvalidPropertyCode(){
 		propertyCode.sendKeys(e.getCellData("Sheet1","InvalidPropCode",2));
 		TestBase.implict(3);
 		return null;
 	}
 
-	public AlternatePropertiesPage clickSaveButton() throws InterruptedException {
+	/*
+	 * Method for click on yes button
+	 */
+	public AlternatePropertiesPage clickSaveButton(){
 		save.click();
 		return null;
 	}
 
-	public AlternatePropertiesPage addMultipleProp() throws Exception {
+	/*
+	 * Method for add multiple property
+	 */
+	public AlternatePropertiesPage addMultipleProp(){
 		addProperty.click();
 		propertyCode.sendKeys(e.getCellData("Sheet1","PropCode",4));
 		save.click();
@@ -102,11 +121,19 @@ public class AlternatePropertiesPage extends AbstractBasePage {
 		save.click();
 		return null;
 	}
+	
+	/*
+	 * Method for click on last checkbox
+	 */
     public AlternatePropertiesPage clickLastCheckBox() {
 		lastCheckBox.click();
 		TestBase.implict(3);
 		return null;
 	}
+    
+    /*
+	 * Method for click on multiple checkbox
+	 */
 	public AlternatePropertiesPage clickMultipleCheckBox() {
 		checkBox2.click();
 		TestBase.implict(3);
@@ -119,21 +146,35 @@ public class AlternatePropertiesPage extends AbstractBasePage {
 		return null;
 	}
 	
-    public AlternatePropertiesPage clickDeleteButton() throws InterruptedException {
+	/*
+	 * Method for click on delete button
+	 */
+    public AlternatePropertiesPage clickDeleteButton(){
 		delete.click();
 		driver.switchTo().alert().accept();
 		TestBase.implict(5);
 		return null;
 	}
 
+    /*
+	 * Method for getting property name text
+	 * @return String property name
+	 */
 	public String propertyName()  {
 		return propName.getText();
 	}
 
-	public String invalidPropCode() throws Exception {
+	  /*
+	   * Method for getting invalid property code text
+	   * @return String error msg
+	   */
+	public String invalidPropCode(){
 		return invalidPropErrorMsg.getText();
 	}
-
+     
+	    /*
+		 * Method for checking deleted property
+		 */
 	public boolean checkPropertyDeleted(String DeletedPropName) {
 		int a=0;
 		for (WebElement SingleProp : allProperty) {
@@ -148,5 +189,4 @@ public class AlternatePropertiesPage extends AbstractBasePage {
 		return true;
 		}
 	}
-
 }
