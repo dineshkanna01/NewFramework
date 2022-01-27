@@ -67,6 +67,13 @@ public class LoginPage extends AbstractBasePage{
 	
 	@FindBy(xpath = "//a[text()='Return Home']")
 	WebElement returnLoginPage2;
+	
+	public LoginPage clickClearButton()  {
+		TestBase.implict(3);
+		clearButton.click();
+		TestBase.implict(3);
+		return null;
+		}
 
 	public LoginPage(WebDriver driver) {
 		super(driver);

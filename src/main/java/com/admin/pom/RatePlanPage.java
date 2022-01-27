@@ -1,5 +1,8 @@
 package com.admin.pom;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -117,16 +120,27 @@ public class RatePlanPage extends AbstractBasePage {
 	/*
 	 * Method to input field for TC01
 	 */
-	public RatePlanCategoriesPage inputFields_tc01() {
+	public RatePlanPage inputFields_tc01() {
+
 		name.sendKeys(e.getCellData("RatePlanPageData", "Name_TC01", 2));
 		TestBase.implict(1);
 		ratePlanCode.sendKeys(e.getCellData("RatePlanPageData", "RateTypeCode_TC01", 2));
 		TestBase.implict(1);
 		shortDescription.sendKeys(e.getCellData("RatePlanPageData", "ShortDescription_TC01", 2));
 		TestBase.implict(1);
-		startDate.sendKeys(e.getCellData("RatePlanPageData", "BookingStartDate_TC01", 2));
+
+		DateFormat dateFormat = new SimpleDateFormat("MM/DD/YY");
+		Date date = new Date();
+		String strDate = dateFormat.format(date);
+
+		startDate.sendKeys(strDate);
+		// startDate.sendKeys(e.getCellData("RatePlanPageData", "BookingStartDate_TC01",
+		// 2));
 		TestBase.implict(1);
-		firstCheckInDate.sendKeys(e.getCellData("RatePlanPageData", "FirstCheckinDate_TC01", 2));
+		firstCheckInDate.sendKeys(strDate);
+
+		// firstCheckInDate.sendKeys(e.getCellData("RatePlanPageData",
+		// "FirstCheckinDate_TC01", 2));
 
 		return null;
 
@@ -135,7 +149,7 @@ public class RatePlanPage extends AbstractBasePage {
 	/*
 	 * Method to input field for TC02
 	 */
-	public RatePlanCategoriesPage inputFields_tc02() {
+	public RatePlanPage inputFields_tc02() {
 
 		name.sendKeys(e.getCellData("RatePlanPageData", "Name_TC01", 2));
 		TestBase.implict(1);
@@ -144,11 +158,18 @@ public class RatePlanPage extends AbstractBasePage {
 
 		shortDescription.sendKeys(e.getCellData("RatePlanPageData", "ShortDescription_TC01", 2));
 		TestBase.implict(1);
-		startDate.sendKeys(e.getCellData("RatePlanPageData", "BookingStartDate_TC01", 2));
+		
+		DateFormat dateFormat = new SimpleDateFormat("MM/DD/YY");
+		Date date = new Date();
+		String strDate = dateFormat.format(date);
+		
+		startDate.sendKeys(strDate);
 		TestBase.implict(1);
-		firstCheckInDate.sendKeys(e.getCellData("RatePlanPageData", "FirstCheckinDate_TC01", 2));
+
+		firstCheckInDate.sendKeys(strDate);
 		TestBase.implict(1);
-		roomTextBox.sendKeys(e.getCellData("RatePlanPageData", "RoomNameTextBox", 2));
+		
+		roomTextBox.sendKeys(e.getCellData("RatePlanPageData", "RoomNameTextbox", 2));
 
 		return null;
 
@@ -157,7 +178,8 @@ public class RatePlanPage extends AbstractBasePage {
 	/*
 	 * Method to input field for TC05
 	 */
-	public RatePlanCategoriesPage inputFields_tc05() {
+	public RatePlanPage inputFields_tc05() {
+
 		name.sendKeys(e.getCellData("RatePlanPageData", "Name_TC01", 2));
 		TestBase.implict(1);
 		ratePlanCode.sendKeys(e.getCellData("RatePlanPageData", "RateTypeCode_TC01", 2));
@@ -168,9 +190,14 @@ public class RatePlanPage extends AbstractBasePage {
 
 		shortDescription.sendKeys(e.getCellData("RatePlanPageData", "ShortDescription_TC01", 2));
 		TestBase.implict(1);
-		startDate.sendKeys(e.getCellData("RatePlanPageData", "BookingStartDate_TC01", 2));
+
+		DateFormat dateFormat = new SimpleDateFormat("MM/DD/YY");
+		Date date = new Date();
+		String strDate = dateFormat.format(date);
+
+		startDate.sendKeys(strDate);
 		TestBase.implict(1);
-		firstCheckInDate.sendKeys(e.getCellData("RatePlanPageData", "FirstCheckinDate_TC01", 2));
+		firstCheckInDate.sendKeys(strDate);
 		return null;
 
 	}
@@ -178,7 +205,7 @@ public class RatePlanPage extends AbstractBasePage {
 	/*
 	 * Method to attach add on to rate plan
 	 */
-	public RatePlanCategoriesPage attachAddOns() {
+	public RatePlanPage attachAddOns() {
 		addOnAttach.click();
 		TestBase.implict(1);
 		selectAddOn.click();
@@ -191,7 +218,7 @@ public class RatePlanPage extends AbstractBasePage {
 	/*
 	 * Method to select room type
 	 */
-	public RatePlanCategoriesPage selectRoomType() {
+	public RatePlanPage selectRoomType() {
 		roomAllCheckbox.click();
 		return null;
 	}
@@ -199,7 +226,7 @@ public class RatePlanPage extends AbstractBasePage {
 	/*
 	 * Method to select radio button for derive rates
 	 */
-	public RatePlanCategoriesPage deriveRatesNo() {
+	public RatePlanPage deriveRatesNo() {
 		deriveRatesNoButton.click();
 		return null;
 	}
@@ -207,7 +234,7 @@ public class RatePlanPage extends AbstractBasePage {
 	/*
 	 * Method to click save button
 	 */
-	public RatePlanCategoriesPage clickSaveButton() {
+	public RatePlanPage clickSaveButton() {
 		saveButton.click();
 		TestBase.implict(3);
 		return null;
@@ -216,7 +243,7 @@ public class RatePlanPage extends AbstractBasePage {
 	/*
 	 * Method to delete rate plan
 	 */
-	public RatePlanCategoriesPage deleteRatePlan() {
+	public RatePlanPage deleteRatePlan() {
 		ratePlanCheckbox.click();
 		deleteButton.click();
 		TestBase.implict(3);
@@ -323,7 +350,7 @@ public class RatePlanPage extends AbstractBasePage {
 	/*
 	 * Method to select property without any room
 	 */
-	public RatePlanCategoriesPage propertyNoRoom() {
+	public RatePlanPage propertyNoRoom() {
 		crossProperty.click();
 		property.click();
 		TestBase.implict(3);
@@ -335,6 +362,7 @@ public class RatePlanPage extends AbstractBasePage {
 
 	/*
 	 * Method to verify rate plan name for TC05
+	 * 
 	 * @return string rate plan name
 	 */
 	public String verifyTc05() {

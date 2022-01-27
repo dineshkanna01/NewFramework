@@ -7,6 +7,18 @@
 			<class name="com.admin.Add6RoomsCreationTest" />
 		</classes>
 	</test>
+	
+	<test name="TaxScenario">
+		<classes>
+			<class name="com.admin.TaxScenario" />
+		</classes>
+	</test>
+	
+	<test name="AboutPropertyCreationScenario">
+		<classes>
+			<class name="com.admin.AboutPropertyCreationScenario" />
+		</classes>
+	</test>
 
 	<test name="AddOn_Scenario">
 		<classes>
