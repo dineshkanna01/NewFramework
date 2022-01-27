@@ -356,5 +356,11 @@ public class AdministratorHomePage extends AbstractBasePage {
 		amenities.click();
 		return null;
 	}
+	
+	public AdministratorHomePage selectPropertyManagement() {
+		propertyManagement.click();
+		TestBase.implict(3);
+		return null;
+		}
 
 }

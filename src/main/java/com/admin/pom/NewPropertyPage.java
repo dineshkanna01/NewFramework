@@ -2,6 +2,7 @@ package com.admin.pom;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -10,14 +11,7 @@ import base.TestBase;
 import pages.AbstractBasePage;
 
 public class NewPropertyPage extends AbstractBasePage{
-
-
 	ExcelData e = new ExcelData();
-
-	public NewPropertyPage(WebDriver driver) {
-		super(driver);
-		PageFactory.initElements(driver, this);
-	}
 
 	@FindBy(xpath = "//div[text()='Property Management']")
 	WebElement propertyMangementTab;
@@ -100,7 +94,20 @@ public class NewPropertyPage extends AbstractBasePage{
 	@FindBy(xpath = "//li[text()='Duplicate property code.']")
 	WebElement duplicateProperty;
 
-	public NewPropertyPage newPropertyEditPage() throws Exception {
+	public NewPropertyPage(WebDriver driver) {
+		super(driver);
+		PageFactory.initElements(driver, this);
+	}
+
+	public String UrlTilte() {
+		return driver.getTitle();
+	}
+
+	/*
+	 * Method to create edit page of property
+	 */
+	
+	public NewPropertyPage newPropertyEditPage() {
 		propertyMangementTab.click();
 		addNew.click();
 		propertyName.sendKeys(e.getCellData("Property", "Name", 2));
@@ -110,12 +117,20 @@ public class NewPropertyPage extends AbstractBasePage{
 		city.sendKeys(e.getCellData("Property", "City", 2));
 		country.click();
 		countrySelected.click();
-		Thread.sleep(2000);
-		longitudeLatitude.click();
-		Thread.sleep(2000);
+		TestBase.implict(3);
+		
+		Actions action = new Actions(driver);
+		
+		action.moveToElement(longitudeLatitude).click().pause(java.time.Duration.ofSeconds(1)).build().perform();		
+		//longitudeLatitude.click();
 		return null;
 
 	}
+
+	/*
+	 * Method to verify save button on edit page
+	 * returns string s
+	 */
 
 	public String verifyEditSaveButton() {
 		String s = editSaveButton.getAttribute("value");
@@ -123,21 +138,42 @@ public class NewPropertyPage extends AbstractBasePage{
 		return s;
 	}
 
-	public NewPropertyPage propertyEditPageSaveButton() throws Throwable {
+	/*
+	 * Method to click on save button on edit page
+	 */
+
+	public NewPropertyPage propertyEditPageSaveButton() {
+//		TestBase.implict(2);
 		editSaveButton.click();
 		return null;
 
 	}
 
-	public NewPropertyPage propertyDefaultPage() throws Throwable {
+	/*
+	 * Method to create default page of property
+	 */
+
+	public NewPropertyPage propertyDefaultPage() {
 		starRating.click();
 		ratingValue.click();
-		Thread.sleep(2000);
+		TestBase.implict(3);
+//		adultAge.sendKeys("17");
+//		WebElement wb = driver.findElement(By.name("adultAge"));
+//		JavascriptExecutor js = (JavascriptExecutor)driver;
+//		Object searchTextbar = js.executeScript("return document.getElementById('lst-ib')");
+//		((WebElement) adultAge).sendKeys(e.getCellData("Property", "AdultAge", 2));
+//		js.executeScript(e.getCellData("Property", "AdultAge", 2), wb);
 		adultAge.sendKeys(e.getCellData("Property", "AdultAge", 2));
-		Thread.sleep(2000);
+//		Thread.sleep(10000);
+		TestBase.implict(3);
 		return null;
 
 	}
+
+	/*
+	 * Method to verify save button on default page
+	 * returns string s
+	 */
 
 	public String verifyDefaultSaveButton() {
 		String s = verifyDefaultSaveButton.getAttribute("value");
@@ -146,56 +182,82 @@ public class NewPropertyPage extends AbstractBasePage{
 
 	}
 
-	public NewPropertyPage propertyDefaultPageSaveButton() throws Throwable {
+	/*
+	 * Method to click on save button on default page
+	 */
+
+	public NewPropertyPage propertyDefaultPageSaveButton() {
 		verifyDefaultSaveButton.click();
 		return null;
 
 	}
 
-	public NewPropertyPage propertyMasterPage() throws Throwable {
-		Thread.sleep(2000);
+	/*
+	 * Method to create Master page of property
+	 */
+
+	public NewPropertyPage propertyMasterPage() throws InterruptedException{
+		TestBase.implict(3);
 		countryCode.sendKeys(e.getCellData("Property", "CountryCode", 2));
-		Thread.sleep(2000);
+		TestBase.implict(3);
 		areaCode.sendKeys(e.getCellData("Property", "AreaCode", 2));
-		Thread.sleep(2000);
+		TestBase.implict(3);
 		phone.sendKeys(e.getCellData("Property", "Phone", 2));
 		website.sendKeys(e.getCellData("Property", "Website", 2));
 		primaryEmail.sendKeys(e.getCellData("Property", "PrimaryEmail", 2));
-		Thread.sleep(2000);
+		TestBase.implict(3);
 		numberOfRooms.sendKeys(e.getCellData("Property", "NumberOfRooms", 2));
-		Thread.sleep(2000);
+		TestBase.implict(3);
 		numberOfFloors.sendKeys(e.getCellData("Property", "NumberOfFloors", 2));
+//		Thread.sleep(5000);
 		visaCard.click();
 		shortDescription.sendKeys(e.getCellData("Property", "ShortDescription", 2));
-		Thread.sleep(2000);
+		TestBase.implict(3);
 		return null;
 
 	}
-	
+
+	/*
+	 * Method to verify save button on master page
+	 * returns string s
+	 */
+
 	public String verifyMasterSaveButton() {
 		String s = masterSaveButton.getAttribute("value");
 		System.out.println(s);
 		return s;
 	}
-	
+
+	/*
+	 * Method to click on save button on master page
+	 */
+
 	public NewPropertyPage masterSaveButton() {
 		TestBase.implict(3);
 		masterSaveButton.click();
 		return null;
 	}
-	
-	public String verifyAdministratorTextAfterSave() {
+
+	/*
+	 * Method to verify text after property creation
+	 * returns string s
+	 */
+
+	public String verifyAdministratorTextAfterSave()  {
 		TestBase.implict(3);
 		String s = afterSaveVerifyText.getText();
 		System.out.println(s);
 		return s;
 	}
-	
+
+	/*
+	 * Method to verify duplicate property error message
+	 * returns string s
+	 */
+
 	public String verifyDuplicatePropert() {
 		String s = duplicateProperty.getText();
 		System.out.println(s);
 		return s;
 	}
-	
-	
 }

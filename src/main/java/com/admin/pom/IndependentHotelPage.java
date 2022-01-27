@@ -10,13 +10,7 @@ import Utility.ExcelData;
 import pages.AbstractBasePage;
 
 public class IndependentHotelPage extends AbstractBasePage {
-
 	ExcelData e = new ExcelData();
-
-	public IndependentHotelPage(WebDriver driver) {
-		super(driver);
-		PageFactory.initElements(driver, this);
-	}
 
 	@FindBy(xpath = "//a[text()='Independent Hotels']")
 	WebElement selectIndependentHotel;
@@ -24,17 +18,39 @@ public class IndependentHotelPage extends AbstractBasePage {
 	@FindBy(xpath = "//a[text()='x'][1]")
 	WebElement backToProperties;
 
+	public IndependentHotelPage(WebDriver driver) {
+		super(driver);
+		PageFactory.initElements(driver, this);
+	}
+
+	public String UrlTilte() {
+		return driver.getTitle();
+	}
+	
+	/*
+	 * Method to select Independent Hotel
+	 */
+	
 	public IndependentHotelPage selectingIndependentHotel() {
 		selectIndependentHotel.click();
 		return null;
 	}
 
+	/*
+	 * Method to go back to properties
+	 */
+	
 	public IndependentHotelPage independentHotels() {
 		backToProperties.click();
 		return null;
 	}
 
-	public boolean verifyIndependentHotelCreated() throws Exception {
+	/*
+	 * Method to verify Independent Hotel created
+	 * return boolean value
+	 */
+	
+	public boolean verifyIndependentHotelCreated(){
 		String code = e.getCellData("Property", "Code", 2);
 		System.out.println(code);
 		WebElement w = driver.findElement(By.xpath("//td[text()='" + code + "']"));

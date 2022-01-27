@@ -21,16 +21,16 @@ import io.qameta.allure.Story;
 import logfile.Utilitylog;
 
 public class PropertyCreationTestCases extends TestBase{
-	
+
 	public static Utilitylog logger;
+	LoginPage lp;
+	BrandPage bp;
+	NewPropertyPage npp;
+
 	public PropertyCreationTestCases() {
 		super();
 		logger = new Utilitylog(PropertyCreationTestCases.class.getName());
 	}
-
-	LoginPage lp;
-	BrandPage bp;
-	NewPropertyPage npp;
 	
 	@BeforeMethod
 	public void setup() {
@@ -46,7 +46,7 @@ public class PropertyCreationTestCases extends TestBase{
 	@Feature("Feature1: New Property")
 	@Story("Story: Property Created")
 	@Step("Verify New Property Created")
-	public void Admin_AddNewPropertyScenario_TC_01() throws Throwable {
+	public void Admin_AddNewPropertyScenario_TC_01() throws InterruptedException{
 		extentTest = extent.startTest("Admin_AddNewPropertyScenario_TC_01");
 		
 		lp.clearButton();
@@ -101,14 +101,14 @@ public class PropertyCreationTestCases extends TestBase{
 		
 	}
 	
-	@Test(priority = 2)
+//	@Test(priority = 2)
 	@Description("Verify user should not be able to add a new Property due to the non uniqueness of property code.")
 	@Severity(SeverityLevel.CRITICAL)
 	@Epic("EP01")
 	@Feature("Feature1: Duplicate Property")
 	@Story("Story: Property Not Created")
 	@Step("Verify Duplicate Property Created")
-	public void Admin_AddNewPropertyScenario_TC_02() throws Throwable {
+	public void Admin_AddNewPropertyScenario_TC_02(){
 		extentTest = extent.startTest("Admin_AddNewPropertyScenario_TC_02");
 		
 		npp.newPropertyEditPage();
@@ -128,6 +128,11 @@ public class PropertyCreationTestCases extends TestBase{
 		Assert.assertEquals(duplicatePropCode, "Duplicate property code.");
 		
 		lp.logout();
+	}
+	
+//	@AfterMethod
+	public void browerClose() throws InterruptedException {
+		getDriver().quit();
 	}
 
 	@AfterSuite

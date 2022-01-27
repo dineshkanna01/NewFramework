@@ -42,34 +42,34 @@ public class TaxesAndFees extends TestBase {
 		tf = new TaxesAndFeesPage(getDriver());
 	}
 
-//	@Test(priority = 1)
-//	@Description("Verify user is able to add taxe ")
-//	@Severity(SeverityLevel.CRITICAL)
-//	@Epic("EP01")
-//	@Feature("Feature1:Taxes Scenario ")
-//	@Story("About the property tax creation scenario")
-//	@Step("Verify user is able to add taxe")
-//	public void aboutPropertyTaxCreationScenario_TC_01() throws Exception {
-//
-//		extentTest = extent.startTest("aboutPropertyTaxCreationScenario_TC_01");
-//		lp.clickClearButton();
-//		lp.login();
-//		ahp.selectBrand();
-//		ahp.selectProperty();
-//		ahp.selectPropertyManagement();
-//
-//		tf.clickTaxesAndFees();
-//		tf.clickaddNewTaxtoProperty();
-//		tf.addtax();
-//		tf.clickSave();
-//		allureScreenshot("taxCreated");
-//		screenShot("TaxCreated");
-//		tf.verifyTaxCreated();
-//		Assert.assertTrue(tf.verifyTaxCreated());
-//
-//	}
+	@Test(priority = 1)
+	@Description("Verify user is able to add taxe ")
+	@Severity(SeverityLevel.CRITICAL)
+	@Epic("EP01")
+	@Feature("Feature1:Taxes Scenario ")
+	@Story("About the property tax creation scenario")
+	@Step("Verify user is able to add taxe")
+	public void aboutPropertyTaxCreationScenario_TC_01() throws Exception {
 
-	 @Test(priority=2)
+		extentTest = extent.startTest("aboutPropertyTaxCreationScenario_TC_01");
+		lp.clearButton();
+		lp.login();
+		ahp.selectBrand();
+		ahp.selectProperty();
+		ahp.selectPropertyManagement();
+
+		tf.clickTaxesAndFees();
+		tf.clickaddNewTaxtoProperty();
+		tf.addtax();
+		tf.clickSave();
+		allureScreenshot("taxCreated");
+		screenShot("TaxCreated");
+		tf.verifyTaxCreated();
+		Assert.assertTrue(tf.verifyTaxCreated());
+
+	}
+
+//	 @Test(priority=2)
 	@Description("Verify user is able to add taxes and then edit the name ")
 	@Severity(SeverityLevel.CRITICAL)
 	@Epic("EP01")
@@ -96,7 +96,7 @@ public class TaxesAndFees extends TestBase {
 
 	}
 
-	 @Test(priority=3)
+//	 @Test(priority=3)
 	@Description("Verify user is able to update tax amount")
 	@Severity(SeverityLevel.CRITICAL)
 	@Epic("EP01")
@@ -115,7 +115,7 @@ public class TaxesAndFees extends TestBase {
 
 	}
 
-	 @Test(priority=4)
+//	 @Test(priority=4)
 	@Description("Verify user is able delete tax amount for already existing tax .")
 	@Severity(SeverityLevel.CRITICAL)
 	@Epic("EP01")

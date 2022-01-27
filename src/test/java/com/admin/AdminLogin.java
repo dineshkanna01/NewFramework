@@ -39,7 +39,7 @@ public class AdminLogin extends TestBase{
 		lp.clearButton();
 	}
 
-	@Test(priority = 1)
+//	@Test(priority = 1)
 	@Description("Verify the Admin Login")
 	@Severity(SeverityLevel.CRITICAL)
 	@Epic("EP01")

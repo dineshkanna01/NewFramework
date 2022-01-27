@@ -338,7 +338,6 @@ public class TestBase {
 		try {
 			FileUtils.copyFile(file, new File(".//target//ScreenshotPath/"+fileName+".jpg"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

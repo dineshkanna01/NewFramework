@@ -208,7 +208,7 @@ public class RatePlan_Scenario extends TestBase{
 		aop.clickOnDelete();
 		aop.clickOnYes();
 
-		// lp.logout();
+		 lp.logout();
 		logger.info("TestCase Ended");
 	}
 

@@ -23,18 +23,16 @@ import io.qameta.allure.Story;
 import logfile.Utilitylog;
 
 public class IndependentHotel extends TestBase{
-
 	public static Utilitylog logger;
-	
+	LoginPage lp;
+	IndependentHotelPage ihp;
+	NewPropertyPage npp;
+		
 	public IndependentHotel() {
 		super();
 		logger = new Utilitylog(IndependentHotel.class.getName());
 	}
 
-	LoginPage lp;
-	IndependentHotelPage ihp;
-	NewPropertyPage npp;
-	
 	@BeforeMethod
 	public void setup() {
 		lp = new LoginPage(getDriver());
@@ -49,7 +47,7 @@ public class IndependentHotel extends TestBase{
 	@Feature("Feature1: New  Independent Property")
 	@Story("Story: Independent Hotel Created")
 	@Step("Verify New Independent Hotel Created")
-	public void Admin_CreateIndependentHotel_TC_01() throws Throwable {
+	public void Admin_CreateIndependentHotel_TC_01() {
 		extentTest = extent.startTest("Admin_CreateIndependentHotel_TC_01");
 		
 		lp.clearButton();
