@@ -152,11 +152,6 @@
 		</classes>
 	</test>
 
-	<test name="TaxesAndFees">
-		<classes>
-			<class name="com.admin.TaxesAndFees" />
-		</classes>
-	</test>
 
 	<!-- <test thread-count="5" name="Test"> <classes> <class name="com.admin.Guest_Preferences_Questions" 
 		/> <class name="com.admin.AlternatePropertyTest" /> <class name="com.admin.AdminLogin" 

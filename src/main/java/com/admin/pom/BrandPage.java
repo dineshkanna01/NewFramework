@@ -1,5 +1,9 @@
 package com.admin.pom;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +19,7 @@ import pages.AbstractBasePage;
 * @Author Uzair Asar
 */
 public class BrandPage extends AbstractBasePage {
+	
 	ExcelData e = new ExcelData();
 
 	@FindBy(xpath = "//*[text()='Brands']")
@@ -43,6 +48,12 @@ public class BrandPage extends AbstractBasePage {
 	
 	@FindBy(xpath = "//input[@value = 'Cancel']")
 	WebElement cancelButton;
+	
+	@FindBy(xpath = "//a[text()='x'][1]")
+	WebElement brandClose;
+	
+	@FindBy(xpath = "(//a[text()='Edit'])[1]")
+	WebElement editBrand;
 
 	public BrandPage(WebDriver driver) {
 		super(driver);
@@ -71,9 +82,14 @@ public class BrandPage extends AbstractBasePage {
 		TestBase.implict(3);
 		addBrand.click();
 		TestBase.implict(3);
-		brandName.sendKeys(e.getCellData("Brand", "BrandName", 2));
+		DateFormat dateFormat = new SimpleDateFormat("mmss");
+		Date date = new Date();
+		String strDate = dateFormat.format(date);
+		String f1 ="Uz"+strDate;
+		System.out.println(f1);
+		brandName.sendKeys(f1);
 		TestBase.implict(3);
-		brandCode.sendKeys(e.getCellData("Brand", "BrandCode", 2));
+		brandCode.sendKeys(f1);
 		TestBase.implict(3);
 		saveButton.click();
 		TestBase.implict(3);
@@ -86,10 +102,7 @@ public class BrandPage extends AbstractBasePage {
 	 */
 	
 	public boolean verifyBrandCreated() {
-		String bName = e.getCellData("Brand", "BrandName", 2);
-		WebElement w = driver.findElement(By.xpath("//a[text()='" + bName + "']"));
-//		WebElement w = driver.findElement(By.xpath("//*[text()='A2']"));
-		if (w.isDisplayed()) {
+		if (brandClose.isDisplayed()) {
 			System.out.println("Brand Created");
 			return true;
 		} else {
@@ -104,11 +117,17 @@ public class BrandPage extends AbstractBasePage {
 	
 	public BrandPage duplicateBrand(){
 		TestBase.implict(3);
+		editBrand.click();
+		String s = brandName.getAttribute("value");
+		String c = brandCode.getAttribute("value");
+		System.out.println(s);
+		System.out.println(c);
+		driver.navigate().back();
 		addBrand.click();
 		TestBase.implict(3);
-		brandName.sendKeys(e.getCellData("Brand", "BrandName", 2));
+		brandName.sendKeys(s);
 		TestBase.implict(3);
-		brandCode.sendKeys(e.getCellData("Brand", "BrandCode", 2));
+		brandCode.sendKeys(c);
 		TestBase.implict(3);
 		saveButton.click();
 		TestBase.implict(3);
@@ -145,7 +164,11 @@ public class BrandPage extends AbstractBasePage {
 		TestBase.implict(3);
 		addBrand.click();
 		TestBase.implict(3);
-		brandCode.sendKeys(e.getCellData("Brand", "BrandCode", 2));
+		DateFormat dateFormat = new SimpleDateFormat("mmss");
+		Date date = new Date();
+		String strDate = dateFormat.format(date);
+		String f1 ="Uz"+strDate;
+		brandCode.sendKeys(f1);
 		TestBase.implict(3);
 		saveButton.click();
 		TestBase.implict(3);

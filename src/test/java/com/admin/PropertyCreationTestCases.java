@@ -21,7 +21,7 @@ import io.qameta.allure.Story;
 import logfile.Utilitylog;
 
 public class PropertyCreationTestCases extends TestBase{
-
+	
 	public static Utilitylog logger;
 	LoginPage lp;
 	BrandPage bp;
@@ -49,11 +49,7 @@ public class PropertyCreationTestCases extends TestBase{
 	public void Admin_AddNewPropertyScenario_TC_01() throws InterruptedException{
 		extentTest = extent.startTest("Admin_AddNewPropertyScenario_TC_01");
 		
-		lp.clearButton();
-		lp.username();
-		lp.password();
-		lp.loginButton();
-//		lp.twoFactorAuthentication();
+		lp.login();
 		
 		allureScreenshot("Logged In");
 		screenShot("Logged In");
@@ -101,7 +97,7 @@ public class PropertyCreationTestCases extends TestBase{
 		
 	}
 	
-//	@Test(priority = 2)
+	@Test(priority = 2)
 	@Description("Verify user should not be able to add a new Property due to the non uniqueness of property code.")
 	@Severity(SeverityLevel.CRITICAL)
 	@Epic("EP01")
@@ -111,7 +107,7 @@ public class PropertyCreationTestCases extends TestBase{
 	public void Admin_AddNewPropertyScenario_TC_02(){
 		extentTest = extent.startTest("Admin_AddNewPropertyScenario_TC_02");
 		
-		npp.newPropertyEditPage();
+		npp.dupPropertyEditPage();
 		
 		allureScreenshot("Property Edit Page Filled");
 		screenShot("Property Edit Page Filled");
@@ -130,10 +126,6 @@ public class PropertyCreationTestCases extends TestBase{
 		lp.logout();
 	}
 	
-//	@AfterMethod
-	public void browerClose() throws InterruptedException {
-		getDriver().quit();
-	}
 
 	@AfterSuite
 	public void report() throws Exception {

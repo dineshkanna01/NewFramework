@@ -15,8 +15,7 @@ import pages.AbstractBasePage;
  * @Author Ankita Mohamanasingh
  */
 public class TaxesAndFeesPage extends AbstractBasePage {
-
-
+	
 	ExcelData e = new ExcelData();
 	public WebDriver driver;
 
@@ -90,6 +89,12 @@ public class TaxesAndFeesPage extends AbstractBasePage {
 
 	@FindBy(xpath = "(//input[@name='taxIdsToDelete'])[last()]")
 	WebElement taxDeleteCode;
+	
+	@FindBy(xpath = "(//input[@name='taxIdsToDelete'])[1]")
+	WebElement taxDelete1;
+	
+	@FindBy(xpath = "(//input[@name='taxIdsToDelete'])[2]")
+	WebElement taxDelete2;
 
 	@FindBy(xpath = "(//input[@value='Delete'])")
 	WebElement taxDeletButton;
@@ -435,6 +440,21 @@ public class TaxesAndFeesPage extends AbstractBasePage {
 			return false;
 
 		}
+	}
+	/*
+	 * Method to edit  Charge basis of existed tax in tax scenario
+	 * 
+	 */
+
+	public TaxesAndFeesPage deleteAllTax() throws InterruptedException  {
+		taxDelete1.click();
+		taxDelete2.click();
+		taxDeletButton.click();
+		deleteOK.click();
+		Thread.sleep(2000);
+		return null;
+
+
 	}
 
 }

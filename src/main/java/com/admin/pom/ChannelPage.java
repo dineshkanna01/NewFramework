@@ -15,6 +15,7 @@ import pages.AbstractBasePage;
 * @Author Uzair Asar
 */
 public class ChannelPage extends AbstractBasePage{
+	
 	ExcelData e = new ExcelData();
 
 	@FindBy(xpath = "//div[text()='Property Management']")

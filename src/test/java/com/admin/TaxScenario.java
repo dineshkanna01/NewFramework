@@ -25,7 +25,7 @@ import logfile.Utilitylog;
 * @author Ankita mohamanasingh
 */
 public class TaxScenario extends TestBase {
-
+	
 	public static Utilitylog logger;
 	ExcelData e = new ExcelData();
 
@@ -170,7 +170,12 @@ public class TaxScenario extends TestBase {
 			screenShot("TaxUpdated");
 			Assert.assertTrue(tf.verifyTaxBasisEdited());     
 	      }
-	 
+	 @Test(priority = 31)
+		public void deleteAllCreatedAboutTheProperty() throws InterruptedException {
+		tf.deleteAllTax();
+			
+			
+	 }
 		@AfterSuite
 		public void report() throws Exception {
 
@@ -178,5 +183,5 @@ public class TaxScenario extends TestBase {
 
 			cmdPrompt();
 		}
-	
+
 }

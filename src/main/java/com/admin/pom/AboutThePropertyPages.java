@@ -18,6 +18,7 @@ import pages.AbstractBasePage;
 */
 
 public class AboutThePropertyPages extends AbstractBasePage {
+	
 	ExcelData e = new ExcelData();
 	public WebDriver driver;
 
@@ -306,6 +307,82 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	@FindBy(name="chkMeetingRoomIds")
 	WebElement chk1;
 	
+	@FindBy(xpath = "(//input[@name='chkMeetingRoomIds'])[1]")
+	WebElement meetingRoom1;
+	
+	@FindBy(xpath = "(//input[@name='chkMeetingRoomIds'])[2]")
+	WebElement meetingRoom2;
+	
+	@FindBy(xpath = "(//input[@name='chkMeetingRoomIds'])[3]")
+	WebElement meetingRoom3;
+	
+	@FindBy(xpath = "(//input[@name='chkMeetingRoomIds'])[4]")
+	WebElement meetingRoom4;
+	
+	@FindBy(xpath = "(//input[@name='chkMeetingRoomIds'])[5]")
+	WebElement meetingRoom5;
+	
+	@FindBy(xpath = "(//input[@name='chkMeetingRoomIds'])[6]")
+	WebElement meetingRoom6;
+	
+	@FindBy(xpath = "(//input[@name='chkDiningIds'])[1]")
+	WebElement dining1;
+	
+	@FindBy(xpath = "(//input[@name='chkDiningIds'])[2]")
+	WebElement dining2;
+	
+	@FindBy(xpath = "(//input[@name='chkDiningIds'])[3]")
+	WebElement dining3;
+	
+	@FindBy(xpath = "(//input[@name='chkDiningIds'])[4]")
+	WebElement dining4;
+	
+	
+	@FindBy(xpath = "(//input[@name='chkAirportIds'])[1]")
+	WebElement airport1;
+	
+	@FindBy(xpath = "(//input[@name='chkAirportIds'])[2]")
+	WebElement airport2;
+	
+	@FindBy(xpath = "(//input[@name='chkAirportIds'])[3]")
+	WebElement airport3;
+	
+	@FindBy(xpath = "(//input[@name='chkAirportIds'])[4]")
+	WebElement airport4;
+	
+	@FindBy(xpath = "(//input[@name='chkAttractionIds'])[1]")
+	WebElement nearByAttraction1;
+	
+	@FindBy(xpath = "(//input[@name='chkAttractionIds'])[2]")
+	WebElement nearByAttraction2;
+	
+	@FindBy(xpath = "(//input[@name='chkAttractionIds'])[3]")
+	WebElement nearByAttraction3;
+	
+	@FindBy(xpath = "(//input[@name='chkAttractionIds'])[4]")
+	WebElement nearByAttraction4;
+	
+	@FindBy(xpath = "((//input[@name='chkMeetingRoomIds'])[last()]/following::div[1])/input")
+	WebElement deleteAllMeetingRoom;
+	
+	@FindBy(xpath = "((//input[@name='chkDiningIds'])[last()]/following::div[1])/input")
+	WebElement deleteAllDining;
+	
+	@FindBy(xpath = "((//input[@name='chkAirportIds'])[last()]/following::div[1])/input")
+	WebElement deleteAllAirport;
+	
+	@FindBy(xpath = "((//input[@name='chkAttractionIds'])[last()]/following::div[1])/input")
+	WebElement deleteAllNearbyAttraction;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public AboutThePropertyPages(WebDriver driver) {
 		super(driver);
@@ -337,6 +414,51 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		TestBase.implict(3);
 		return null;
 	}
+	
+	/*
+	* Method to delete all MeetingRoom
+	* 
+	*/
+	public AboutThePropertyPages deleteAllMeetingRoom()  {
+		TestBase.implict(3);
+		deleteAllMeetingRoom.click();
+		TestBase.implict(3);
+		return null;
+	}
+	
+	/*
+	* Method to delete all MeetingRoom
+	* 
+	*/
+	public AboutThePropertyPages deleteAllDining()  {
+		TestBase.implict(3);
+		deleteAllDining.click();
+		TestBase.implict(3);
+		return null;
+	}
+	
+	/*
+	* Method to delete all MeetingRoom
+	* 
+	*/
+	public AboutThePropertyPages deleteAllAirport()  {
+		TestBase.implict(3);
+		deleteAllAirport.click();
+		TestBase.implict(3);
+		return null;
+	}
+	
+	/*
+	* Method to delete all MeetingRoom
+	* 
+	*/
+	public AboutThePropertyPages deleteAllNearbyAttraction()  {
+		TestBase.implict(3);
+		deleteAllNearbyAttraction.click();
+		TestBase.implict(3);
+		return null;
+	}
+	
 	/*
 	* Method to click on Save
 	* 
@@ -1882,4 +2004,69 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		}
 	}
+		/*
+		* Method to delete all created meeting room
+		* 
+		*/
+
+		public AboutThePropertyPages deleteAlreadyCreatedMeetingroomTheProperty() throws InterruptedException  {
+			meetingRoom1.click();
+			meetingRoom2.click();
+			meetingRoom3.click();
+			meetingRoom4.click();
+			meetingRoom5.click();
+			meetingRoom6.click();
+			Thread.sleep(2000);
+			deleteAllMeetingRoom.click();
+			Thread.sleep(3000);
+
+			
+			return null;
+		}
+		
+		/*
+		* Method to delete all created dining location
+		* 
+		*/
+
+		public AboutThePropertyPages deleteAlreadyCreatedDiningTheProperty() throws InterruptedException  {
+			dining1.click();
+			dining2.click();
+			dining3.click();
+			dining4.click();
+			deleteAllDining.click();
+			Thread.sleep(3000);
+			return null;
+		}
+		
+		/*
+		* Method to delete all created airport location
+		* 
+		*/
+
+		public AboutThePropertyPages deleteAlreadyCreatedAirportTheProperty() throws InterruptedException  {
+			airport1.click();
+			airport2.click();
+			airport3.click();
+			airport4.click();
+			deleteAllAirport.click();
+			Thread.sleep(3000);
+
+			return null;
+		}
+		/*
+		* Method to delete all created nearby Attraction
+		* 
+		*/
+
+		public AboutThePropertyPages deleteAlreadyCreatedNearbyAttractionTheProperty() throws InterruptedException  {
+			nearByAttraction1.click();
+			nearByAttraction2.click();
+			nearByAttraction3.click();
+			nearByAttraction4.click();
+			deleteAllNearbyAttraction.click();
+			Thread.sleep(3000);
+			return null;
+		}
+		
 }

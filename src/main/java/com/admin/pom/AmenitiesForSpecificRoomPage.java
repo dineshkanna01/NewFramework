@@ -17,7 +17,8 @@ import pages.AbstractBasePage;
  * @author Sudhakar Mourya
  */
 public class AmenitiesForSpecificRoomPage extends AbstractBasePage {
-	ExcelData e = new ExcelData();
+	
+ExcelData e = new ExcelData();
 	
 	public AmenitiesForSpecificRoomPage(WebDriver driver) {
 		super(driver);
@@ -41,6 +42,12 @@ public class AmenitiesForSpecificRoomPage extends AbstractBasePage {
     
     @FindBy(xpath="(//a[text()='Delete'])[last()]")
   	WebElement delete;
+    
+    @FindBy(xpath="(//a[text()='Delete'])[1]")
+  	WebElement delete1;
+    
+    @FindBy(xpath="//a[text()='Delete']")
+  	WebElement delete2;
 	
     @FindBy(xpath="(//a[text()='Edit'])[last()]")
   	WebElement edit;
@@ -113,14 +120,29 @@ public class AmenitiesForSpecificRoomPage extends AbstractBasePage {
 	 }
 	
     /*
-     * Method for click on delete
+     * Method for delete common room amenity
      */
-    public AmenitiesForSpecificRoomPage clickOnDelete() {
+    public AmenitiesForSpecificRoomPage deleteCommonRoomAmenity() {
     delete.click();
     driver.switchTo().alert().accept();
+    TestBase.implict(5);
     return null;
 	 }
      
+    /*
+     * Method for delete amenity
+     */
+    public AmenitiesForSpecificRoomPage deleteAmenity() {
+    delete1.click();
+    driver.switchTo().alert().accept();
+    TestBase.implict(5);
+    delete2.click();
+    TestBase.implict(5);
+    driver.switchTo().alert().accept();
+    TestBase.implict(5);
+    return null;
+	 }
+    
     /*
      * Method for click on edit
      */

@@ -23,6 +23,7 @@ import io.qameta.allure.Story;
 import logfile.Utilitylog;
 
 public class IndependentHotel extends TestBase{
+	
 	public static Utilitylog logger;
 	LoginPage lp;
 	IndependentHotelPage ihp;
@@ -50,11 +51,7 @@ public class IndependentHotel extends TestBase{
 	public void Admin_CreateIndependentHotel_TC_01() {
 		extentTest = extent.startTest("Admin_CreateIndependentHotel_TC_01");
 		
-		lp.clearButton();
-		lp.username();
-		lp.password();
-		lp.loginButton();
-//		lp.TwoFactorAuthentication();
+		lp.login();
 		
 		allureScreenshot("Logged In");
 		screenShot("Logged In");

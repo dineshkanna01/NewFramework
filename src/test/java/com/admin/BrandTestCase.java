@@ -26,6 +26,7 @@ import logfile.Utilitylog;
 * @Author : UzairAsar
 */
 public class BrandTestCase extends TestBase{
+	
 	public static Utilitylog logger;
 	LoginPage lp;
 	BrandPage bp;

@@ -10,6 +10,7 @@ import Utility.ExcelData;
 import pages.AbstractBasePage;
 
 public class IndependentHotelPage extends AbstractBasePage {
+	
 	ExcelData e = new ExcelData();
 
 	@FindBy(xpath = "//a[text()='Independent Hotels']")
@@ -18,6 +19,9 @@ public class IndependentHotelPage extends AbstractBasePage {
 	@FindBy(xpath = "//a[text()='x'][1]")
 	WebElement backToProperties;
 
+	@FindBy(xpath = "//h1[text()='Administrator Home']")
+	WebElement adminText;
+	
 	public IndependentHotelPage(WebDriver driver) {
 		super(driver);
 		PageFactory.initElements(driver, this);
@@ -51,10 +55,10 @@ public class IndependentHotelPage extends AbstractBasePage {
 	 */
 	
 	public boolean verifyIndependentHotelCreated(){
-		String code = e.getCellData("Property", "Code", 2);
-		System.out.println(code);
-		WebElement w = driver.findElement(By.xpath("//td[text()='" + code + "']"));
-		if (w.isDisplayed()) {
+//		backToProperties.click();
+	String r = adminText.getText();
+	System.out.println(r);
+		if (adminText.isDisplayed()) {
 			System.out.println("Independent Hotel Created");
 			return true;
 		} else {

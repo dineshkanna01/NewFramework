@@ -18,6 +18,7 @@ import pages.AbstractBasePage;
  * @author Sudhakar Mourya
  */
 public class NearbyAttractionPage extends AbstractBasePage {
+	
 	ExcelData e = new ExcelData();
 
 	public NearbyAttractionPage(WebDriver driver) {
@@ -161,10 +162,15 @@ public class NearbyAttractionPage extends AbstractBasePage {
 	/*
 	 * Method for click on findlat
 	 */
-	public NearbyAttractionPage clickFindLat() throws InterruptedException{
+	public NearbyAttractionPage clickFindLat(){
 		TestBase.implict(5);
 		findLat.click();
-		Thread.sleep(2000);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 
@@ -274,5 +280,4 @@ public class NearbyAttractionPage extends AbstractBasePage {
 		return true;
 		}
    }
-
 }

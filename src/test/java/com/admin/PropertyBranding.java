@@ -26,6 +26,7 @@ import logfile.Utilitylog;
 * @Author : UzairAsar
 */
 public class PropertyBranding extends TestBase{
+	
 	public static Utilitylog logger;
 	LoginPage lp;
 	BrandPage bp;
@@ -52,11 +53,7 @@ public class PropertyBranding extends TestBase{
 	@Step("Verify New Property Branding Created")
 	public void Admin_PropertyBrandingScenario_TC_01(){
 		extentTest = extent.startTest("Admin_PropertyBrandingScenario_TC_01");
-		lp.clearButton();
-		lp.username();
-		lp.password();
-		lp.loginButton();
-//		lp.twoFactorAuthentication();
+		lp.login();
 		allureScreenshot("Logged In");
 		screenShot("Logged In");
 		bp.openBrands();

@@ -17,6 +17,7 @@ import pages.AbstractBasePage;
 */
 
 public class PropertyBrandingPage extends AbstractBasePage {
+	
 	ExcelData e = new ExcelData();
 
 	@FindBy(xpath = "//input[@value='50']")

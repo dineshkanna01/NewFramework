@@ -18,6 +18,7 @@ import base.TestBase;
  * @author Sudhakar Mourya
  */
 public class RoomHierarchyTest extends TestBase {
+	
 	ExcelData e = new ExcelData();
 	LoginPage lp;
 	AdministratorHomePage ahp;
@@ -58,6 +59,7 @@ public class RoomHierarchyTest extends TestBase {
 		rhp.clearEndDate();
 		rhp.enterEndDate1();
 		rhp.clickOnSave();
+		allureScreenshot("Set Room Hierarchy");
 		String actText=rhp.administratorname();
 		String expText=e.getCellData("Sheet1","AdministratorText",2);
 		soft.assertEquals(actText, expText,"Room Hierarchy has updated");
@@ -77,12 +79,14 @@ public class RoomHierarchyTest extends TestBase {
 		rhp.clearEndDate();
 		rhp.enterEndDate1();
 		rhp.clickOnSave();
+		allureScreenshot("Set Room Hierarchy");
 		ahp.clickOnRoomHierarchy();
 		rhp.clearStartDate();
 		rhp.enterStarDate2();
 		rhp.clearEndDate();
 		rhp.enterEndDate2();
 		rhp.clickOnSave();
+		allureScreenshot("Edited Room Hierarchy");
 		String actText=rhp.administratorname();
 		String expText=e.getCellData("Sheet1","AdministratorText",2);
 		soft.assertEquals(actText, expText,"Room Hierarchy has updated");
@@ -100,6 +104,7 @@ public class RoomHierarchyTest extends TestBase {
 		rhp.clearStartDate();
 		rhp.clearEndDate();
 		rhp.clickOnSave();
+		allureScreenshot("Error msg for room hierarchy");
 		String actText=rhp.roomHierarchyError();
 		String expText=e.getCellData("Sheet1","roomHierarchyErrorMsg",2);
 		soft.assertEquals(actText, expText,"Room Hierarchy has not updated, TC is pass");
@@ -108,8 +113,13 @@ public class RoomHierarchyTest extends TestBase {
 	}
 
 	@AfterSuite
-	public void report() throws Exception {
-	mail();
+	public void report(){
+	try {
+		mail();
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	cmdPrompt();
 
 	}

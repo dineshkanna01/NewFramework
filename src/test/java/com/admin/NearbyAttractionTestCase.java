@@ -18,6 +18,7 @@ import base.TestBase;
  * @author Sudhakar Mourya
  */
 public class NearbyAttractionTestCase extends TestBase {
+	
 	ExcelData e = new ExcelData();
 	LoginPage lp;
 	AdministratorHomePage ahp;
@@ -59,13 +60,9 @@ public class NearbyAttractionTestCase extends TestBase {
 		nap.selectCountry("India");
 		nap.enterAddress();
 		nap.enterZipcode();
-		try {
-			nap.clickFindLat();
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		nap.clickFindLat();
 		nap.clickSave();
+		allureScreenshot("Added Nearby Attraction");
 		String actText=nap.nearbyAttraction();
 		String expText=e.getCellData("Sheet1","attractionName",2);
 		soft.assertEquals(actText, expText,"Actual is match with expected");
@@ -85,17 +82,14 @@ public class NearbyAttractionTestCase extends TestBase {
 		nap.selectCountry("India");
 		nap.enterAddress();
 		nap.enterZipcode();
-		try {
-			nap.clickFindLat();
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		nap.clickFindLat();
 		nap.clickSave();
+		allureScreenshot("Added Nearby Attraction");
 		nap.clickEdit();
 		nap.clearCategory();
 		nap.enterCategory2();
 		nap.clickSave();
+		allureScreenshot("Edited Nearby Attraction");
 		String actText=nap.nearbyCategory();
 		String expText=e.getCellData("Sheet1","Category",3);
 		soft.assertEquals(actText, expText,"Actual is match with expexted");
@@ -115,16 +109,12 @@ public class NearbyAttractionTestCase extends TestBase {
 		nap.selectCountry("India");
 		nap.enterAddress();
 		nap.enterZipcode();
-		try {
-			nap.clickFindLat();
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		nap.clickFindLat();
 		nap.clickSave();
 		nap.clickLastCheckbox();
 		nap.clickDelete();
 		nap.clickYes();
+		allureScreenshot("Deleted single Nearby Attraction");
 	    soft.assertTrue(nap.checkNearByAttractionDeleted(e.getCellData("Sheet1","attractionName",4)));
 	    soft.assertAll();
 	}
@@ -142,12 +132,7 @@ public class NearbyAttractionTestCase extends TestBase {
 		nap.selectCountry("India");
 		nap.enterAddress();
 		nap.enterZipcode();
-		try {
-			nap.clickFindLat();
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		nap.clickFindLat();
 		nap.clickSave();
 
 		nap.clickAddNew();
@@ -157,27 +142,32 @@ public class NearbyAttractionTestCase extends TestBase {
 		nap.selectCountry("India");
 		nap.enterAddress();
 		nap.enterZipcode();
-		try {
-			nap.clickFindLat();
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		nap.clickFindLat();
 		nap.clickSave();
+		nap.clickCheckbox1();
+		nap.clickCheckbox2();
 		nap.clickCheckbox3();
 		nap.clickCheckbox4();
 		nap.clickDelete();
 		nap.clickYes();
+		allureScreenshot("Deleted Multiple Nearby Attraction");
+		soft.assertTrue(nap.checkNearByAttractionDeleted(e.getCellData("Sheet1","attractionName",2)));
+		soft.assertTrue(nap.checkNearByAttractionDeleted(e.getCellData("Sheet1","attractionName",3)));
 	    soft.assertTrue(nap.checkNearByAttractionDeleted(e.getCellData("Sheet1","attractionName",5)));
 	    soft.assertTrue(nap.checkNearByAttractionDeleted(e.getCellData("Sheet1","attractionName",6)));
 	    soft.assertAll();
-			lp.logout();
+		lp.logout();
 	  }
 
 	
     @AfterSuite
-	public void report() throws Exception {
-		mail();
+	public void report(){
+		try {
+			mail();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		cmdPrompt();
 	}
 }

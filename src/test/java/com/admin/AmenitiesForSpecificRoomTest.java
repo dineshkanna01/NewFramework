@@ -17,6 +17,7 @@ import base.TestBase;
  * @author Sudhakar Mourya
  */
 public class AmenitiesForSpecificRoomTest extends TestBase {
+	
 	ExcelData e = new ExcelData();
 	LoginPage lp;
 	AdministratorHomePage ahp;
@@ -55,6 +56,7 @@ public class AmenitiesForSpecificRoomTest extends TestBase {
 			asr.enterAmenitiesName(e.getCellData("Sheet1","amenitiesName",2));
 			asr.selectPropertyAmenities();
 			asr.clickOnSave();
+			allureScreenshot("Added, Property Amenity");
 			soft.assertTrue(asr.verifyAmentitiesForSpecificRoom_TC01());
 			soft.assertAll();	
 		}
@@ -69,6 +71,7 @@ public class AmenitiesForSpecificRoomTest extends TestBase {
 			asr.enterAmenitiesName(e.getCellData("Sheet1","amenitiesName",3));
 			asr.selectCommonRoomAmenities();
 			asr.clickOnSave();
+			allureScreenshot("Added, Common to all room amenities");
 			soft.assertTrue(asr.verifyAmentitiesForSpecificRoom_TC02());
 			soft.assertAll();	
 		}
@@ -83,6 +86,7 @@ public class AmenitiesForSpecificRoomTest extends TestBase {
 			asr.enterAmenitiesName(e.getCellData("Sheet1","amenitiesName",4));
 			asr.selectRoomSpecificAmenities();
 			asr.clickOnSave();
+			allureScreenshot("Added, Specific to some room amenities");
 			soft.assertTrue(asr.verifyAmentitiesForSpecificRoom_TC03());
 			soft.assertAll();	
 		}
@@ -98,25 +102,33 @@ public class AmenitiesForSpecificRoomTest extends TestBase {
 			asr.enterAmenitiesName(e.getCellData("Sheet1","amenitiesName",5));
 			asr.selectCommonRoomAmenities();
 			asr.clickOnSave();
+			allureScreenshot("Deleted,Specific to some room only amenities");
 			soft.assertTrue(asr.verifyAmentitiesForSpecificRoom_TC04());
 			soft.assertAll();	
 		}
 	
 		 /*
-		  * Method for amenities for specific room TC04
+		  * Method for amenities for specific room TC05
 		  */
 		 @Test
 		 public void amenitiesForSpecificRoom_TC_05(){
 			extentTest = extent.startTest("amenitiesForSpecificRoom_TC_05");
-			asr.clickOnDelete();
+			asr.deleteCommonRoomAmenity();
+			allureScreenshot("Edited,Specific to some room only amenities");
 		    soft.assertTrue(asr.verifyAmentitiesForSpecificRoom_TC05(e.getCellData("Sheet1","amenitiesName",5)));
 		    soft.assertAll();	
-				lp.logout();
+		    asr.deleteAmenity();
+			lp.logout();
 		}
 	
     @AfterSuite
-    public void report() throws Exception {
-	mail();
+    public void report(){
+	try {
+		mail();
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	cmdPrompt();
     }
 }

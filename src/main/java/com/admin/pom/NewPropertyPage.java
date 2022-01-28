@@ -1,5 +1,9 @@
 package com.admin.pom;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -11,6 +15,7 @@ import base.TestBase;
 import pages.AbstractBasePage;
 
 public class NewPropertyPage extends AbstractBasePage{
+	
 	ExcelData e = new ExcelData();
 
 	@FindBy(xpath = "//div[text()='Property Management']")
@@ -19,6 +24,9 @@ public class NewPropertyPage extends AbstractBasePage{
 	@FindBy(xpath = "//a[@id='add_new_property']")
 	WebElement addNew;
 
+	@FindBy(xpath = "//*[contains(@href,'EditProperty')]")
+	WebElement propertyEditOption;
+	
 	@FindBy(xpath = "//input[@name='propertyName']")
 	WebElement propertyName;
 
@@ -110,9 +118,14 @@ public class NewPropertyPage extends AbstractBasePage{
 	public NewPropertyPage newPropertyEditPage() {
 		propertyMangementTab.click();
 		addNew.click();
-		propertyName.sendKeys(e.getCellData("Property", "Name", 2));
-		propertyCode.sendKeys(e.getCellData("Property", "Code", 2));
-		propertySubDomain.sendKeys(e.getCellData("Property", "SubDomain", 2));
+		DateFormat dateFormat = new SimpleDateFormat("mmss");
+		Date date = new Date();
+		String strDate = dateFormat.format(date);
+		String f1 ="Uz"+strDate;
+		System.out.println(f1);
+		propertyName.sendKeys(f1);
+		propertyCode.sendKeys(f1);
+		propertySubDomain.sendKeys(f1);
 		address1.sendKeys(e.getCellData("Property", "Address1", 2));
 		city.sendKeys(e.getCellData("Property", "City", 2));
 		country.click();
@@ -121,7 +134,41 @@ public class NewPropertyPage extends AbstractBasePage{
 		
 		Actions action = new Actions(driver);
 		
-		action.moveToElement(longitudeLatitude).click().pause(java.time.Duration.ofSeconds(1)).build().perform();		
+		action.moveToElement(longitudeLatitude).click().pause(java.time.Duration.ofSeconds(2)).build().perform();		
+		//longitudeLatitude.click();
+		return null;
+
+	}
+	
+	/*
+	 * Method to create duplicate property edit page of property
+	 */
+	
+	public NewPropertyPage dupPropertyEditPage() {
+		propertyMangementTab.click();
+		propertyEditOption.click();
+		String s = propertyName.getAttribute("value");
+		String c = propertyCode.getAttribute("value");
+		System.out.println(s);
+		System.out.println(c);
+		addNew.click();
+		DateFormat dateFormat = new SimpleDateFormat("mmss");
+		Date date = new Date();
+		String strDate = dateFormat.format(date);
+		String f1 ="Uz"+strDate;
+		System.out.println(f1);
+		propertyName.sendKeys(s);
+		propertyCode.sendKeys(c);
+		propertySubDomain.sendKeys(f1);
+		address1.sendKeys(e.getCellData("Property", "Address1", 2));
+		city.sendKeys(e.getCellData("Property", "City", 2));
+		country.click();
+		countrySelected.click();
+		TestBase.implict(3);
+		
+		Actions action = new Actions(driver);
+		
+		action.moveToElement(longitudeLatitude).click().pause(java.time.Duration.ofSeconds(2)).build().perform();		
 		//longitudeLatitude.click();
 		return null;
 

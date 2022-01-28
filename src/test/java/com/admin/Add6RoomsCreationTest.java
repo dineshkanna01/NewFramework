@@ -17,6 +17,7 @@ import base.TestBase;
  * @author Sudhakar Mourya
  */
 public class Add6RoomsCreationTest extends TestBase {
+	
 	ExcelData e = new ExcelData();
 	LoginPage lp;
 	AdministratorHomePage ahp;
@@ -56,6 +57,9 @@ public class Add6RoomsCreationTest extends TestBase {
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+			
+			allureScreenshot("6 Room Created");
+						
 		}
 		try {
 			soft.assertTrue(arcp.verifyadd6RoomCreation_TC01(e.getCellData("Sheet1","roomName",2)));
@@ -109,6 +113,8 @@ public class Add6RoomsCreationTest extends TestBase {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
+			allureScreenshot("Room Edited");
 		}
 		try {
 			soft.assertTrue(arcp.verifyadd6RoomCreation_TC02());
@@ -144,9 +150,11 @@ public class Add6RoomsCreationTest extends TestBase {
 		  arcp.enterMaxChildLimit("3");
 		  arcp.enterTotalMaxOccupancy("6");
 		  arcp.clickOnSave();
+		  allureScreenshot("Room Created");
 		  arcp.clickOnLastCheckbox();
 		  arcp.clickOnDelete();
 		  arcp.clickOnYes();
+		  allureScreenshot("Room Deleted");
 		  try {
 			soft.assertTrue(arcp.verifyadd6RoomCreation_TC03(e.getCellData("Sheet1","roomName",8)));
 		} catch (Exception e1) {
@@ -154,6 +162,7 @@ public class Add6RoomsCreationTest extends TestBase {
 			e1.printStackTrace();
 		}
 		  soft.assertAll();
+		 
 	}
 	 
 	 /*
@@ -181,6 +190,7 @@ public class Add6RoomsCreationTest extends TestBase {
 		  arcp.enterMaxChildLimit("3");
 		  arcp.enterTotalMaxOccupancy("6");
 		  arcp.clickOnSave();
+		  allureScreenshot("Existing room code error");
 		  try {
 			soft.assertTrue(arcp.verifyadd6RoomCreation_TC04());
 		} catch (Exception e1) {
@@ -188,12 +198,18 @@ public class Add6RoomsCreationTest extends TestBase {
 			e1.printStackTrace();
 		}
 		  soft.assertAll();
+		  arcp.deleteRoom();
 			lp.logout();
 	 }
 	
 	 @AfterSuite
-	 public void report() throws Exception {
-		mail();
+	 public void report(){
+		try {
+			mail();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		cmdPrompt();
 	}
 }

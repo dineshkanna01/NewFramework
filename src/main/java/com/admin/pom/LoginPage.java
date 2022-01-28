@@ -309,5 +309,20 @@ public class LoginPage extends AbstractBasePage{
 		driver.close();
 		return null;
 	}
+	
+	/*
+	 * Method to logout after login
+	 */
+
+	public LoginPage logout1() {
+		TestBase.implict(3);
+		myAccount.click();
+		TestBase.implict(3);
+		logoutButton.click();
+		TestBase.implict(3);
+		returnLoginPage.click();
+		TestBase.implict(3);
+		return null;
+	}
 
 }

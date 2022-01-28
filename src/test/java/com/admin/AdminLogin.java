@@ -25,6 +25,7 @@ import logfile.Utilitylog;
 * @Author : UzairAsar
 */
 public class AdminLogin extends TestBase{
+	
 	public static Utilitylog logger;
 	LoginPage lp;
 
@@ -36,10 +37,9 @@ public class AdminLogin extends TestBase{
 	@BeforeMethod
 	public void setup() throws Exception  {
 		lp = new LoginPage(getDriver());
-		lp.clearButton();
 	}
 
-//	@Test(priority = 1)
+	@Test(priority = 1)
 	@Description("Verify the Admin Login")
 	@Severity(SeverityLevel.CRITICAL)
 	@Epic("EP01")
@@ -49,11 +49,8 @@ public class AdminLogin extends TestBase{
 	public void Admin_Login_TC_01(){
 		extentTest = extent.startTest("Admin_Login_TC_01");
 		
-//		lp.clearButton();
-		lp.username();
-		lp.password();
-		lp.loginButton();
 //		lp.TwoFactorAuthentication();
+		lp.login();
 		
 		allureScreenshot("Administrator Home After Login");
 		screenShot("Administrator Home After Login");
@@ -62,7 +59,7 @@ public class AdminLogin extends TestBase{
 		System.out.println(home);
 		Assert.assertEquals(home, "Administrator Home");
 		
-		lp.logout();
+		lp.logout1();
 	}
 
 	@Test(priority = 2)
@@ -95,7 +92,7 @@ public class AdminLogin extends TestBase{
 		assertTrue(lp.verifyFieldsCleared());
 	}
 
-	@Test(priority = 3)
+//	@Test(priority = 3)
 	@Description("Verify the user is successfully able to change his password through the \"Forgot your password\" link")
 	@Severity(SeverityLevel.NORMAL)
 	@Epic("EP01")
@@ -112,7 +109,7 @@ public class AdminLogin extends TestBase{
 		screenShot("Reset Sent Password");
 		
 		String ForgotPassSent = lp.verifyForgotPassword();
-		Assert.assertEquals(ForgotPassSent, "A password request has been made.");
+		Assert.assertEquals(ForgotPassSent, "A password request has been made");
 		
 		lp.ReturnHome();
 	}
@@ -127,7 +124,6 @@ public class AdminLogin extends TestBase{
 	public void Admin_Login_TC_04(){
 		extentTest = extent.startTest("Admin_Login_TC_04");
 		
-//		lp.clearButton();
 		lp.invalidUserName();
 		lp.password();
 		lp.loginButton();
@@ -150,7 +146,6 @@ public class AdminLogin extends TestBase{
 	public void Admin_Login_TC_05(){
 		extentTest = extent.startTest("Admin_Login_TC_05");
 		
-//		lp.clearButton();
 		lp.username();
 		lp.invalidPassword();
 		lp.loginButton();
@@ -168,5 +163,4 @@ public class AdminLogin extends TestBase{
 		mail();
 		cmdPrompt();
 	}
-
 }

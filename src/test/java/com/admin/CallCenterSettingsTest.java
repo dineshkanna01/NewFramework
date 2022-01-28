@@ -17,7 +17,7 @@ import base.TestBase;
  * @author Sudhakar Mourya
  */
 public class CallCenterSettingsTest extends TestBase {
-
+	
 	ExcelData e = new ExcelData();
 	LoginPage lp;
 	AdministratorHomePage ahp;
@@ -40,7 +40,7 @@ public class CallCenterSettingsTest extends TestBase {
 	 * Method for call center settings TC01
 	 */
 	@Test
-	public void callCenterSettings_TC_01() throws Exception{
+	public void callCenterSettings_TC_01(){
 		extentTest = extent.startTest("callCenterSettings_TC_01");
 		lp.login();
 		ahp.selectBrand();
@@ -51,6 +51,7 @@ public class CallCenterSettingsTest extends TestBase {
 		ccsp.enterAnnouncementMsg();
 		ccsp.clickOnActivateAnnouncement();
 		ccsp.clickOnSave();
+		allureScreenshot("Enable call center setting");
 		String actText=ccsp.administratorName();
 		String expText=e.getCellData("Sheet1","AdministratorText",2);
 		soft.assertEquals(actText, expText,"Call center enable");
@@ -68,6 +69,7 @@ public class CallCenterSettingsTest extends TestBase {
 		ccsp.enterAnnouncementMsg();
 		ccsp.clickOnDeactivateAnnouncement();
 		ccsp.clickOnSave();
+		allureScreenshot("Disable call center setting");
 		String actText=ccsp.administratorName();
 		String expText=e.getCellData("Sheet1","AdministratorText",2);
 		soft.assertEquals(actText, expText,"Call center disable");
@@ -76,8 +78,13 @@ public class CallCenterSettingsTest extends TestBase {
      }
 	
 	@AfterSuite
-	public void report() throws Exception {
-		mail();
+	public void report(){
+		try {
+			mail();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		cmdPrompt();
 	}	
 }

@@ -17,6 +17,7 @@ import pages.AbstractBasePage;
  * @author Sudhakar Mourya
  */
 public class AlternatePropertiesPage extends AbstractBasePage {
+	
 	ExcelData e = new ExcelData();
 
 
@@ -71,6 +72,17 @@ public class AlternatePropertiesPage extends AbstractBasePage {
 		return null; 
 	}
 
+	/*
+	 * Method for click on delete first property
+	 */
+		public AlternatePropertiesPage deleteFirstProperty() {
+			checkBox1.click();
+			delete.click();
+			driver.switchTo().alert().accept();
+			TestBase.implict(3);
+			return null; 
+		}
+	
 	/*
 	 * Method for enter property code
 	 */
@@ -135,6 +147,10 @@ public class AlternatePropertiesPage extends AbstractBasePage {
 	 * Method for click on multiple checkbox
 	 */
 	public AlternatePropertiesPage clickMultipleCheckBox() {
+		
+		checkBox1.click();
+		TestBase.implict(3);
+
 		checkBox2.click();
 		TestBase.implict(3);
 

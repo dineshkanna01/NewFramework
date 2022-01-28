@@ -26,6 +26,7 @@ import logfile.Utilitylog;
  * @author Ankita mohamanasingh
  */
 public class AboutPropertyCreationScenario extends TestBase {
+	
 	public static Utilitylog logger;
 
 	ExcelData e = new ExcelData();
@@ -771,6 +772,25 @@ public class AboutPropertyCreationScenario extends TestBase {
 		Assert.assertTrue(atp.verifyNearbyAttractionDeleted());
 	}
 	
+	@Test(priority = 31)
+	public void deleteAllCreatedAboutTheProperty() throws InterruptedException {
+		atp.deleteAlreadyCreatedMeetingroomTheProperty();
+		
+		atp.deleteAlreadyCreatedDiningTheProperty();
+		
+		atp.deleteAlreadyCreatedAirportTheProperty();
+		
+		atp.deleteAlreadyCreatedNearbyAttractionTheProperty();
+		
+		lp.logout();
+		
+		allureScreenshot("AboutThePropertyDeleted");
+
+		screenShot("AboutThePropertyDeleted");
+
+		
+	}
+	
 		@AfterSuite
 		public void report() throws Exception {
 	
@@ -778,4 +798,5 @@ public class AboutPropertyCreationScenario extends TestBase {
 	
 			cmdPrompt();
 		}
+
 }

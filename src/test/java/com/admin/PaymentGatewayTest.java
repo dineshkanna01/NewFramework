@@ -17,6 +17,7 @@ import base.TestBase;
  * @author Sudhakar Mourya
  */
 public class PaymentGatewayTest extends TestBase {
+	
 	ExcelData e = new ExcelData();
 	LoginPage lp;
 	AdministratorHomePage ahp;
@@ -39,7 +40,7 @@ public class PaymentGatewayTest extends TestBase {
 	 * Method for payment gateway TC01
 	 */
 	@Test
-	public void paymentGateway_TC_01() throws Exception {
+	public void paymentGateway_TC_01(){
 		extentTest = extent.startTest("PaymentGateway_TC_01");
 		lp.login();
 		ahp.selectBrand();
@@ -58,6 +59,7 @@ public class PaymentGatewayTest extends TestBase {
 		pgp.delayTime();
 		pgp.orderTime();
 		pgp.clickUpdateButton();
+		allureScreenshot("Updated JCC payment gateway");
 		String actText=pgp.administratorname();
 		String expText=e.getCellData("Sheet1","AdministratorText",2);
 		soft.assertEquals(actText, expText,"Payment Gateway has updated");
@@ -68,7 +70,7 @@ public class PaymentGatewayTest extends TestBase {
 	 * Method for payment gateway TC02
 	 */
 	@Test
-	public void paymentGateway_TC_02() throws Exception {
+	public void paymentGateway_TC_02(){
 		extentTest = extent.startTest("PaymentGateway_TC_02");
 		ahp.clickPaymentGatewayTab();
 		pgp.clickEnableButton();
@@ -77,6 +79,7 @@ public class PaymentGatewayTest extends TestBase {
 		pgp.delayTime();
 		pgp.orderTime();
 		pgp.clickUpdateButton();
+		allureScreenshot("Updated Global Pay payment gateway");
 		String actText=pgp.administratorname();
 		String expText=e.getCellData("Sheet1","AdministratorText",2);
 		soft.assertEquals(actText, expText,"Payment Gateway has updated");
@@ -87,7 +90,7 @@ public class PaymentGatewayTest extends TestBase {
 	 * Method for payment gateway TC03
 	 */
 	@Test
-	public void paymentGateway_TC_03() throws Exception {
+	public void paymentGateway_TC_03(){
 		extentTest = extent.startTest("PaymentGateway_TC_03");
 		ahp.clickPaymentGatewayTab();
 		pgp.clickEnableButton();
@@ -99,6 +102,7 @@ public class PaymentGatewayTest extends TestBase {
 		pgp.delayTime_SHIFT4();
 		pgp.orderTime();
 		pgp.clickUpdateButton();
+		allureScreenshot("Updated SHIFT4 payment gateway");
 		String actText=pgp.administratorname();
 		String expText=e.getCellData("Sheet1","AdministratorText",2);
 		soft.assertEquals(actText, expText,"Payment Gateway has updated");
@@ -108,8 +112,8 @@ public class PaymentGatewayTest extends TestBase {
 	/*
 	 * Method for payment gateway TC04
 	 */
-	@Test
-	public void paymentGateway_TC_04() throws Exception {
+	//@Test
+	public void paymentGateway_TC_04(){
 		extentTest = extent.startTest("PaymentGateway_TC_04");
 		ahp.clickPaymentGatewayTab();
 		pgp.clickEnableButton();
@@ -124,6 +128,7 @@ public class PaymentGatewayTest extends TestBase {
 		pgp.delayTime();
 		pgp.orderTime();
 		pgp.clickUpdateButton();
+		allureScreenshot("Updated Tillpayment gateway");
 		String actText=pgp.administratorname();
 		String expText=e.getCellData("Sheet1","AdministratorText",2);
 		soft.assertEquals(actText, expText,"Payment Gateway has updated");
@@ -132,9 +137,13 @@ public class PaymentGatewayTest extends TestBase {
 	}
 
     @AfterSuite
-	public void report() throws Exception {
-	mail();
+	public void report(){
+	try {
+		mail();
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	cmdPrompt();
 	}
-
 }

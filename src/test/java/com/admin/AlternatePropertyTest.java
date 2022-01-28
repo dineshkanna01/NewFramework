@@ -17,6 +17,7 @@ import base.TestBase;
  * @author Sudhakar Mourya
  */
 public class AlternatePropertyTest extends TestBase {
+	
 	ExcelData e = new ExcelData();
 	LoginPage lp;
 	AdministratorHomePage ahp;
@@ -54,6 +55,7 @@ public class AlternatePropertyTest extends TestBase {
 		app.clickAddProperty();
 		app.enterPropertyCode1();
 		app.clickSaveButton();
+		allureScreenshot("Added alternate property");
 		String actText=app.propertyName();
 		String expText=e.getCellData("Sheet1","PropCode",10);
 		soft.assertEquals(actText, expText,"Actual is not match with expexted");
@@ -71,6 +73,7 @@ public class AlternatePropertyTest extends TestBase {
 		app.clickSaveButton();
 		app.clickLastCheckBox();
 		app.clickDeleteButton();
+		allureScreenshot("Deleted single alternate property");
 		soft.assertTrue(app.checkPropertyDeleted(e.getCellData("Sheet1","HotelName",2)));
 		soft.assertAll();
 	}
@@ -84,6 +87,8 @@ public class AlternatePropertyTest extends TestBase {
 		app.addMultipleProp();
 		app.clickMultipleCheckBox();
 		app.clickDeleteButton();
+		allureScreenshot("Deleted multiple alternate property");
+		soft.assertTrue(app.checkPropertyDeleted(e.getCellData("Sheet1","HotelName",2)));
 		soft.assertTrue(app.checkPropertyDeleted(e.getCellData("Sheet1","HotelName",3)));
 		soft.assertTrue(app.checkPropertyDeleted(e.getCellData("Sheet1","HotelName",4)));
 		soft.assertTrue(app.checkPropertyDeleted(e.getCellData("Sheet1","HotelName",5)));
@@ -99,10 +104,12 @@ public class AlternatePropertyTest extends TestBase {
 		app.clickAddProperty();
 		app.enterInvalidPropertyCode();
 		app.clickSaveButton();
+		allureScreenshot("Invalid property code error msg");
 		String actErrorMsg=app.invalidPropCode();
 		String expErrorMsg = e.getCellData("Sheet1","InvalidPropErrorMsg",2);
 		soft.assertEquals(actErrorMsg, expErrorMsg,"Actual msg is not match with expected");
 		soft.assertAll();
+		//app.deleteFirstProperty();
 			lp.logout();
 	}
 
