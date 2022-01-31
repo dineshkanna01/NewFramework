@@ -107,12 +107,13 @@ public class PaymentGatewayTest extends TestBase {
 		String expText=e.getCellData("Sheet1","AdministratorText",2);
 		soft.assertEquals(actText, expText,"Payment Gateway has updated");
 		soft.assertAll();
+		lp.logout();
 	}
 	
 	/*
 	 * Method for payment gateway TC04
 	 */
-	//@Test
+//	@Test
 	public void paymentGateway_TC_04(){
 		extentTest = extent.startTest("PaymentGateway_TC_04");
 		ahp.clickPaymentGatewayTab();
@@ -138,12 +139,7 @@ public class PaymentGatewayTest extends TestBase {
 
     @AfterSuite
 	public void report(){
-	try {
-		mail();
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+//		mail();
 	cmdPrompt();
 	}
 }

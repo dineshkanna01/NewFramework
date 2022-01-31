@@ -22,6 +22,7 @@ import pages.AbstractBasePage;
  * @author Rudraksh Aggarwal
  */
 public class RatePlanPage extends AbstractBasePage {
+	
 	@FindBy(name = "name")
 	WebElement name;
 
@@ -37,8 +38,8 @@ public class RatePlanPage extends AbstractBasePage {
 	@FindBy(name = "checkInSDate")
 	WebElement firstCheckInDate;
 
-	@FindBy(name = "All")
-	WebElement roomAllCheckbox;
+	@FindBy(xpath="//*[@value='1041#Incredible Room']")
+	WebElement roomCheckbox;
 
 	@FindBy(name = "save")
 	WebElement saveButton;
@@ -219,7 +220,7 @@ public class RatePlanPage extends AbstractBasePage {
 	 * Method to select room type
 	 */
 	public RatePlanPage selectRoomType() {
-		roomAllCheckbox.click();
+		roomCheckbox.click();
 		return null;
 	}
 

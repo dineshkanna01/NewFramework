@@ -62,7 +62,10 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailAttachment;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Platform;
@@ -135,10 +138,10 @@ public class TestBase {
 	public static String portNo;
 	public static ExtentReports extent;
 	public static ExtentTest extentTest;
-	
-//	Properties of url and file path of the location
+
+	//	Properties of url and file path of the location
 	public TestBase() {
-		
+
 		try {
 			prop = new Properties();
 			FileInputStream ip=new FileInputStream(System.getProperty("user.dir") +"\\src\\main\\java\\config\\Configuration.properties");
@@ -150,7 +153,7 @@ public class TestBase {
 		}
 	}
 
-//	Method to initilize the browser based on the parameter set in the properties file - Booking Engine Url
+	//	Method to initilize the browser based on the parameter set in the properties file - Booking Engine Url
 	public static void initilization() {
 		String browserName = prop.getProperty("browser");
 		if (browserName.equals("chrome")) {
@@ -173,8 +176,8 @@ public class TestBase {
 
 		getDriver().get(prop.getProperty("url"));
 	}
-	
-//	Method to initilize the browser based on the parameter set in the properties file - Admin Portal Url
+
+	//	Method to initilize the browser based on the parameter set in the properties file - Admin Portal Url
 	public static void initilization_Admin() {
 		String browserName = prop.getProperty("browser");
 		if (browserName.equals("chrome")) {
@@ -209,8 +212,8 @@ public class TestBase {
 
 		getDriver().get(prop.getProperty("admin_url"));
 	}
-	
-//	Method to initilize the browser based on the parameter set in the properties file - Gmail Url
+
+	//	Method to initilize the browser based on the parameter set in the properties file - Gmail Url
 	public static void initilization_Gmail() {
 		String browserName = prop.getProperty("browser");
 		if (browserName.equals("chrome")) {
@@ -233,7 +236,7 @@ public class TestBase {
 
 		getDriver().get("https://accounts.google.com/signin/v2/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F%26ogbl%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin");
 	}
-	
+
 	public static void initGmail() {
 		WebDriverManager.chromedriver().setup();
 		tdriver.set(new ChromeDriver());
@@ -244,7 +247,7 @@ public class TestBase {
 
 	}
 
-//	Initilize the Multibrowser for Booking engine Url
+	//	Initilize the Multibrowser for Booking engine Url
 	public static void initilizationmultibrowser(String browserName) {
 		if (browserName.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -263,7 +266,7 @@ public class TestBase {
 		getDriver().get("https://qatest1.qa-igt.reztrip3-qa.com/");
 	}
 
-//	It is used for Selenium Grid Hub and Host launch for multiple system
+	//	It is used for Selenium Grid Hub and Host launch for multiple system
 	public static void setUp() {
 
 		if (portNo.equalsIgnoreCase("4455")) {
@@ -307,7 +310,7 @@ public class TestBase {
 		}
 	}
 
-//	Mobile responsive testing and it is for change dimension of width and heigth of the screen
+	//	Mobile responsive testing and it is for change dimension of width and heigth of the screen
 	public static void mobileTest(String emulation, int w, int h) throws Exception {
 
 		WebDriverManager.chromedriver().setup();
@@ -331,7 +334,7 @@ public class TestBase {
 
 	}
 
-//	Taking screenshot for method level of execution
+	//	Taking screenshot for method level of execution
 	public static void screenShot(String fileName) {
 		File file=((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
 
@@ -342,17 +345,17 @@ public class TestBase {
 		}
 	}
 
-//	Waits
+	//	Waits
 	public static void implict(int num) {
 		getDriver().manage().timeouts().implicitlyWait(num, TimeUnit.SECONDS);
 	}
 
-//	Allure Report Screenshot
+	//	Allure Report Screenshot
 	public void allureScreenshot(String screenshotName) {
 		Allure.addAttachment(screenshotName, new ByteArrayInputStream(((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES)));
 	}
-	
-//	Command prompt for Allure report
+
+	//	Command prompt for Allure report
 	public static void cmdPrompt() {
 		String [] command = {"cmd"};
 		Process p;
@@ -376,7 +379,7 @@ public class TestBase {
 		}
 	}
 
-//	Automatic email generation 
+	//	Automatic email generation 
 	public static void mail() throws Exception {
 
 		final String username = "dinesh.kanna@pegs.com";
@@ -408,7 +411,7 @@ public class TestBase {
 			Date dt=new Date();
 			SimpleDateFormat format=new SimpleDateFormat("MM/dd/yyyy");
 			String stDate=format.format(dt);
-			
+
 			m.setSubject("Execution report on "+stDate);
 			BodyPart messageBodyPart=new MimeBodyPart();
 			messageBodyPart.setText("Hi \n"
@@ -433,12 +436,12 @@ public class TestBase {
 	}
 
 	@BeforeTest
-//	public void setExtent(){
-//		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-//		extent = new ExtentReports(System.getProperty("user.dir")+"/Html/ExtentReport.html", true);
-//	}
-	
-//	Report generation for Extend Report
+	//	public void setExtent(){
+	//		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+	//		extent = new ExtentReports(System.getProperty("user.dir")+"/Html/ExtentReport.html", true);
+	//	}
+
+	//	Report generation for Extend Report
 	public void generateReport() {
 
 		initilization_Admin();// for single time login and logout
@@ -451,14 +454,14 @@ public class TestBase {
 		System.out.println("path" + f1);
 		TestBase.extent = new ExtentReports(f1, Boolean.valueOf(true));
 	}
-	
+
 	@AfterTest
 	public void endReport(){
 		extent.flush();
 		extent.close();
 	}
-	
-//	Extend Report Screenshot for failedtestcases
+
+	//	Extend Report Screenshot for failedtestcases
 	public static String getScreenshot(WebDriver tdriver, String screenshotName) throws IOException{
 		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 		TakesScreenshot ts = (TakesScreenshot) tdriver;
@@ -470,16 +473,16 @@ public class TestBase {
 		FileUtils.copyFile(source, finalDestination);
 		return destination;
 	}
-	
-	
+
+
 	@AfterMethod
 	public void tearDown(ITestResult result) throws IOException{
-		
+
 		if(result.getStatus()==ITestResult.FAILURE){
 			extentTest.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getName()); //to add name in extent report
 			extentTest.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getThrowable()); //to add error/exception in extent report
 			extentTest.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getHost());
-			
+
 			String screenshotPath = TestReport.getScreenshot(getDriver(), result.getName());
 			extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture(screenshotPath)); //to add screenshot in extent report
 			//extentTest.log(LogStatus.FAIL, extentTest.addScreencast(screenshotPath)); //to add screencast/video in extent report
@@ -494,14 +497,14 @@ public class TestBase {
 			extentTest.log(LogStatus.PASS, "Test Case STATUS IS ==>" + result.getStatus());
 			extentTest.log(LogStatus.PASS, "Test Case PACKAGENAME IS ==>" + result.getInstanceName());
 		}
-		
-//		getDriver().quit();
-		
+
+		//		getDriver().quit();
+
 		extent.endTest(extentTest); //ending test and ends the current test and prepare to create html report
-		
+
 	}
 
-//	JDBC connection
+	//	JDBC connection
 	public static Connection con() {
 		try {
 			String JDBC_Driver = "com.mysql.jdbc.Driver";
@@ -550,10 +553,10 @@ public class TestBase {
 		return value;
 	}
 
-	
+
 	static String BASE_URL = ConfigManager.getInstance().getString("base_url");
 
-//	RestAssured for API Rest Calls
+	//	RestAssured for API Rest Calls
 	public static void TestResponse(String fileXmlName) throws Exception {
 
 		String path = "src/test/resources/xmlFiles/";
@@ -566,26 +569,26 @@ public class TestBase {
 
 		io.restassured.response.Response response = httpRequest.request(Method.POST);
 		httpRequest.header("Content-Type", "application/xml");
-		
+
 		int statusCode = response.statusCode();
 		System.out.println("Status Code: "+statusCode);
 		Assert.assertEquals(statusCode, 200);
-		
+
 		System.out.println("ContentType : "+response.contentType());
 		System.out.println("Status : "+response.getStatusLine());
-		
+
 		String responseBody = response.getBody().asString();
 		System.out.println("Respose Body : " +responseBody);
 		Assert.assertEquals(responseBody.contains("Success"), true);
-		
+
 		System.out.println("Headers : "+response.getHeaders()+"\n");
-		
+
 	}
 
 
-//	HTTPClient for API Rest Calls
+	//	HTTPClient for API Rest Calls
 	public void otaHotelService(String xmlName) throws IOException {
-		
+
 		try {
 			final TrustManager[] trustAllCerts = new TrustManager[]{
 					new X509TrustManager() {
@@ -632,7 +635,7 @@ public class TestBase {
 					.build();
 
 			Response response = client.newCall(request).execute();
-//          Response response2 = response.networkResponse();
+			//          Response response2 = response.networkResponse();
 			int statusCode = response.code();
 			System.out.println("Status Code : "+statusCode);
 			Assert.assertEquals(statusCode, 200);
@@ -655,15 +658,33 @@ public class TestBase {
 
 	}
 
+	public void openBEurlinNewTab() {
+		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
+		String a = "window.open('about:blank','_blank');";
+		((JavascriptExecutor) getDriver()).executeScript(a);
+		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
+		getDriver().switchTo().window(tab.get(1));
+		getDriver().get("https://alh.qa-igt.reztrip3-qa.com/");
+	}
+
+	public ArrayList<String> switchTabs() {
+		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
+		return tab;
+	}
+	
+	public void switchWindow(int num) {
+		getDriver().switchTo().window(switchTabs().get(num));
+	}
+
 
 	public static WebDriver getDriver() {
 		return tdriver.get();
 	}
-	
+
 	public static void explicitWait() {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				  .withTimeout(Duration.ofSeconds(30))
-				  .pollingEvery(Duration.ofSeconds(5))
-				  .ignoring(NoSuchElementException.class);
+				.withTimeout(Duration.ofSeconds(30))
+				.pollingEvery(Duration.ofSeconds(5))
+				.ignoring(NoSuchElementException.class);
 	}
 }

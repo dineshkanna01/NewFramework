@@ -1,5 +1,8 @@
 package com.admin.pom;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -17,6 +20,7 @@ import pages.AbstractBasePage;
  * @author Rudraksh Aggarwal
  */
 public class AddOnsPage extends AbstractBasePage {
+	
 	ExcelData e = new ExcelData();
 
 	@FindBy(xpath = "//input[@name='name']")
@@ -151,8 +155,13 @@ public class AddOnsPage extends AbstractBasePage {
 		TestBase.implict(2);
 
 		addOnActive.click();
+		
+		DateFormat dateFormat = new SimpleDateFormat("MM/DD/YY");
+		Date date = new Date();
+		String strDate = dateFormat.format(date);
+		
 
-		addOnStartDate.sendKeys(e.getCellData("RatePlanPageData", "AddOnStartDate", 2));
+		addOnStartDate.sendKeys(strDate);
 
 		return null;
 	}
@@ -253,4 +262,5 @@ public class AddOnsPage extends AbstractBasePage {
 
 		return null;
 	}
+
 }

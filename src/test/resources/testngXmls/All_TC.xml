@@ -32,11 +32,11 @@
 		</classes>
 	</test>
 
-	<test name="AdminLogin">
+	<!-- <test name="AdminLogin">
 		<classes>
 			<class name="com.admin.AdminLogin" />
 		</classes>
-	</test>
+	</test> -->
 
 	<test name="AlternatePropertyTest">
 		<classes>

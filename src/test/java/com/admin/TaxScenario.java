@@ -21,11 +21,11 @@ import io.qameta.allure.Story;
 import logfile.Utilitylog;
 
 /*
-* Test class for  Tax Scenario
-* @author Ankita mohamanasingh
-*/
+ * Test class for  Tax Scenario
+ * @author Ankita mohamanasingh
+ */
 public class TaxScenario extends TestBase {
-	
+
 	public static Utilitylog logger;
 	ExcelData e = new ExcelData();
 
@@ -41,7 +41,7 @@ public class TaxScenario extends TestBase {
 
 	@BeforeMethod
 	public void setup() {
-		
+
 		lp = new LoginPage(getDriver());
 		ahp = new AdministratorHomePage(getDriver());
 		tf = new TaxesAndFeesPage(getDriver());
@@ -72,7 +72,7 @@ public class TaxScenario extends TestBase {
 
 	}
 
-	 @Test(priority=2)
+	@Test(priority=2)
 	@Description("Verify user is able to add taxes and then edit the name ")
 	@Severity(SeverityLevel.CRITICAL)
 	@Epic("EP01")
@@ -80,7 +80,7 @@ public class TaxScenario extends TestBase {
 	@Story("About the property tax creation scenario")
 	@Step("Verify user is able to add taxes and then edit the name ")
 	public void aboutPropertyRoomCreationScenario_TC_02()  { 
-		
+
 		tf.clickTaxesAndFees();
 		tf.clickaddNewTaxtoProperty();
 		tf.updateTheTaxName();
@@ -97,7 +97,7 @@ public class TaxScenario extends TestBase {
 
 	}
 
-	 @Test(priority=3)
+	@Test(priority=3)
 	@Description("Verify user is able to update tax amount")
 	@Severity(SeverityLevel.CRITICAL)
 	@Epic("EP01")
@@ -112,7 +112,7 @@ public class TaxScenario extends TestBase {
 		allureScreenshot("TaxUpdated");
 		screenShot("TaxUpdated");
 		Assert.assertTrue(tf.verifyExistedTaxAmountEdited());     
-      }
+	}
 
 	@Test(priority=4)
 	@Description("Verify user is able delete tax amount for already existing tax .")
@@ -122,7 +122,7 @@ public class TaxScenario extends TestBase {
 	@Story("About the property tax creation scenario")
 	@Step("Verify user is able to add taxes for charge type percent")
 	public void aboutPropertyTaxCreationScenario_TC_04()  {
-		 extentTest = extent.startTest("aboutPropertyTaxCreationScenario_TC_04");
+		extentTest = extent.startTest("aboutPropertyTaxCreationScenario_TC_04");
 		tf.clickDeleteTax();
 		allureScreenshot("TaxDeleted");
 		screenShot("TaxDeleted");
@@ -130,58 +130,59 @@ public class TaxScenario extends TestBase {
 		Assert.assertTrue(tf.verifyDeletedTax());
 	}
 
-	 @Test(priority=5)
-		@Description("Verify user is able to edit Charge frequency")
-		@Severity(SeverityLevel.CRITICAL)
-		@Epic("EP01")
-		@Feature("Feature1:Taxes Scenario ")
-		@Story("About the property tax creation scenario")
-		@Step("Verify user is able to add taxes for charge type percent")
-		public void aboutPropertyTaxCreationScenario_TC_05()  {
-			extentTest = extent.startTest("aboutPropertyTaxCreationScenario_TC_05");
-			tf.clickaddNewTaxtoProperty();
-			tf.addTaxToEditChargeFrequency();
-			tf.clickSave();
-			allureScreenshot("taxCreated");
-			screenShot("TaxCreated");
-			Assert.assertTrue(tf.verifyCreatedTaxForEditChargeFreqency());
-			Assert.assertFalse(tf.verifyTaxFrquencyEdited());
+	@Test(priority=5)
+	@Description("Verify user is able to edit Charge frequency")
+	@Severity(SeverityLevel.CRITICAL)
+	@Epic("EP01")
+	@Feature("Feature1:Taxes Scenario ")
+	@Story("About the property tax creation scenario")
+	@Step("Verify user is able to add taxes for charge type percent")
+	public void aboutPropertyTaxCreationScenario_TC_05()  {
+		extentTest = extent.startTest("aboutPropertyTaxCreationScenario_TC_05");
+		tf.clickaddNewTaxtoProperty();
+		tf.addTaxToEditChargeFrequency();
+		tf.clickSave();
+		allureScreenshot("taxCreated");
+		screenShot("TaxCreated");
+		Assert.assertTrue(tf.verifyCreatedTaxForEditChargeFreqency());
+		Assert.assertFalse(tf.verifyTaxFrquencyEdited());
 
-			tf.changeChargeFreqency();
-			tf.clickSave();
-			allureScreenshot("TaxFrequencyUpdated");
-			screenShot("TaxFrequencyUpdated");
-			Assert.assertTrue(tf.verifyTaxFrquencyEdited());     
-	      }
-	 
-	 @Test(priority=6)
-		@Description("Verify user is able to update charge basis for existed Tax")
-		@Severity(SeverityLevel.CRITICAL)
-		@Epic("EP01")
-		@Feature("Feature1:Taxes Scenario ")
-		@Story("About the property tax creation scenario")
-		@Step("Verify user is able to update charge basis for existed Tax")
-		public void aboutPropertyTaxCreationScenario_TC_06()  {
-			extentTest = extent.startTest("aboutPropertyTaxCreationScenario_TC_06");
-			Assert.assertFalse(tf.verifyTaxBasisEdited());
-			tf.changeChargeBasis();
-			tf.clickSave();
-			allureScreenshot("TaxUpdated");
-			screenShot("TaxUpdated");
-			Assert.assertTrue(tf.verifyTaxBasisEdited());     
-	      }
-	 @Test(priority = 31)
-		public void deleteAllCreatedAboutTheProperty() throws InterruptedException {
+		tf.changeChargeFreqency();
+		tf.clickSave();
+		allureScreenshot("TaxFrequencyUpdated");
+		screenShot("TaxFrequencyUpdated");
+		Assert.assertTrue(tf.verifyTaxFrquencyEdited());     
+	}
+
+	@Test(priority=6)
+	@Description("Verify user is able to update charge basis for existed Tax")
+	@Severity(SeverityLevel.CRITICAL)
+	@Epic("EP01")
+	@Feature("Feature1:Taxes Scenario ")
+	@Story("About the property tax creation scenario")
+	@Step("Verify user is able to update charge basis for existed Tax")
+	public void aboutPropertyTaxCreationScenario_TC_06()  {
+		extentTest = extent.startTest("aboutPropertyTaxCreationScenario_TC_06");
+		Assert.assertFalse(tf.verifyTaxBasisEdited());
+		tf.changeChargeBasis();
+		tf.clickSave();
+		allureScreenshot("TaxUpdated");
+		screenShot("TaxUpdated");
+		Assert.assertTrue(tf.verifyTaxBasisEdited());     
+	}
+	@Test(priority = 7)
+	public void deleteAllCreatedAboutTheProperty() throws InterruptedException {
 		tf.deleteAllTax();
-			
-			
-	 }
-		@AfterSuite
-		public void report() throws Exception {
+		lp.logout();
 
-			mail();
 
-			cmdPrompt();
-		}
+	}
+	@AfterSuite
+	public void report() throws Exception {
+
+		mail();
+
+		cmdPrompt();
+	}
 
 }

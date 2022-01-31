@@ -41,6 +41,9 @@ public class RoomHierarchyPage extends AbstractBasePage {
 	@FindBy(xpath="//span[text()='Start Date and End Date should not be empty.']")
 	WebElement roomHierarchyErrorMsg ;
 
+	@FindBy(id="addNewHierarchyButton")
+	WebElement newHierarchy;
+	
 	/*
 	 * Method for select base room
 	 */
@@ -49,6 +52,12 @@ public class RoomHierarchyPage extends AbstractBasePage {
 		s.selectByVisibleText(e.getCellData("Sheet1","baseRoom",2));
 		TestBase.implict(3);
 		return null;
+	}
+	
+	public RoomHierarchyPage btnNewHierarchy() {
+		newHierarchy.click();
+		return null;
+
 	}
 
 	/*

@@ -17,7 +17,6 @@ import base.TestBase;
  * @author Sudhakar Mourya
  */
 public class Add6RoomsCreationTest extends TestBase {
-	
 	ExcelData e = new ExcelData();
 	LoginPage lp;
 	AdministratorHomePage ahp;
@@ -134,6 +133,7 @@ public class Add6RoomsCreationTest extends TestBase {
 		  ahp.clickOnAddNew();
 		  arcp.enterRoomName(e.getCellData("Sheet1","roomName",8));
 		  arcp.enterRoomCode(e.getCellData("Sheet1","roomCode",8));
+		  arcp. entergdsCode(e.getCellData("Sheet1","gdsCode",8));
 		  arcp.clickOnBigsizeBed();
 		  try {
 			arcp.uploadImage();
@@ -174,6 +174,7 @@ public class Add6RoomsCreationTest extends TestBase {
 		  ahp.clickOnAddNew();
 		  arcp.enterRoomName(e.getCellData("Sheet1","roomName",9));
 		  arcp.enterRoomCode(e.getCellData("Sheet1","roomCode",9));
+		  arcp. entergdsCode(e.getCellData("Sheet1","gdsCode",9));
 		  arcp.clickOnBigsizeBed();
 		  try {
 			arcp.uploadImage();
@@ -212,4 +213,5 @@ public class Add6RoomsCreationTest extends TestBase {
 		}
 		cmdPrompt();
 	}
+
 }

@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import Utility.ExcelData;
 import base.TestBase;
@@ -136,6 +137,7 @@ public class ReportsPage extends AbstractBasePage {
 	}
 
 	public ReportsPage selectBookingReport() throws InterruptedException {
+		TestBase.implict(3);
 		bookingReport.click();
 		TestBase.implict(3);
 		return null;
@@ -443,11 +445,11 @@ public class ReportsPage extends AbstractBasePage {
 
 	}
 
-	public boolean downloadProductionReports() throws InterruptedException, IOException {
-		Thread.sleep(3000);
+	public boolean downloadProductionReports() {
+		TestBase.implict(6);
 
-
-		File prodFiles = new File("C:\\Users\\Sanskriti.Gangwar\\Desktop\\NewFramework\\target\\CrsReports");
+		String files = System.getProperty("user.dir");
+		File prodFiles = new File(files +"\\target\\CrsReports");
 
 		// List the files on that folder
 		File[] listOfFiles = prodFiles.listFiles();
@@ -472,7 +474,12 @@ public class ReportsPage extends AbstractBasePage {
 		// Assert.assertTrue(found, "Downloaded document is not found");
 		//		new File("C:\\Users\\Sanskriti.Gangwar\\Desktop\\NewFramework\\target\\CrsReports\\Production Report.xlsx").delete();
 		//		prodFiles.delete();
-		FileUtils.deleteDirectory(new File("C:\\Users\\Sanskriti.Gangwar\\Desktop\\NewFramework\\target\\CrsReports"));
+		String storePath = System.getProperty("user.dir");
+		try {
+			FileUtils.deleteDirectory(new File(storePath +"\\target\\CrsReports"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		f.deleteOnExit();
 		return found;
 
@@ -480,8 +487,9 @@ public class ReportsPage extends AbstractBasePage {
 
 
 
-	public boolean downloadDetailedBookingReports() throws InterruptedException, IOException {
-		Thread.sleep(3000);
+	public boolean downloadDetailedBookingReports() {
+//		Thread.sleep(3000);
+		TestBase.implict(6);
 
 		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy ");
 		Date date = new Date();
@@ -495,8 +503,8 @@ public class ReportsPage extends AbstractBasePage {
 
 		System.out.println(pdf_name+"-----PDF name");
 		System.out.println(xls_name+"-----EXCEL name");
-
-		File prodFiles = new File("C:\\Users\\Sanskriti.Gangwar\\Desktop\\NewFramework\\target\\CrsReports");
+		String files = System.getProperty("user.dir");
+		File prodFiles = new File(files +"\\target\\CrsReports");
 
 		// List the files on that folder
 		File[] listOfFiles = prodFiles.listFiles();
@@ -518,17 +526,21 @@ public class ReportsPage extends AbstractBasePage {
 				}
 			}
 		}
-		// Assert.assertTrue(found, "Downloaded document is not found");
-
-		FileUtils.deleteDirectory(new File("C:\\Users\\Sanskriti.Gangwar\\Desktop\\NewFramework\\target\\CrsReports"));
+		 Assert.assertTrue(found, "Downloaded document is not found");
+		String storePath = System.getProperty("user.dir");
+		try {
+			FileUtils.deleteDirectory(new File(storePath +"\\target\\CrsReports"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		f.deleteOnExit();
 		return found;
 
 	}
 
-	public boolean downloadStatisticalBookingReports() throws InterruptedException, IOException {
-		Thread.sleep(3000);
-
+	public boolean downloadStatisticalBookingReports()  {
+//		Thread.sleep(3000);
+		TestBase.implict(6);
 		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy ");
 		Date date = new Date();
 		String stDate= dateFormat.format(date);
@@ -542,8 +554,8 @@ public class ReportsPage extends AbstractBasePage {
 
 		System.out.println(pdf_name+"-----PDF name");
 		System.out.println(pdf_name+"-----EXCEL name");
-
-		File prodFiles = new File("C:\\Users\\Sanskriti.Gangwar\\Desktop\\NewFramework\\target\\CrsReports");
+		String files = System.getProperty("user.dir");
+		File prodFiles = new File(files +"\\target\\CrsReports");
 
 		// List the files on that folder
 		File[] listOfFiles = prodFiles.listFiles();
@@ -565,16 +577,20 @@ public class ReportsPage extends AbstractBasePage {
 				}
 			}
 		}
-		// Assert.assertTrue(found, "Downloaded document is not found");
-
-		FileUtils.deleteDirectory(new File("C:\\Users\\Sanskriti.Gangwar\\Desktop\\NewFramework\\target\\CrsReports"));
+//		 Assert.assertTrue(found, "Downloaded document is not found");
+		String storePath = System.getProperty("user.dir");
+		try {
+			FileUtils.deleteDirectory(new File(storePath +"\\target\\CrsReports"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		f.deleteOnExit();
 		return found;
 
 	}
 
-	public boolean downloadSearchResReports() throws InterruptedException, IOException {
-		Thread.sleep(3000);
+	public boolean downloadSearchResReports() {
+		TestBase.implict(6);
 		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy ");
 		Date date = new Date();
 		String stDate= dateFormat.format(date);
@@ -584,12 +600,12 @@ public class ReportsPage extends AbstractBasePage {
 		String month = Date[0];
 
 		String pdf_name = "searchReservation_report_2022_"+month+"_"+day+".pdf";
-		String xls_name = "searchReservation_report_2022_"+month+"_"+day+".xls";
+		String xls_name = "searchReservation_report_2022_"+month+"_"+day+".xlsx";
 
 		System.out.println(pdf_name+"-----PDF name");
 		System.out.println(pdf_name+"-----EXCEL name");
-
-		File prodFiles = new File("C:\\Users\\Sanskriti.Gangwar\\Desktop\\NewFramework\\target\\CrsReports");
+		String files = System.getProperty("user.dir");
+		File prodFiles = new File(files +"\\target\\CrsReports");
 
 		// List the files on that folder
 		File[] listOfFiles = prodFiles.listFiles();
@@ -612,8 +628,12 @@ public class ReportsPage extends AbstractBasePage {
 			}
 		}
 		// Assert.assertTrue(found, "Downloaded document is not found");
-
-		FileUtils.deleteDirectory(new File("C:\\Users\\Sanskriti.Gangwar\\Desktop\\NewFramework\\target\\CrsReports"));
+		String storePath = System.getProperty("user.dir");
+		try {
+			FileUtils.deleteDirectory(new File(storePath +"\\target\\CrsReports"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		f.deleteOnExit();
 		return found;
 

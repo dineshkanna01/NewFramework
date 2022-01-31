@@ -25,7 +25,6 @@ import logfile.Utilitylog;
 * @Author : UzairAsar
 */
 public class AdminLogin extends TestBase{
-	
 	public static Utilitylog logger;
 	LoginPage lp;
 
@@ -92,7 +91,7 @@ public class AdminLogin extends TestBase{
 		assertTrue(lp.verifyFieldsCleared());
 	}
 
-//	@Test(priority = 3)
+	@Test(priority = 3)
 	@Description("Verify the user is successfully able to change his password through the \"Forgot your password\" link")
 	@Severity(SeverityLevel.NORMAL)
 	@Epic("EP01")
@@ -114,7 +113,7 @@ public class AdminLogin extends TestBase{
 		lp.ReturnHome();
 	}
 
-	@Test(priority = 4)
+//	@Test(priority = 4)
 	@Description("Verify the user is not able to sign in with invalid credentials (invalid username)")
 	@Severity(SeverityLevel.NORMAL)
 	@Epic("EP01")
@@ -156,6 +155,8 @@ public class AdminLogin extends TestBase{
 		String fail = lp.verifyLoginNotSuccess();
 		System.out.println("Password is incorrect.");
 		Assert.assertEquals(fail, "Username and/or password is incorrect. Please try again.");
+		
+		lp.browserClose();
 	}
 
 	@AfterSuite
@@ -163,4 +164,5 @@ public class AdminLogin extends TestBase{
 		mail();
 		cmdPrompt();
 	}
+
 }

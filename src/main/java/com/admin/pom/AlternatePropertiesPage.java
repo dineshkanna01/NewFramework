@@ -25,7 +25,7 @@ public class AlternatePropertiesPage extends AbstractBasePage {
 		super(driver);
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath="//a[text()='Add Property']")
+	@FindBy(xpath="(//a[text()='Add Property'])[2]")
 	WebElement addProperty;
 
 	@FindBy(xpath="//input[@name='propertyCode']")

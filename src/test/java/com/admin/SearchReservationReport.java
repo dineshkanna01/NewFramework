@@ -61,7 +61,7 @@ public class SearchReservationReport extends TestBase {
 
 		ahp.selectBrand();// Select the brand
 
-		ahp.selectProperty();// Select the property
+		ahp.selectProperty2();// Select the property
 		allureScreenshot("Property");
 
 		ahp.selectReports();

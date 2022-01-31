@@ -310,6 +310,11 @@ public class LoginPage extends AbstractBasePage{
 		return null;
 	}
 	
+	public LoginPage browserClose() {
+		driver.close();
+		return null;
+	}
+	
 	/*
 	 * Method to logout after login
 	 */

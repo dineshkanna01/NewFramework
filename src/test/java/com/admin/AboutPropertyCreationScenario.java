@@ -782,13 +782,11 @@ public class AboutPropertyCreationScenario extends TestBase {
 		
 		atp.deleteAlreadyCreatedNearbyAttractionTheProperty();
 		
-		lp.logout();
-		
 		allureScreenshot("AboutThePropertyDeleted");
 
 		screenShot("AboutThePropertyDeleted");
 
-		
+		lp.logout();
 	}
 	
 		@AfterSuite

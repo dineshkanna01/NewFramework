@@ -20,6 +20,10 @@ import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import logfile.Utilitylog;
 
+/*
+* Test class for Property branding configuration
+* @Author : UzairAsar
+*/
 public class PropertyCreationTestCases extends TestBase{
 	
 	public static Utilitylog logger;
