@@ -25,6 +25,7 @@ import logfile.Utilitylog;
 * @Author : UzairAsar
 */
 public class AdminLogin extends TestBase{
+	
 	public static Utilitylog logger;
 	LoginPage lp;
 
@@ -108,12 +109,12 @@ public class AdminLogin extends TestBase{
 		screenShot("Reset Sent Password");
 		
 		String ForgotPassSent = lp.verifyForgotPassword();
-		Assert.assertEquals(ForgotPassSent, "A password request has been made");
+		Assert.assertEquals(ForgotPassSent, "Reset Password");
 		
 		lp.ReturnHome();
 	}
 
-//	@Test(priority = 4)
+	@Test(priority = 4)
 	@Description("Verify the user is not able to sign in with invalid credentials (invalid username)")
 	@Severity(SeverityLevel.NORMAL)
 	@Epic("EP01")
@@ -164,5 +165,4 @@ public class AdminLogin extends TestBase{
 		mail();
 		cmdPrompt();
 	}
-
 }

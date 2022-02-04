@@ -156,12 +156,14 @@ public class AddOnsPage extends AbstractBasePage {
 
 		addOnActive.click();
 		
-		DateFormat dateFormat = new SimpleDateFormat("MM/DD/YY");
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/YY");
 		Date date = new Date();
 		String strDate = dateFormat.format(date);
+		System.out.println(strDate+"*****");
 		
 
 		addOnStartDate.sendKeys(strDate);
+	//	addOnStartDate.sendKeys(e.getCellData("AddOnsData", "StartDate", 2));
 
 		return null;
 	}

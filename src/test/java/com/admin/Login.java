@@ -46,6 +46,7 @@ public class Login extends TestBase {
 		Admin_Login al = new Admin_Login(getDriver());
 		extentTest = extent.startTest("Cancel a reservation");
 		al.loginPage();
+//		Email_OTP
 //		al.logOut();
 		
 //		al.otp();

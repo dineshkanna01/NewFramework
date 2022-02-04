@@ -22,7 +22,7 @@ import pages.AbstractBasePage;
  * @author Rudraksh Aggarwal
  */
 public class RatePlanPage extends AbstractBasePage {
-	
+
 	@FindBy(name = "name")
 	WebElement name;
 
@@ -38,7 +38,7 @@ public class RatePlanPage extends AbstractBasePage {
 	@FindBy(name = "checkInSDate")
 	WebElement firstCheckInDate;
 
-	@FindBy(xpath="//*[@value='1041#Incredible Room']")
+	@FindBy(xpath = "//*[@value='1041#Incredible Room']")
 	WebElement roomCheckbox;
 
 	@FindBy(name = "save")
@@ -130,18 +130,17 @@ public class RatePlanPage extends AbstractBasePage {
 		shortDescription.sendKeys(e.getCellData("RatePlanPageData", "ShortDescription_TC01", 2));
 		TestBase.implict(1);
 
-		DateFormat dateFormat = new SimpleDateFormat("MM/DD/YY");
 		Date date = new Date();
-		String strDate = dateFormat.format(date);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/YY"); // updated
 
+		String strDate = dateFormat.format(date);
+		System.out.println(strDate + "******");
 		startDate.sendKeys(strDate);
-		// startDate.sendKeys(e.getCellData("RatePlanPageData", "BookingStartDate_TC01",
-		// 2));
-		TestBase.implict(1);
 		firstCheckInDate.sendKeys(strDate);
 
-		// firstCheckInDate.sendKeys(e.getCellData("RatePlanPageData",
-		// "FirstCheckinDate_TC01", 2));
+//		startDate.sendKeys(e.getCellData("RatePlanPageData", "BookingStartDate_TC01", 2));
+//		TestBase.implict(1);
+//		firstCheckInDate.sendKeys(e.getCellData("RatePlanPageData", "FirstCheckinDate_TC01", 2));
 
 		return null;
 
@@ -159,17 +158,21 @@ public class RatePlanPage extends AbstractBasePage {
 
 		shortDescription.sendKeys(e.getCellData("RatePlanPageData", "ShortDescription_TC01", 2));
 		TestBase.implict(1);
-		
-		DateFormat dateFormat = new SimpleDateFormat("MM/DD/YY");
+
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/YY");
 		Date date = new Date();
 		String strDate = dateFormat.format(date);
-		
+
 		startDate.sendKeys(strDate);
 		TestBase.implict(1);
 
 		firstCheckInDate.sendKeys(strDate);
 		TestBase.implict(1);
-		
+
+//		startDate.sendKeys(e.getCellData("RatePlanPageData", "BookingStartDate_TC01", 2));
+//		TestBase.implict(1);
+//		firstCheckInDate.sendKeys(e.getCellData("RatePlanPageData", "FirstCheckinDate_TC01", 2));
+
 		roomTextBox.sendKeys(e.getCellData("RatePlanPageData", "RoomNameTextbox", 2));
 
 		return null;
@@ -192,13 +195,20 @@ public class RatePlanPage extends AbstractBasePage {
 		shortDescription.sendKeys(e.getCellData("RatePlanPageData", "ShortDescription_TC01", 2));
 		TestBase.implict(1);
 
-		DateFormat dateFormat = new SimpleDateFormat("MM/DD/YY");
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/YY");
 		Date date = new Date();
 		String strDate = dateFormat.format(date);
 
 		startDate.sendKeys(strDate);
 		TestBase.implict(1);
 		firstCheckInDate.sendKeys(strDate);
+
+//		startDate.sendKeys(e.getCellData("RatePlanPageData", "BookingStartDate_TC01", 2));
+//		TestBase.implict(1);
+//		firstCheckInDate.sendKeys(e.getCellData("RatePlanPageData", "FirstCheckinDate_TC01", 2));
+
+		// roomTextBox.sendKeys(e.getCellData("RatePlanPageData", "RoomNameTextbox",
+		// 2));
 		return null;
 
 	}

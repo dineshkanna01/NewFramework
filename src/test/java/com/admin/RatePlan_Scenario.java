@@ -26,7 +26,7 @@ import logfile.Utilitylog;
  * Test class for Rate plan
  * @author Rudraksh Aggarwal
  */
-public class RatePlan_Scenario extends TestBase{
+public class RatePlan_Scenario extends TestBase {
 	ExcelData e = new ExcelData();
 	public static Utilitylog logger;
 
@@ -60,7 +60,7 @@ public class RatePlan_Scenario extends TestBase{
 	@Feature("Feature1:RatePlan")
 	@Story("RatePlan Page")
 	@Step("Verify user is able to create and delete fixed rate plan")
-	public void RatePlan_TC_01()  {
+	public void RatePlan_TC_01() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("RatePlan_TC_01");
 
@@ -102,14 +102,14 @@ public class RatePlan_Scenario extends TestBase{
 		logger.info("TestCase Ended");
 	}
 
-	@Test(priority = 2)
+	 @Test(priority = 2)
 	@Description("Verify that the user is able to create and delete a Floating rate plan ")
 	@Severity(SeverityLevel.CRITICAL)
 	@Epic("EP01")
 	@Feature("Feature1:RatePlan")
 	@Story("RatePlan Page")
 	@Step("Verify user is able to create and delete Floating rate plan")
-	public void RatePlan_TC_02()  {
+	public void RatePlan_TC_02() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("RatePlan_TC_02");
 
@@ -155,17 +155,15 @@ public class RatePlan_Scenario extends TestBase{
 	@Feature("Feature1:RatePlan")
 	@Story("RatePlan Page")
 	@Step("Verify user is able to create and delete rate plan having add on")
-	public void RatePlan_TC_03()  {
+	public void RatePlan_TC_03() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("RatePlan_TC_03");
 
-		/*
-		 * lp.login(); allureScreenshot("Login"); screenShot("Login");
-		 * 
-		 * ahp.selectBrand(); ahp.selectProperty();
-		 * 
-		 * allureScreenshot("Property Selected"); screenShot("Property Selected");
-		 */
+//		  lp.login(); allureScreenshot("Login"); screenShot("Login");
+//		  
+//		 ahp.selectBrand(); ahp.selectProperty();
+//		  
+//		  allureScreenshot("Property Selected"); screenShot("Property Selected");
 
 		ahp.clickAddOnsTab();
 		ahp.clickAddNewAddOnsTab();
@@ -222,7 +220,7 @@ public class RatePlan_Scenario extends TestBase{
 	@Feature("Feature1:RatePlan")
 	@Story("RatePlan Page")
 	@Step("Verify the Attach Add-ons button is visible or not for different Rate Type Classifications.")
-	public void RatePlan_TC_04()  {
+	public void RatePlan_TC_04() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("RatePlan_TC_04");
 
@@ -254,20 +252,19 @@ public class RatePlan_Scenario extends TestBase{
 	@Feature("Feature1:RatePlan")
 	@Story("RatePlan Page")
 	@Step("Verify the user is able to add Rate Plan to Rate Plan Category")
-	public void RatePlan_TC_05()  {
+	public void RatePlan_TC_05() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("RatePlan_TC_05");
 
-		/*
-		 * lp.login(); allureScreenshot("Login"); screenShot("Login");
-		 * 
-		 * ahp.selectBrand(); ahp.selectProperty();
-		 * 
-		 * allureScreenshot("Property Selected"); screenShot("Property Selected");
-		 * 
-		 * ahp.clickRatePlansTab();
-		 */
-
+		
+//		  lp.login(); allureScreenshot("Login"); screenShot("Login");
+//		 
+//		  ahp.selectBrand(); ahp.selectProperty();
+//		  
+//		  allureScreenshot("Property Selected"); screenShot("Property Selected");
+//		  
+//		  ahp.clickRatePlansTab();
+		 
 		ahp.clickRatePlanCategories();
 		rcp.selectRadioButton();
 		rcp.clickOnSave();
@@ -314,7 +311,7 @@ public class RatePlan_Scenario extends TestBase{
 	@Feature("Feature1:RatePlan")
 	@Story("RatePlan Page")
 	@Step("Verify the user is not able to create rate plan if there is no room in selected property")
-	public void RatePlan_TC_06()  {
+	public void RatePlan_TC_06() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("RatePlan_TC_06");
 
@@ -345,7 +342,7 @@ public class RatePlan_Scenario extends TestBase{
 	@Feature("Feature1:RatePlan")
 	@Story("RatePlan Page")
 	@Step("Verify the user is not able to create rate plan with Duplicate Rate Code")
-	public void RatePlan_TC_07()  {
+	public void RatePlan_TC_07() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("RatePlan_TC_07");
 
@@ -400,7 +397,7 @@ public class RatePlan_Scenario extends TestBase{
 	}
 
 	@AfterSuite
-	public void report()  {
+	public void report() {
 		try {
 			mail();
 		} catch (Exception e) {

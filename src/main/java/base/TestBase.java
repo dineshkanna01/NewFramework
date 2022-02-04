@@ -657,7 +657,7 @@ public class TestBase {
 				.build();
 
 	}
-
+	// Booking Engine Url and Switching the tabs
 	public void openBEurlinNewTab() {
 		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
 		String a = "window.open('about:blank','_blank');";
@@ -667,11 +667,22 @@ public class TestBase {
 		getDriver().get("https://alh.qa-igt.reztrip3-qa.com/");
 	}
 
+	// Booking Engine UrlParameter and Switching the tabs
+	public static void openBEUrlParameter() {
+		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
+		String a = "window.open('about:blank','_blank');";
+		((JavascriptExecutor) getDriver()).executeScript(a);
+		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
+		getDriver().switchTo().window(tab.get(1));
+		getDriver().get("https://sacqa6.qa2.reztrip3-qa.com/classic/en/special_offer?rate_code=FSR&utm_source=August-2021-Email-"
+				+ "Blast&utm_medium=Email&utm_term=Offer&utm_campaign=August-2021-Email-Blast\r\n");
+	}
+
 	public ArrayList<String> switchTabs() {
 		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
 		return tab;
 	}
-	
+
 	public void switchWindow(int num) {
 		getDriver().switchTo().window(switchTabs().get(num));
 	}

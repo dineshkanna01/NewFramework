@@ -50,11 +50,11 @@
 		</classes>
 	</test>
 
-	<test name="BookingReport">
+	<!-- <test name="BookingReport">
 		<classes>
 			<class name="com.admin.BookingReport" />
 		</classes>
-	</test>
+	</test> -->
 
 	<test name="BrandTestCase">
 		<classes>
@@ -98,11 +98,11 @@
 		</classes>
 	</test>
 
-	<test name="ProductionReport">
+	<!-- <test name="ProductionReport">
 		<classes>
 			<class name="com.admin.ProductionReport" />
 		</classes>
-	</test>
+	</test> -->
 
 	<test name="PropertyBranding">
 		<classes>
@@ -140,11 +140,11 @@
 		</classes>
 	</test>
 
-	<test name="SearchReservationReport">
+	<!-- <test name="SearchReservationReport">
 		<classes>
 			<class name="com.admin.SearchReservationReport" />
 		</classes>
-	</test>
+	</test> -->
 
 	<test name="SmartPolicy_Scenario">
 		<classes>
