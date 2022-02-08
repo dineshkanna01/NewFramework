@@ -459,6 +459,7 @@ public class TestBase {
 	public void endReport(){
 		extent.flush();
 		extent.close();
+		getDriver().quit();
 	}
 
 	//	Extend Report Screenshot for failedtestcases
@@ -676,6 +677,24 @@ public class TestBase {
 		getDriver().switchTo().window(tab.get(1));
 		getDriver().get("https://sacqa6.qa2.reztrip3-qa.com/classic/en/special_offer?rate_code=FSR&utm_source=August-2021-Email-"
 				+ "Blast&utm_medium=Email&utm_term=Offer&utm_campaign=August-2021-Email-Blast\r\n");
+	}
+	
+	public void openBEurlinNewTabJCC() {
+		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
+		String a = "window.open('about:blank','_blank');";
+		((JavascriptExecutor) getDriver()).executeScript(a);
+		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
+		getDriver().switchTo().window(tab.get(1));
+		// getDriver().get("https://alh.qa-igt.reztrip3-qa.com/");
+		getDriver().get("https://h1qa1.qa-igt.reztrip3-qa.com/");
+	}
+
+	public void refreshBEJCC() {
+		getDriver().get("https://h1qa1.qa-igt.reztrip3-qa.com/");
+	}
+	
+	public void refreshBE() {
+		getDriver().get("https://alh.qa-igt.reztrip3-qa.com/");
 	}
 
 	public ArrayList<String> switchTabs() {

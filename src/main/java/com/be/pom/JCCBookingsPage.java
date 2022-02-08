@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-import com.admin.pom.PoliciesPage;
 
 import Utility.ExcelData;
 import base.TestBase;
@@ -19,7 +18,6 @@ import pages.AbstractBasePage;
 
 
 public class JCCBookingsPage extends AbstractBasePage {
-	
 	ExcelData e = new ExcelData();
 	public static WebDriver driver;
 
@@ -157,7 +155,7 @@ public class JCCBookingsPage extends AbstractBasePage {
 	 * Method to input Guest Details
 	 * 
 	 */
-	public PoliciesPage inputGuestDetails() {
+	public JCCBookingsPage inputGuestDetails() {
 		firstName.sendKeys(e.getCellData("JCCBookings", "FirstName", 2));
 		TestBase.implict(1);
 		lastName.sendKeys(e.getCellData("JCCBookings", "LastName", 2));
@@ -171,7 +169,7 @@ public class JCCBookingsPage extends AbstractBasePage {
 	 * Method to select BAR Rate Plan
 	 * 
 	 */
-	public PoliciesPage selectRatePlanBar() {
+	public JCCBookingsPage selectRatePlanBar() {
 		ratePLanBar.click();
 		TestBase.implict(1);
 		return null;
@@ -191,7 +189,7 @@ public class JCCBookingsPage extends AbstractBasePage {
 	 * Method to input Card Details TC01
 	 * 
 	 */
-	public PoliciesPage inputCardDetailsTC01() {
+	public JCCBookingsPage inputCardDetailsTC01() {
 
 		cardName.sendKeys(e.getCellData("JCCBookings", "CardName", 2));
 		cardNumber.sendKeys(e.getCellData("JCCBookings", "CardNumber1", 2));
@@ -216,7 +214,7 @@ public class JCCBookingsPage extends AbstractBasePage {
 	 * Method to input Card Details TC02
 	 * 
 	 */
-	public PoliciesPage inputCardDetailsTC02() {
+	public JCCBookingsPage inputCardDetailsTC02() {
 
 		cardName.sendKeys(e.getCellData("JCCBookings", "CardName", 2));
 		cardNumber.sendKeys(e.getCellData("JCCBookings", "CardNumber1", 3));
@@ -241,7 +239,7 @@ public class JCCBookingsPage extends AbstractBasePage {
 	 * Method to input Billing Address
 	 * 
 	 */
-	public PoliciesPage inputBillingAddress() {
+	public JCCBookingsPage inputBillingAddress() {
 
 		Select dropdown = new Select(country);
 		dropdown.selectByVisibleText("India");
@@ -266,7 +264,7 @@ public class JCCBookingsPage extends AbstractBasePage {
 	 * Method to input additional ContactInfo
 	 * 
 	 */
-	public PoliciesPage inputadditionalContactInfo() {
+	public JCCBookingsPage inputadditionalContactInfo() {
 		phNum.sendKeys(e.getCellData("JCCBookings", "PhoneNumber", 2));
 		TestBase.implict(1);
 		return null;
@@ -277,7 +275,7 @@ public class JCCBookingsPage extends AbstractBasePage {
 	 * Method to select Terms And Conditon Checkbox
 	 * 
 	 */
-	public PoliciesPage selectTermsAndConditonCheckbox() {
+	public JCCBookingsPage selectTermsAndConditonCheckbox() {
 		termsConditions.click();
 		TestBase.implict(1);
 		return null;
@@ -288,7 +286,7 @@ public class JCCBookingsPage extends AbstractBasePage {
 	 * Method to click Complete Reservation
 	 * 
 	 */
-	public PoliciesPage clickCompleteReservation() {
+	public JCCBookingsPage clickCompleteReservation() {
 		completeReservation.click();
 		TestBase.implict(5);
 		return null;
@@ -323,8 +321,8 @@ public class JCCBookingsPage extends AbstractBasePage {
 
 			String error = errorMessageJCC.getText();
 			System.out.println(error);
-			
-			
+
+
 			return true;
 		}
 
@@ -348,9 +346,9 @@ public class JCCBookingsPage extends AbstractBasePage {
 					"Booking is completed but Transaction id is not generated, Only Confirmation code is displayed which is: "
 							+ ConfirmationCode);
 		}
-			return false;
-		}
-	
+		return false;
+	}
+
 	/*
 	 * Method for verificationTC05
 	 * 

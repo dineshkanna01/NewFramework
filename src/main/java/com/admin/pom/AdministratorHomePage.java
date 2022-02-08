@@ -127,7 +127,14 @@ public class AdministratorHomePage extends AbstractBasePage {
 	@FindBy(xpath="//a[text()='Amenities']")
 	WebElement amenities;
 
+	@FindBy(xpath = "//*[text()='Sachin Test Brand']")
+	WebElement brandNameJCC;
+	
+	@FindBy(xpath = "//*[@value='20']")
+	WebElement propertyJCC;
 
+	@FindBy(xpath = "//*[@id=\"10\"]/li[2]/a")
+	WebElement houseInvandRest;
 
 	/*
 	 * Method to select brand
@@ -374,5 +381,38 @@ public class AdministratorHomePage extends AbstractBasePage {
 		TestBase.implict(3);
 		return null;
 		}
+	
+	/*
+	 * Method to select property JCC
+	 */
+	public AdministratorHomePage selectPropertyJCC() {
+		propertyJCC.click();
+		TestBase.implict(3);
+		propertySelectButton.click();
+		TestBase.implict(3);
+		return null;
+	}
+	
+	/*
+	 * Method to select brand JCC
+	 */
+	public AdministratorHomePage selectBrandJCC() {
+		brands.click();
+		TestBase.implict(3);
+		brandNameJCC.click();
+		TestBase.implict(3);
+		return null;
+
+	}
+	
+	
+	/*
+	 * Method to select House Inventory Restrictions
+	 */
+	public AdministratorHomePage selectHouseInventoryRestrictions() {
+		houseInvandRest.click();
+		TestBase.implict(3);
+		return null;
+	}
 
 }
