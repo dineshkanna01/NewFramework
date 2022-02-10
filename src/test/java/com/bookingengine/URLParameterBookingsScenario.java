@@ -23,6 +23,11 @@ import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import logfile.Utilitylog;
 
+/*
+ * Test class for  URL Parameter Bookings Scenario
+ * @author Ankita mohamanasingh
+ */
+
 public class URLParameterBookingsScenario extends TestBase {
 
 	public static Utilitylog logger;

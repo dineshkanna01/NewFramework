@@ -133,6 +133,9 @@ ExcelData e = new ExcelData();
 	@FindBy(xpath = "(//input[@aria-label='I accept the Terms & Conditions'])")
 	WebElement  acceptTerm;
 	
+	@FindBy(xpath ="//a[text()=\"Got it!\"]")
+	WebElement gotIt;
+	
 	@FindBy(xpath = "(//input[@value='Complete reservation'])")
 	WebElement completeReservation;
 	
@@ -269,12 +272,14 @@ ExcelData e = new ExcelData();
 		departureDate.clear();
 		departureDate.sendKeys(e.getCellData("URLPB1", "DepartureDate", 2));
 		checkAvailability.click();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+//		try {
+//			Thread.sleep(3000);
+//		} catch (InterruptedException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		checkAvailability.click();
+		TestBase.implict(6);
 		bookNow.click();
 		firstName.sendKeys(e.getCellData("URLPB1", "FirstName", 2));
 		lastName.sendKeys(e.getCellData("URLPB1", "LastName", 2));
@@ -307,6 +312,7 @@ ExcelData e = new ExcelData();
 		enterStateDelhi.click();
 		zipCode.sendKeys(e.getCellData("URLPB1", "ZipCode", 2));
 		phoneNumber.sendKeys(e.getCellData("URLPB1", "PhoneN", 2));
+		gotIt.click();
 		acceptTerm.click();
 		completeReservation.click();
 		

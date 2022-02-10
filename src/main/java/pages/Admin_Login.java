@@ -54,13 +54,13 @@ public class Admin_Login extends AbstractBasePage{
 		uName.sendKeys("dkanna");
 		pWord.sendKeys("Pa$$word08");
 		subMit.click();
-//		nxt.click();
+		nxt.click();
 		
-//		Email_OTP emailotp = new Email_OTP();
-//		String otp = Email_OTP.emailOTP();
-//		System.out.println("email OTP is ............." + otp);
+		Email_OTP emailotp = new Email_OTP();
+		String otp = Email_OTP.emailOTP();
+		System.out.println("email OTP is ............." + otp);
 		
-//		submitbutton.click();
+		submitbutton.click();
 		myAccount.click();
 		logoutButton.click();
 		return null;

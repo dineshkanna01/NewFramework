@@ -1,13 +1,16 @@
 package com.admin;
 
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import base.Email_OTP;
 import base.TestBase;
 import extend.TestReport;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -28,7 +31,7 @@ public class Login extends TestBase {
 		logger=new Utilitylog(Login.class.getName());
 	}
 	
-	@BeforeMethod
+//	@BeforeMethod
 	public void setup() {
 		initilization_Admin();
 //		initilization_Gmail();
@@ -42,11 +45,12 @@ public class Login extends TestBase {
 	@Story("Story: Admin Page Login")
 	@Step("Verify Admin Page Login Presence")
 	public void login() throws Exception {
-		
+		WebDriverManager.chromedriver().setup();
+		driver=new ChromeDriver();
+		driver.get("https://qa-igt.ttaws.com/admin/login.jsp");
 		Admin_Login al = new Admin_Login(getDriver());
-		extentTest = extent.startTest("Cancel a reservation");
+//		extentTest = extent.startTest("Cancel a reservation");
 		al.loginPage();
-//		Email_OTP
 //		al.logOut();
 		
 //		al.otp();

@@ -63,7 +63,7 @@ public class AccessCodeBookingScenario extends TestBase {
 	public void manageAccessCodeBookingsScenario_TC_01() {
 		extentTest = extent.startTest("manageAccessCodeBookingsScenario_TC_01");
 
-		openBEurlinNewTab();
+		openBEurlinNewTab2();
 		acb.AccessCodeRatePlanInBE();
 
 		acb.scrollDownTen();
@@ -81,7 +81,7 @@ public class AccessCodeBookingScenario extends TestBase {
 
 		ahp.selectBrand();
 
-		ahp.selectProperty();
+		ahp.selectProperty3();
 		acb.createAccessCode();
 
 		allureScreenshot("AccessCodeCreated");

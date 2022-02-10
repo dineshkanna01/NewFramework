@@ -154,6 +154,9 @@ public class AccessCodeBookingPage extends TestBase {
 
 	@FindBy(xpath = "//button[text()='OK']")
 	WebElement accessCodeEditOKBE;
+	
+	@FindBy(xpath ="//a[text()=\"Got it!\"]")
+	WebElement gotIt;
 
 
 
@@ -237,20 +240,23 @@ public class AccessCodeBookingPage extends TestBase {
 			e2.printStackTrace();
 		}
 		checkAvailability.click();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
+		TestBase.implict(10);
+//		try {
+//			Thread.sleep(3000);
+//		} catch (InterruptedException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//
 		checkAvailability.click();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+//		try {
+//			Thread.sleep(3000);
+//		} catch (InterruptedException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+		TestBase.implict(6);
+//		gotIt.click();
 		bookNow.click();	
 
 		return null;	

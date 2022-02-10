@@ -165,4 +165,5 @@ public class AdminLogin extends TestBase{
 		mail();
 		cmdPrompt();
 	}
+
 }

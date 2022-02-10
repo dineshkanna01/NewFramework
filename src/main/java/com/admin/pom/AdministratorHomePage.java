@@ -33,6 +33,9 @@ public class AdministratorHomePage extends AbstractBasePage {
 	
 	@FindBy(xpath = "//*[@value='93']")
 	WebElement property2;
+	
+	@FindBy(xpath = "//*[@value='100']")
+	WebElement property3;
 
 	@FindBy(xpath = "//*[@value='Select Property']")
 	WebElement propertySelectButton;
@@ -161,6 +164,14 @@ public class AdministratorHomePage extends AbstractBasePage {
 	
 	public AdministratorHomePage selectProperty2() {
 		property2.click();
+		TestBase.implict(3);
+		propertySelectButton.click();
+		TestBase.implict(3);
+		return null;
+	}
+	
+	public AdministratorHomePage selectProperty3() {
+		property3.click();
 		TestBase.implict(3);
 		propertySelectButton.click();
 		TestBase.implict(3);

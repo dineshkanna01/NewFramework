@@ -53,9 +53,9 @@ public class LoginPage extends AbstractBasePage{
 	@FindBy(xpath = "//h1[text()='Administrator Home']")
 	WebElement header1;
 
-	@FindBy(xpath = "//*[text() = 'A password request has been made.']")
+	@FindBy(xpath = "//h1[text()='Reset Password']")
 	WebElement forgotPasswordText;
-
+	
 	@FindBy(xpath = "//*[@class='dropdown']")
 	WebElement myAccount;
 
@@ -103,8 +103,9 @@ public class LoginPage extends AbstractBasePage{
 	 */
 
 	public LoginPage username() {
-		TestBase.implict(6);
-		username.click();
+//		TestBase.implict(6);
+		TestBase.explicit(username, 3).click();;
+//		username.click();
 		username.clear();
 		username.sendKeys(e.getCellData("LoginPageData", "Username", 2));
 		TestBase.implict(3);
@@ -212,16 +213,7 @@ public class LoginPage extends AbstractBasePage{
 		TestBase.implict(3);
 		forgotPassword.click();
 		TestBase.implict(3);
-		fUsername.click();
-		fUsername.sendKeys(e.getCellData("LoginPageData", "Username_02", 2));
-		TestBase.implict(3);
-		email.sendKeys(e.getCellData("LoginPageData", "ForgotEmail", 2));
-		TestBase.implict(3);
-		fSubmitButton.click();
-		TestBase.implict(3);
-
 		return null;
-
 	}
 
 	/*
@@ -230,7 +222,7 @@ public class LoginPage extends AbstractBasePage{
 
 	public LoginPage ReturnHome() {
 
-		returnLoginPage2.click();
+		driver.navigate().back();
 		TestBase.implict(3);
 
 		return null;

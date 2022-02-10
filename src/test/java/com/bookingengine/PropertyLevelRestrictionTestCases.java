@@ -88,7 +88,7 @@ public class PropertyLevelRestrictionTestCases extends TestBase {
 
 		logger.info("Booking Engine Open");
 
-		openBEurlinNewTab();
+		openBEurlinNewTab1();
 
 		plrp.availabilityCheck();
 		String buttonCheck = plrp.verifyBookNowBtn();

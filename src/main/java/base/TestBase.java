@@ -80,6 +80,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
@@ -697,6 +698,28 @@ public class TestBase {
 		getDriver().switchTo().window(tab.get(1));
 		getDriver().get("https://alh.qa-igt.reztrip3-qa.com/cc/dashboard?hotel_id=ALH#/home/");
 	}
+	
+//	https://westinsep.qa-igt.reztrip3-qa.com/
+	
+	public void openBEurlinNewTab1() {
+		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
+		String a = "window.open('about:blank','_blank');";
+		((JavascriptExecutor) getDriver()).executeScript(a);
+		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
+		getDriver().switchTo().window(tab.get(1));
+		getDriver().get("https://westinsep.qa-igt.reztrip3-qa.com/");
+	}
+	
+//	https://mio.qa-igt.reztrip3-qa.com/
+	
+	public void openBEurlinNewTab2() {
+		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
+		String a = "window.open('about:blank','_blank');";
+		((JavascriptExecutor) getDriver()).executeScript(a);
+		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
+		getDriver().switchTo().window(tab.get(1));
+		getDriver().get("https://mio.qa-igt.reztrip3-qa.com/");
+	}
 
 	public void refreshBEJCC() {
 		getDriver().get("https://h1qa1.qa-igt.reztrip3-qa.com/");
@@ -718,6 +741,12 @@ public class TestBase {
 
 	public static WebDriver getDriver() {
 		return tdriver.get();
+	}
+	
+	public static WebElement explicit(WebElement name, int sec) {
+		WebDriverWait wait = new WebDriverWait(getDriver(), sec);
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(name));
+		return element;
 	}
 
 	public static void explicitWait() {
