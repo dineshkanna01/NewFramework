@@ -35,7 +35,7 @@ public static Utilitylog logger;
 		logger=new Utilitylog(JiraTest.class.getName());
 	}
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun=true)
 	public void setup() {
 		initilization();
 	}
@@ -46,7 +46,7 @@ public static Utilitylog logger;
 		
 		logger.info("Cancel Reservation started");
 		CancelBookingPage CP = new CancelBookingPage(getDriver());
-		CP.cancelBooking("QTEST1100002237", "dinesh.kanna@igtsolutions.com");
+		CP.cancelBooking("QTEST1100002504", "dinesh.kanna@igtsolutions.com");
 		BrowserFactory.screenShot("cancellation page");
 		String title = CP.UrlTilte();
 		System.out.println(title);

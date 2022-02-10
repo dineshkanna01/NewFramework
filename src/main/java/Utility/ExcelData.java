@@ -2,13 +2,18 @@ package Utility;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -104,5 +109,29 @@ public class ExcelData {
 		}
 
 	}
+	
+	public boolean write_getCellData(String name,  int rNum, int cNum) throws Exception {
+		String path = System.getProperty("user.dir") + "\\src\\test\\resources\\testData\\CC_CallCenterData.xlsx";
+		FileInputStream fis = new FileInputStream(path);
+		Workbook workbook = new XSSFWorkbook(fis);
+
+		Sheet sheet = workbook.getSheet(name); // sheet at 1st tab
+
+		int lastRow = sheet.getLastRowNum();
+		for (int i = 1; i <= lastRow; i++) {
+		Row row = sheet.getRow(rNum);// 2nd row (index =1)
+		Cell cell = row.createCell(cNum);// column in which you want to set data
+//		cell.setCellValue(code);
+
+		FileOutputStream fos = new FileOutputStream(path);
+		workbook.write(fos);
+		System.out.println("abcdf");
+
+		fos.close();
+		}
+		System.out.println("value updated in excel");
+		return true;
+	}
+	
 
 }
