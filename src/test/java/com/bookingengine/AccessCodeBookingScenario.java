@@ -134,7 +134,7 @@ public class AccessCodeBookingScenario extends TestBase {
 
 		getDriver().close();
 		switchWindow(0);
-		openBEurlinNewTab();
+		openBEurlinNewTab2();
 	}
 
 	@Test(priority = 3)

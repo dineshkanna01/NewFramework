@@ -28,7 +28,7 @@ public class RestAssuredPost extends TestBase{
 		System.out.println("------------Execution Started------------");
 	}
 
-	@Test()
+//	@Test()
 	public void availNotif() throws Exception {
 		logger.info("------------AvailNotif Execution Started------------");
 		TestResponse("AvailNotif");
@@ -42,7 +42,7 @@ public class RestAssuredPost extends TestBase{
 		logger.info("------------RateAmount Execution Ended------------");
 	}
 
-	@Test()
+//	@Test()
 	public void ratePlan() throws Exception {
 		logger.info("------------RatePlan Execution Started------------");
 		TestResponse("RatePlan");

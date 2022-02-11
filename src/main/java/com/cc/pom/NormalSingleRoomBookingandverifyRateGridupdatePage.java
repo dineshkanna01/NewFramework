@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -91,6 +92,9 @@ public class NormalSingleRoomBookingandverifyRateGridupdatePage extends TestBase
 	@FindBy(xpath = "(//*[text()='Select'])[1]")
 	WebElement selectButtonSR;
 
+	@FindBy(xpath = "(//a[text()='Select'])[1]")
+	WebElement selectRoom;
+
 	@FindBy(xpath = "//*[text()='Payment']")
 	WebElement paymentButton;
 
@@ -139,7 +143,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdatePage extends TestBase
 	@FindBy(name = "booking[phone_number]")
 	WebElement phNum;
 
-	@FindBy(xpath = "//input[@type='checkbox']")
+	@FindBy(xpath = "(//input[@type='checkbox'])[last()]")
 	WebElement termsandconditionCheckbox;
 
 	@FindBy(xpath = "//input[@name='commit']")
@@ -386,7 +390,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdatePage extends TestBase
 		DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
 		Date date = new Date();
 		String currentDate = dateFormat.format(date);
-		System.out.println("current day date for cc TC01" + currentDate);
+		System.out.println("current day date for cc " + currentDate);
 
 		// TO GET NEXT DAY DATE
 		String nextDaydate = "";
@@ -398,7 +402,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdatePage extends TestBase
 		Date after = cal.getTime();
 		SimpleDateFormat formatter = new SimpleDateFormat("YYYY-MM-dd");
 		nextDaydate = formatter.format(after);
-		System.out.println("next day date for cc TC01 " + nextDaydate);
+		System.out.println("next day date for cc " + nextDaydate);
 
 		try {
 			Thread.sleep(3000);
@@ -430,7 +434,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdatePage extends TestBase
 		DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
 		Date date = new Date();
 		String currentDate = dateFormat.format(date);
-		System.out.println("current day date for cc TC02" + currentDate);
+		System.out.println("current day date for cc " + currentDate);
 
 		// TO GET DATE AFTER 7 DAYS
 		String sevenDaydate = "";
@@ -442,7 +446,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdatePage extends TestBase
 		Date after = cal.getTime();
 		SimpleDateFormat formatter = new SimpleDateFormat("YYYY-MM-dd");
 		sevenDaydate = formatter.format(after);
-		System.out.println("DATE AFTER 7 DAYS for cc TC02 " + sevenDaydate);
+		System.out.println("DATE AFTER 7 DAYS for cc " + sevenDaydate);
 
 		try {
 			Thread.sleep(3000);
@@ -472,7 +476,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdatePage extends TestBase
 	public NormalSingleRoomBookingandverifyRateGridupdatePage clickAvailibilityButton() {
 
 		checkAvailability.click();
-
+		TestBase.implict(3);
 		return null;
 	}
 
@@ -481,7 +485,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdatePage extends TestBase
 	 */
 	public boolean verifyRoomsAvailibilty() {
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(4000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -511,31 +515,57 @@ public class NormalSingleRoomBookingandverifyRateGridupdatePage extends TestBase
 	}
 
 	/*
-	 * Method to select Classic Room
+	 * Method to select Room after modify
 	 */
-	public NormalSingleRoomBookingandverifyRateGridupdatePage selectClassicRoom() {
+	public void selectRoomModify() {
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		String roomname = e.CC_getCellData("NormalSingleRoomBookingData", "RoomName", 2);
-		selectButtonCR.click();
-		System.out.println(roomname + " is selected");
-		return null;
+
+		String a = (e.CC_getCellData("NormalSingleRoomBookingData", "RoomNameModify", 2));
+		System.out.println(a);
+		WebElement room = getDriver().findElement(By.xpath("(//*[text()='" + a + "'])[1]/preceding::input[1]"));
+		room.click();
+		TestBase.implict(1);
+		selectRoom.click();
+//		try {
+//			Thread.sleep(3000);
+//		} catch (InterruptedException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		String roomname = e.RudCC_getCellData("NormalSingleRoomBookingData", "RoomName", 2);
+//		selectButtonCR.click();
+//		System.out.println(roomname + " is selected");
+//		return null;
 
 	}
 
 	/*
 	 * Method to select Standard Room
 	 */
-	public NormalSingleRoomBookingandverifyRateGridupdatePage selectStandardRoom() {
-		String roomname = e.CC_getCellData("NormalSingleRoomBookingData", "RoomNameModify", 2);
-		selectButtonSR.click();
-		System.out.println(roomname + " is selected");
-		return null;
+	public void selectRoom() {
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
+		String a = (e.CC_getCellData("NormalSingleRoomBookingData", "RoomName", 2));
+		System.out.println(a);
+		WebElement room = getDriver().findElement(By.xpath("(//*[text()='" + a + "'])[1]/preceding::input[1]"));
+		room.click();
+		TestBase.implict(1);
+		selectRoom.click();
+
+//		String roomname = e.RudCC_getCellData("NormalSingleRoomBookingData", "RoomNameModify", 2);
+//		selectButtonSR.click();
+//		System.out.println(roomname + " is selected");
+//		return null;
 	}
 
 	/*
@@ -715,6 +745,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdatePage extends TestBase
 	 * Method to verify Confirmation Code
 	 * 
 	 */
+
 	public boolean verifyConfirmationCode() {
 		if (confirmcodeHeading.isDisplayed()) {
 			String codehead = confirmcodeHeading.getText();

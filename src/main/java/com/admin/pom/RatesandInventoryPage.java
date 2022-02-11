@@ -104,26 +104,26 @@ public class RatesandInventoryPage extends AbstractBasePage {
 	@FindBy(xpath = "//*[@id='C_1361']")
 	WebElement closedYieldControl;
 
-	public RatesandInventoryPage selectRateGrid() throws InterruptedException {
+	public RatesandInventoryPage selectRateGrid()  {
 		rateGrid.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public RatesandInventoryPage selectRatePlan() throws InterruptedException {
+	public RatesandInventoryPage selectRatePlan()  {
 		selectRatePlan.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public RatesandInventoryPage selectRatePlan2() throws InterruptedException {
+	public RatesandInventoryPage selectRatePlan2()  {
 		selectRatePlan2.click();
 		TestBase.implict(3);
 
 		return null;
 	}
 
-	public boolean verifyRatePlan(String Rateplan) throws Exception {
+	public boolean verifyRatePlan(String Rateplan)  {
 
 		String RatePlan1 = driver.findElement(By.xpath("(//*[contains(text(),'BAR')])[2]")).getText();
 		System.out.println(RatePlan1 + "####");
@@ -137,7 +137,7 @@ public class RatesandInventoryPage extends AbstractBasePage {
 		}
 	}
 
-	public boolean verifyRatePlan2(String Rateplan2) throws Exception {
+	public boolean verifyRatePlan2(String Rateplan2)  {
 
 		String RatePlan2 = driver.findElement(By.xpath("(//*[contains(text(),'Sanskriti')])[1]")).getText();
 		System.out.println(RatePlan2 + "####");
@@ -152,13 +152,13 @@ public class RatesandInventoryPage extends AbstractBasePage {
 
 	}
 
-	public RatesandInventoryPage continueButton() throws InterruptedException {
+	public RatesandInventoryPage continueButton() {
 		continueButton.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public RatesandInventoryPage selectDateRange() throws Exception {
+	public RatesandInventoryPage selectDateRange()  {
 		// Startdateicon.click();
 		TestBase.implict(3);
 		startdate.sendKeys(e.getCellData("RateGrid", "Date", 2));
@@ -180,44 +180,44 @@ public class RatesandInventoryPage extends AbstractBasePage {
 		return null;
 	}
 
-	public RatesandInventoryPage clickoverrideRoomCheckbox() throws InterruptedException {
+	public RatesandInventoryPage clickoverrideRoomCheckbox() {
 		overrideRoomHierarchy.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public RatesandInventoryPage clickdailyRateInvbutton() throws InterruptedException {
+	public RatesandInventoryPage clickdailyRateInvbutton() {
 		dailyRateInvButton.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public RatesandInventoryPage updateRate() throws Exception {
+	public RatesandInventoryPage updateRate() {
 		rate.sendKeys(e.getCellData("RateGrid", "Rate", 2));
 		TestBase.implict(3);
 
 		return null;
 	}
 
-	public RatesandInventoryPage clickQuickEntrybutton() throws InterruptedException {
+	public RatesandInventoryPage clickQuickEntrybutton()  {
 		quickEntryBtn.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public RatesandInventoryPage clickUpdatebutton() throws InterruptedException {
+	public RatesandInventoryPage clickUpdatebutton()  {
 		updateBtn.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public RatesandInventoryPage clickConfirmbutton() throws InterruptedException {
+	public RatesandInventoryPage clickConfirmbutton()  {
 		confirmBtn.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public boolean verifyRate() throws Exception {
+	public boolean verifyRate()  {
 
 		List<WebElement> Rates = driver.findElements(By.xpath("//*[contains(@name,'rateOldRate')]"));
 
@@ -246,7 +246,7 @@ public class RatesandInventoryPage extends AbstractBasePage {
 			return false;
 	}
 
-	public RatesandInventoryPage selectALLRoomType() throws InterruptedException {
+	public RatesandInventoryPage selectALLRoomType()  {
 		selectRoomTypedropdwn.click();
 		TestBase.implict(3);
 		selectAllRoomType.click();
@@ -257,7 +257,7 @@ public class RatesandInventoryPage extends AbstractBasePage {
 		return null;
 	}
 
-	public RatesandInventoryPage updateRateforDaysOfweek() throws Exception {
+	public RatesandInventoryPage updateRateforDaysOfweek()  {
 		rate.sendKeys(e.getCellData("RateGrid", "Rate", 2));
 		TestBase.implict(3);
 		Calendar calendar = Calendar.getInstance();
@@ -282,7 +282,7 @@ public class RatesandInventoryPage extends AbstractBasePage {
 		return null;
 	}
 
-	public RatesandInventoryPage stickyCheck() throws InterruptedException {
+	public RatesandInventoryPage stickyCheck()  {
 		TestBase.implict(3);
 		stickyRateCheck.click();
 		stickyInvCheck.click();
@@ -290,14 +290,14 @@ public class RatesandInventoryPage extends AbstractBasePage {
 		return null;
 	}
 
-	public RatesandInventoryPage stickyUncheck() throws InterruptedException {
+	public RatesandInventoryPage stickyUncheck()  {
 		stickyRateUncheck.click();
 		stickyInvUncheck.click();
 		TestBase.implict(3);
 		return null;
 	}
 
-	public boolean verifyStickyRates() throws InterruptedException {
+	public boolean verifyStickyRates()  {
 
 		List<WebElement> RateCheckbox = driver
 				.findElements(By.xpath("//*[contains(@name,'stickyprice') and @type='checkbox']"));
@@ -323,7 +323,7 @@ public class RatesandInventoryPage extends AbstractBasePage {
 
 	}
 
-	public boolean verifyStickyInventory() throws InterruptedException {
+	public boolean verifyStickyInventory()  {
 
 		List<WebElement> InvCheckbox = driver
 				.findElements(By.xpath("//*[contains(@name,'stickyinventory') and @type='checkbox']"));
@@ -349,14 +349,14 @@ public class RatesandInventoryPage extends AbstractBasePage {
 
 	}
 
-	public RatesandInventoryPage updateMinMaxLOS() throws Exception {
+	public RatesandInventoryPage updateMinMaxLOS()  {
 		maxLOS.sendKeys(e.getCellData("RateGrid", "MaxLOS", 2));
 		TestBase.implict(3);
 		minLOS.sendKeys(e.getCellData("RateGrid", "MinLOS", 2));
 		return null;
 	}
 
-	public boolean verifyMinLOS() throws Exception {
+	public boolean verifyMinLOS()  {
 		List<WebElement> minLOS = driver.findElements(By.xpath("//*[contains(@id,'minLOS') and @class='input']"));
 
 		String MinLOSExcel = e.getCellData("RateGrid", "MinLOS", 2);
@@ -383,7 +383,7 @@ public class RatesandInventoryPage extends AbstractBasePage {
 			return false;
 	}
 
-	public boolean verifyMaxLOS() throws Exception {
+	public boolean verifyMaxLOS()  {
 		List<WebElement> maxLOS = driver.findElements(By.xpath("//*[contains(@id,'maxLOS') and @class='input']"));
 		String MaxLOSExcel = e.getCellData("RateGrid", "MaxLOS", 2);
 		System.out.println(MaxLOSExcel + ": MaxLOS value in excel");
@@ -406,21 +406,21 @@ public class RatesandInventoryPage extends AbstractBasePage {
 			return false;
 	}
 
-	public RatesandInventoryPage openYieldControls() throws InterruptedException {
+	public RatesandInventoryPage openYieldControls()  {
 		openYieldControl.click();
 
 		TestBase.implict(3);
 		return null;
 	}
 
-	public RatesandInventoryPage closeYieldControls() throws InterruptedException {
+	public RatesandInventoryPage closeYieldControls()  {
 		closedYieldControl.click();
 
 		TestBase.implict(3);
 		return null;
 	}
 
-	public boolean verifyopenYieldControls() throws InterruptedException {
+	public boolean verifyopenYieldControls()  {
 
 		List<WebElement> openYield = driver.findElements(By.xpath("(//*[contains(@name,'noc') and @value='O'])"));
 
@@ -445,7 +445,7 @@ public class RatesandInventoryPage extends AbstractBasePage {
 
 	}
 
-	public boolean verifycloseYieldControls() throws InterruptedException {
+	public boolean verifycloseYieldControls()  {
 
 		List<WebElement> closeYield = driver.findElements(By.xpath("(//*[contains(@name,'noc') and @value='C'])"));
 

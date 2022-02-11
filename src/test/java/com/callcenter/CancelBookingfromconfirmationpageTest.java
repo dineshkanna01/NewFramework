@@ -83,7 +83,7 @@ public class CancelBookingfromconfirmationpageTest extends TestBase 	{
 
 		nsrb.selectDateRangeCCTC01();
 		nsrb.clickAvailibilityButton();
-		nsrb.selectClassicRoom();
+		nsrb.selectRoomModify();
 		nsrb.clickpaymentButton();
 
 		allureScreenshot("Call Center payment details");

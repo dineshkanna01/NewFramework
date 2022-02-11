@@ -110,28 +110,22 @@ public class ExcelData {
 
 	}
 	
-	public boolean write_getCellData(String name,  int rNum, int cNum) throws Exception {
+	public boolean write_CellData(String name, int rNum, int cNum, String Data) throws Exception {
 		String path = System.getProperty("user.dir") + "\\src\\test\\resources\\testData\\CC_CallCenterData.xlsx";
 		FileInputStream fis = new FileInputStream(path);
 		Workbook workbook = new XSSFWorkbook(fis);
-
 		Sheet sheet = workbook.getSheet(name); // sheet at 1st tab
-
 		int lastRow = sheet.getLastRowNum();
 		for (int i = 1; i <= lastRow; i++) {
 		Row row = sheet.getRow(rNum);// 2nd row (index =1)
 		Cell cell = row.createCell(cNum);// column in which you want to set data
-//		cell.setCellValue(code);
-
+		cell.setCellValue(Data); // Data that you want to save in excel
 		FileOutputStream fos = new FileOutputStream(path);
 		workbook.write(fos);
-		System.out.println("abcdf");
-
 		fos.close();
 		}
 		System.out.println("value updated in excel");
 		return true;
-	}
-	
+		}
 
 }

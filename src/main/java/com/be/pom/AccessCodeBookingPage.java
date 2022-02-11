@@ -241,13 +241,13 @@ public class AccessCodeBookingPage extends TestBase {
 		}
 		checkAvailability.click();
 		TestBase.implict(10);
-//		try {
-//			Thread.sleep(3000);
-//		} catch (InterruptedException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
-//
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
 		checkAvailability.click();
 //		try {
 //			Thread.sleep(3000);
