@@ -1,93 +1,76 @@
 package com.admin.pom;
-
 import java.util.List;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import Utility.ExcelData;
-import base.TestBase;
+import base.Helper;
 import pages.AbstractBasePage;
-
 /*
  * Pom class for Rate plan categories
  * @author Rudraksh Aggarwal
  */
 public class RatePlanCategoriesPage extends AbstractBasePage{
-	ExcelData e = new ExcelData();
-
+	
 	@FindBy(xpath = "//*[@name='Submit3']")
 	WebElement saveButton;
-
 	@FindBy(xpath = "//*[@id='addNewCategoryButton']/input")
 	WebElement addNewCategoryButton;
-
 	@FindBy(xpath = "//input[@name='categoryName']")
 	WebElement categoryName;
-
 	@FindBy(xpath = "(//*[@name='editCategoryLink'])[1]")
 	WebElement verifyCategoryName;
-
 	@FindBy(xpath = "(//*[@name='deleteCategoryLink'])[1]")
 	WebElement deleteCategory;
-
 	@FindBy(xpath = "//*[@id='showSuccessMessage']")
 	WebElement verifyMessageDelete;
-
+	
 	public RatePlanCategoriesPage(WebDriver driver) {
 		super(driver);
 		PageFactory.initElements(driver, this);
 	}
-
+	
 	public String UrlTilte() {
 		return driver.getTitle();
 	}
-
+	
 	/*
 	 * Method to select radio button
 	 */
 	public RatePlanCategoriesPage selectRadioButton() {
 		List<WebElement> radbut = driver.findElements(By.xpath("//*[@type='radio']"));
 		for (int i = 0; i < radbut.size(); i++) {
-
 			String value = radbut.get(i).getAttribute("value");
 			if (value.equalsIgnoreCase("true"))
 				radbut.get(i).click();
-			TestBase.implict(2);
-
+			Helper.implict(2);
 		}
 		return null;
 	}
-
 	/*
 	 * Method to select radio button
 	 */
 	public RatePlanCategoriesPage selectRadioButtonNo() {
 		List<WebElement> radbut = driver.findElements(By.xpath("//*[@type='radio']"));
 		for (int i = 0; i < radbut.size(); i++) {
-
 			String value = radbut.get(i).getAttribute("value");
 			if (value.equalsIgnoreCase("false"))
 				radbut.get(i).click();
-			TestBase.implict(2);
-
+			Helper.implict(2);
 		}
 		return null;
 	}
-
 	/*
 	 * Method to click on save button
 	 */
 	public RatePlanCategoriesPage clickOnSave() {
 		saveButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
-
 	/*
 	 * Method to verify add new category
 	 * 
@@ -106,31 +89,25 @@ public class RatePlanCategoriesPage extends AbstractBasePage{
 			System.out.println("Add New Rate plan category option is already enabled");
 			return true;
 		}
-
 	}
-
 	/*
 	 * Method to input fields for TC02
 	 */
 	public RatePlanCategoriesPage inputfields_tc02() {
 		addNewCategoryButton.click();
-		TestBase.implict(1);
-		categoryName.sendKeys(e.getCellData("RatePlanCategoriesData", "CategoryName", 2));
+		Helper.implict(1);
+		categoryName.sendKeys(ExcelData.getCellData("RatePlanCategoriesData", "CategoryName", 2));
 		return null;
-
 	}
-
 	/*
 	 * Method to input fields for TC03
 	 */
 	public RatePlanCategoriesPage inputfields_tc03() {
 		addNewCategoryButton.click();
-		TestBase.implict(1);
-		categoryName.sendKeys(e.getCellData("RatePlanCategoriesData", "CategoryNameTC_03", 2));
+		Helper.implict(1);
+		categoryName.sendKeys(ExcelData.getCellData("RatePlanCategoriesData", "CategoryNameTC_03", 2));
 		return null;
-
 	}
-
 	/*
 	 * Method to verify policy name
 	 * 
@@ -140,22 +117,17 @@ public class RatePlanCategoriesPage extends AbstractBasePage{
 		String CName = verifyCategoryName.getText();
 		CName = CName.replaceAll("\\s+", "");
 		System.out.println(CName + "####");
-
-		String ExcelCategoryName = e.getCellData("RatePlanCategoriesData", "CategoryName", 2);
+		String ExcelCategoryName = ExcelData.getCellData("RatePlanCategoriesData", "CategoryName", 2);
 		ExcelCategoryName = ExcelCategoryName.replaceAll("\\s+", "");
-
 		System.out.println(ExcelCategoryName + "$$$");
-
 		if (CName.equals(ExcelCategoryName)) {
 			System.out.println("Category created");
 			return true;
 		} else {
 			System.out.println("Category Deleted");
 			return false;
-
 		}
 	}
-
 	/*
 	 * Method to verify policy name TC03
 	 * 
@@ -165,22 +137,17 @@ public class RatePlanCategoriesPage extends AbstractBasePage{
 		String CName = verifyCategoryName.getText();
 		CName = CName.replaceAll("\\s+", "");
 		System.out.println(CName + "####");
-
-		String ExcelCategoryName = e.getCellData("RatePlanCategoriesData", "CategoryNameTC_03", 2);
+		String ExcelCategoryName = ExcelData.getCellData("RatePlanCategoriesData", "CategoryNameTC_03", 2);
 		ExcelCategoryName = ExcelCategoryName.replaceAll("\\s+", "");
-
 		System.out.println(ExcelCategoryName + "$$$");
-
 		if (CName.equals(ExcelCategoryName)) {
 			System.out.println("Category created");
 			return true;
 		} else {
 			System.out.println("Category Deleted");
 			return false;
-
 		}
 	}
-
 	/*
 	 * Method to delete Category
 	 */
@@ -189,15 +156,12 @@ public class RatePlanCategoriesPage extends AbstractBasePage{
 			deleteCategory.click();
 			Alert alert = driver.switchTo().alert();
 			alert.accept();
-
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-
 		return null;
 	}
-
 	/*
 	 * Method to verify delete message
 	 * 

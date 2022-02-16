@@ -21,19 +21,18 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelData {
 
-	XSSFWorkbook workbook;
-	XSSFSheet sheet;
-	XSSFRow row;
-	XSSFCell cell;
-	
-	public String getCellData(String sheetName, String colName, int rowNo) {
+	public static XSSFWorkbook workbook;
+	public static XSSFSheet sheet;
+	public static XSSFRow row;
+	public static XSSFCell cell;
+
+	public static String getCellData(String sheetName, String colName, int rowNo) {
 		FileInputStream fileInputStream;
 		try {
 			fileInputStream = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\resources\\testData\\Admin_Data.xlsx");
 			try {
 				workbook=new XSSFWorkbook(fileInputStream);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			int colNum=-1;
@@ -45,7 +44,7 @@ public class ExcelData {
 			}
 			row = sheet.getRow(rowNo -1);
 			cell = row.getCell(colNum);
-			
+
 			if(cell.getCellType()==CellType.STRING)
 				return cell.getStringCellValue();
 			else if(cell.getCellType()==CellType.NUMERIC || cell.getCellType()==CellType.FORMULA) {
@@ -65,10 +64,10 @@ public class ExcelData {
 			e.printStackTrace();
 			return "data not available";
 		}
-		
+
 	}
-	
-	public String CC_getCellData(String sheetName, String colName, int rowNo) {
+
+	public static String CC_getCellData(String sheetName, String colName, int rowNo) {
 		FileInputStream fileInputStream;
 		try {
 			fileInputStream = new FileInputStream(
@@ -109,23 +108,32 @@ public class ExcelData {
 		}
 
 	}
-	
-	public boolean write_CellData(String name, int rNum, int cNum, String Data) throws Exception {
+
+	public static boolean write_CellData(String name, int rNum, int cNum, String Data) {
 		String path = System.getProperty("user.dir") + "\\src\\test\\resources\\testData\\CC_CallCenterData.xlsx";
-		FileInputStream fis = new FileInputStream(path);
-		Workbook workbook = new XSSFWorkbook(fis);
+		try {
+			FileInputStream fis = new FileInputStream(path);
+			try {
+				Workbook workbook = new XSSFWorkbook(fis);
+			} catch (Exception e) {
+			}
+		} catch (Exception e) {
+		}
 		Sheet sheet = workbook.getSheet(name); // sheet at 1st tab
 		int lastRow = sheet.getLastRowNum();
 		for (int i = 1; i <= lastRow; i++) {
-		Row row = sheet.getRow(rNum);// 2nd row (index =1)
-		Cell cell = row.createCell(cNum);// column in which you want to set data
-		cell.setCellValue(Data); // Data that you want to save in excel
-		FileOutputStream fos = new FileOutputStream(path);
-		workbook.write(fos);
-		fos.close();
+			Row row = sheet.getRow(rNum);// 2nd row (index =1)
+			Cell cell = row.createCell(cNum);// column in which you want to set data
+			cell.setCellValue(Data); // Data that you want to save in excel
+			try {
+				FileOutputStream fos = new FileOutputStream(path);
+				workbook.write(fos);
+				fos.close();
+			} catch (Exception e) {
+			}
 		}
 		System.out.println("value updated in excel");
 		return true;
-		}
+	}
 
 }

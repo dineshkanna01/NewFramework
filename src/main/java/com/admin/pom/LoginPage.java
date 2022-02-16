@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utility.ExcelData;
+import base.Helper;
 import base.TestBase;
 import pages.AbstractBasePage;
 
@@ -69,9 +70,9 @@ public class LoginPage extends AbstractBasePage{
 	WebElement returnLoginPage2;
 	
 	public LoginPage clickClearButton()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		clearButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 		}
 
@@ -85,11 +86,11 @@ public class LoginPage extends AbstractBasePage{
 	}
 	
 	public LoginPage login() {
-		TestBase.implict(6);
+		Helper.implict(6);
 		username.click();
 		username.clear();;
 		username.sendKeys(e.getCellData("LoginPageData", "Username", 2));
-		TestBase.implict(6);
+		Helper.implict(6);
 		password.click();
 		password.clear();
 		password.sendKeys(e.getCellData("LoginPageData", "Password", 2));
@@ -103,12 +104,12 @@ public class LoginPage extends AbstractBasePage{
 	 */
 
 	public LoginPage username() {
-//		TestBase.implict(6);
-		TestBase.explicit(username, 3).click();;
+//		Helper.implict(6);
+		Helper.explicit(username, 3).click();;
 //		username.click();
 		username.clear();
 		username.sendKeys(e.getCellData("LoginPageData", "Username", 2));
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -117,12 +118,12 @@ public class LoginPage extends AbstractBasePage{
 	 */
 
 	public LoginPage password() {
-		TestBase.implict(6);
+		Helper.implict(6);
 		password.click();
 		password.clear();
-		TestBase.implict(3);
+		Helper.implict(3);
 		password.sendKeys(e.getCellData("LoginPageData", "Password", 2));
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -131,9 +132,9 @@ public class LoginPage extends AbstractBasePage{
 	 */
 
 	public LoginPage loginButton() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		loginButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -144,10 +145,10 @@ public class LoginPage extends AbstractBasePage{
 	public LoginPage twoFactorAuthentication() {
 		nextButton.click();
 
-		TestBase.implict(3);
+		Helper.implict(3);
 		submitButton.click();
 
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -157,7 +158,7 @@ public class LoginPage extends AbstractBasePage{
 	 */
 
 	public String verifyLogin() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		String s = header1.getText();
 		return s;
 	}
@@ -167,9 +168,9 @@ public class LoginPage extends AbstractBasePage{
 	 */
 
 	public LoginPage clearButton() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		clearButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		return null;
 
@@ -181,7 +182,7 @@ public class LoginPage extends AbstractBasePage{
 	 */
 
 	public String verifyClearButton() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		String clear = clearButton.getAttribute("value");
 		System.out.println(clear);
 		return clear;
@@ -193,10 +194,10 @@ public class LoginPage extends AbstractBasePage{
 	 */
 
 	public boolean verifyFieldsCleared() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		String pass = password.getAttribute("value");
 		String ele = username.getAttribute("value");
-		TestBase.implict(3);
+		Helper.implict(3);
 		if (ele.isEmpty() && pass.isEmpty()) {
 			System.out.println("Fields are cleared");
 			return true;
@@ -210,9 +211,9 @@ public class LoginPage extends AbstractBasePage{
 	 */
 
 	public LoginPage forgotPassword() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		forgotPassword.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -223,7 +224,7 @@ public class LoginPage extends AbstractBasePage{
 	public LoginPage ReturnHome() {
 
 		driver.navigate().back();
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		return null;
 
@@ -235,7 +236,7 @@ public class LoginPage extends AbstractBasePage{
 	 */
 
 	public String verifyForgotPassword() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		String s = forgotPasswordText.getText();
 		System.out.println(s);
 		return s;
@@ -255,7 +256,7 @@ public class LoginPage extends AbstractBasePage{
 		username.click();
 		username.clear();
 		username.sendKeys(e.getCellData("LoginPageData", "InvalidUserName", 2));
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 
 	}
@@ -266,7 +267,7 @@ public class LoginPage extends AbstractBasePage{
 	 */
 
 	public String verifyLoginNotSuccess() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		String s = header3.getText();
 		return s;
 	}
@@ -295,7 +296,7 @@ public class LoginPage extends AbstractBasePage{
 	 */
 
 	public LoginPage logout() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		myAccount.click();
 		logoutButton.click();
 		driver.close();
@@ -312,13 +313,13 @@ public class LoginPage extends AbstractBasePage{
 	 */
 
 	public LoginPage logout1() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		myAccount.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		logoutButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		returnLoginPage.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 

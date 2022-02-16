@@ -13,7 +13,6 @@ import org.testng.annotations.Test;
 
 import Utility.BrowserFactory;
 import Utility.DriverFactory;
-import base.SendEmail;
 import base.TestBase;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;

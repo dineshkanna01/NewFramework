@@ -16,8 +16,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -34,6 +32,7 @@ import javax.activation.DataSource;
 import javax.activation.FileDataSource;
 import javax.mail.BodyPart;
 import javax.mail.Message;
+import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
@@ -50,7 +49,6 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-import logfile.Utilitylog;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -59,9 +57,6 @@ import okhttp3.Response;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.mail.DefaultAuthenticator;
-import org.apache.commons.mail.Email;
-import org.apache.commons.mail.EmailAttachment;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
@@ -77,25 +72,17 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
 
-import com.google.gson.JsonIOException;
-import com.google.gson.JsonSyntaxException;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -106,23 +93,15 @@ import extend.TestReport;
 import helper.JsonHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;
-import pages.BookingPages;
 
-import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.ITestResult;
 
 import Utility.ConfigManager;
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.http.Header;
-import io.restassured.http.Headers;
 import io.restassured.http.Method;
-import io.restassured.path.xml.XmlPath;
 import io.restassured.specification.RequestSpecification;
-import io.restassured.specification.ResponseSpecification;
 
-import javax.net.ssl.*;
 
 /*
  * This is a BaseClass for reusable code
@@ -269,7 +248,6 @@ public class TestBase {
 
 	//	It is used for Selenium Grid Hub and Host launch for multiple system
 	public static void setUp() {
-
 		if (portNo.equalsIgnoreCase("4455")) {
 			nodeURL = "http://192.168.1.5:4455/wd/hub";
 			DesiredCapabilities capabilities= new DesiredCapabilities();
@@ -313,7 +291,6 @@ public class TestBase {
 
 	//	Mobile responsive testing and it is for change dimension of width and heigth of the screen
 	public static void mobileTest(String emulation, int w, int h) throws Exception {
-
 		WebDriverManager.chromedriver().setup();
 		Map<String, String> deviceMobEmu= new HashMap<String, String>();
 		deviceMobEmu.put("deviceName", emulation);
@@ -330,10 +307,6 @@ public class TestBase {
 		getDriver().get("https://qatest1.qa-igt.reztrip3-qa.com/");
 
 	}
-	public void launchUrl() {
-		// TODO Auto-generated method stub
-
-	}
 
 	//	Taking screenshot for method level of execution
 	public static void screenShot(String fileName) {
@@ -344,11 +317,6 @@ public class TestBase {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-	//	Waits
-	public static void implict(int num) {
-		getDriver().manage().timeouts().implicitlyWait(num, TimeUnit.SECONDS);
 	}
 
 	//	Allure Report Screenshot
@@ -368,7 +336,6 @@ public class TestBase {
 			PrintWriter stdin = new PrintWriter(p.getOutputStream());
 			String path = System.getProperty("user.dir")+"\\allure-results";
 			stdin.println("allure serve " + path);
-
 			stdin.close();
 			try {
 				p.waitFor();
@@ -381,13 +348,12 @@ public class TestBase {
 	}
 
 	//	Automatic email generation 
-	public static void mail() throws Exception {
+	public static void mail() {
 
 		final String username = "dinesh.kanna@pegs.com";
 		final String password = "Disser@01";
 		String fromEmail = "dinesh.kanna@pegs.com";
 		String toEmail = "dinesh.kanna@pegs.com";
-
 
 		Properties p = new Properties();
 		p.put("mail.smtp.host", "smtp.gmail.com");
@@ -431,6 +397,8 @@ public class TestBase {
 			Transport.send(m);
 
 		} catch (AddressException e) {
+			e.printStackTrace();
+		} catch (MessagingException e) {
 			e.printStackTrace();
 		}
 
@@ -484,7 +452,6 @@ public class TestBase {
 			extentTest.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getName()); //to add name in extent report
 			extentTest.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getThrowable()); //to add error/exception in extent report
 			extentTest.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getHost());
-
 			String screenshotPath = TestReport.getScreenshot(getDriver(), result.getName());
 			extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture(screenshotPath)); //to add screenshot in extent report
 			//extentTest.log(LogStatus.FAIL, extentTest.addScreencast(screenshotPath)); //to add screencast/video in extent report
@@ -503,9 +470,14 @@ public class TestBase {
 		//		getDriver().quit();
 
 		extent.endTest(extentTest); //ending test and ends the current test and prepare to create html report
-
 	}
-
+	
+	@AfterSuite
+	public void report() {
+		mail();
+		cmdPrompt();
+	}
+	
 	//	JDBC connection
 	public static Connection con() {
 		try {
@@ -690,13 +662,14 @@ public class TestBase {
 		getDriver().get("https://h1qa1.qa-igt.reztrip3-qa.com/");
 	}
 
-	public void openCCurlinNewTab() {
+	public void openURL(String url) {
 		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
 		String a = "window.open('about:blank','_blank');";
 		((JavascriptExecutor) getDriver()).executeScript(a);
 		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
 		getDriver().switchTo().window(tab.get(1));
-		getDriver().get("https://alh.qa-igt.reztrip3-qa.com/cc/dashboard?hotel_id=ALH#/home/");
+		getDriver().get(prop.getProperty(url));
+//		getDriver().get("https://alh.qa-igt.reztrip3-qa.com/cc/dashboard?hotel_id=ALH#/home/");
 	}
 	
 //	https://westinsep.qa-igt.reztrip3-qa.com/
@@ -725,34 +698,10 @@ public class TestBase {
 		getDriver().get("https://h1qa1.qa-igt.reztrip3-qa.com/");
 	}
 
-	public void refreshBE() {
-		getDriver().get("https://alh.qa-igt.reztrip3-qa.com/");
-	}
-
-	public ArrayList<String> switchTabs() {
-		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
-		return tab;
-	}
-
-	public void switchWindow(int num) {
-		getDriver().switchTo().window(switchTabs().get(num));
-	}
-
-
 	public static WebDriver getDriver() {
 		return tdriver.get();
 	}
 	
-	public static WebElement explicit(WebElement name, int sec) {
-		WebDriverWait wait = new WebDriverWait(getDriver(), sec);
-		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(name));
-		return element;
-	}
+	
 
-	public static void explicitWait() {
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				.withTimeout(Duration.ofSeconds(30))
-				.pollingEvery(Duration.ofSeconds(5))
-				.ignoring(NoSuchElementException.class);
-	}
 }

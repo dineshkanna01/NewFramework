@@ -1,18 +1,17 @@
 package com.cc.pom;
+import base.Helper;
+import base.TestBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import com.admin.pom.AdministratorHomePage;
-import com.admin.pom.ReportsPage;
 import Utility.ExcelData;
-import base.Helper;
-import base.TestBase;
+
 /*
- * POM class for CancelBookingfromconfirmationpagePage
+ * POM class for CancelbookingusingLookupPage
  * @author Rudraksh Aggarwal
  */
-public class CancelBookingfromconfirmationpagePage extends TestBase {
+public class CancelbookingusingLookupPage extends TestBase {
 	
 	public static WebDriver driver;
 	
@@ -20,6 +19,8 @@ public class CancelBookingfromconfirmationpagePage extends TestBase {
 	WebElement confirmcode;
 	@FindBy(xpath = "//div[text()='Cancel']")
 	WebElement cancelButton;
+	@FindBy(xpath = "//div[contains(@ng-click,\"summaryCtrl.initiateCancel\")]")
+	WebElement cancelButton1;
 	@FindBy(xpath = "//button[text()='Yes']")
 	WebElement yesButtonModify;
 	@FindBy(xpath = "//button[contains(@class,'btn-success')]")
@@ -56,9 +57,10 @@ public class CancelBookingfromconfirmationpagePage extends TestBase {
 	WebElement conNo;
 	@FindBy(xpath = "(//span[@class='announcement-text'])[last()]")
 	WebElement announcementText;
+	@FindBy(xpath = "//button[text()='View']")
+	WebElement viewButton;
 	
-	public CancelBookingfromconfirmationpagePage(WebDriver driver) {
-		
+	public CancelbookingusingLookupPage(WebDriver driver) {
 		super();
 		PageFactory.initElements(driver, this);
 	}
@@ -68,12 +70,13 @@ public class CancelBookingfromconfirmationpagePage extends TestBase {
 	}
 	
 	/*
-	 * Method to verify Cancel Booking TC01
+	 * Method to verify Cancel Booking rerort TC01
 	 * 
 	 */
-	public boolean verifyCancelBookingTC01() {
+	public boolean verifyCancelBookingReport() {
 		String code = confirmcode.getText();
 		System.out.println(code + "&&&");
+			ExcelData.write_CellData("NormalSingleRoomBookingData", 1, 19, code);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -97,7 +100,7 @@ public class CancelBookingfromconfirmationpagePage extends TestBase {
 		Helper.switchWindow(0);
 		selectReports();
 		selectSearchReservationReport();
-		confirmationNo.sendKeys(code);
+		confirmationNo.sendKeys(ExcelData.CC_getCellData("NormalSingleRoomBookingData", "ConfirmationCode", 2));
 		quickSearchButton.click();
 		Helper.implict(3);
 		if (noResFoundMsg.isDisplayed()) {
@@ -116,18 +119,53 @@ public class CancelBookingfromconfirmationpagePage extends TestBase {
 	}
 	
 	/*
-	 * Method to verify Cancel Booking TC02
+	 * Method to Cancel Booking TC01
 	 * 
 	 */
-	public boolean verifyCancelBookingTC02() {
-		String code = confirmcode.getText();
-		System.out.println(code + "&&&");
-		okButtonCancel.click();
+	public void CancelBookingTC01() {
 		lookupButton.click();
 		lookupEmail.sendKeys(ExcelData.CC_getCellData("NormalSingleRoomBookingData", "Email", 2));
 		Helper.implict(1);
+		lookupCCcode.clear();
+		lookupCCcode.sendKeys(ExcelData.CC_getCellData("NormalSingleRoomBookingData", "ConfirmationCode", 2));
 		Helper.implict(1);
-		lookupCCcode.sendKeys(code);
+		goButton.click();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+		viewButton.click();
+		try {
+			Thread.sleep(7000);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+		cancelButton1.click();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			System.out.println("123456789");
+			yesButtonCancel.click();
+			try {
+				Thread.sleep(1500);
+			} catch (InterruptedException e3) {
+				e3.printStackTrace();
+			}
+			okButtonCancel.click();
+		}
+	}
+	
+	/*
+	 * Method to verify Cancel Booking TC01
+	 * 
+	 */
+	public boolean verifyCancelBookingTC01() {
+		lookupButton.click();
+		lookupEmail.sendKeys(ExcelData.CC_getCellData("NormalSingleRoomBookingData", "Email", 2));
+		Helper.implict(1);
+		lookupCCcode.clear();
+		lookupCCcode.sendKeys(ExcelData.CC_getCellData("NormalSingleRoomBookingData", "ConfirmationCode", 2));
 		Helper.implict(1);
 		goButton.click();
 		try {
@@ -248,12 +286,12 @@ public class CancelBookingfromconfirmationpagePage extends TestBase {
 	/*
 	 * Method to select Reports
 	 */
-	public AdministratorHomePage selectReports() {
+	public CancelBookingfromconfirmationpagePage selectReports() {
 		reports.click();
 		Helper.implict(3);
 		return null;
 	}
-	public ReportsPage selectSearchReservationReport() {
+	public CancelBookingfromconfirmationpagePage selectSearchReservationReport() {
 		searchReservationReport.click();
 		Helper.implict(3);
 		return null;

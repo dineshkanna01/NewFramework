@@ -328,6 +328,7 @@ public class AccessCodeBookingPage extends TestBase {
 		return null;
 	}
 
+	
 	public AccessCodeBookingPage goToCreatedAccessCodeURL()  {
 
 		inputArrivalDate.sendKeys(e.getCellData("Booking", "ArrivalD", 2));

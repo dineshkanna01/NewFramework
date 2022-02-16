@@ -6,6 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import base.Helper;
 import base.TestBase;
 import pages.AbstractBasePage;
 
@@ -144,9 +145,9 @@ public class AdministratorHomePage extends AbstractBasePage {
 	 */
 	public AdministratorHomePage selectBrand() {
 		brands.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		brandName.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 
 	}
@@ -156,25 +157,25 @@ public class AdministratorHomePage extends AbstractBasePage {
 	 */
 	public AdministratorHomePage selectProperty() {
 		property.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		propertySelectButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	
 	public AdministratorHomePage selectProperty2() {
 		property2.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		propertySelectButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	
 	public AdministratorHomePage selectProperty3() {
 		property3.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		propertySelectButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -183,7 +184,7 @@ public class AdministratorHomePage extends AbstractBasePage {
 	 */
 	public AdministratorHomePage clickGuestPreferenceQuestionsTab() {
 		guestPreferenceQuestionsTab.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -192,7 +193,7 @@ public class AdministratorHomePage extends AbstractBasePage {
 	 */
 	public AdministratorHomePage clickAddOnsTab() {
 		addOnsTab.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -201,7 +202,7 @@ public class AdministratorHomePage extends AbstractBasePage {
 	 */
 	public AdministratorHomePage clickAddNewGuestPreference() {
 		addNewGuestPreference.click();
-		TestBase.implict(5);
+		Helper.implict(5);
 		return null;
 	}
 
@@ -210,7 +211,7 @@ public class AdministratorHomePage extends AbstractBasePage {
 	 */
 	public AdministratorHomePage clickListAllAddOn() {
 		listAllAddOns.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 
 	}
@@ -220,7 +221,7 @@ public class AdministratorHomePage extends AbstractBasePage {
 	 */
 	public AdministratorHomePage clickListAllGuestPreference() {
 		listAllGuestPreference.click();
-		TestBase.implict(5);
+		Helper.implict(5);
 		return null;
 
 	}
@@ -230,7 +231,7 @@ public class AdministratorHomePage extends AbstractBasePage {
 	 */
 	public AdministratorHomePage clickAddNewRatePlansTab() {
 		addNewRatePlansTab.click();
-		TestBase.implict(5);
+		Helper.implict(5);
 		return null;
 	}
 
@@ -239,7 +240,7 @@ public class AdministratorHomePage extends AbstractBasePage {
 	 */
 	public AdministratorHomePage clickRatePlansTab() {
 		ratePlansTab.click();
-		TestBase.implict(5);
+		Helper.implict(5);
 		return null;
 	}
 
@@ -248,7 +249,7 @@ public class AdministratorHomePage extends AbstractBasePage {
 	 */
 	public AdministratorHomePage clickAddNewAddOnsTab() {
 		addNewAddOnTab.click();
-		TestBase.implict(5);
+		Helper.implict(5);
 		return null;
 	}
 
@@ -257,7 +258,7 @@ public class AdministratorHomePage extends AbstractBasePage {
 	 */
 	public AdministratorHomePage clickRatePlanCategories() {
 		ratePlanCategories.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -266,7 +267,7 @@ public class AdministratorHomePage extends AbstractBasePage {
 	 */
 	public AdministratorHomePage clickSmartPoliciesTab() {
 		smartPoliciesTab.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -275,7 +276,7 @@ public class AdministratorHomePage extends AbstractBasePage {
 	 */
 	public AdministratorHomePage clickAddNewSmartPolicies() {
 		addNewSmartPolicies.click();
-		TestBase.implict(5);
+		Helper.implict(5);
 		return null;
 	}
 
@@ -284,7 +285,7 @@ public class AdministratorHomePage extends AbstractBasePage {
 	 */
 	public AdministratorHomePage clickPoliciesTab() {
 		policiesTab.click();
-		TestBase.implict(2);
+		Helper.implict(2);
 		return null;
 	}
 
@@ -293,19 +294,19 @@ public class AdministratorHomePage extends AbstractBasePage {
 	 */
 	public AdministratorHomePage clickAddNewPolicy() {
 		addNewPolicy.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
 	public AdministratorHomePage selectRatesandInventory() {
 		ratesandInventory.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
 	public AdministratorHomePage selectReports() {
 		reports.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -389,7 +390,7 @@ public class AdministratorHomePage extends AbstractBasePage {
 	
 	public AdministratorHomePage selectPropertyManagement() {
 		propertyManagement.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 		}
 	
@@ -398,9 +399,9 @@ public class AdministratorHomePage extends AbstractBasePage {
 	 */
 	public AdministratorHomePage selectPropertyJCC() {
 		propertyJCC.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		propertySelectButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	
@@ -409,9 +410,9 @@ public class AdministratorHomePage extends AbstractBasePage {
 	 */
 	public AdministratorHomePage selectBrandJCC() {
 		brands.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		brandNameJCC.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 
 	}
@@ -422,7 +423,7 @@ public class AdministratorHomePage extends AbstractBasePage {
 	 */
 	public AdministratorHomePage selectHouseInventoryRestrictions() {
 		houseInvandRest.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 

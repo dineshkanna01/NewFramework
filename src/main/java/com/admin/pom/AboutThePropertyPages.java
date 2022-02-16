@@ -19,7 +19,7 @@ import pages.AbstractBasePage;
 
 public class AboutThePropertyPages extends AbstractBasePage {
 	
-	ExcelData e = new ExcelData();
+//	ExcelData e = new ExcelData();
 	public WebDriver driver;
 
 	@FindBy(xpath = "//a[text()='Channels']")
@@ -373,16 +373,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	
 	@FindBy(xpath = "((//input[@name='chkAttractionIds'])[last()]/following::div[1])/input")
 	WebElement deleteAllNearbyAttraction;
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	public AboutThePropertyPages(WebDriver driver) {
 		super(driver);
@@ -558,9 +549,9 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		TestBase.implict(3);
 		channelType.click();
 		TestBase.implict(3);
-		chainCode.sendKeys(e.getCellData("Channel", "ChainCode", 2));
+		chainCode.sendKeys(ExcelData.getCellData("Channel", "ChainCode", 2));
 		TestBase.implict(3);
-		hotelCode.sendKeys(e.getCellData("Channel", "HotelCode", 2));
+		hotelCode.sendKeys(ExcelData.getCellData("Channel", "HotelCode", 2));
 		TestBase.implict(3);
 
 		saveChannelButton.click();
@@ -573,8 +564,8 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	*/
 	public AboutThePropertyPages addaRoomAboutTheProperty()  {
 
-		roomName.sendKeys(e.getCellData("MeetingRoomMR", "RoomName", 2));
-		code.sendKeys(e.getCellData("MeetingRoomMR", "Code", 2));
+		roomName.sendKeys(ExcelData.getCellData("MeetingRoomMR", "RoomName", 2));
+		code.sendKeys(ExcelData.getCellData("MeetingRoomMR", "Code", 2));
 		type.click();
 		conference.click();
 		services.click();
@@ -582,11 +573,11 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		TestBase.implict(3);
 		serviceSubcatagory.click();
 		tableAvail.click();
-//		Capacity.sendKeys(e.getCellDataAnk("MeetingRoom","Capacity", 2));
+//		Capacity.sendKeys(ExcelData.getCellDataAnk("MeetingRoom","Capacity", 2));
 		capacity.sendKeys("100");
 		units.click();
 		ft.click();
-		area.sendKeys(e.getCellData("MeetingRoomMR", "Area", 2));
+		area.sendKeys(ExcelData.getCellData("MeetingRoomMR", "Area", 2));
 
 		TestBase.implict(3);
 		return null;
@@ -614,8 +605,8 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	*/
 	public AboutThePropertyPages addMultipleRoomAboutTheProperty1()  {
 
-		roomName.sendKeys(e.getCellData("MeetingRoomMR", "RoomName2", 2));
-		code.sendKeys(e.getCellData("MeetingRoomMR", "Code2", 2));
+		roomName.sendKeys(ExcelData.getCellData("MeetingRoomMR", "RoomName2", 2));
+		code.sendKeys(ExcelData.getCellData("MeetingRoomMR", "Code2", 2));
 		type.click();
 		custom.click();
 		services.click();
@@ -623,11 +614,11 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		TestBase.implict(3);
 		serviceSubcatagory.click();
 		whiteboard.click();
-//		Capacity.sendKeys(e.getCellDataAnk("MeetingRoom","Capacity", 2));
+//		Capacity.sendKeys(ExcelData.getCellDataAnk("MeetingRoom","Capacity", 2));
 		capacity.sendKeys("100");
 		units.click();
 		ft.click();
-		area.sendKeys(e.getCellData("MeetingRoomMR", "Area2", 2));
+		area.sendKeys(ExcelData.getCellData("MeetingRoomMR", "Area2", 2));
 
 		return null;
 	}
@@ -639,8 +630,8 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 	public AboutThePropertyPages addMultipleRoomAboutTheProperty2() {
 
-		roomName.sendKeys(e.getCellData("MeetingRoomMR", "RoomName3", 2));
-		code.sendKeys(e.getCellData("MeetingRoomMR", "Code3", 2));
+		roomName.sendKeys(ExcelData.getCellData("MeetingRoomMR", "RoomName3", 2));
+		code.sendKeys(ExcelData.getCellData("MeetingRoomMR", "Code3", 2));
 		type.click();
 		conference.click();
 		services.click();
@@ -648,11 +639,11 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		TestBase.implict(3);
 		serviceSubcatagory.click();
 		whiteboard.click();
-//		Capacity.sendKeys(e.getCellDataAnk("MeetingRoom","Capacity", 2));
+//		Capacity.sendKeys(ExcelData.getCellDataAnk("MeetingRoom","Capacity", 2));
 		capacity.sendKeys("100");
 		units.click();
 		ft.click();
-		area.sendKeys(e.getCellData("MeetingRoomMR", "Area3", 2));
+		area.sendKeys(ExcelData.getCellData("MeetingRoomMR", "Area3", 2));
 
 		return null;
 	}
@@ -693,10 +684,10 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 	public AboutThePropertyPages createDuplicateRoom()  {
 
-		roomName.sendKeys(e.getCellData("MeetingRoomMR", "RoomName4", 2));
+		roomName.sendKeys(ExcelData.getCellData("MeetingRoomMR", "RoomName4", 2));
 
 		TestBase.implict(3);
-		code.sendKeys(e.getCellData("MeetingRoomMR", "Code4", 2));
+		code.sendKeys(ExcelData.getCellData("MeetingRoomMR", "Code4", 2));
 		type.click();
 		custom.click();
 		services.click();
@@ -704,11 +695,11 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		TestBase.implict(3);
 		serviceSubcatagory.click();
 		whiteboard.click();
-//			Capacity.sendKeys(e.getCellDataAnk("MeetingRoom","Capacity", 2));
+//			Capacity.sendKeys(ExcelData.getCellDataAnk("MeetingRoom","Capacity", 2));
 		capacity.sendKeys("100");
 		units.click();
 		ft.click();
-		area.sendKeys(e.getCellData("MeetingRoomMR", "Area4", 2));
+		area.sendKeys(ExcelData.getCellData("MeetingRoomMR", "Area4", 2));
 
 		return null;
 
@@ -734,8 +725,8 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 	public AboutThePropertyPages addandDeleteRoomAboutTheProperty()  {
 
-		roomName.sendKeys(e.getCellData("MeetingRoomMR", "RoomName5", 2));
-		code.sendKeys(e.getCellData("MeetingRoomMR", "Code5", 2));
+		roomName.sendKeys(ExcelData.getCellData("MeetingRoomMR", "RoomName5", 2));
+		code.sendKeys(ExcelData.getCellData("MeetingRoomMR", "Code5", 2));
 		type.click();
 		custom.click();
 		services.click();
@@ -743,11 +734,11 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		TestBase.implict(3);
 		serviceSubcatagory.click();
 		whiteboard.click();
-//		Capacity.sendKeys(e.getCellDataAnk("MeetingRoom","Capacity", 2));
+//		Capacity.sendKeys(ExcelData.getCellDataAnk("MeetingRoom","Capacity", 2));
 		capacity.sendKeys("100");
 		units.click();
 		ft.click();
-		area.sendKeys(e.getCellData("MeetingRoomMR", "Area5", 2));
+		area.sendKeys(ExcelData.getCellData("MeetingRoomMR", "Area5", 2));
 
 		TestBase.implict(3);
 
@@ -762,7 +753,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	public boolean verifyCreatedRoom()  {
 		String ActText = createAndEdit.getText();
 		System.out.println(ActText + " Actual Text");
-		String expText = (e.getCellData("MeetingRoomMR", "RoomName5", 2));
+		String expText = (ExcelData.getCellData("MeetingRoomMR", "RoomName5", 2));
 		System.out.println(expText + " " + "ExpectedText");
 		if (ActText.equalsIgnoreCase(expText)) {
 			System.out.println(" room created");
@@ -801,8 +792,8 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 	public AboutThePropertyPages createForEditARoom()  {
 
-		roomName.sendKeys(e.getCellData("MeetingRoomMR", "RoomName4", 2));
-		code.sendKeys(e.getCellData("MeetingRoomMR", "Code4", 2));
+		roomName.sendKeys(ExcelData.getCellData("MeetingRoomMR", "RoomName4", 2));
+		code.sendKeys(ExcelData.getCellData("MeetingRoomMR", "Code4", 2));
 		type.click();
 		custom.click();
 		services.click();
@@ -810,11 +801,11 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		TestBase.implict(3);
 		serviceSubcatagory.click();
 		whiteboard.click();
-//		Capacity.sendKeys(e.getCellDataAnk("MeetingRoom","Capacity", 2));
+//		Capacity.sendKeys(ExcelData.getCellDataAnk("MeetingRoom","Capacity", 2));
 		capacity.sendKeys("100");
 		units.click();
 		ft.click();
-		area.sendKeys(e.getCellData("MeetingRoomMR", "Area4", 2));
+		area.sendKeys(ExcelData.getCellData("MeetingRoomMR", "Area4", 2));
 
 		TestBase.implict(3);
 		return null;
@@ -827,7 +818,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	public AboutThePropertyPages editTheCreatedRoom()  {
 		createAndEdit.click();
 		editArea.clear();
-		area.sendKeys(e.getCellData("MeetingRoomMR", "Area5", 2));
+		area.sendKeys(ExcelData.getCellData("MeetingRoomMR", "Area5", 2));
 
 		return null;
 	}
@@ -839,7 +830,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	public boolean verifyCreatedRoomForEdit()  {
 		String ActText = createAndEdit.getText();
 		System.out.println(ActText + " Actual Text");
-		String expText = (e.getCellData("MeetingRoomMR", "RoomName4", 2));
+		String expText = (ExcelData.getCellData("MeetingRoomMR", "RoomName4", 2));
 		System.out.println(expText + " " + "ExpectedText");
 		if (ActText.equals(expText)) {
 			System.out.println(" Meeting room  created");
@@ -859,7 +850,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		String ActText = areaInRoomTable.getText();
 		ActText = ActText.replaceAll("\\s+", "");
 		System.out.println(ActText + " Actual Text");
-		String expText = (e.getCellData("MeetingRoomMR", "Area4", 2));
+		String expText = (ExcelData.getCellData("MeetingRoomMR", "Area4", 2));
 		System.out.println(expText + " " + "ExpectedText");
 
 	    if (ActText.equalsIgnoreCase(expText)) {
@@ -880,7 +871,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		TestBase.implict(3);
 		editArea.clear();
 
-		area.sendKeys(e.getCellData("MeetingRoomMR", "Area", 2));
+		area.sendKeys(ExcelData.getCellData("MeetingRoomMR", "Area", 2));
 
 		return null;
 	}
@@ -893,10 +884,10 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		String ActText = areaInRoomTable.getText();
 		ActText = ActText.replaceAll("\\s+", "");
 		System.out.println(ActText + " Actual Text");
-//		String expText=(e.getCellDataAnk("Dining2", "DistanceAway6", 2));
+//		String expText=(ExcelData.getCellDataAnk("Dining2", "DistanceAway6", 2));
 //		System.out.println(expText+" "+"ExpectedText");
 
-		String expText = e.getCellData("MeetingRoomMR", "Area", 2);
+		String expText = ExcelData.getCellData("MeetingRoomMR", "Area", 2);
 		expText = expText.replaceAll("\\s+", "");
 
 		
@@ -916,10 +907,10 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 	public AboutThePropertyPages serviceSubdropdownPresentation()  {
 
-		roomName.sendKeys(e.getCellData("MeetingRoom2", "RoomName8", 2));
+		roomName.sendKeys(ExcelData.getCellData("MeetingRoom2", "RoomName8", 2));
 
 		TestBase.implict(3);
-		code.sendKeys(e.getCellData("MeetingRoom2", "Code8", 2));
+		code.sendKeys(ExcelData.getCellData("MeetingRoom2", "Code8", 2));
 		type.click();
 		custom.click();
 		// services.click();
@@ -935,13 +926,13 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		Assert.assertEquals(verifyServiceSubdropdown(), "Flip chart and markers");
 //		serviceSubcatagory.click();
 //		whiteboard.click();
-//		Capacity.sendKeys(e.getCellDataAnk("MeetingRoom","Capacity", 2));
+//		Capacity.sendKeys(ExcelData.getCellDataAnk("MeetingRoom","Capacity", 2));
 
 		System.out.println("For " +abc+ ": sub dropdown is " + verifyServiceSubdropdown());
 		capacity.sendKeys("100");
 		units.click();
 		ft.click();
-		area.sendKeys(e.getCellData("MeetingRoom2", "Area8", 2));
+		area.sendKeys(ExcelData.getCellData("MeetingRoom2", "Area8", 2));
 
 		return null;
 
@@ -992,10 +983,10 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	*/
 	public AboutThePropertyPages verifyTheArea()  {
 
-		roomName.sendKeys(e.getCellData("MeetingRoom2", "RoomName10", 2));
+		roomName.sendKeys(ExcelData.getCellData("MeetingRoom2", "RoomName10", 2));
 
 		TestBase.implict(3);
-		code.sendKeys(e.getCellData("MeetingRoom2", "Code10", 2));
+		code.sendKeys(ExcelData.getCellData("MeetingRoom2", "Code10", 2));
 		type.click();
 		custom.click();
 		services.click();
@@ -1003,12 +994,12 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		TestBase.implict(3);
 		serviceSubcatagory.click();
 		whiteboard.click();
-//		Capacity.sendKeys(e.getCellDataAnk("MeetingRoom","Capacity", 2));
+//		Capacity.sendKeys(ExcelData.getCellDataAnk("MeetingRoom","Capacity", 2));
 		capacity.sendKeys("100");
 		units.click();
 		ft.click();
-		length.sendKeys(e.getCellData("MeetingRoom2", "length10", 2));
-		width.sendKeys(e.getCellData("MeetingRoom2", "width10", 2));
+		length.sendKeys(ExcelData.getCellData("MeetingRoom2", "length10", 2));
+		width.sendKeys(ExcelData.getCellData("MeetingRoom2", "width10", 2));
 		area.click();
 		TestBase.implict(3);
 
@@ -1026,7 +1017,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		ActText = ActText.replaceAll("\\s+", "");
 		System.out.println(ActText + " Actual Text");
 
-		String expText = e.getCellData("MeetingRoom2", "Area10", 2);
+		String expText = ExcelData.getCellData("MeetingRoom2", "Area10", 2);
 		expText = expText.replaceAll("\\s+", "");
 
 		if (ActText.equalsIgnoreCase(expText)) {
@@ -1045,9 +1036,9 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 	public AboutThePropertyPages addaDiningAboutTheProperty()  {
 
-		restaurantName.sendKeys(e.getCellData("Dining", "RestaurantName1", 2));
+		restaurantName.sendKeys(ExcelData.getCellData("Dining", "RestaurantName1", 2));
 
-		restaurantCode.sendKeys(e.getCellData("Dining", "Code1", 2));
+		restaurantCode.sendKeys(ExcelData.getCellData("Dining", "Code1", 2));
 
 		restaurantProximity.click();
 
@@ -1057,7 +1048,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		restaurantCusineAsian.click();
 
-		restaurantDistanceAway.sendKeys(e.getCellData("Dining", "DistanceAway1", 2));
+		restaurantDistanceAway.sendKeys(ExcelData.getCellData("Dining", "DistanceAway1", 2));
 
 		return null;
 	}
@@ -1086,9 +1077,9 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 	public AboutThePropertyPages addaMultipleDiningAboutTheProperty1()  {
 
-		restaurantName.sendKeys(e.getCellData("Dining", "RestaurantName2", 2));
+		restaurantName.sendKeys(ExcelData.getCellData("Dining", "RestaurantName2", 2));
 
-		restaurantCode.sendKeys(e.getCellData("Dining", "Code2", 2));
+		restaurantCode.sendKeys(ExcelData.getCellData("Dining", "Code2", 2));
 		TestBase.implict(3);
 		restaurantProximity.click();
 
@@ -1098,7 +1089,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		restaurantCusineBarbeque.click();
 
-		restaurantDistanceAway.sendKeys(e.getCellData("Dining", "DistanceAway2", 2));
+		restaurantDistanceAway.sendKeys(ExcelData.getCellData("Dining", "DistanceAway2", 2));
 		TestBase.implict(3);
 		return null;
 	}
@@ -1108,9 +1099,9 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	*/
 	public AboutThePropertyPages addaMultipleDiningAboutTheProperty2()  {
 
-		restaurantName.sendKeys(e.getCellData("Dining", "RestaurantName3", 2));
+		restaurantName.sendKeys(ExcelData.getCellData("Dining", "RestaurantName3", 2));
 
-		restaurantCode.sendKeys(e.getCellData("Dining", "Code3", 2));
+		restaurantCode.sendKeys(ExcelData.getCellData("Dining", "Code3", 2));
 
 		restaurantProximity.click();
 
@@ -1120,7 +1111,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		restaurantCusineFrench.click();
 
-		restaurantDistanceAway.sendKeys(e.getCellData("Dining", "DistanceAway3", 2));
+		restaurantDistanceAway.sendKeys(ExcelData.getCellData("Dining", "DistanceAway3", 2));
 		return null;
 
 	}
@@ -1163,9 +1154,9 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 	public AboutThePropertyPages invalidMultipleDiningAboutTheProperty()  {
 
-		restaurantName.sendKeys(e.getCellData("Dining", "RestaurantName4", 2));
+		restaurantName.sendKeys(ExcelData.getCellData("Dining", "RestaurantName4", 2));
 
-		restaurantCode.sendKeys(e.getCellData("Dining", "Code4", 2));
+		restaurantCode.sendKeys(ExcelData.getCellData("Dining", "Code4", 2));
 
 		restaurantProximity.click();
 
@@ -1175,7 +1166,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		restaurantCusineBarbeque.click();
 
-		restaurantDistanceAway.sendKeys(e.getCellData("Dining", "DistanceAway4", 2));
+		restaurantDistanceAway.sendKeys(ExcelData.getCellData("Dining", "DistanceAway4", 2));
 		TestBase.implict(3);
 		return null;
 
@@ -1201,9 +1192,9 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	*/
 	public AboutThePropertyPages createandDeleteDiningAboutTheProperty()  {
 
-		restaurantName.sendKeys(e.getCellData("Dining2", "RestaurantName6", 2));
+		restaurantName.sendKeys(ExcelData.getCellData("Dining2", "RestaurantName6", 2));
 
-		restaurantCode.sendKeys(e.getCellData("Dining2", "Code6", 2));
+		restaurantCode.sendKeys(ExcelData.getCellData("Dining2", "Code6", 2));
 
 		restaurantProximity.click();
 
@@ -1213,7 +1204,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		restaurantCusineBarbeque.click();
 
-		restaurantDistanceAway.sendKeys(e.getCellData("Dining2", "DistanceAway6", 2));
+		restaurantDistanceAway.sendKeys(ExcelData.getCellData("Dining2", "DistanceAway6", 2));
 
 		return null;
 
@@ -1226,7 +1217,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	public boolean verifyDiningCreated()  {
 		String ActText = editDining.getText();
 		System.out.println(ActText + " Actual Text");
-		String expText = (e.getCellData("Dining2", "RestaurantName6", 2));
+		String expText = (ExcelData.getCellData("Dining2", "RestaurantName6", 2));
 		System.out.println(expText + " " + "ExpectedText");
 		if (ActText.equalsIgnoreCase(expText)) {
 			System.out.println(" Dining created");
@@ -1247,7 +1238,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		ActText = ActText.replaceAll("\\s+", "");
 		System.out.println(ActText + " Actual Text");
 
-		String expText = e.getCellData("Dining2", "VerifyDistance6", 2);
+		String expText = ExcelData.getCellData("Dining2", "VerifyDistance6", 2);
 		expText = expText.replaceAll("\\s+", "");
 
 		if (ActText.equalsIgnoreCase(expText)) {
@@ -1284,7 +1275,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	public AboutThePropertyPages editExistedDiningAboutTheProperty()  {
 		editDining.click();
 		editDiningDistanceAway.clear();
-		editDiningDistanceAway.sendKeys(e.getCellData("Dining2", "DistanceAway6", 2));
+		editDiningDistanceAway.sendKeys(ExcelData.getCellData("Dining2", "DistanceAway6", 2));
 
 		TestBase.implict(2);
 
@@ -1298,10 +1289,10 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		String ActText = distanceInDiningTable.getText();
 		ActText = ActText.replaceAll("\\s+", "");
 		System.out.println(ActText + " Actual Text");
-//		String expText=(e.getCellDataAnk("Dining2", "DistanceAway6", 2));
+//		String expText=(ExcelData.getCellDataAnk("Dining2", "DistanceAway6", 2));
 //		System.out.println(expText+" "+"ExpectedText");
 
-		String expText = e.getCellData("Dining2", "VerifyDistance6", 2);
+		String expText = ExcelData.getCellData("Dining2", "VerifyDistance6", 2);
 		expText = expText.replaceAll("\\s+", "");
 
 		if (ActText.equalsIgnoreCase(expText)) {
@@ -1319,9 +1310,9 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	*/
 	public AboutThePropertyPages createForEditDiningAboutTheProperty()  {
 
-		restaurantName.sendKeys(e.getCellData("Dining2", "RestaurantName6", 2));
+		restaurantName.sendKeys(ExcelData.getCellData("Dining2", "RestaurantName6", 2));
 
-		restaurantCode.sendKeys(e.getCellData("Dining2", "Code6", 2));
+		restaurantCode.sendKeys(ExcelData.getCellData("Dining2", "Code6", 2));
 
 		restaurantProximity.click();
 
@@ -1331,7 +1322,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		restaurantCusineBarbeque.click();
 
-		restaurantDistanceAway.sendKeys(e.getCellData("Dining2", "DistanceAway6", 2));
+		restaurantDistanceAway.sendKeys(ExcelData.getCellData("Dining2", "DistanceAway6", 2));
 
 		TestBase.implict(3);
 		return null;
@@ -1344,7 +1335,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		editDining.click();
 		editDiningDistanceAway.clear();
-		editDiningDistanceAway.sendKeys(e.getCellData("Dining", "DistanceAway4", 2));
+		editDiningDistanceAway.sendKeys(ExcelData.getCellData("Dining", "DistanceAway4", 2));
 
 		return null;
 
@@ -1357,7 +1348,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	public boolean verifyCreatedDiningForEdit()  {
 		String ActText = editDining.getText();
 		System.out.println(ActText + " Actual Text");
-		String expText = (e.getCellData("Dining2", "RestaurantName6", 2));
+		String expText = (ExcelData.getCellData("Dining2", "RestaurantName6", 2));
 		System.out.println(expText + " " + "ExpectedText");
 		if (ActText.equals(expText)) {
 			System.out.println(" Cusine Dining created");
@@ -1374,11 +1365,11 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	*/
 	public AboutThePropertyPages createNearbyAirportLocationAboutTheProperty()  {
 
-		airportName.sendKeys(e.getCellData("Airport1", "AirportName1", 2));
+		airportName.sendKeys(ExcelData.getCellData("Airport1", "AirportName1", 2));
 
-		airportCode.sendKeys(e.getCellData("Airport1", "Code1", 2));
+		airportCode.sendKeys(ExcelData.getCellData("Airport1", "Code1", 2));
 
-		airportDistanceAway.sendKeys(e.getCellData("Airport1", "DistanceAway1", 2));
+		airportDistanceAway.sendKeys(ExcelData.getCellData("Airport1", "DistanceAway1", 2));
 
 		airportTransportationMethod.click();
 
@@ -1410,11 +1401,11 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 	public AboutThePropertyPages createMultipleNearbyAirportLocationAboutTheProperty1()  {
 
-		airportName.sendKeys(e.getCellData("Airport1", "AirportName2", 2));
+		airportName.sendKeys(ExcelData.getCellData("Airport1", "AirportName2", 2));
 
-		airportCode.sendKeys(e.getCellData("Airport1", "Code2", 2));
+		airportCode.sendKeys(ExcelData.getCellData("Airport1", "Code2", 2));
 
-		airportDistanceAway.sendKeys(e.getCellData("Airport1", "DistanceAway2", 2));
+		airportDistanceAway.sendKeys(ExcelData.getCellData("Airport1", "DistanceAway2", 2));
 
 		airportTransportationMethod.click();
 
@@ -1428,11 +1419,11 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	* 
 	*/
 	public AboutThePropertyPages createMultipleNearbyAirportLocationAboutTheProperty2()  {
-		airportName.sendKeys(e.getCellData("Airport1", "AirportName3", 2));
+		airportName.sendKeys(ExcelData.getCellData("Airport1", "AirportName3", 2));
 
-		airportCode.sendKeys(e.getCellData("Airport1", "Code3", 2));
+		airportCode.sendKeys(ExcelData.getCellData("Airport1", "Code3", 2));
 
-		airportDistanceAway.sendKeys(e.getCellData("Airport1", "DistanceAway3", 2));
+		airportDistanceAway.sendKeys(ExcelData.getCellData("Airport1", "DistanceAway3", 2));
 
 		airportTransportationMethod.click();
 
@@ -1479,11 +1470,11 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	*/
 	public AboutThePropertyPages createAndDeleteNearbyAirportLocationAboutTheProperty()  {
 
-		airportName.sendKeys(e.getCellData("Airport1", "AirportName4", 2));
+		airportName.sendKeys(ExcelData.getCellData("Airport1", "AirportName4", 2));
 
-		airportCode.sendKeys(e.getCellData("Airport1", "Code4", 2));
+		airportCode.sendKeys(ExcelData.getCellData("Airport1", "Code4", 2));
 
-		airportDistanceAway.sendKeys(e.getCellData("Airport1", "DistanceAway4", 2));
+		airportDistanceAway.sendKeys(ExcelData.getCellData("Airport1", "DistanceAway4", 2));
 
 		airportTransportationMethod.click();
 
@@ -1502,7 +1493,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	public boolean verifyCreatedAirport()  {
 		String ActText = airportEdit.getText();
 		System.out.println(ActText + " Actual Text");
-		String expText = (e.getCellData("Airport1", "AirportName4", 2));
+		String expText = (ExcelData.getCellData("Airport1", "AirportName4", 2));
 		System.out.println(expText + " " + "ExpectedText");
 		if (ActText.equalsIgnoreCase(expText)) {
 			System.out.println(" Airport created created");
@@ -1537,11 +1528,11 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	*/
 	public AboutThePropertyPages DuplicateNearbyAirportLocationAboutTheProperty() {
 
-		airportName.sendKeys(e.getCellData("Airport2", "AirportName5", 2));
+		airportName.sendKeys(ExcelData.getCellData("Airport2", "AirportName5", 2));
 
-		airportCode.sendKeys(e.getCellData("Airport2", "Code5", 2));
+		airportCode.sendKeys(ExcelData.getCellData("Airport2", "Code5", 2));
 
-		airportDistanceAway.sendKeys(e.getCellData("Airport2", "DistanceAway5", 2));
+		airportDistanceAway.sendKeys(ExcelData.getCellData("Airport2", "DistanceAway5", 2));
 
 		airportTransportationMethod.click();
 
@@ -1591,11 +1582,11 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	*/
 	public AboutThePropertyPages createForEditNearbyAirportLocationAboutTheProperty()  {
 
-		airportName.sendKeys(e.getCellData("Airport2", "AirportName7", 2));
+		airportName.sendKeys(ExcelData.getCellData("Airport2", "AirportName7", 2));
 
-		airportCode.sendKeys(e.getCellData("Airport2", "Code7", 2));
+		airportCode.sendKeys(ExcelData.getCellData("Airport2", "Code7", 2));
 
-		airportDistanceAway.sendKeys(e.getCellData("Airport2", "DistanceAway7", 2));
+		airportDistanceAway.sendKeys(ExcelData.getCellData("Airport2", "DistanceAway7", 2));
 
 		airportTransportationMethod.click();
 
@@ -1614,7 +1605,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		airportDistanceAway.clear();
 
-		airportDistanceAway.sendKeys(e.getCellData("Airport2", "DistanceAway5", 2));
+		airportDistanceAway.sendKeys(ExcelData.getCellData("Airport2", "DistanceAway5", 2));
 
 		TestBase.implict(3);
 		return null;
@@ -1628,7 +1619,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	public boolean verifyCreatedAirportForEdit()  {
 		String ActText = airportEdit.getText();
 		System.out.println(ActText + " Actual Text");
-		String expText = (e.getCellData("Airport2", "AirportName7", 2));
+		String expText = (ExcelData.getCellData("Airport2", "AirportName7", 2));
 		System.out.println(expText + " " + "ExpectedText");
 		if (ActText.equals(expText)) {
 			System.out.println(" Airport created");
@@ -1648,7 +1639,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		String ActText = airportDistanceTable.getText();
 		ActText = ActText.replaceAll("\\s+", "");
 		System.out.println(ActText + " Actual Text");
-		String expText = e.getCellData("Airport2", "EditedDistanceAway7", 2);
+		String expText = ExcelData.getCellData("Airport2", "EditedDistanceAway7", 2);
 		expText = expText.replaceAll("\\s+", "");
 
 		if (ActText.equalsIgnoreCase(expText)) {
@@ -1671,7 +1662,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		airportDistanceAway.clear();
 
-		airportDistanceAway.sendKeys(e.getCellData("Airport2", "DistanceAway7", 2));
+		airportDistanceAway.sendKeys(ExcelData.getCellData("Airport2", "DistanceAway7", 2));
 		TestBase.implict(3);
 
 		return null;
@@ -1685,7 +1676,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		String ActText = airportDistanceTable.getText();
 		ActText = ActText.replaceAll("\\s+", "");
 		System.out.println(ActText + " Actual Text");
-		String expText = e.getCellData("Airport2", "EditedDistanceAway7", 2);
+		String expText = ExcelData.getCellData("Airport2", "EditedDistanceAway7", 2);
 		expText = expText.replaceAll("\\s+", "");
 
 		if (ActText.equalsIgnoreCase(expText)) {
@@ -1703,11 +1694,11 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	*/
 	public AboutThePropertyPages addaNearbyAttractionTheProperty()  {
 
-		nearbyAttractionName.sendKeys(e.getCellData("Attraction", "AttractionName", 2));
-		nearbyAttractionCode.sendKeys(e.getCellData("Attraction", "Code", 2));
+		nearbyAttractionName.sendKeys(ExcelData.getCellData("Attraction", "AttractionName", 2));
+		nearbyAttractionCode.sendKeys(ExcelData.getCellData("Attraction", "Code", 2));
 		nearbyAttractionType.click();
 		nearbyAttractionTypeArmyBase.click();
-		nearbyAttractionDistanceAway.sendKeys(e.getCellData("Attraction", "DistanceAway", 2));
+		nearbyAttractionDistanceAway.sendKeys(ExcelData.getCellData("Attraction", "DistanceAway", 2));
 		nearbyAttractionTransportationMethod.click();
 		nearbyAttractionTransportationMethodBus.click();
 
@@ -1737,12 +1728,12 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 	public AboutThePropertyPages addMultipleNearbyAttractionTheProperty1()  {
 
-		nearbyAttractionName.sendKeys(e.getCellData("Attraction", "AttractionName2", 2));
+		nearbyAttractionName.sendKeys(ExcelData.getCellData("Attraction", "AttractionName2", 2));
 		TestBase.implict(3);
-		nearbyAttractionCode.sendKeys(e.getCellData("Attraction", "Code2", 2));
+		nearbyAttractionCode.sendKeys(ExcelData.getCellData("Attraction", "Code2", 2));
 		nearbyAttractionType.click();
 		nearbyAttractionTypeArmyBase.click();
-		nearbyAttractionDistanceAway.sendKeys(e.getCellData("Attraction", "DistanceAway2", 2));
+		nearbyAttractionDistanceAway.sendKeys(ExcelData.getCellData("Attraction", "DistanceAway2", 2));
 		nearbyAttractionTransportationMethod.click();
 		nearbyAttractionTransportationMethodBus.click();
 		return null;
@@ -1753,11 +1744,11 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	*/
 	public AboutThePropertyPages addMultipleNearbyAttractionTheProperty2()  {
 
-		nearbyAttractionName.sendKeys(e.getCellData("Attraction", "AttractionName3", 2));
-		nearbyAttractionCode.sendKeys(e.getCellData("Attraction", "Code3", 2));
+		nearbyAttractionName.sendKeys(ExcelData.getCellData("Attraction", "AttractionName3", 2));
+		nearbyAttractionCode.sendKeys(ExcelData.getCellData("Attraction", "Code3", 2));
 		nearbyAttractionType.click();
 		nearbyAttractionTypeArmyBase.click();
-		nearbyAttractionDistanceAway.sendKeys(e.getCellData("Attraction", "DistanceAway3", 2));
+		nearbyAttractionDistanceAway.sendKeys(ExcelData.getCellData("Attraction", "DistanceAway3", 2));
 		nearbyAttractionTransportationMethod.click();
 		nearbyAttractionTransportationMethodBus.click();
 
@@ -1802,11 +1793,11 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	*/
 	public AboutThePropertyPages addAndDeleteNearbyAttractionTheProperty()  {
 
-		nearbyAttractionName.sendKeys(e.getCellData("Attraction2", "AttractionName5", 2));
-		nearbyAttractionCode.sendKeys(e.getCellData("Attraction2", "Code5", 2));
+		nearbyAttractionName.sendKeys(ExcelData.getCellData("Attraction2", "AttractionName5", 2));
+		nearbyAttractionCode.sendKeys(ExcelData.getCellData("Attraction2", "Code5", 2));
 		nearbyAttractionType.click();
 		nearbyAttractionTypeArmyBase.click();
-		nearbyAttractionDistanceAway.sendKeys(e.getCellData("Attraction2", "DistanceAway5", 2));
+		nearbyAttractionDistanceAway.sendKeys(ExcelData.getCellData("Attraction2", "DistanceAway5", 2));
 		nearbyAttractionTransportationMethod.click();
 		nearbyAttractionTransportationMethodBus.click();
 
@@ -1821,7 +1812,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	public boolean verifyCreatedNearbyAttraction()  {
 		String ActText = nearbyAttractionEdit.getText();
 		System.out.println(ActText + " Actual Text");
-		String expText = (e.getCellData("Attraction2", "AttractionName5", 2));
+		String expText = (ExcelData.getCellData("Attraction2", "AttractionName5", 2));
 		System.out.println(expText + " " + "ExpectedText");
 		if (ActText.equalsIgnoreCase(expText)) {
 			System.out.println(" Nearby attraction created");
@@ -1856,11 +1847,11 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	*/
 	public AboutThePropertyPages addDuplicateNearbyAttractionTheProperty()  {
 
-		nearbyAttractionName.sendKeys(e.getCellData("Attraction2", "AttractionName4", 2));
-		nearbyAttractionCode.sendKeys(e.getCellData("Attraction2", "Code4", 2));
+		nearbyAttractionName.sendKeys(ExcelData.getCellData("Attraction2", "AttractionName4", 2));
+		nearbyAttractionCode.sendKeys(ExcelData.getCellData("Attraction2", "Code4", 2));
 		nearbyAttractionType.click();
 		nearbyAttractionTypeArmyBase.click();
-		nearbyAttractionDistanceAway.sendKeys(e.getCellData("Attraction2", "DistanceAway4", 2));
+		nearbyAttractionDistanceAway.sendKeys(ExcelData.getCellData("Attraction2", "DistanceAway4", 2));
 		nearbyAttractionTransportationMethod.click();
 		nearbyAttractionTransportationMethodBus.click();
 
@@ -1890,11 +1881,11 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	*/
 	public AboutThePropertyPages addForEditNearbyAttractionTheProperty()  {
 
-		nearbyAttractionName.sendKeys(e.getCellData("Attraction2", "AttractionName6", 2));
-		nearbyAttractionCode.sendKeys(e.getCellData("Attraction2", "Code6", 2));
+		nearbyAttractionName.sendKeys(ExcelData.getCellData("Attraction2", "AttractionName6", 2));
+		nearbyAttractionCode.sendKeys(ExcelData.getCellData("Attraction2", "Code6", 2));
 		nearbyAttractionType.click();
 		nearbyAttractionTypeArmyBase.click();
-		nearbyAttractionDistanceAway.sendKeys(e.getCellData("Attraction2", "DistanceAway6", 2));
+		nearbyAttractionDistanceAway.sendKeys(ExcelData.getCellData("Attraction2", "DistanceAway6", 2));
 		nearbyAttractionTransportationMethod.click();
 		nearbyAttractionTransportationMethodBus.click();
 		return null;
@@ -1907,7 +1898,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	public boolean verifyCreatedNearbyAttractionForEdit()  {
 		String ActText = nearbyAttractionEdit.getText();
 		System.out.println(ActText + " Actual Text");
-		String expText = (e.getCellData("Attraction2", "AttractionName6", 2));
+		String expText = (ExcelData.getCellData("Attraction2", "AttractionName6", 2));
 		System.out.println(expText + " " + "ExpectedText");
 		if (ActText.equals(expText)) {
 			System.out.println(" Nearby Attraction created");
@@ -1927,7 +1918,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		String ActText = attractionDistanceTable.getText();
 		ActText = ActText.replaceAll("\\s+", "");
 		System.out.println(ActText + " Actual Text");
-		String expText = e.getCellData("Attraction2", "EditedDistanceAway6", 2);
+		String expText = ExcelData.getCellData("Attraction2", "EditedDistanceAway6", 2);
 		expText = expText.replaceAll("\\s+", "");
 
 		if (ActText.equalsIgnoreCase(expText)) {
@@ -1946,7 +1937,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	public AboutThePropertyPages editTheAddedNearbyAttractionTheProperty()  {
 		nearbyAttractionEdit.click();
 		nearbyAttractionDistanceAway.clear();
-		nearbyAttractionDistanceAway.sendKeys(e.getCellData("Attraction2", "DistanceAway7", 2));
+		nearbyAttractionDistanceAway.sendKeys(ExcelData.getCellData("Attraction2", "DistanceAway7", 2));
 
 		return null;
 	}
@@ -1958,7 +1949,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	public AboutThePropertyPages editAlreadyCreatedNearbyAttractionTheProperty()  {
 		nearbyAttractionEdit.click();
 		nearbyAttractionDistanceAway.clear();
-		nearbyAttractionDistanceAway.sendKeys(e.getCellData("Attraction2", "DistanceAway6", 2));
+		nearbyAttractionDistanceAway.sendKeys(ExcelData.getCellData("Attraction2", "DistanceAway6", 2));
 
 		return null;
 	}
@@ -1972,7 +1963,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		String ActText = attractionDistanceTable.getText();
 		ActText = ActText.replaceAll("\\s+", "");
 		System.out.println(ActText + " Actual Text");
-		String expText = e.getCellData("Attraction2", "EditedDistanceAway6", 2);
+		String expText = ExcelData.getCellData("Attraction2", "EditedDistanceAway6", 2);
 		expText = expText.replaceAll("\\s+", "");
 
 		if (ActText.equalsIgnoreCase(expText)) {

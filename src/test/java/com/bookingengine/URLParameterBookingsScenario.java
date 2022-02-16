@@ -31,7 +31,6 @@ import logfile.Utilitylog;
 public class URLParameterBookingsScenario extends TestBase {
 
 	public static Utilitylog logger;
-
 	ExcelData e = new ExcelData();
 
 	public URLParameterBookingsScenario() {
@@ -46,12 +45,10 @@ public class URLParameterBookingsScenario extends TestBase {
 
 	@BeforeMethod
 	public void setup() {
-
 		lp = new LoginPage(getDriver());
 		ahp = new AdministratorHomePage(getDriver());
 		upb=new URLParameterBookings (getDriver());
 	}
-
 
 	@Test(priority = 1)
 	@Description("Verify that user should be able to make a URL Parameter booking")
@@ -62,20 +59,13 @@ public class URLParameterBookingsScenario extends TestBase {
 	@Step("Verify that user should be able to URL Parameter booking scenario")
 	public void URLParameterBooking_TC_01()  {
 		extentTest = extent.startTest("URLParameterBooking_TC_01");
-
 		openBEUrlParameter();
-
 		upb.makeAReservationInURLParameterbooking();
-		
 		allureScreenshot("ReservationSuccessful");
-        screenShot("ReservationSuccessful");
-		
+		screenShot("ReservationSuccessful");
 		upb.verifyReservationSuccessful();
 		Assert.assertTrue(upb.verifyReservationSuccessful());
-		
-		
 	}
-	
 
 	@Test(priority = 2)
 	@Description("Verify that user should be able to make and change a URL Parameter booking")
@@ -86,24 +76,18 @@ public class URLParameterBookingsScenario extends TestBase {
 	@Step("Verify that user should be able to URL Parameter booking scenario")
 	public void URLParameterBooking_TC_02()  {
 		extentTest = extent.startTest("URLParameterBooking_TC_02");
-
 		openBEUrlParameter();
-
 		upb.makeAReservationToModifyInURLParameterbooking();
 		allureScreenshot("ReservationToChangeSuccessful");
-        screenShot("ReservationToChangeSuccessful");
-        
+		screenShot("ReservationToChangeSuccessful");
 		Assert.assertTrue(upb.verifyChangedReservation());
-		
 		upb.clickOnChangeReservation();
-		
 		upb.changeAReservationToModifyInURLParameterbooking();
 		allureScreenshot("ReservationChangedSuccessful");
-        screenShot("ReservationChangedSuccessful");
+		screenShot("ReservationChangedSuccessful");
 		Assert.assertFalse(upb.verifyChangedReservation());
-		
 	}
-	
+
 	@Test(priority = 3)
 	@Description("Verify that user should be able to make and cancel a URL Parameter booking")
 	@Severity(SeverityLevel.CRITICAL)
@@ -113,23 +97,17 @@ public class URLParameterBookingsScenario extends TestBase {
 	@Step("Verify that user should be able to URL Parameter booking scenario")
 	public void URLParameterBooking_TC_03()  {
 		extentTest = extent.startTest("URLParameterBooking_TC_03");
-
 		openBEUrlParameter();
-
 		upb.makeAReservationToCancelInURLParameterbooking();
 		allureScreenshot("ReservationToCancelSuccessful");
-        screenShot("ReservationToCancelSuccessful");
-        
+		screenShot("ReservationToCancelSuccessful");
 		Assert.assertTrue(upb.verifyReservationSuccessful());
 		upb.clickOncancelReservation();
-		
 		allureScreenshot("ReservationCancelledSuccessful");
-        screenShot("ReservationCancelledSuccessful");
-		
+		screenShot("ReservationCancelledSuccessful");
 		Assert.assertTrue(upb.verifyReservationCancelationSuccessful());
-		
 	}
-	
+
 	@Test(priority = 4)
 	@Description("Verify that user should be able to book another room from confirmation page")
 	@Severity(SeverityLevel.CRITICAL)
@@ -139,32 +117,22 @@ public class URLParameterBookingsScenario extends TestBase {
 	@Step("Verify that user should be able to book another room from confirmation page")
 	public void URLParameterBooking_TC_04()  {
 		extentTest = extent.startTest("URLParameterBooking_TC_04");
-
 		openBEUrlParameter();
-
 		upb.makeAReservationToBookAnotherRoomInURLParameterbooking();
 		allureScreenshot("Reservation1Successful");
-        screenShot("Reservation1Successful");
-        
+		screenShot("Reservation1Successful");
 		Assert.assertTrue(upb.verifyReservation1Successful());
-		
 		upb.clickOnbookAnotherRoom();
-		
 		upb.BookAnotherRoomFromConfirmationPageInURLParameterbooking();
 		allureScreenshot("Reservation2Successful");
-        screenShot("Reservation2Successful");
-        
+		screenShot("Reservation2Successful");
 		Assert.assertTrue(upb.verifyReservation2Successful());
-		
 		lp.browserClose();
-		
 	}
-	
+
 	@AfterSuite
 	public void report() throws Exception {
-
 		mail();
-
 		cmdPrompt();
 	}
 

@@ -12,6 +12,7 @@ import com.cc.pom.CancelBookingfromconfirmationpagePage;
 import com.cc.pom.NormalSingleRoomBookingandverifyRateGridupdatePage;
 
 import Utility.ExcelData;
+import base.Helper;
 import base.TestBase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -75,7 +76,8 @@ public class CancelBookingfromconfirmationpageTest extends TestBase 	{
 		allureScreenshot("Property Selected");
 		screenShot("Property Selected");
 
-		openCCurlinNewTab();
+		openURL("cc_url");
+
 		nsrb.enterCCuser();
 
 		allureScreenshot("Call Center");
@@ -104,7 +106,7 @@ public class CancelBookingfromconfirmationpageTest extends TestBase 	{
 
 		allureScreenshot("Call Center booking Cancellation codenfirmation");
 		screenShot("Call Center booking Cancellation codenfirmation");
-		
+
 		logger.info("TestCase Ended");
 	}
 
@@ -119,7 +121,7 @@ public class CancelBookingfromconfirmationpageTest extends TestBase 	{
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("CancelBookingfromconfirmationpageTest_TC02");
 
-		switchWindow(1);
+		Helper.switchWindow(1);
 		Assert.assertTrue(cbcp.verifyCancelBookingTC02());
 
 		allureScreenshot("Call Center booking Cancellation codenfirmation");
@@ -176,26 +178,12 @@ public class CancelBookingfromconfirmationpageTest extends TestBase 	{
 	public void CancelBookingfromconfirmationpageTest_TC05() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("CancelBookingfromconfirmationpageTest_TC05");
-
 		Assert.assertTrue(cbcp.verifyCancelBookingTC05());
-
 		allureScreenshot("Call Center cancelled booking not verified if both email & confirmation code is incorrect");
 		screenShot("Call Center cancelled booking not verified if both email & confirmation code is incorrect");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		lp.logout();
 		logger.info("TestCase Ended");
 	}
 
-	@AfterSuite
-	public void report() {
-		try {
-			mail();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		cmdPrompt();
-	}
-	
 }
