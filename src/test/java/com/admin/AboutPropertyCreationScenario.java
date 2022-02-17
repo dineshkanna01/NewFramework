@@ -1,8 +1,6 @@
 package com.admin;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -10,7 +8,6 @@ import com.admin.pom.AboutThePropertyPages;
 import com.admin.pom.AdministratorHomePage;
 import com.admin.pom.LoginPage;
 
-import Utility.ExcelData;
 import base.TestBase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -28,8 +25,6 @@ import logfile.Utilitylog;
 public class AboutPropertyCreationScenario extends TestBase {
 	
 	public static Utilitylog logger;
-
-	ExcelData e = new ExcelData();
 
 	public AboutPropertyCreationScenario() {
 		super();
@@ -789,12 +784,5 @@ public class AboutPropertyCreationScenario extends TestBase {
 		lp.logout();
 	}
 	
-		@AfterSuite
-		public void report() throws Exception {
-	
-			mail();
-	
-			cmdPrompt();
-		}
 
 }

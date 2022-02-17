@@ -60,11 +60,6 @@ public static Utilitylog logger;
 //		getDriver().quit();
 	}
 	
-	@AfterSuite
-	public void report() throws Exception {
-		//mail();
-		//cmdPrompt();
-	}
 	
 	@AfterTest
 	public void jdbcCon() throws Exception {

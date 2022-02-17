@@ -47,7 +47,7 @@ public class DiffAdults extends TestBase{
 		System.out.println("FirstPage Title: "+title);
 		Assert.assertEquals(title, "Make a reservation on qatest1");
 		bda.firstPage("11/24/2021", "2", "2");
-		implict(6);
+//		implict(6);
 		bda.secondpage("dk", "s", "dinesh.kanna@igtsolutions.com", "Nice Hotel");
 		bda.thirdPage("India", "Chennai", "Chennai", "Tamil Nadu", "600066", "9437875541");
 		bda.confirmPage();
@@ -62,9 +62,4 @@ public class DiffAdults extends TestBase{
 //		driver.quit();
 	}
 	
-	@AfterClass
-	public void report() throws Exception {
-		cmdPrompt();
-//		mail();
-	}
 }

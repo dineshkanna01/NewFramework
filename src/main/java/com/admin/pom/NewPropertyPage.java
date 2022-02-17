@@ -11,13 +11,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utility.ExcelData;
-import base.TestBase;
+import base.Helper;
 import pages.AbstractBasePage;
 
 public class NewPropertyPage extends AbstractBasePage{
 	
-	ExcelData e = new ExcelData();
-
 	@FindBy(xpath = "//div[text()='Property Management']")
 	WebElement propertyMangementTab;
 
@@ -126,11 +124,11 @@ public class NewPropertyPage extends AbstractBasePage{
 		propertyName.sendKeys(f1);
 		propertyCode.sendKeys(f1);
 		propertySubDomain.sendKeys(f1);
-		address1.sendKeys(e.getCellData("Property", "Address1", 2));
-		city.sendKeys(e.getCellData("Property", "City", 2));
+		address1.sendKeys(ExcelData.getCellData("Property", "Address1", 2));
+		city.sendKeys(ExcelData.getCellData("Property", "City", 2));
 		country.click();
 		countrySelected.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		
 		Actions action = new Actions(driver);
 		
@@ -160,11 +158,11 @@ public class NewPropertyPage extends AbstractBasePage{
 		propertyName.sendKeys(s);
 		propertyCode.sendKeys(c);
 		propertySubDomain.sendKeys(f1);
-		address1.sendKeys(e.getCellData("Property", "Address1", 2));
-		city.sendKeys(e.getCellData("Property", "City", 2));
+		address1.sendKeys(ExcelData.getCellData("Property", "Address1", 2));
+		city.sendKeys(ExcelData.getCellData("Property", "City", 2));
 		country.click();
 		countrySelected.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		
 		Actions action = new Actions(driver);
 		
@@ -190,7 +188,7 @@ public class NewPropertyPage extends AbstractBasePage{
 	 */
 
 	public NewPropertyPage propertyEditPageSaveButton() {
-//		TestBase.implict(2);
+//		Helper.implict(2);
 		editSaveButton.click();
 		return null;
 
@@ -203,16 +201,16 @@ public class NewPropertyPage extends AbstractBasePage{
 	public NewPropertyPage propertyDefaultPage() {
 		starRating.click();
 		ratingValue.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 //		adultAge.sendKeys("17");
 //		WebElement wb = driver.findElement(By.name("adultAge"));
 //		JavascriptExecutor js = (JavascriptExecutor)driver;
 //		Object searchTextbar = js.executeScript("return document.getElementById('lst-ib')");
-//		((WebElement) adultAge).sendKeys(e.getCellData("Property", "AdultAge", 2));
-//		js.executeScript(e.getCellData("Property", "AdultAge", 2), wb);
-		adultAge.sendKeys(e.getCellData("Property", "AdultAge", 2));
+//		((WebElement) adultAge).sendKeys(ExcelData.getCellData("Property", "AdultAge", 2));
+//		js.executeScript(ExcelData.getCellData("Property", "AdultAge", 2), wb);
+		adultAge.sendKeys(ExcelData.getCellData("Property", "AdultAge", 2));
 //		Thread.sleep(10000);
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 
 	}
@@ -244,22 +242,22 @@ public class NewPropertyPage extends AbstractBasePage{
 	 */
 
 	public NewPropertyPage propertyMasterPage() throws InterruptedException{
-		TestBase.implict(3);
-		countryCode.sendKeys(e.getCellData("Property", "CountryCode", 2));
-		TestBase.implict(3);
-		areaCode.sendKeys(e.getCellData("Property", "AreaCode", 2));
-		TestBase.implict(3);
-		phone.sendKeys(e.getCellData("Property", "Phone", 2));
-		website.sendKeys(e.getCellData("Property", "Website", 2));
-		primaryEmail.sendKeys(e.getCellData("Property", "PrimaryEmail", 2));
-		TestBase.implict(3);
-		numberOfRooms.sendKeys(e.getCellData("Property", "NumberOfRooms", 2));
-		TestBase.implict(3);
-		numberOfFloors.sendKeys(e.getCellData("Property", "NumberOfFloors", 2));
+		Helper.implict(3);
+		countryCode.sendKeys(ExcelData.getCellData("Property", "CountryCode", 2));
+		Helper.implict(3);
+		areaCode.sendKeys(ExcelData.getCellData("Property", "AreaCode", 2));
+		Helper.implict(3);
+		phone.sendKeys(ExcelData.getCellData("Property", "Phone", 2));
+		website.sendKeys(ExcelData.getCellData("Property", "Website", 2));
+		primaryEmail.sendKeys(ExcelData.getCellData("Property", "PrimaryEmail", 2));
+		Helper.implict(3);
+		numberOfRooms.sendKeys(ExcelData.getCellData("Property", "NumberOfRooms", 2));
+		Helper.implict(3);
+		numberOfFloors.sendKeys(ExcelData.getCellData("Property", "NumberOfFloors", 2));
 //		Thread.sleep(5000);
 		visaCard.click();
-		shortDescription.sendKeys(e.getCellData("Property", "ShortDescription", 2));
-		TestBase.implict(3);
+		shortDescription.sendKeys(ExcelData.getCellData("Property", "ShortDescription", 2));
+		Helper.implict(3);
 		return null;
 
 	}
@@ -280,7 +278,7 @@ public class NewPropertyPage extends AbstractBasePage{
 	 */
 
 	public NewPropertyPage masterSaveButton() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		masterSaveButton.click();
 		return null;
 	}
@@ -291,7 +289,7 @@ public class NewPropertyPage extends AbstractBasePage{
 	 */
 
 	public String verifyAdministratorTextAfterSave()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		String s = afterSaveVerifyText.getText();
 		System.out.println(s);
 		return s;

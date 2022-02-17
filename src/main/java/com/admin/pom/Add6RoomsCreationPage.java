@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import Utility.ExcelData;
-import base.TestBase;
+import base.Helper;
 import pages.AbstractBasePage;
 
 /*
@@ -249,7 +249,7 @@ public class Add6RoomsCreationPage extends AbstractBasePage{
 	 */
 	public Add6RoomsCreationPage clickOnSave() {
 		saveButton.click();
-		TestBase.implict(5);
+		Helper.implict(5);
 		return null;
 	}
 
@@ -272,10 +272,10 @@ public class Add6RoomsCreationPage extends AbstractBasePage{
 		checkbox6.click();
 		checkbox7.click();
 		checkbox8.click();
-		TestBase.implict(4);
+		Helper.implict(4);
 		delete.click();
 		yesButton.click();
-		TestBase.implict(4);
+		Helper.implict(4);
 		return null;
 	}
 
@@ -316,9 +316,9 @@ public class Add6RoomsCreationPage extends AbstractBasePage{
 	 */
 	public Add6RoomsCreationPage add6Rooms(){
 		AdministratorHomePage ahp=new AdministratorHomePage(driver);
-		TestBase.implict(5);
+		Helper.implict(5);
 		enterRoomName(ExcelData.getCellData("Sheet1","roomName",2));
-		TestBase.implict(5);
+		Helper.implict(5);
 		enterRoomCode(ExcelData.getCellData("Sheet1","roomCode",2));
 		entergdsCode(ExcelData.getCellData("Sheet1","gdsCode",2));
 		clickOnBigsizeBed();
@@ -328,7 +328,7 @@ public class Add6RoomsCreationPage extends AbstractBasePage{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		TestBase.implict(4);
+		Helper.implict(4);
 		enterExtraAdultPerRoomCharge("100");
 		enterExtraChildPerRoomCharge("30");
 		selectMaxNoOfAdultForDefaultprice("2");
@@ -346,7 +346,7 @@ public class Add6RoomsCreationPage extends AbstractBasePage{
 		entergdsCode(ExcelData.getCellData("Sheet1","gdsCode",3));
 		clickOnMarvelousBed();
 		uploadImage();
-		TestBase.implict(4);
+		Helper.implict(4);
 		enterExtraAdultPerRoomCharge("100");
 		enterExtraChildPerRoomCharge("30");
 		selectMaxNoOfAdultForDefaultprice("2");
@@ -412,10 +412,10 @@ public class Add6RoomsCreationPage extends AbstractBasePage{
 		enterRoomName(ExcelData.getCellData("Sheet1","roomName",7));
 		enterRoomCode(ExcelData.getCellData("Sheet1","roomCode",7));
 		entergdsCode(ExcelData.getCellData("Sheet1","gdsCode",7));
-		TestBase.implict(3);
+		Helper.implict(3);
 		clickOnExquisiteBed();
 		uploadImage();
-		TestBase.implict(3);
+		Helper.implict(3);
 		enterExtraAdultPerRoomCharge("100");
 		enterExtraChildPerRoomCharge("50");
 		selectMaxNoOfAdultForDefaultprice("3");
@@ -425,7 +425,7 @@ public class Add6RoomsCreationPage extends AbstractBasePage{
 		enterMaxChildLimit("2");
 		enterTotalMaxOccupancy("4");
 		clickOnSave();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -445,7 +445,7 @@ public class Add6RoomsCreationPage extends AbstractBasePage{
 
 		selectMaxNoOfAdultForDefaultprice("1");
 		editSave.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		return null;
 	}
@@ -496,9 +496,9 @@ public class Add6RoomsCreationPage extends AbstractBasePage{
 	 * Method for verify TC04
 	 */
 	public boolean verifyadd6RoomCreation_TC04(){
-		TestBase.implict(5);
+		Helper.implict(5);
 		String actText=roomDuplicateCode.getText();
-		TestBase.implict(5);
+		Helper.implict(5);
 		String expText=ExcelData.getCellData("Sheet1","roomErrorMsg",2);
 		if(actText.equals(expText)) {
 			System.out.println("Room not created with exist code, TC passed");

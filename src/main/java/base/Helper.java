@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Helper extends TestBase{
 	
+	@SuppressWarnings("deprecation")
 	public static WebElement explicit(WebElement name, int sec) {
 		WebDriverWait wait = new WebDriverWait(getDriver(), sec);
 		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(name));
@@ -29,6 +30,7 @@ public class Helper extends TestBase{
 	}
 	
 //	Waits
+	@SuppressWarnings("deprecation")
 	public static void implict(int num) {
 		getDriver().manage().timeouts().implicitlyWait(num, TimeUnit.SECONDS);
 	}

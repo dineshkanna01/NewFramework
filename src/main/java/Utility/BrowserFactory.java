@@ -3,7 +3,6 @@ package Utility;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import cmdprompt.SyncPipe;
@@ -12,7 +11,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -26,6 +24,7 @@ public class BrowserFactory {
 
 	public static ThreadLocal<WebDriver> tdriver= new ThreadLocal<WebDriver>();
 
+	@SuppressWarnings({ "unused", "deprecation" })
 	public static WebDriver initilizationmultibrowser(String browserName) {
 		WebDriver driver = null;
 		if (browserName.equals("chrome")) {

@@ -7,15 +7,11 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.admin.pom.AboutThePropertyPages;
 
-
-import base.TestBase;
+import base.Helper;
 import pages.AbstractBasePage;
 import Utility.ExcelData;
 
 public class URLParameterBookings extends AbstractBasePage{
-
-ExcelData e = new ExcelData();
-	
 
 	@FindBy(xpath = "(//input[@id='search_arrival_date'])")
 	WebElement arrivalDate;
@@ -183,9 +179,9 @@ ExcelData e = new ExcelData();
 	*/
 
 	public URLParameterBookings clickBookNow()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		bookNow.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	
@@ -195,9 +191,9 @@ ExcelData e = new ExcelData();
 	*/
 
 	public URLParameterBookings clickConfirmDetails()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		confirmDetails.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	
@@ -207,9 +203,9 @@ ExcelData e = new ExcelData();
 	*/
 
 	public URLParameterBookings clickcompleteReservation()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		completeReservation.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	
@@ -220,9 +216,9 @@ ExcelData e = new ExcelData();
 	*/
 
 	public URLParameterBookings clickOnChangeReservation()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		changeReservation.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		changeReservationFeeYes.click();
 		return null;
 	}
@@ -233,7 +229,7 @@ ExcelData e = new ExcelData();
 	*/
 
 	public URLParameterBookings clickOnbookAnotherRoom()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		bookAnotherRoom.click();
 		try {
 			Thread.sleep(3000);
@@ -250,9 +246,9 @@ ExcelData e = new ExcelData();
 	*/
 
 	public URLParameterBookings clickOncancelReservation()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		cancelReservation.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		changeReservationFeeYes.click();
 		return null;
 	}
@@ -267,10 +263,10 @@ ExcelData e = new ExcelData();
 
 	public AboutThePropertyPages makeAReservationInURLParameterbooking()  {
 		
-		arrivalDate.sendKeys(e.getCellData("URLPB1", "ArrivalDate", 2));
-		TestBase.implict(8);
+		arrivalDate.sendKeys(ExcelData.getCellData("URLPB1", "ArrivalDate", 2));
+		Helper.implict(8);
 		departureDate.clear();
-		departureDate.sendKeys(e.getCellData("URLPB1", "DepartureDate", 2));
+		departureDate.sendKeys(ExcelData.getCellData("URLPB1", "DepartureDate", 2));
 		checkAvailability.click();
 //		try {
 //			Thread.sleep(3000);
@@ -279,11 +275,11 @@ ExcelData e = new ExcelData();
 //			e1.printStackTrace();
 //		}
 //		checkAvailability.click();
-		TestBase.implict(6);
+		Helper.implict(6);
 		bookNow.click();
-		firstName.sendKeys(e.getCellData("URLPB1", "FirstName", 2));
-		lastName.sendKeys(e.getCellData("URLPB1", "LastName", 2));
-		email.sendKeys(e.getCellData("URLPB1", "email", 2));
+		firstName.sendKeys(ExcelData.getCellData("URLPB1", "FirstName", 2));
+		lastName.sendKeys(ExcelData.getCellData("URLPB1", "LastName", 2));
+		email.sendKeys(ExcelData.getCellData("URLPB1", "email", 2));
 		wantTransportRequired.click();
 		cabPickUpYes.click();
 		try {
@@ -293,25 +289,25 @@ ExcelData e = new ExcelData();
 			e1.printStackTrace();
 		}
 		confirmDetails.click();
-		cardHolderName.sendKeys(e.getCellData("URLPB1", "CardHN", 2));
-		cardNumber.sendKeys(e.getCellData("URLPB1", "CardN", 2));
-		cardNumber.sendKeys(e.getCellData("URLPB1", "CardN", 2));
-		cardNumber.sendKeys(e.getCellData("URLPB1", "CardN", 2));
-		cardNumber.sendKeys(e.getCellData("URLPB1", "CardN", 2));
-		TestBase.implict(3);
+		cardHolderName.sendKeys(ExcelData.getCellData("URLPB1", "CardHN", 2));
+		cardNumber.sendKeys(ExcelData.getCellData("URLPB1", "CardN", 2));
+		cardNumber.sendKeys(ExcelData.getCellData("URLPB1", "CardN", 2));
+		cardNumber.sendKeys(ExcelData.getCellData("URLPB1", "CardN", 2));
+		cardNumber.sendKeys(ExcelData.getCellData("URLPB1", "CardN", 2));
+		Helper.implict(3);
 		expiryMonth.click();
 		expiryMonthJan.click();
 		expiryMonthYear.click();
 		expiryMonthYear2023.click();
-		securityCode.sendKeys(e.getCellData("URLPB1", "SCode", 2));
+		securityCode.sendKeys(ExcelData.getCellData("URLPB1", "SCode", 2));
 		selectCountry.click();
 		selectCountryInd.click();
-		enterLocation.sendKeys(e.getCellData("URLPB1", "Location", 2));
-		enterCity.sendKeys(e.getCellData("URLPB1", "City", 2));
+		enterLocation.sendKeys(ExcelData.getCellData("URLPB1", "Location", 2));
+		enterCity.sendKeys(ExcelData.getCellData("URLPB1", "City", 2));
 		enterState.click();
 		enterStateDelhi.click();
-		zipCode.sendKeys(e.getCellData("URLPB1", "ZipCode", 2));
-		phoneNumber.sendKeys(e.getCellData("URLPB1", "PhoneN", 2));
+		zipCode.sendKeys(ExcelData.getCellData("URLPB1", "ZipCode", 2));
+		phoneNumber.sendKeys(ExcelData.getCellData("URLPB1", "PhoneN", 2));
 		gotIt.click();
 		acceptTerm.click();
 		completeReservation.click();
@@ -341,10 +337,10 @@ ExcelData e = new ExcelData();
 	
 public AboutThePropertyPages makeAReservationToModifyInURLParameterbooking()  {
 		
-		arrivalDate.sendKeys(e.getCellData("URLPB2", "ArrivalDate", 2));
-		TestBase.implict(8);
+		arrivalDate.sendKeys(ExcelData.getCellData("URLPB2", "ArrivalDate", 2));
+		Helper.implict(8);
 		departureDate.clear();
-		departureDate.sendKeys(e.getCellData("URLPB2", "DepartureDate", 2));
+		departureDate.sendKeys(ExcelData.getCellData("URLPB2", "DepartureDate", 2));
 		checkAvailability.click();
 		try {
 			Thread.sleep(3000);
@@ -353,9 +349,9 @@ public AboutThePropertyPages makeAReservationToModifyInURLParameterbooking()  {
 			e1.printStackTrace();
 		}
 		bookNow.click();
-		firstName.sendKeys(e.getCellData("URLPB2", "FirstName", 2));
-		lastName.sendKeys(e.getCellData("URLPB2", "LastName", 2));
-		email.sendKeys(e.getCellData("URLPB2", "email", 2));
+		firstName.sendKeys(ExcelData.getCellData("URLPB2", "FirstName", 2));
+		lastName.sendKeys(ExcelData.getCellData("URLPB2", "LastName", 2));
+		email.sendKeys(ExcelData.getCellData("URLPB2", "email", 2));
 		otherOffers.click();
 		hotelTraderRatePlan.click();
 		wantTransportRequired.click();
@@ -367,25 +363,25 @@ public AboutThePropertyPages makeAReservationToModifyInURLParameterbooking()  {
 			e1.printStackTrace();
 		}
 		confirmDetails.click();
-		cardHolderName.sendKeys(e.getCellData("URLPB2", "CardHN", 2));
-		cardNumber.sendKeys(e.getCellData("URLPB2", "CardN", 2));
-		cardNumber.sendKeys(e.getCellData("URLPB2", "CardN", 2));
-		cardNumber.sendKeys(e.getCellData("URLPB2", "CardN", 2));
-		cardNumber.sendKeys(e.getCellData("URLPB2", "CardN", 2));
-		TestBase.implict(3);
+		cardHolderName.sendKeys(ExcelData.getCellData("URLPB2", "CardHN", 2));
+		cardNumber.sendKeys(ExcelData.getCellData("URLPB2", "CardN", 2));
+		cardNumber.sendKeys(ExcelData.getCellData("URLPB2", "CardN", 2));
+		cardNumber.sendKeys(ExcelData.getCellData("URLPB2", "CardN", 2));
+		cardNumber.sendKeys(ExcelData.getCellData("URLPB2", "CardN", 2));
+		Helper.implict(3);
 		expiryMonth.click();
 		expiryMonthJan.click();
 		expiryMonthYear.click();
 		expiryMonthYear2023.click();
-		securityCode.sendKeys(e.getCellData("URLPB2", "SCode", 2));
+		securityCode.sendKeys(ExcelData.getCellData("URLPB2", "SCode", 2));
 		selectCountry.click();
 		selectCountryInd.click();
-		enterLocation.sendKeys(e.getCellData("URLPB2", "Location", 2));
-		enterCity.sendKeys(e.getCellData("URLPB2", "City", 2));
+		enterLocation.sendKeys(ExcelData.getCellData("URLPB2", "Location", 2));
+		enterCity.sendKeys(ExcelData.getCellData("URLPB2", "City", 2));
 		enterState.click();
 		enterStateDelhi.click();
-		zipCode.sendKeys(e.getCellData("URLPB2", "ZipCode", 2));
-		phoneNumber.sendKeys(e.getCellData("URLPB2", "PhoneN", 2));
+		zipCode.sendKeys(ExcelData.getCellData("URLPB2", "ZipCode", 2));
+		phoneNumber.sendKeys(ExcelData.getCellData("URLPB2", "PhoneN", 2));
 		acceptTerm.click();
 		completeReservation.click();
 		
@@ -403,7 +399,7 @@ public AboutThePropertyPages makeAReservationToModifyInURLParameterbooking()  {
 public boolean verifyChangedReservation()  {
 	String FirstRateplan = rateplanForModification.getText();
 	System.out.println(FirstRateplan + " FirstRateplan");
-	String expText = (e.getCellData("URLPB2", "RatePlan", 2));
+	String expText = (ExcelData.getCellData("URLPB2", "RatePlan", 2));
 	System.out.println(expText + " " + "ExpectedText");
 	if (FirstRateplan.equalsIgnoreCase(expText)) {
 		System.out.println(" rateplan not changed");
@@ -427,16 +423,16 @@ public AboutThePropertyPages changeAReservationToModifyInURLParameterbooking()  
 		e1.printStackTrace();
 	}
 	confirmDetails.click();
-	cardNumber.sendKeys(e.getCellData("URLPB2", "CardN", 2));
-	cardNumber.sendKeys(e.getCellData("URLPB2", "CardN", 2));
-	cardNumber.sendKeys(e.getCellData("URLPB2", "CardN", 2));
-	cardNumber.sendKeys(e.getCellData("URLPB2", "CardN", 2));
-	TestBase.implict(3);
+	cardNumber.sendKeys(ExcelData.getCellData("URLPB2", "CardN", 2));
+	cardNumber.sendKeys(ExcelData.getCellData("URLPB2", "CardN", 2));
+	cardNumber.sendKeys(ExcelData.getCellData("URLPB2", "CardN", 2));
+	cardNumber.sendKeys(ExcelData.getCellData("URLPB2", "CardN", 2));
+	Helper.implict(3);
 	expiryMonth.click();
 	expiryMonthJan.click();
 	expiryMonthYear.click();
 	expiryMonthYear2023.click();
-	securityCode.sendKeys(e.getCellData("URLPB2", "SCode", 2));
+	securityCode.sendKeys(ExcelData.getCellData("URLPB2", "SCode", 2));
 	acceptTerm.click();
 	completeReservation.click();
 	try {
@@ -450,10 +446,10 @@ public AboutThePropertyPages changeAReservationToModifyInURLParameterbooking()  
 }
 public AboutThePropertyPages makeAReservationToCancelInURLParameterbooking()  {
 	
-	arrivalDate.sendKeys(e.getCellData("URLPB3", "ArrivalDate", 2));
-	TestBase.implict(8);
+	arrivalDate.sendKeys(ExcelData.getCellData("URLPB3", "ArrivalDate", 2));
+	Helper.implict(8);
 	departureDate.clear();
-	departureDate.sendKeys(e.getCellData("URLPB3", "DepartureDate", 2));
+	departureDate.sendKeys(ExcelData.getCellData("URLPB3", "DepartureDate", 2));
 	checkAvailability.click();
 	try {
 		Thread.sleep(3000);
@@ -462,9 +458,9 @@ public AboutThePropertyPages makeAReservationToCancelInURLParameterbooking()  {
 		e1.printStackTrace();
 	}
 	bookNow.click();
-	firstName.sendKeys(e.getCellData("URLPB3", "FirstName", 2));
-	lastName.sendKeys(e.getCellData("URLPB3", "LastName", 2));
-	email.sendKeys(e.getCellData("URLPB3", "email", 2));
+	firstName.sendKeys(ExcelData.getCellData("URLPB3", "FirstName", 2));
+	lastName.sendKeys(ExcelData.getCellData("URLPB3", "LastName", 2));
+	email.sendKeys(ExcelData.getCellData("URLPB3", "email", 2));
 	wantTransportRequired.click();
 	cabPickUpYes.click();
 	try {
@@ -474,25 +470,25 @@ public AboutThePropertyPages makeAReservationToCancelInURLParameterbooking()  {
 		e1.printStackTrace();
 	}
 	confirmDetails.click();
-	cardHolderName.sendKeys(e.getCellData("URLPB3", "CardHN", 2));
-	cardNumber.sendKeys(e.getCellData("URLPB3", "CardN", 2));
-	cardNumber.sendKeys(e.getCellData("URLPB3", "CardN", 2));
-	cardNumber.sendKeys(e.getCellData("URLPB3", "CardN", 2));
-	cardNumber.sendKeys(e.getCellData("URLPB3", "CardN", 2));
-	TestBase.implict(3);
+	cardHolderName.sendKeys(ExcelData.getCellData("URLPB3", "CardHN", 2));
+	cardNumber.sendKeys(ExcelData.getCellData("URLPB3", "CardN", 2));
+	cardNumber.sendKeys(ExcelData.getCellData("URLPB3", "CardN", 2));
+	cardNumber.sendKeys(ExcelData.getCellData("URLPB3", "CardN", 2));
+	cardNumber.sendKeys(ExcelData.getCellData("URLPB3", "CardN", 2));
+	Helper.implict(3);
 	expiryMonth.click();
 	expiryMonthJan.click();
 	expiryMonthYear.click();
 	expiryMonthYear2023.click();
-	securityCode.sendKeys(e.getCellData("URLPB3", "SCode", 2));
+	securityCode.sendKeys(ExcelData.getCellData("URLPB3", "SCode", 2));
 	selectCountry.click();
 	selectCountryInd.click();
-	enterLocation.sendKeys(e.getCellData("URLPB3", "Location", 2));
-	enterCity.sendKeys(e.getCellData("URLPB3", "City", 2));
+	enterLocation.sendKeys(ExcelData.getCellData("URLPB3", "Location", 2));
+	enterCity.sendKeys(ExcelData.getCellData("URLPB3", "City", 2));
 	enterState.click();
 	enterStateDelhi.click();
-	zipCode.sendKeys(e.getCellData("URLPB3", "ZipCode", 2));
-	phoneNumber.sendKeys(e.getCellData("URLPB3", "PhoneN", 2));
+	zipCode.sendKeys(ExcelData.getCellData("URLPB3", "ZipCode", 2));
+	phoneNumber.sendKeys(ExcelData.getCellData("URLPB3", "PhoneN", 2));
 	acceptTerm.click();
 	completeReservation.click();
 	try {
@@ -523,10 +519,10 @@ public boolean verifyReservationCancelationSuccessful()  {
 
 public AboutThePropertyPages makeAReservationToBookAnotherRoomInURLParameterbooking()  {
 	
-	arrivalDate.sendKeys(e.getCellData("URLPB4", "ArrivalDate", 2));
-	TestBase.implict(8);
+	arrivalDate.sendKeys(ExcelData.getCellData("URLPB4", "ArrivalDate", 2));
+	Helper.implict(8);
 	departureDate.clear();
-	departureDate.sendKeys(e.getCellData("URLPB4", "DepartureDate", 2));
+	departureDate.sendKeys(ExcelData.getCellData("URLPB4", "DepartureDate", 2));
 	checkAvailability.click();
 	try {
 		Thread.sleep(3000);
@@ -535,9 +531,9 @@ public AboutThePropertyPages makeAReservationToBookAnotherRoomInURLParameterbook
 		e1.printStackTrace();
 	}
 	bookNow.click();
-	firstName.sendKeys(e.getCellData("URLPB4", "FirstName", 2));
-	lastName.sendKeys(e.getCellData("URLPB4", "LastName", 2));
-	email.sendKeys(e.getCellData("URLPB4", "email", 2));
+	firstName.sendKeys(ExcelData.getCellData("URLPB4", "FirstName", 2));
+	lastName.sendKeys(ExcelData.getCellData("URLPB4", "LastName", 2));
+	email.sendKeys(ExcelData.getCellData("URLPB4", "email", 2));
 	wantTransportRequired.click();
 	cabPickUpYes.click();
 	try {
@@ -547,25 +543,25 @@ public AboutThePropertyPages makeAReservationToBookAnotherRoomInURLParameterbook
 		e1.printStackTrace();
 	}
 	confirmDetails.click();
-	cardHolderName.sendKeys(e.getCellData("URLPB4", "CardHN", 2));
-	cardNumber.sendKeys(e.getCellData("URLPB4", "CardN", 2));
-	cardNumber.sendKeys(e.getCellData("URLPB4", "CardN", 2));
-	cardNumber.sendKeys(e.getCellData("URLPB4", "CardN", 2));
-	cardNumber.sendKeys(e.getCellData("URLPB4", "CardN", 2));
-	TestBase.implict(3);
+	cardHolderName.sendKeys(ExcelData.getCellData("URLPB4", "CardHN", 2));
+	cardNumber.sendKeys(ExcelData.getCellData("URLPB4", "CardN", 2));
+	cardNumber.sendKeys(ExcelData.getCellData("URLPB4", "CardN", 2));
+	cardNumber.sendKeys(ExcelData.getCellData("URLPB4", "CardN", 2));
+	cardNumber.sendKeys(ExcelData.getCellData("URLPB4", "CardN", 2));
+	Helper.implict(3);
 	expiryMonth.click();
 	expiryMonthJan.click();
 	expiryMonthYear.click();
 	expiryMonthYear2023.click();
-	securityCode.sendKeys(e.getCellData("URLPB4", "SCode", 2));
+	securityCode.sendKeys(ExcelData.getCellData("URLPB4", "SCode", 2));
 	selectCountry.click();
 	selectCountryInd.click();
-	enterLocation.sendKeys(e.getCellData("URLPB4", "Location", 2));
-	enterCity.sendKeys(e.getCellData("URLPB4", "City", 2));
+	enterLocation.sendKeys(ExcelData.getCellData("URLPB4", "Location", 2));
+	enterCity.sendKeys(ExcelData.getCellData("URLPB4", "City", 2));
 	enterState.click();
 	enterStateDelhi.click();
-	zipCode.sendKeys(e.getCellData("URLPB4", "ZipCode", 2));
-	phoneNumber.sendKeys(e.getCellData("URLPB4", "PhoneN", 2));
+	zipCode.sendKeys(ExcelData.getCellData("URLPB4", "ZipCode", 2));
+	phoneNumber.sendKeys(ExcelData.getCellData("URLPB4", "PhoneN", 2));
 	acceptTerm.click();
 	completeReservation.click();
 	try {
@@ -581,9 +577,9 @@ public AboutThePropertyPages BookAnotherRoomFromConfirmationPageInURLParameterbo
 	
 	
 	bookNow.click();
-	firstName.sendKeys(e.getCellData("URLPB4", "FirstName", 2));
-	lastName.sendKeys(e.getCellData("URLPB4", "LastName", 2));
-	email.sendKeys(e.getCellData("URLPB4", "email", 2));
+	firstName.sendKeys(ExcelData.getCellData("URLPB4", "FirstName", 2));
+	lastName.sendKeys(ExcelData.getCellData("URLPB4", "LastName", 2));
+	email.sendKeys(ExcelData.getCellData("URLPB4", "email", 2));
 	wantTransportRequired4.click();
 	cabPickUpYes4.click();
 	try {
@@ -593,25 +589,25 @@ public AboutThePropertyPages BookAnotherRoomFromConfirmationPageInURLParameterbo
 		e1.printStackTrace();
 	}
 	confirmDetails.click();
-	cardHolderName.sendKeys(e.getCellData("URLPB4", "CardHN", 2));
-	cardNumber.sendKeys(e.getCellData("URLPB4", "CardN", 2));
-	cardNumber.sendKeys(e.getCellData("URLPB4", "CardN", 2));
-	cardNumber.sendKeys(e.getCellData("URLPB4", "CardN", 2));
-	cardNumber.sendKeys(e.getCellData("URLPB4", "CardN", 2));
-	TestBase.implict(3);
+	cardHolderName.sendKeys(ExcelData.getCellData("URLPB4", "CardHN", 2));
+	cardNumber.sendKeys(ExcelData.getCellData("URLPB4", "CardN", 2));
+	cardNumber.sendKeys(ExcelData.getCellData("URLPB4", "CardN", 2));
+	cardNumber.sendKeys(ExcelData.getCellData("URLPB4", "CardN", 2));
+	cardNumber.sendKeys(ExcelData.getCellData("URLPB4", "CardN", 2));
+	Helper.implict(3);
 	expiryMonth.click();
 	expiryMonthJan.click();
 	expiryMonthYear.click();
 	expiryMonthYear2023.click();
-	securityCode.sendKeys(e.getCellData("URLPB4", "SCode", 2));
+	securityCode.sendKeys(ExcelData.getCellData("URLPB4", "SCode", 2));
 	selectCountry.click();
 	selectCountryInd.click();
-	enterLocation.sendKeys(e.getCellData("URLPB4", "Location", 2));
-	enterCity.sendKeys(e.getCellData("URLPB4", "City", 2));
+	enterLocation.sendKeys(ExcelData.getCellData("URLPB4", "Location", 2));
+	enterCity.sendKeys(ExcelData.getCellData("URLPB4", "City", 2));
 	enterState.click();
 	enterStateDelhi.click();
-	zipCode.sendKeys(e.getCellData("URLPB4", "ZipCode", 2));
-	phoneNumber.sendKeys(e.getCellData("URLPB4", "PhoneN", 2));
+	zipCode.sendKeys(ExcelData.getCellData("URLPB4", "ZipCode", 2));
+	phoneNumber.sendKeys(ExcelData.getCellData("URLPB4", "PhoneN", 2));
 	acceptTerm.click();
 	completeReservation.click();
 	try {

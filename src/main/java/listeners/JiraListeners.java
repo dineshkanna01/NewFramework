@@ -20,6 +20,7 @@ public class JiraListeners implements ITestListener{
 		
 	}
 
+	@SuppressWarnings("unused")
 	public void onTestFailure(ITestResult result) {
 		JiraPolicy jiraPolicy = result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(JiraPolicy.class);
 		boolean ticketReady = jiraPolicy.logTicketReady();

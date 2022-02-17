@@ -177,12 +177,5 @@ public class TaxScenario extends TestBase {
 
 
 	}
-	@AfterSuite
-	public void report() throws Exception {
-
-		mail();
-
-		cmdPrompt();
-	}
 
 }

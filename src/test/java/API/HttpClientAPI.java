@@ -5,7 +5,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import io.restassured.RestAssured;
 import logfile.Utilitylog;
 
 public class HttpClientAPI extends TestBase{

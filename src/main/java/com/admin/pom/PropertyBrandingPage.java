@@ -1,13 +1,11 @@
 package com.admin.pom;
 
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import Utility.ExcelData;
-import base.TestBase;
+import base.Helper;
 import pages.AbstractBasePage;
 
 
@@ -18,8 +16,6 @@ import pages.AbstractBasePage;
 
 public class PropertyBrandingPage extends AbstractBasePage {
 	
-	ExcelData e = new ExcelData();
-
 	@FindBy(xpath = "//input[@value='50']")
 	WebElement selectingProperty;
 
@@ -50,7 +46,7 @@ public class PropertyBrandingPage extends AbstractBasePage {
 
 	public PropertyBrandingPage selectProperty(){
 		selectingProperty.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		selectPropertyButton.click();
 		return null;
 	}
@@ -61,7 +57,7 @@ public class PropertyBrandingPage extends AbstractBasePage {
 
 	public PropertyBrandingPage propertyBrandConfig(){
 		propertyManagementTab.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		propertyBranding.click();
 		return null;
 	}
@@ -82,9 +78,9 @@ public class PropertyBrandingPage extends AbstractBasePage {
 	 */
 
 	public PropertyBrandingPage saveButton(){
-		TestBase.implict(3);
+		Helper.implict(3);
 		saveButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 }

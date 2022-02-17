@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.HashMap;
 
 import org.apache.http.Header;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -19,6 +18,7 @@ import org.json.JSONObject;
 
 public class RestClient {
 	
+	@SuppressWarnings("unused")
 	public void get(String url) throws Exception, IOException {
 		HttpClient httpClient1 = HttpClients
 	            .custom()

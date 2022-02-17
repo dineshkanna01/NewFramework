@@ -91,9 +91,4 @@ public class IndependentHotel extends TestBase{
 
 	}
 
-	@AfterSuite
-	public void report() throws Exception {
-		mail();
-		cmdPrompt();
-	}
 }

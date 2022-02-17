@@ -563,10 +563,4 @@ public class BookingReport extends TestBase{
 
 		}
 
-	@AfterSuite
-	public void report() throws Exception {
-		mail();
-		cmdPrompt();
-	}
-
 }

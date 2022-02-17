@@ -109,6 +109,7 @@ public class ExcelData {
 
 	}
 
+	@SuppressWarnings({ "unused", "resource" })
 	public static boolean write_CellData(String name, int rNum, int cNum, String Data) {
 		String path = System.getProperty("user.dir") + "\\src\\test\\resources\\testData\\CC_CallCenterData.xlsx";
 		try {

@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import Utility.ExcelData;
-import base.TestBase;
+import base.Helper;
 import pages.AbstractBasePage;
 
 /*
@@ -19,8 +19,6 @@ import pages.AbstractBasePage;
  */
 public class NearbyAttractionPage extends AbstractBasePage {
 	
-	ExcelData e = new ExcelData();
-
 	public NearbyAttractionPage(WebDriver driver) {
 		super(driver);
 		PageFactory.initElements(driver, this);
@@ -106,7 +104,7 @@ public class NearbyAttractionPage extends AbstractBasePage {
 	 * Methd for enter category1
 	 */
 	public NearbyAttractionPage enterCategory1() {
-		category.sendKeys(e.getCellData("Sheet1","Category",2));
+		category.sendKeys(ExcelData.getCellData("Sheet1","Category",2));
 		return null;
 	}
 
@@ -114,7 +112,7 @@ public class NearbyAttractionPage extends AbstractBasePage {
 	 * Methd for enter category2
 	 */
 	public NearbyAttractionPage enterCategory2() {
-		category.sendKeys(e.getCellData("Sheet1","Category",3));
+		category.sendKeys(ExcelData.getCellData("Sheet1","Category",3));
 		return null;
 	}
 
@@ -130,7 +128,7 @@ public class NearbyAttractionPage extends AbstractBasePage {
 	 * Methd for enter description
 	 */
 	public NearbyAttractionPage enterDescription(){
-		description.sendKeys(e.getCellData("Sheet1","Description",2));
+		description.sendKeys(ExcelData.getCellData("Sheet1","Description",2));
 		return null;
 	}
 
@@ -147,7 +145,7 @@ public class NearbyAttractionPage extends AbstractBasePage {
 	 * Method for enter address
 	 */
 	public NearbyAttractionPage enterAddress(){
-		address.sendKeys(e.getCellData("Sheet1","Address",2));
+		address.sendKeys(ExcelData.getCellData("Sheet1","Address",2));
 		return null;
 	}
 
@@ -155,7 +153,7 @@ public class NearbyAttractionPage extends AbstractBasePage {
 	 * Method for enter zipcode
 	 */
 	public NearbyAttractionPage enterZipcode(){
-		zipcode.sendKeys(e.getCellData("Sheet1","Zipcode",2));
+		zipcode.sendKeys(ExcelData.getCellData("Sheet1","Zipcode",2));
 		return null;
 	}
 
@@ -163,7 +161,7 @@ public class NearbyAttractionPage extends AbstractBasePage {
 	 * Method for click on findlat
 	 */
 	public NearbyAttractionPage clickFindLat(){
-		TestBase.implict(5);
+		Helper.implict(5);
 		findLat.click();
 		try {
 			Thread.sleep(2000);
@@ -179,7 +177,7 @@ public class NearbyAttractionPage extends AbstractBasePage {
 	 */
 	public NearbyAttractionPage clickSave(){
 		save.click();
-		TestBase.implict(5);
+		Helper.implict(5);
 		return null;
 	}
 

@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 
 import Utility.ExcelData;
-import base.TestBase;
+import base.Helper;
 import pages.AbstractBasePage;
 
 /*
@@ -18,9 +18,6 @@ import pages.AbstractBasePage;
  */
 public class AlternatePropertiesPage extends AbstractBasePage {
 	
-	ExcelData e = new ExcelData();
-
-
 	public AlternatePropertiesPage(WebDriver driver) {
 		super(driver);
 		PageFactory.initElements(driver, this);
@@ -68,7 +65,7 @@ public class AlternatePropertiesPage extends AbstractBasePage {
  */
 	public AlternatePropertiesPage clickAddProperty() {
 		addProperty.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null; 
 	}
 
@@ -79,7 +76,7 @@ public class AlternatePropertiesPage extends AbstractBasePage {
 			checkBox1.click();
 			delete.click();
 			driver.switchTo().alert().accept();
-			TestBase.implict(3);
+			Helper.implict(3);
 			return null; 
 		}
 	
@@ -87,8 +84,8 @@ public class AlternatePropertiesPage extends AbstractBasePage {
 	 * Method for enter property code
 	 */
 	public AlternatePropertiesPage enterPropertyCode1(){
-		propertyCode.sendKeys(e.getCellData("Sheet1","PropCode",2));
-		TestBase.implict(3);
+		propertyCode.sendKeys(ExcelData.getCellData("Sheet1","PropCode",2));
+		Helper.implict(3);
 		return null;
 	}
 
@@ -96,8 +93,8 @@ public class AlternatePropertiesPage extends AbstractBasePage {
 	 * Method for enter property code
 	 */
 	public AlternatePropertiesPage enterPropertyCode2(){
-		propertyCode.sendKeys(e.getCellData("Sheet1","PropCode",3));
-		TestBase.implict(3);
+		propertyCode.sendKeys(ExcelData.getCellData("Sheet1","PropCode",3));
+		Helper.implict(3);
 		return null;
 	}
 	
@@ -105,8 +102,8 @@ public class AlternatePropertiesPage extends AbstractBasePage {
 	 * Method for enter invalid property code
 	 */
 	public AlternatePropertiesPage enterInvalidPropertyCode(){
-		propertyCode.sendKeys(e.getCellData("Sheet1","InvalidPropCode",2));
-		TestBase.implict(3);
+		propertyCode.sendKeys(ExcelData.getCellData("Sheet1","InvalidPropCode",2));
+		Helper.implict(3);
 		return null;
 	}
 
@@ -123,13 +120,13 @@ public class AlternatePropertiesPage extends AbstractBasePage {
 	 */
 	public AlternatePropertiesPage addMultipleProp(){
 		addProperty.click();
-		propertyCode.sendKeys(e.getCellData("Sheet1","PropCode",4));
+		propertyCode.sendKeys(ExcelData.getCellData("Sheet1","PropCode",4));
 		save.click();
 		addProperty.click();
-		propertyCode.sendKeys(e.getCellData("Sheet1","PropCode",5));
+		propertyCode.sendKeys(ExcelData.getCellData("Sheet1","PropCode",5));
 		save.click();
 		addProperty.click();
-		propertyCode.sendKeys(e.getCellData("Sheet1","PropCode",6));
+		propertyCode.sendKeys(ExcelData.getCellData("Sheet1","PropCode",6));
 		save.click();
 		return null;
 	}
@@ -139,7 +136,7 @@ public class AlternatePropertiesPage extends AbstractBasePage {
 	 */
     public AlternatePropertiesPage clickLastCheckBox() {
 		lastCheckBox.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
     
@@ -149,16 +146,16 @@ public class AlternatePropertiesPage extends AbstractBasePage {
 	public AlternatePropertiesPage clickMultipleCheckBox() {
 		
 		checkBox1.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		checkBox2.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		checkBox3.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		checkBox4.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	
@@ -168,7 +165,7 @@ public class AlternatePropertiesPage extends AbstractBasePage {
     public AlternatePropertiesPage clickDeleteButton(){
 		delete.click();
 		driver.switchTo().alert().accept();
-		TestBase.implict(5);
+		Helper.implict(5);
 		return null;
 	}
 

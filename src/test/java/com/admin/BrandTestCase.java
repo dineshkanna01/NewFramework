@@ -120,9 +120,4 @@ public class BrandTestCase extends TestBase{
 		lp.logout();
 	}
 
-	@AfterSuite
-	public void report() throws Exception {
-		mail();
-		cmdPrompt();
-	}
 }

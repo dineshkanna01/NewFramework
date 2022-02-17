@@ -18,7 +18,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -61,12 +60,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -74,10 +71,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
@@ -134,6 +127,7 @@ public class TestBase {
 	}
 
 	//	Method to initilize the browser based on the parameter set in the properties file - Booking Engine Url
+	@SuppressWarnings("deprecation")
 	public static void initilization() {
 		String browserName = prop.getProperty("browser");
 		if (browserName.equals("chrome")) {
@@ -158,6 +152,7 @@ public class TestBase {
 	}
 
 	//	Method to initilize the browser based on the parameter set in the properties file - Admin Portal Url
+	@SuppressWarnings("deprecation")
 	public static void initilization_Admin() {
 		String browserName = prop.getProperty("browser");
 		if (browserName.equals("chrome")) {
@@ -194,6 +189,7 @@ public class TestBase {
 	}
 
 	//	Method to initilize the browser based on the parameter set in the properties file - Gmail Url
+	@SuppressWarnings("deprecation")
 	public static void initilization_Gmail() {
 		String browserName = prop.getProperty("browser");
 		if (browserName.equals("chrome")) {
@@ -217,6 +213,7 @@ public class TestBase {
 		getDriver().get("https://accounts.google.com/signin/v2/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F%26ogbl%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin");
 	}
 
+	@SuppressWarnings("deprecation")
 	public static void initGmail() {
 		WebDriverManager.chromedriver().setup();
 		tdriver.set(new ChromeDriver());
@@ -228,6 +225,7 @@ public class TestBase {
 	}
 
 	//	Initilize the Multibrowser for Booking engine Url
+	@SuppressWarnings("deprecation")
 	public static void initilizationmultibrowser(String browserName) {
 		if (browserName.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -247,6 +245,7 @@ public class TestBase {
 	}
 
 	//	It is used for Selenium Grid Hub and Host launch for multiple system
+	@SuppressWarnings("deprecation")
 	public static void setUp() {
 		if (portNo.equalsIgnoreCase("4455")) {
 			nodeURL = "http://192.168.1.5:4455/wd/hub";
@@ -290,6 +289,7 @@ public class TestBase {
 	}
 
 	//	Mobile responsive testing and it is for change dimension of width and heigth of the screen
+	@SuppressWarnings("deprecation")
 	public static void mobileTest(String emulation, int w, int h) throws Exception {
 		WebDriverManager.chromedriver().setup();
 		Map<String, String> deviceMobEmu= new HashMap<String, String>();
@@ -468,7 +468,6 @@ public class TestBase {
 		}
 
 		//		getDriver().quit();
-
 		extent.endTest(extentTest); //ending test and ends the current test and prepare to create html report
 	}
 	
@@ -528,6 +527,7 @@ public class TestBase {
 	}
 
 
+	@SuppressWarnings("static-access")
 	static String BASE_URL = ConfigManager.getInstance().getString("base_url");
 
 	//	RestAssured for API Rest Calls
@@ -627,19 +627,20 @@ public class TestBase {
 			e.printStackTrace();
 		}
 
+		@SuppressWarnings("unused")
 		OkHttpClient client = new OkHttpClient().newBuilder()
 				.build();
 
 	}
 	// Booking Engine Url and Switching the tabs
-	public void openBEurlinNewTab() {
-		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
-		String a = "window.open('about:blank','_blank');";
-		((JavascriptExecutor) getDriver()).executeScript(a);
-		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
-		getDriver().switchTo().window(tab.get(1));
-		getDriver().get("https://alh.qa-igt.reztrip3-qa.com/");
-	}
+//	public void openBEurlinNewTab() {
+//		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
+//		String a = "window.open('about:blank','_blank');";
+//		((JavascriptExecutor) getDriver()).executeScript(a);
+//		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
+//		getDriver().switchTo().window(tab.get(1));
+//		getDriver().get("https://alh.qa-igt.reztrip3-qa.com/");
+//	}
 
 	// Booking Engine UrlParameter and Switching the tabs
 	public static void openBEUrlParameter() {
@@ -652,15 +653,15 @@ public class TestBase {
 				+ "Blast&utm_medium=Email&utm_term=Offer&utm_campaign=August-2021-Email-Blast\r\n");
 	}
 
-	public void openBEurlinNewTabJCC() {
-		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
-		String a = "window.open('about:blank','_blank');";
-		((JavascriptExecutor) getDriver()).executeScript(a);
-		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
-		getDriver().switchTo().window(tab.get(1));
-		// getDriver().get("https://alh.qa-igt.reztrip3-qa.com/");
-		getDriver().get("https://h1qa1.qa-igt.reztrip3-qa.com/");
-	}
+//	public void openBEurlinNewTabJCC() {
+//		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
+//		String a = "window.open('about:blank','_blank');";
+//		((JavascriptExecutor) getDriver()).executeScript(a);
+//		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
+//		getDriver().switchTo().window(tab.get(1));
+//		// getDriver().get("https://alh.qa-igt.reztrip3-qa.com/");
+//		getDriver().get("https://h1qa1.qa-igt.reztrip3-qa.com/");
+//	}
 
 	public void openURL(String url) {
 		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
@@ -674,25 +675,25 @@ public class TestBase {
 	
 //	https://westinsep.qa-igt.reztrip3-qa.com/
 	
-	public void openBEurlinNewTab1() {
-		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
-		String a = "window.open('about:blank','_blank');";
-		((JavascriptExecutor) getDriver()).executeScript(a);
-		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
-		getDriver().switchTo().window(tab.get(1));
-		getDriver().get("https://westinsep.qa-igt.reztrip3-qa.com/");
-	}
+//	public void openBEurlinNewTab1() {
+//		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
+//		String a = "window.open('about:blank','_blank');";
+//		((JavascriptExecutor) getDriver()).executeScript(a);
+//		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
+//		getDriver().switchTo().window(tab.get(1));
+//		getDriver().get("https://westinsep.qa-igt.reztrip3-qa.com/");
+//	}
 	
 //	https://mio.qa-igt.reztrip3-qa.com/
 	
-	public void openBEurlinNewTab2() {
-		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
-		String a = "window.open('about:blank','_blank');";
-		((JavascriptExecutor) getDriver()).executeScript(a);
-		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
-		getDriver().switchTo().window(tab.get(1));
-		getDriver().get("https://mio.qa-igt.reztrip3-qa.com/");
-	}
+//	public void openBEurlinNewTab2() {
+//		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
+//		String a = "window.open('about:blank','_blank');";
+//		((JavascriptExecutor) getDriver()).executeScript(a);
+//		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
+//		getDriver().switchTo().window(tab.get(1));
+//		getDriver().get("https://mio.qa-igt.reztrip3-qa.com/");
+//	}
 
 	public void refreshBEJCC() {
 		getDriver().get("https://h1qa1.qa-igt.reztrip3-qa.com/");

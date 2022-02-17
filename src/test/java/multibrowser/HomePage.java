@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import base.Helper;
 import base.TestBase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -61,7 +62,7 @@ public class HomePage extends TestBase{
 	public void firstpage() throws Exception {
 		logger.info("Booking Started");
 		bp.firstPage();
-		implict(8);
+		Helper.implict(8);
 		bp.secondpage();
 		bp.thirdPage("5425233430109903");
 		bp.confirmPage();

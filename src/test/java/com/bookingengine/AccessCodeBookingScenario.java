@@ -12,6 +12,7 @@ import com.admin.pom.LoginPage;
 import com.be.pom.AccessCodeBookingPage;
 
 import Utility.ExcelData;
+import base.Helper;
 import base.TestBase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -31,7 +32,6 @@ import logfile.Utilitylog;
 public class AccessCodeBookingScenario extends TestBase {
 
 	public static Utilitylog logger;
-	ExcelData e = new ExcelData();
 
 	public AccessCodeBookingScenario() {
 		super();
@@ -61,12 +61,12 @@ public class AccessCodeBookingScenario extends TestBase {
 	public void manageAccessCodeBookingsScenario_TC_01() {
 		
 		extentTest = extent.startTest("manageAccessCodeBookingsScenario_TC_01");
-		openBEurlinNewTab2();
+		openURL("be_url3");
 		acb.AccessCodeRatePlanInBE();
 		acb.scrollDownTen();
 		allureScreenshot("AccessCodeRatePlanNotdisplaying");
 		screenShot("AccessCodeRatePlanNotdisplaying");
-		switchWindow(0);
+		Helper.switchWindow(0);
 		lp.clickClearButton();
 		lp.login();
 		ahp.selectBrand();
@@ -74,7 +74,7 @@ public class AccessCodeBookingScenario extends TestBase {
 		acb.createAccessCode();
 		allureScreenshot("AccessCodeCreated");
 		screenShot("AccessCodeCreated");
-		switchWindow(1);
+		Helper.switchWindow(1);
 		getDriver().navigate().back();
 		acb.AccessCodeRatePlanInBE();
 		acb.scrollDownFive();	
@@ -82,7 +82,7 @@ public class AccessCodeBookingScenario extends TestBase {
 		screenShot("AccessCodeRatePlandisplaying");
 		Assert.assertTrue(acb.verifyAccessCodeRatePlan());
 		getDriver().close();
-		switchWindow(0);
+		Helper.switchWindow(0);
 
 	}
 
@@ -97,7 +97,7 @@ public class AccessCodeBookingScenario extends TestBase {
 
 		extentTest = extent.startTest("manageAccessCodeBookingsScenario_TC_02");
 		acb.clickOnCreatedAccessCodeURL();
-		switchWindow(1);
+		Helper.switchWindow(1);
 		allureScreenshot("AccessCodeURLOpen");
 		screenShot("AccessCodeURLOpen");
 		acb.goToCreatedAccessCodeURL();
@@ -105,8 +105,9 @@ public class AccessCodeBookingScenario extends TestBase {
 		allureScreenshot("ReservationSuccessful");
 		screenShot("ReservationSuccessful");
 		getDriver().close();
-		switchWindow(0);
-		openBEurlinNewTab2();
+		Helper.switchWindow(0);
+//		openBEurlinNewTab2();
+		openURL("be_url3");
 		
 	}
 
@@ -125,12 +126,12 @@ public class AccessCodeBookingScenario extends TestBase {
 		js.executeScript("window.scrollBy(0,500)");
 		allureScreenshot("AccessCodeRatePlanbeforeEdit");
 		screenShot("AccessCodeRatePlanbeforeEdit");
-		switchWindow(0);
+		Helper.switchWindow(0);
 		acb.editCreatedAccessCode();
 		Assert.assertTrue(acb.verifyAccessCodeEdited());
 		allureScreenshot("AccessCodeNameEdied");
 		screenShot("AccessCodeNameEdied");
-		switchWindow(1);
+		Helper.switchWindow(1);
 		getDriver().navigate().back();
 		acb.EditedAccessCodeRatePlanInBE();
 		js.executeScript("window.scrollBy(0,500)"); 
@@ -150,7 +151,7 @@ public class AccessCodeBookingScenario extends TestBase {
 	public void manageAccessCodeBookingsScenario_TC_04() {
 		
 		extentTest = extent.startTest("manageAccessCodeBookingsScenario_TC_04");	
-		switchWindow(0);
+		Helper.switchWindow(0);
 		acb.deleteCreatedAccessCodeURL();
 		Assert.assertTrue(acb.verifyAccessCodeDeleted());
 		allureScreenshot("AccessCodeRatePlanDeleted");
@@ -159,11 +160,4 @@ public class AccessCodeBookingScenario extends TestBase {
 
 	}
 
-
-
-	@AfterSuite
-	public void report() throws Exception {
-		mail();
-		cmdPrompt();
-	}
 }

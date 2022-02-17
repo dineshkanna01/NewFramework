@@ -252,11 +252,4 @@ public class SearchReservationReport extends TestBase {
 
 	}
 
-
-	@AfterSuite
-	public void report() throws Exception {
-		mail();
-		cmdPrompt();
-	}
-	
 }

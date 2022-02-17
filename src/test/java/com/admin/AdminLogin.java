@@ -160,10 +160,5 @@ public class AdminLogin extends TestBase{
 		lp.browserClose();
 	}
 
-	@AfterSuite
-	public void report() throws Exception {
-		mail();
-		cmdPrompt();
-	}
 
 }

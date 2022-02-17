@@ -17,7 +17,6 @@ import base.TestBase;
  * @author Sudhakar Mourya
  */
 public class Add6RoomsCreationTest extends TestBase {
-	ExcelData e = new ExcelData();
 	LoginPage lp;
 	AdministratorHomePage ahp;
 	Add6RoomsCreationPage arcp;
@@ -61,37 +60,37 @@ public class Add6RoomsCreationTest extends TestBase {
 						
 		}
 		try {
-			soft.assertTrue(arcp.verifyadd6RoomCreation_TC01(e.getCellData("Sheet1","roomName",2)));
+			soft.assertTrue(arcp.verifyadd6RoomCreation_TC01(ExcelData.getCellData("Sheet1","roomName",2)));
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		try {
-			soft.assertTrue(arcp.verifyadd6RoomCreation_TC01(e.getCellData("Sheet1","roomName",5)));
+			soft.assertTrue(arcp.verifyadd6RoomCreation_TC01(ExcelData.getCellData("Sheet1","roomName",5)));
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		try {
-			soft.assertTrue(arcp.verifyadd6RoomCreation_TC01(e.getCellData("Sheet1","roomName",3)));
+			soft.assertTrue(arcp.verifyadd6RoomCreation_TC01(ExcelData.getCellData("Sheet1","roomName",3)));
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		try {
-			soft.assertTrue(arcp.verifyadd6RoomCreation_TC01(e.getCellData("Sheet1","roomName",4)));
+			soft.assertTrue(arcp.verifyadd6RoomCreation_TC01(ExcelData.getCellData("Sheet1","roomName",4)));
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		try {
-			soft.assertTrue(arcp.verifyadd6RoomCreation_TC01(e.getCellData("Sheet1","roomName",6)));
+			soft.assertTrue(arcp.verifyadd6RoomCreation_TC01(ExcelData.getCellData("Sheet1","roomName",6)));
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		try {
-			soft.assertTrue(arcp.verifyadd6RoomCreation_TC01(e.getCellData("Sheet1","roomName",7)));
+			soft.assertTrue(arcp.verifyadd6RoomCreation_TC01(ExcelData.getCellData("Sheet1","roomName",7)));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -131,9 +130,9 @@ public class Add6RoomsCreationTest extends TestBase {
 	 public void add6RoomsCreation_TC_03(){
 		extentTest = extent.startTest("add6RoomsCreation_TC_03");
 		  ahp.clickOnAddNew();
-		  arcp.enterRoomName(e.getCellData("Sheet1","roomName",8));
-		  arcp.enterRoomCode(e.getCellData("Sheet1","roomCode",8));
-		  arcp. entergdsCode(e.getCellData("Sheet1","gdsCode",8));
+		  arcp.enterRoomName(ExcelData.getCellData("Sheet1","roomName",8));
+		  arcp.enterRoomCode(ExcelData.getCellData("Sheet1","roomCode",8));
+		  arcp. entergdsCode(ExcelData.getCellData("Sheet1","gdsCode",8));
 		  arcp.clickOnBigsizeBed();
 		  try {
 			arcp.uploadImage();
@@ -156,7 +155,7 @@ public class Add6RoomsCreationTest extends TestBase {
 		  arcp.clickOnYes();
 		  allureScreenshot("Room Deleted");
 		  try {
-			soft.assertTrue(arcp.verifyadd6RoomCreation_TC03(e.getCellData("Sheet1","roomName",8)));
+			soft.assertTrue(arcp.verifyadd6RoomCreation_TC03(ExcelData.getCellData("Sheet1","roomName",8)));
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -172,9 +171,9 @@ public class Add6RoomsCreationTest extends TestBase {
 	public void add6RoomsCreation_TC_04(){
 		  extentTest = extent.startTest("add6RoomsCreation_TC_04");
 		  ahp.clickOnAddNew();
-		  arcp.enterRoomName(e.getCellData("Sheet1","roomName",9));
-		  arcp.enterRoomCode(e.getCellData("Sheet1","roomCode",9));
-		  arcp. entergdsCode(e.getCellData("Sheet1","gdsCode",9));
+		  arcp.enterRoomName(ExcelData.getCellData("Sheet1","roomName",9));
+		  arcp.enterRoomCode(ExcelData.getCellData("Sheet1","roomCode",9));
+		  arcp. entergdsCode(ExcelData.getCellData("Sheet1","gdsCode",9));
 		  arcp.clickOnBigsizeBed();
 		  try {
 			arcp.uploadImage();

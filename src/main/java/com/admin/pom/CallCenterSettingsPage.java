@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utility.ExcelData;
-import base.TestBase;
+import base.Helper;
 import pages.AbstractBasePage;
 
 /*
@@ -15,7 +15,6 @@ import pages.AbstractBasePage;
  * @author Sudhakar Mourya
  */
 public class CallCenterSettingsPage extends AbstractBasePage {
-	ExcelData e = new ExcelData();
 
 	public CallCenterSettingsPage(WebDriver driver) {
 		super(driver);
@@ -41,8 +40,8 @@ public class CallCenterSettingsPage extends AbstractBasePage {
 	 * Method for enter announcement msg
 	 */
 	public CallCenterSettingsPage enterAnnouncementMsg(){
-		announcementMsg.sendKeys(e.getCellData("Sheet1","announcementMsg",2));
-		TestBase.implict(5);
+		announcementMsg.sendKeys(ExcelData.getCellData("Sheet1","announcementMsg",2));
+		Helper.implict(5);
 		return null;
 	}
 

@@ -251,9 +251,4 @@ public class ChannelTestCases extends TestBase{
 		lp.logout();
 	}
 
-	@AfterSuite
-	public void report() throws Exception {
-		mail();
-		cmdPrompt();
-	}
 }

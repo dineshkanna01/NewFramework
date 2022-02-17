@@ -31,7 +31,6 @@ import logfile.Utilitylog;
 public class URLParameterBookingsScenario extends TestBase {
 
 	public static Utilitylog logger;
-	ExcelData e = new ExcelData();
 
 	public URLParameterBookingsScenario() {
 		super();
@@ -128,12 +127,6 @@ public class URLParameterBookingsScenario extends TestBase {
 		screenShot("Reservation2Successful");
 		Assert.assertTrue(upb.verifyReservation2Successful());
 		lp.browserClose();
-	}
-
-	@AfterSuite
-	public void report() throws Exception {
-		mail();
-		cmdPrompt();
 	}
 
 }

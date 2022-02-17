@@ -4,10 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
 import Utility.ExcelData;
-import base.TestBase;
+import base.Helper;
 import pages.AbstractBasePage;
 
 /*
@@ -16,7 +15,6 @@ import pages.AbstractBasePage;
  */
 public class TaxesAndFeesPage extends AbstractBasePage {
 	
-	ExcelData e = new ExcelData();
 	public WebDriver driver;
 
 	public TaxesAndFeesPage(WebDriver driver) {
@@ -119,7 +117,7 @@ public class TaxesAndFeesPage extends AbstractBasePage {
 	 */
 	public TaxesAndFeesPage clickOnOKDelete()  {
 		deleteOK.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -129,7 +127,7 @@ public class TaxesAndFeesPage extends AbstractBasePage {
 	 */
 	public TaxesAndFeesPage clickTaxesAndFees()  {
 		taxesAndFees.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -139,7 +137,7 @@ public class TaxesAndFeesPage extends AbstractBasePage {
 	 */
 	public TaxesAndFeesPage clickaddNewTaxtoProperty()  {
 		addNewTaxtoProperty.click();
-		TestBase.implict(3);	
+		Helper.implict(3);	
 		return null;
 	}
 
@@ -149,7 +147,7 @@ public class TaxesAndFeesPage extends AbstractBasePage {
 
 	public TaxesAndFeesPage clickSave()  {
 		save.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -160,7 +158,7 @@ public class TaxesAndFeesPage extends AbstractBasePage {
 	public AboutThePropertyPages clickDeleteTax()  {
 		taxDeleteCode.click();
 		taxDeletButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -187,12 +185,12 @@ public class TaxesAndFeesPage extends AbstractBasePage {
 
 	public TaxesAndFeesPage addtax()  {
 
-		addTaxName.sendKeys(e.getCellData("Taxes", "TaxName", 2));
-		code.sendKeys(e.getCellData("Taxes", "TaxCode", 2));
+		addTaxName.sendKeys(ExcelData.getCellData("Taxes", "TaxName", 2));
+		code.sendKeys(ExcelData.getCellData("Taxes", "TaxCode", 2));
 		feeRadioButton.click();
 		stayChargeFrequencyRadioButton.click();
 		personChargeBasisRadioButton.click();
-		chargeAmount.sendKeys(e.getCellData("Taxes", "ChargeAmount", 2));
+		chargeAmount.sendKeys(ExcelData.getCellData("Taxes", "ChargeAmount", 2));
 		flatFeeChargeTypeRadioButton.click();
 		dayOfweekApplicableWednesday.click();
 		dayOfweekApplicableSaturday.click();
@@ -223,12 +221,12 @@ public class TaxesAndFeesPage extends AbstractBasePage {
 
 	public TaxesAndFeesPage updateTheTaxName()  {
 
-		addTaxName.sendKeys(e.getCellData("Taxes", "TaxName2", 2));
-		code.sendKeys(e.getCellData("Taxes", "TaxCode2", 2));
+		addTaxName.sendKeys(ExcelData.getCellData("Taxes", "TaxName2", 2));
+		code.sendKeys(ExcelData.getCellData("Taxes", "TaxCode2", 2));
 		feeRadioButton.click();
 		dayChargeFrequencyRadioButton.click();
 		roomChargeBasisRadioButton.click();
-		chargeAmount.sendKeys(e.getCellData("Taxes", "ChargeAmount2", 2));
+		chargeAmount.sendKeys(ExcelData.getCellData("Taxes", "ChargeAmount2", 2));
 		flatFeeChargeTypeRadioButton.click();
 		dayOfweekApplicableAll.click();
 		return null;
@@ -243,7 +241,7 @@ public class TaxesAndFeesPage extends AbstractBasePage {
 	public boolean verifyCreatedTaxForEdit()  {
 		String ActText = editTax.getText();
 		System.out.println(ActText+" Actual Text");
-		String expText=(e.getCellData("Taxes", "TaxName2", 2));
+		String expText=(ExcelData.getCellData("Taxes", "TaxName2", 2));
 		System.out.println(expText+" "+"ExpectedText");
 		if (ActText.equals(expText)) {
 			System.out.println(" Tax  created");
@@ -262,10 +260,10 @@ public class TaxesAndFeesPage extends AbstractBasePage {
 		String ActText = editTax.getText();
 		ActText = ActText.replaceAll("\\s+", "");
 		System.out.println(ActText+" Actual Text");
-		String expText=(e.getCellData("Taxes", "TaxName2", 2));
+		String expText=(ExcelData.getCellData("Taxes", "TaxName2", 2));
 		System.out.println(expText+" "+"ExpectedText");
 
-		//String expText = e.getCellDataAnk("Dining2", "VerifyDistance6", 2);
+		//String expText = ExcelData.getCellDataAnk("Dining2", "VerifyDistance6", 2);
 		//expText = expText.replaceAll("\\s+", "");
 
 		if (ActText.equalsIgnoreCase(expText)) {
@@ -283,9 +281,9 @@ public class TaxesAndFeesPage extends AbstractBasePage {
 	 */
 	public AboutThePropertyPages editTheCreatedTax()  {
 		editTax.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		addTaxName.clear();
-		addTaxName.sendKeys(e.getCellData("Taxes", "TaxName3", 2));
+		addTaxName.sendKeys(ExcelData.getCellData("Taxes", "TaxName3", 2));
 
 		return null;
 
@@ -300,7 +298,7 @@ public class TaxesAndFeesPage extends AbstractBasePage {
 
 		editTax.click();
 		chargeAmount.clear();
-		chargeAmount.sendKeys(e.getCellData("Taxes", "ChargeAmount", 2));
+		chargeAmount.sendKeys(ExcelData.getCellData("Taxes", "ChargeAmount", 2));
 
 		return null;
 
@@ -318,7 +316,7 @@ public class TaxesAndFeesPage extends AbstractBasePage {
 		System.out.println(ActText+" Actual Text");
 
 
-		String expText = e.getCellData("Taxes", "ChargeAmount", 2);          
+		String expText = ExcelData.getCellData("Taxes", "ChargeAmount", 2);          
 		expText = expText.replaceAll("\\s+", "");
 
 		if (ActText.equalsIgnoreCase(expText)) {
@@ -336,12 +334,12 @@ public class TaxesAndFeesPage extends AbstractBasePage {
 	 */
 	public TaxesAndFeesPage addTaxToEditChargeFrequency()  {
 
-		addTaxName.sendKeys(e.getCellData("Taxes", "TaxName4", 2));
-		code.sendKeys(e.getCellData("Taxes", "TaxCode4", 2));
+		addTaxName.sendKeys(ExcelData.getCellData("Taxes", "TaxName4", 2));
+		code.sendKeys(ExcelData.getCellData("Taxes", "TaxCode4", 2));
 		feeRadioButton.click();
 		stayChargeFrequencyRadioButton.click();
 		personChargeBasisRadioButton.click();
-		chargeAmount.sendKeys(e.getCellData("Taxes", "ChargeAmount4", 2));
+		chargeAmount.sendKeys(ExcelData.getCellData("Taxes", "ChargeAmount4", 2));
 		flatFeeChargeTypeRadioButton.click();
 		dayOfweekApplicableWednesday.click();
 		dayOfweekApplicableSaturday.click();
@@ -357,7 +355,7 @@ public class TaxesAndFeesPage extends AbstractBasePage {
 	public boolean verifyCreatedTaxForEditChargeFreqency()  {
 		String ActText = editTax.getText();
 		System.out.println(ActText+" Actual Text");
-		String expText=(e.getCellData("Taxes", "TaxName4", 2));
+		String expText=(ExcelData.getCellData("Taxes", "TaxName4", 2));
 		System.out.println(expText+" "+"ExpectedText");
 		if (ActText.equals(expText)) {
 			System.out.println(" Tax  created");
@@ -394,7 +392,7 @@ public class TaxesAndFeesPage extends AbstractBasePage {
 		String ActText = taxFrequency.getText();
 		ActText = ActText.replaceAll("\\s+", "");
 		System.out.println(ActText+" Actual Text");
-		String expText=(e.getCellData("Taxes", "TaxFrequency4", 2));
+		String expText=(ExcelData.getCellData("Taxes", "TaxFrequency4", 2));
 		System.out.println(expText+" "+"ExpectedText");
 
 
@@ -429,7 +427,7 @@ public class TaxesAndFeesPage extends AbstractBasePage {
 		String ActText = taxBasis.getText();
 		ActText = ActText.replaceAll("\\s+", " ");
 		System.out.println(ActText+" Actual Text");
-		String expText=(e.getCellData("Taxes", "TaxBasis4", 2));
+		String expText=(ExcelData.getCellData("Taxes", "TaxBasis4", 2));
 		System.out.println(expText+" "+"ExpectedText");
 
 		if (ActText.equalsIgnoreCase(expText)) {

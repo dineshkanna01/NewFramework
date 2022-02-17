@@ -518,10 +518,5 @@ public class RatePlanGrid extends TestBase{
 
 	}
 
-	@AfterSuite
-	public void report() throws Exception {
-		mail();
-		cmdPrompt();
-	}
 
 }

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import Utility.ExcelData;
-import base.TestBase;
+import base.Helper;
 import pages.AbstractBasePage;
 
 /*
@@ -15,7 +15,6 @@ import pages.AbstractBasePage;
  * @author Sudhakar Mourya
  */
 public class RoomHierarchyPage extends AbstractBasePage {
-	ExcelData e = new ExcelData();
 
 	public RoomHierarchyPage(WebDriver driver) {
 		super(driver);
@@ -49,8 +48,8 @@ public class RoomHierarchyPage extends AbstractBasePage {
 	 */
 	public RoomHierarchyPage selectBaseroom(){
 		Select s=new Select(baseRoom);
-		s.selectByVisibleText(e.getCellData("Sheet1","baseRoom",2));
-		TestBase.implict(3);
+		s.selectByVisibleText(ExcelData.getCellData("Sheet1","baseRoom",2));
+		Helper.implict(3);
 		return null;
 	}
 	
@@ -64,8 +63,8 @@ public class RoomHierarchyPage extends AbstractBasePage {
 	 * Method for enter start date1
 	 */
 	public RoomHierarchyPage enterStarDate1() {
-		startDate.sendKeys(e.getCellData("Sheet1","dateIn",2));
-		TestBase.implict(3);
+		startDate.sendKeys(ExcelData.getCellData("Sheet1","dateIn",2));
+		Helper.implict(3);
 		return null;
 	}
 
@@ -73,8 +72,8 @@ public class RoomHierarchyPage extends AbstractBasePage {
 	 * Method for enter start date2
 	 */
 	public RoomHierarchyPage enterStarDate2(){
-		startDate.sendKeys(e.getCellData("Sheet1","dateIn",3));
-		TestBase.implict(3);
+		startDate.sendKeys(ExcelData.getCellData("Sheet1","dateIn",3));
+		Helper.implict(3);
 		return null;
 	}
 
@@ -82,8 +81,8 @@ public class RoomHierarchyPage extends AbstractBasePage {
 	 * Method for enter end date1
 	 */
 	public RoomHierarchyPage enterEndDate1(){
-		endDate.sendKeys(e.getCellData("Sheet1","dateOut",2));
-		TestBase.implict(3);
+		endDate.sendKeys(ExcelData.getCellData("Sheet1","dateOut",2));
+		Helper.implict(3);
 		return null;
 	}
 
@@ -91,8 +90,8 @@ public class RoomHierarchyPage extends AbstractBasePage {
 	 * Method for enter end date2
 	 */
 	public RoomHierarchyPage enterEndDate2(){
-		endDate.sendKeys(e.getCellData("Sheet1","dateOut",3));
-		TestBase.implict(3);
+		endDate.sendKeys(ExcelData.getCellData("Sheet1","dateOut",3));
+		Helper.implict(3);
 		return null;
 	}
 
@@ -101,7 +100,7 @@ public class RoomHierarchyPage extends AbstractBasePage {
 	 */
 	public RoomHierarchyPage clickOnSave(){
 		Save.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 

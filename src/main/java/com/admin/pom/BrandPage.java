@@ -4,14 +4,12 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import Utility.ExcelData;
-import base.TestBase;
+import base.Helper;
 import pages.AbstractBasePage;
 
 /*
@@ -20,8 +18,6 @@ import pages.AbstractBasePage;
 */
 public class BrandPage extends AbstractBasePage {
 	
-	ExcelData e = new ExcelData();
-
 	@FindBy(xpath = "//*[text()='Brands']")
 	WebElement brands;
 	
@@ -69,9 +65,9 @@ public class BrandPage extends AbstractBasePage {
 	 */
 	
 	public void openBrands(){
-		TestBase.implict(3);
+		Helper.implict(3);
 		brands.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 	}
 
 	/*
@@ -79,20 +75,20 @@ public class BrandPage extends AbstractBasePage {
 	 */
 	
 	public BrandPage createNewBrand() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		addBrand.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		DateFormat dateFormat = new SimpleDateFormat("mmss");
 		Date date = new Date();
 		String strDate = dateFormat.format(date);
 		String f1 ="Uz"+strDate;
 		System.out.println(f1);
 		brandName.sendKeys(f1);
-		TestBase.implict(3);
+		Helper.implict(3);
 		brandCode.sendKeys(f1);
-		TestBase.implict(3);
+		Helper.implict(3);
 		saveButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -116,7 +112,7 @@ public class BrandPage extends AbstractBasePage {
 	 */
 	
 	public BrandPage duplicateBrand(){
-		TestBase.implict(3);
+		Helper.implict(3);
 		editBrand.click();
 		String s = brandName.getAttribute("value");
 		String c = brandCode.getAttribute("value");
@@ -124,13 +120,13 @@ public class BrandPage extends AbstractBasePage {
 		System.out.println(c);
 		driver.navigate().back();
 		addBrand.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		brandName.sendKeys(s);
-		TestBase.implict(3);
+		Helper.implict(3);
 		brandCode.sendKeys(c);
-		TestBase.implict(3);
+		Helper.implict(3);
 		saveButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -139,9 +135,9 @@ public class BrandPage extends AbstractBasePage {
 	 */
 	
 	public BrandPage cancelButton(){
-		TestBase.implict(3);
+		Helper.implict(3);
 		cancelButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -161,17 +157,17 @@ public class BrandPage extends AbstractBasePage {
 	 */
 	
 	public BrandPage blankBrandName(){
-		TestBase.implict(3);
+		Helper.implict(3);
 		addBrand.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		DateFormat dateFormat = new SimpleDateFormat("mmss");
 		Date date = new Date();
 		String strDate = dateFormat.format(date);
 		String f1 ="Uz"+strDate;
 		brandCode.sendKeys(f1);
-		TestBase.implict(3);
+		Helper.implict(3);
 		saveButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -191,9 +187,9 @@ public class BrandPage extends AbstractBasePage {
 	 */
 	
 	public BrandPage brandSelect() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		selectBrand.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 }

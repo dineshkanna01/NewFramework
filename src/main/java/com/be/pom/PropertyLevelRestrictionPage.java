@@ -1,20 +1,16 @@
 package com.be.pom;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utility.ExcelData;
+import base.Helper;
 import base.TestBase;
-import pages.AbstractBasePage;
 
 /*
 * POM class to Apply Property Level Restriction
@@ -22,8 +18,6 @@ import pages.AbstractBasePage;
 */
 
 public class PropertyLevelRestrictionPage extends TestBase {
-
-	ExcelData e = new ExcelData();
 
 	@FindBy(id = "search_arrival_date")
 	WebElement checkInCalander;
@@ -102,14 +96,14 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage availabilityCheck() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		checkInCalander.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		checkInDate.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		checkAvailability.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -118,11 +112,11 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage availabilityCheckDates() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		checkInCalander.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		checkInDate.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -142,7 +136,7 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage adminPropertyYeildRestriction() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		adminPropertyYieldRestrictionOption.click();
 		return null;
 	}
@@ -152,7 +146,7 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage adminDoNotAllowOption() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		adminDoNotAllowOption.click();
 		return null;
 	}
@@ -162,7 +156,7 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage adminSave() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		adminSaveButton.click();
 		return null;
 	}
@@ -172,7 +166,7 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage adminAllowOption() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		adminAllowOption.click();
 		return null;
 	}
@@ -183,7 +177,7 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public String verifyNoBookingText() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		String s = errorText.getText();
 		String subS = s.substring(0, 43);
 		System.out.println("Error Text: " + subS);
@@ -195,13 +189,13 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage adminDoNotAllowAfterOption() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		adminDoNotAllowAfterOption.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		minOption.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		minSelect.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -210,13 +204,13 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage adminImposeMaxLOS() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		adminMaxLOSY.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		adminInputMaxLOS.clear();
-		TestBase.implict(3);
-		adminInputMaxLOS.sendKeys(e.getCellData("PropertyRestriction", "MaxLOS", 2));
-		TestBase.implict(3);
+		Helper.implict(3);
+		adminInputMaxLOS.sendKeys(ExcelData.getCellData("PropertyRestriction", "MaxLOS", 2));
+		Helper.implict(3);
 		return null;
 	}
 
@@ -225,31 +219,31 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage availabilityCheckForMaxLOS() throws InterruptedException {
-		TestBase.implict(3);
+		Helper.implict(3);
 		Thread.sleep(2000);
 		checkInCalander.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		checkInDate.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		String Date = checkInCalander.getAttribute("value");
 		System.out.println(Date);
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 		Calendar c = Calendar.getInstance();
-		int m = Integer.valueOf(e.getCellData("PropertyRestriction", "MaxLOS", 2));
+		int m = Integer.valueOf(ExcelData.getCellData("PropertyRestriction", "MaxLOS", 2));
 		c.add(Calendar.DAY_OF_MONTH, (m + 1));
 		String newDate = sdf.format(c.getTime());
 		System.out.println(newDate);
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		checkOutCalander.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		checkOutCalander.clear();
 		checkOutCalander.sendKeys(newDate);
 		Thread.sleep(3000);
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		checkAvailability.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -268,7 +262,7 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage adminRemoverMaxLOS() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		adminMaxLOSN.click();
 		adminInputMaxLOS.clear();
 		return null;
@@ -279,8 +273,8 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage adminMinLeadTime() {
-		TestBase.implict(3);
-		adminMinLeadTime.sendKeys(e.getCellData("PropertyRestriction", "MinLeadTime", 2));
+		Helper.implict(3);
+		adminMinLeadTime.sendKeys(ExcelData.getCellData("PropertyRestriction", "MinLeadTime", 2));
 		return null;
 	}
 
@@ -289,7 +283,7 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage adminMinLeadTimeClear() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		adminMinLeadTime.clear();
 		return null;
 	}
@@ -299,7 +293,7 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage adminMaxLeadTimeClear() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		adminMaxLeadTime.clear();
 		return null;
 	}
@@ -309,8 +303,8 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage adminMaxLeadTime() {
-		TestBase.implict(3);
-		adminMaxLeadTime.sendKeys(e.getCellData("PropertyRestriction", "MaxLeadTime", 2));
+		Helper.implict(3);
+		adminMaxLeadTime.sendKeys(ExcelData.getCellData("PropertyRestriction", "MaxLeadTime", 2));
 		return null;
 	}
 	
@@ -319,27 +313,27 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage availabilityCheckForMaxLeadTime() throws InterruptedException {
-		TestBase.implict(3);
+		Helper.implict(3);
 		Thread.sleep(2000);
 		String Date = checkInCalander.getAttribute("value");
 		System.out.println(Date);
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 		Calendar c = Calendar.getInstance();
-		int m = Integer.valueOf(e.getCellData("PropertyRestriction", "MaxLeadTime", 2));
+		int m = Integer.valueOf(ExcelData.getCellData("PropertyRestriction", "MaxLeadTime", 2));
 		c.add(Calendar.DAY_OF_MONTH, m);
 		String newDate = sdf.format(c.getTime());
 		System.out.println(newDate);
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		checkInCalander.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		checkInCalander.clear();
 		checkInCalander.sendKeys(newDate);
 		Thread.sleep(3000);
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		checkAvailability.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -348,31 +342,31 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage availabilityCheckForMinMaxLeadTime() throws InterruptedException {
-		TestBase.implict(3);
+		Helper.implict(3);
 		Thread.sleep(2000);
 		checkInCalander.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		checkInDate.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		String Date = checkInCalander.getAttribute("value");
 		System.out.println(Date);
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 		Calendar c = Calendar.getInstance();
-		int m = Integer.valueOf(e.getCellData("PropertyRestriction", "MaxLeadTime", 2));
+		int m = Integer.valueOf(ExcelData.getCellData("PropertyRestriction", "MaxLeadTime", 2));
 		c.add(Calendar.DAY_OF_MONTH, m);
 		String newDate = sdf.format(c.getTime());
 		System.out.println(newDate);
-		TestBase.implict(3);
+		Helper.implict(3);
 		
 		checkInCalander.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		checkInCalander.clear();
 		checkInCalander.sendKeys(newDate);
 		
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		checkAvailability.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -381,32 +375,32 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage availabilityCheckForMinMaxLOSLeadTime() throws InterruptedException {
-		TestBase.implict(3);
+		Helper.implict(3);
 		checkInCalander.click();
 //		checkInCalander.clear();
 		Thread.sleep(2000);
-		TestBase.implict(3);
+		Helper.implict(3);
 		checkInDate.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		String Date = checkInCalander.getAttribute("value");
 		System.out.println(Date);
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 		Calendar c = Calendar.getInstance();
-		int m = Integer.valueOf(e.getCellData("PropertyRestriction", "MaxLeadTime", 2));
+		int m = Integer.valueOf(ExcelData.getCellData("PropertyRestriction", "MaxLeadTime", 2));
 		c.add(Calendar.DAY_OF_MONTH, (m + 1));
 		String newDate = sdf.format(c.getTime());
 		System.out.println(newDate);
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		checkOutCalander.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		checkOutCalander.clear();
 		checkOutCalander.sendKeys(newDate);
 		Thread.sleep(3000);
-//		TestBase.implict(3);
+//		Helper.implict(3);
 
 		checkAvailability.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -415,32 +409,32 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage availabilityCheckForMinMaxLOSLeadTime08() throws InterruptedException {
-		TestBase.implict(3);
+		Helper.implict(3);
 		Thread.sleep(2000);
 		checkInCalander.click();
 		Thread.sleep(2000);
-//		TestBase.implict(3);
+//		Helper.implict(3);
 		checkInDate.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		String Date = checkInCalander.getAttribute("value");
 		System.out.println(Date);
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 		Calendar c = Calendar.getInstance();
-		int m = Integer.valueOf(e.getCellData("PropertyRestriction", "MinLeadTime", 2));
+		int m = Integer.valueOf(ExcelData.getCellData("PropertyRestriction", "MinLeadTime", 2));
 		c.add(Calendar.DAY_OF_MONTH, m);
 		String newDate = sdf.format(c.getTime());
 		System.out.println(newDate);
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		checkOutCalander.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		checkOutCalander.clear();
 		checkOutCalander.sendKeys(newDate);
 		Thread.sleep(3000);
-//		TestBase.implict(3);
+//		Helper.implict(3);
 
 		checkAvailability.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -449,7 +443,7 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage bookNow() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		bookNow.click();
 		return null;
 	}
@@ -459,7 +453,7 @@ public class PropertyLevelRestrictionPage extends TestBase {
 	 */
 	
 	public PropertyLevelRestrictionPage startOver() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		startOver.click();
 		return null;
 	}

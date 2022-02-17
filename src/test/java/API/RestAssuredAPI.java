@@ -11,6 +11,7 @@ import Utility.ConfigManager;
 import io.restassured.RestAssured;
 
 public class RestAssuredAPI {
+	@SuppressWarnings("static-access")
 	static String BASE_URL = ConfigManager.getInstance().getString("base_url");
 	@BeforeClass
 	public void setup() {

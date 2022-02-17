@@ -1,13 +1,11 @@
 package pages;
 
-import Utility.BrowserFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
-import base.TestBase;
+import base.Helper;
 
 public class CancelBookingPage extends AbstractBasePage{
 
@@ -51,12 +49,12 @@ public class CancelBookingPage extends AbstractBasePage{
 	
 	public CancelBookingPage cancelBooking(String code, String email) throws Exception {
 		myBooking.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		conCode.sendKeys(code);
 		conEmail.sendKeys(email);
-		TestBase.implict(3);
+		Helper.implict(3);
 		lookup.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 //		String txtCode = qtestCode.getText();
 //		Thread.sleep(1000);
 //		System.out.println("Cancellation ID: "+txtCode);

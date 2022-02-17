@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 
 import Utility.ExcelData;
-import base.TestBase;
+import base.Helper;
 import pages.AbstractBasePage;
 
 /*
@@ -17,8 +17,6 @@ import pages.AbstractBasePage;
  * @author Sudhakar Mourya
  */
 public class AmenitiesForSpecificRoomPage extends AbstractBasePage {
-	
-ExcelData e = new ExcelData();
 	
 	public AmenitiesForSpecificRoomPage(WebDriver driver) {
 		super(driver);
@@ -125,7 +123,7 @@ ExcelData e = new ExcelData();
     public AmenitiesForSpecificRoomPage deleteCommonRoomAmenity() {
     delete.click();
     driver.switchTo().alert().accept();
-    TestBase.implict(5);
+    Helper.implict(5);
     return null;
 	 }
      
@@ -135,11 +133,11 @@ ExcelData e = new ExcelData();
     public AmenitiesForSpecificRoomPage deleteAmenity() {
     delete1.click();
     driver.switchTo().alert().accept();
-    TestBase.implict(5);
+    Helper.implict(5);
     delete2.click();
-    TestBase.implict(5);
+    Helper.implict(5);
     driver.switchTo().alert().accept();
-    TestBase.implict(5);
+    Helper.implict(5);
     return null;
 	 }
     
@@ -164,7 +162,7 @@ ExcelData e = new ExcelData();
      */
     public boolean verifyAmentitiesForSpecificRoom_TC01(){
 		String actText=parking.getText();
-		String expText=e.getCellData("Sheet1","amenitiesName",2);
+		String expText=ExcelData.getCellData("Sheet1","amenitiesName",2);
     	 if(actText.equals(expText)) {
     		 System.out.println("Type-property amenities is created");
     	     return true;
@@ -180,7 +178,7 @@ ExcelData e = new ExcelData();
      */
      public boolean verifyAmentitiesForSpecificRoom_TC02(){
 			String actText=freeWifi.getText();
-			String expText=e.getCellData("Sheet1","amenitiesName",3);
+			String expText=ExcelData.getCellData("Sheet1","amenitiesName",3);
      	 if(actText.equals(expText)) {
      		 System.out.println("Type-common to all room created");
      	     return true;
@@ -196,7 +194,7 @@ ExcelData e = new ExcelData();
       */
      public boolean verifyAmentitiesForSpecificRoom_TC03(){
 			String actText=kitchenFacility.getText();
-			String expText=e.getCellData("Sheet1","amenitiesName",4);
+			String expText=ExcelData.getCellData("Sheet1","amenitiesName",4);
       	 if(actText.equals(expText)) {
       		 System.out.println("Type-specific to some room only created");
       	     return true;
@@ -212,7 +210,7 @@ ExcelData e = new ExcelData();
       */
      public boolean verifyAmentitiesForSpecificRoom_TC04(){
 			String actText=eveningSnaks.getText();
-			String expText=e.getCellData("Sheet1","amenitiesName",5);
+			String expText=ExcelData.getCellData("Sheet1","amenitiesName",5);
        	 if(actText.equals(expText)) {
        		 System.out.println("Amenities edit successfully");
        	     return true;

@@ -267,13 +267,4 @@ public class ProductionReport extends TestBase{
 			
 	}
 	
-
-
-	@AfterSuite
-	public void report() throws Exception {
-		mail();
-		cmdPrompt();
-	}
-	
-	
 }

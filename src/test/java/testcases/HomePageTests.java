@@ -64,7 +64,7 @@ public class HomePageTests extends TestBase{
 		logger.info("Booking Started");
 		BookingPages bp = new BookingPages(getDriver());
 		bp.firstPage();
-		implict(8);
+//		implict(8);
 		bp.secondpage();
 		bp.thirdPage("5425233430109903");
 		bp.confirmPage();
@@ -80,11 +80,6 @@ public class HomePageTests extends TestBase{
 		getDriver().quit();
 	}
 	
-	@AfterSuite
-	public void report() throws Exception {
-		//mail();
-		//cmdPrompt();
-	}
 	
 	@AfterTest
 	public void jdbcCon() throws Exception {

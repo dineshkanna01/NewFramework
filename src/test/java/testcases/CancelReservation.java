@@ -94,11 +94,6 @@ public class CancelReservation extends TestBase{
 		logger.info("Cancel Reservation done");
 	}
 	
-	@AfterTest
-	public void report() throws Exception {
-		mail();
-		
-	}
 	
 	@AfterClass
 	public void browerClose() {

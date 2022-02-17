@@ -5,8 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import base.Email_OTP;
-import base.TestBase;
+import base.Helper;
 
 public class Admin_Login extends AbstractBasePage{
 
@@ -22,8 +21,6 @@ public class Admin_Login extends AbstractBasePage{
 
 	@FindBy(name="j_username")
 	WebElement uName;
-
-
 
 	@FindBy(name="j_password")
 	WebElement pWord;
@@ -56,9 +53,9 @@ public class Admin_Login extends AbstractBasePage{
 		subMit.click();
 		nxt.click();
 		
-		Email_OTP emailotp = new Email_OTP();
-		String otp = Email_OTP.emailOTP();
-		System.out.println("email OTP is ............." + otp);
+//		Email_OTP emailotp = new Email_OTP();
+//		String otp = Email_OTP.emailOTP();
+//		System.out.println("email OTP is ............." + otp);
 		
 		submitbutton.click();
 		myAccount.click();
@@ -69,8 +66,8 @@ public class Admin_Login extends AbstractBasePage{
 	
 	public void otp() {
 
-		TestBase.initilization_Gmail();
-		TestBase.implict(10);
+		Helper.initilization_Gmail();
+		Helper.implict(10);
 		mailId.sendKeys("dinesh.kanna@pegs.com");
 		idNext.click();
 		

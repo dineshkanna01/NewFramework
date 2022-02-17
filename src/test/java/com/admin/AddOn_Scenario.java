@@ -1,13 +1,8 @@
 package com.admin;
 
-import java.io.ByteArrayInputStream;
 
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -16,7 +11,6 @@ import com.admin.pom.AdministratorHomePage;
 import com.admin.pom.LoginPage;
 
 import base.TestBase;
-import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;

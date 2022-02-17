@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import Utility.ExcelData;
-import base.TestBase;
+import base.Helper;
 import pages.AbstractBasePage;
 
 /*
@@ -19,7 +19,6 @@ import pages.AbstractBasePage;
 
 public class AboutThePropertyPages extends AbstractBasePage {
 	
-//	ExcelData e = new ExcelData();
 	public WebDriver driver;
 
 	@FindBy(xpath = "//a[text()='Channels']")
@@ -390,9 +389,9 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	*/
 
 	public AboutThePropertyPages selectAboutTheProperty()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		aboutTheProperty.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -400,9 +399,9 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	* 
 	*/
 	public AboutThePropertyPages clickAddaRoom()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		addaRoom.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	
@@ -411,9 +410,9 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	* 
 	*/
 	public AboutThePropertyPages deleteAllMeetingRoom()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		deleteAllMeetingRoom.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	
@@ -422,9 +421,9 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	* 
 	*/
 	public AboutThePropertyPages deleteAllDining()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		deleteAllDining.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	
@@ -433,9 +432,9 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	* 
 	*/
 	public AboutThePropertyPages deleteAllAirport()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		deleteAllAirport.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	
@@ -444,9 +443,9 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	* 
 	*/
 	public AboutThePropertyPages deleteAllNearbyAttraction()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		deleteAllNearbyAttraction.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	
@@ -455,9 +454,9 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	* 
 	*/
 	public AboutThePropertyPages clickSave()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		save.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -467,9 +466,9 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	public AboutThePropertyPages clickDelete()  {
 
 		deleteMeetingRoom.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		delete.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -478,7 +477,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	*/
 	public AboutThePropertyPages clickdiningaddalocation()  {
 		diningAddLocation.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -489,7 +488,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		deleteDiningName.click();
 		diningDeleteButton.click();
 
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -499,7 +498,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 	public AboutThePropertyPages clickairportlocation()  {
 		airportAddLocation.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -510,7 +509,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	public AboutThePropertyPages clickDeleteAirport()  {
 		airportDeleteCode.click();
 		airportDeleteButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -520,7 +519,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 	public AboutThePropertyPages clickNearbyAttractionlocation()  {
 		nearbyAttractionAddLocation.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -530,7 +529,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	public AboutThePropertyPages clickDeleteNearbyAttraction()  {
 		nearbyAttractionDeleteCode.click();
 		nearbyAttractionDeleteButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -538,24 +537,24 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	* 
 	*/
 	public AboutThePropertyPages enableAboutTheProperty()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		channelsOption.click();
 
 		addNewChannel.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		selectChannel.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		GDSChannel.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		channelType.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		chainCode.sendKeys(ExcelData.getCellData("Channel", "ChainCode", 2));
-		TestBase.implict(3);
+		Helper.implict(3);
 		hotelCode.sendKeys(ExcelData.getCellData("Channel", "HotelCode", 2));
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		saveChannelButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -570,7 +569,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		conference.click();
 		services.click();
 		roomSetUp.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		serviceSubcatagory.click();
 		tableAvail.click();
 //		Capacity.sendKeys(ExcelData.getCellDataAnk("MeetingRoom","Capacity", 2));
@@ -579,7 +578,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		ft.click();
 		area.sendKeys(ExcelData.getCellData("MeetingRoomMR", "Area", 2));
 
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -611,7 +610,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		custom.click();
 		services.click();
 		presentation.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		serviceSubcatagory.click();
 		whiteboard.click();
 //		Capacity.sendKeys(ExcelData.getCellDataAnk("MeetingRoom","Capacity", 2));
@@ -636,7 +635,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		conference.click();
 		services.click();
 		presentation.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		serviceSubcatagory.click();
 		whiteboard.click();
 //		Capacity.sendKeys(ExcelData.getCellDataAnk("MeetingRoom","Capacity", 2));
@@ -686,13 +685,13 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		roomName.sendKeys(ExcelData.getCellData("MeetingRoomMR", "RoomName4", 2));
 
-		TestBase.implict(3);
+		Helper.implict(3);
 		code.sendKeys(ExcelData.getCellData("MeetingRoomMR", "Code4", 2));
 		type.click();
 		custom.click();
 		services.click();
 		presentation.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		serviceSubcatagory.click();
 		whiteboard.click();
 //			Capacity.sendKeys(ExcelData.getCellDataAnk("MeetingRoom","Capacity", 2));
@@ -731,7 +730,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		custom.click();
 		services.click();
 		presentation.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		serviceSubcatagory.click();
 		whiteboard.click();
 //		Capacity.sendKeys(ExcelData.getCellDataAnk("MeetingRoom","Capacity", 2));
@@ -740,7 +739,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		ft.click();
 		area.sendKeys(ExcelData.getCellData("MeetingRoomMR", "Area5", 2));
 
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		return null;
 	}
@@ -798,7 +797,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		custom.click();
 		services.click();
 		presentation.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		serviceSubcatagory.click();
 		whiteboard.click();
 //		Capacity.sendKeys(ExcelData.getCellDataAnk("MeetingRoom","Capacity", 2));
@@ -807,7 +806,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		ft.click();
 		area.sendKeys(ExcelData.getCellData("MeetingRoomMR", "Area4", 2));
 
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -868,7 +867,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	*/
 	public AboutThePropertyPages editARoom()  {
 		createAndEdit.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		editArea.clear();
 
 		area.sendKeys(ExcelData.getCellData("MeetingRoomMR", "Area", 2));
@@ -909,13 +908,13 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		roomName.sendKeys(ExcelData.getCellData("MeetingRoom2", "RoomName8", 2));
 
-		TestBase.implict(3);
+		Helper.implict(3);
 		code.sendKeys(ExcelData.getCellData("MeetingRoom2", "Code8", 2));
 		type.click();
 		custom.click();
 		// services.click();
 		// presentation.click();
-		// TestBase.implict(3);
+		// Helper.implict(3);
 
 		Select dropdown = new Select(services);
 		dropdown.selectByIndex(1);
@@ -985,13 +984,13 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		roomName.sendKeys(ExcelData.getCellData("MeetingRoom2", "RoomName10", 2));
 
-		TestBase.implict(3);
+		Helper.implict(3);
 		code.sendKeys(ExcelData.getCellData("MeetingRoom2", "Code10", 2));
 		type.click();
 		custom.click();
 		services.click();
 		presentation.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		serviceSubcatagory.click();
 		whiteboard.click();
 //		Capacity.sendKeys(ExcelData.getCellDataAnk("MeetingRoom","Capacity", 2));
@@ -1001,7 +1000,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		length.sendKeys(ExcelData.getCellData("MeetingRoom2", "length10", 2));
 		width.sendKeys(ExcelData.getCellData("MeetingRoom2", "width10", 2));
 		area.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		return null;
 
@@ -1080,7 +1079,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		restaurantName.sendKeys(ExcelData.getCellData("Dining", "RestaurantName2", 2));
 
 		restaurantCode.sendKeys(ExcelData.getCellData("Dining", "Code2", 2));
-		TestBase.implict(3);
+		Helper.implict(3);
 		restaurantProximity.click();
 
 		restaurantOnsite.click();
@@ -1090,7 +1089,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		restaurantCusineBarbeque.click();
 
 		restaurantDistanceAway.sendKeys(ExcelData.getCellData("Dining", "DistanceAway2", 2));
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -1167,7 +1166,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		restaurantCusineBarbeque.click();
 
 		restaurantDistanceAway.sendKeys(ExcelData.getCellData("Dining", "DistanceAway4", 2));
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 
 	}
@@ -1277,7 +1276,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		editDiningDistanceAway.clear();
 		editDiningDistanceAway.sendKeys(ExcelData.getCellData("Dining2", "DistanceAway6", 2));
 
-		TestBase.implict(2);
+		Helper.implict(2);
 
 		return null;
 	}
@@ -1324,7 +1323,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		restaurantDistanceAway.sendKeys(ExcelData.getCellData("Dining2", "DistanceAway6", 2));
 
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -1375,7 +1374,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		airportTransportationMethodBus.click();
 
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -1411,7 +1410,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		airportTransportationMethodBus.click();
 
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -1429,7 +1428,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		airportTransportationMethodTaxi.click();
 
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 
 	}
@@ -1480,7 +1479,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		airportTransportationMethodBus.click();
 
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		return null;
 
@@ -1538,7 +1537,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		airportTransportationMethodBus.click();
 
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		return null;
 
@@ -1592,7 +1591,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		airportTransportationMethodBus.click();
 
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -1607,7 +1606,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 
 		airportDistanceAway.sendKeys(ExcelData.getCellData("Airport2", "DistanceAway5", 2));
 
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 
 	}
@@ -1663,7 +1662,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		airportDistanceAway.clear();
 
 		airportDistanceAway.sendKeys(ExcelData.getCellData("Airport2", "DistanceAway7", 2));
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		return null;
 	}
@@ -1702,7 +1701,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		nearbyAttractionTransportationMethod.click();
 		nearbyAttractionTransportationMethodBus.click();
 
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -1729,7 +1728,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 	public AboutThePropertyPages addMultipleNearbyAttractionTheProperty1()  {
 
 		nearbyAttractionName.sendKeys(ExcelData.getCellData("Attraction", "AttractionName2", 2));
-		TestBase.implict(3);
+		Helper.implict(3);
 		nearbyAttractionCode.sendKeys(ExcelData.getCellData("Attraction", "Code2", 2));
 		nearbyAttractionType.click();
 		nearbyAttractionTypeArmyBase.click();
@@ -1752,7 +1751,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		nearbyAttractionTransportationMethod.click();
 		nearbyAttractionTransportationMethodBus.click();
 
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -1801,7 +1800,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		nearbyAttractionTransportationMethod.click();
 		nearbyAttractionTransportationMethodBus.click();
 
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*
@@ -1855,7 +1854,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		nearbyAttractionTransportationMethod.click();
 		nearbyAttractionTransportationMethodBus.click();
 
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 	/*

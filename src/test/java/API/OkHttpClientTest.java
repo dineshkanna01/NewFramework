@@ -12,7 +12,8 @@ import java.security.cert.CertificateException;
 
 public class OkHttpClientTest {
 
-    @Test
+    @SuppressWarnings("unused")
+	@Test
     public void test() throws IOException {
         try {
             final TrustManager[] trustAllCerts = new TrustManager[]{

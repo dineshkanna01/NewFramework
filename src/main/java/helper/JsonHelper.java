@@ -16,6 +16,7 @@ import com.google.gson.JsonSyntaxException;
 
 public class JsonHelper {
 
+	@SuppressWarnings({ "deprecation", "rawtypes" })
 	public Map<String,String> readJsonFile(String methodName,String jsonFileName) throws JsonIOException, JsonSyntaxException, FileNotFoundException{
 		//String filepath=System.getProperty("user.dir")+File.separator+"resources"+File.separator+"userManagement"+File.separator+jsonFileName;
 		String filepath = System.getProperty("user.dir")+"\\src\\test\\resources\\UserManagement\\UserManagementTest.json";

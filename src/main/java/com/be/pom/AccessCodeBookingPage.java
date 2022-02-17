@@ -7,17 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.admin.pom.AboutThePropertyPages;
 
 import Utility.ExcelData;
+import base.Helper;
 import base.TestBase;
-import pages.AbstractBasePage;
 
 public class AccessCodeBookingPage extends TestBase {
 
-	ExcelData e = new ExcelData();
 	public WebDriver driver;
-
 
 	@FindBy(xpath = "//div[text()='Rate Plans']")
 	WebElement ratePlan;
@@ -215,7 +212,7 @@ public class AccessCodeBookingPage extends TestBase {
 
 	public AccessCodeBookingPage clickonCheckAvailability()  {
 		checkAvailability.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -229,10 +226,10 @@ public class AccessCodeBookingPage extends TestBase {
 	 */
 	public AccessCodeBookingPage AccessCodeRatePlanInBE()  {
 
-		inputArrivalDate.sendKeys(e.getCellData("Booking", "ArrivalD", 2));
+		inputArrivalDate.sendKeys(ExcelData.getCellData("Booking", "ArrivalD", 2));
 		inputDepartureDate.clear();
-		inputDepartureDate.sendKeys(e.getCellData("Booking", "DepartureD", 2));
-		searchOfferCode.sendKeys(e.getCellData("Booking", "AccessCode", 2));
+		inputDepartureDate.sendKeys(ExcelData.getCellData("Booking", "DepartureD", 2));
+		searchOfferCode.sendKeys(ExcelData.getCellData("Booking", "AccessCode", 2));
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e2) {
@@ -240,7 +237,7 @@ public class AccessCodeBookingPage extends TestBase {
 			e2.printStackTrace();
 		}
 		checkAvailability.click();
-		TestBase.implict(10);
+		Helper.implict(10);
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e1) {
@@ -255,7 +252,7 @@ public class AccessCodeBookingPage extends TestBase {
 //			// TODO Auto-generated catch block
 //			e1.printStackTrace();
 //		}
-		TestBase.implict(6);
+		Helper.implict(6);
 //		gotIt.click();
 		bookNow.click();	
 
@@ -271,11 +268,11 @@ public class AccessCodeBookingPage extends TestBase {
 	public AccessCodeBookingPage createAccessCode()  {
 		ratePlan.click();
 		accessCode.click();
-		selectRatePlan.sendKeys(e.getCellData("Booking", "RatePlan", 2));
+		selectRatePlan.sendKeys(ExcelData.getCellData("Booking", "RatePlan", 2));
 		SummerSpecialSS.click();
 		GO.click();
 		addAccessCode.click();
-		addAccessCodeText.sendKeys(e.getCellData("Booking", "AccessCode", 2));
+		addAccessCodeText.sendKeys(ExcelData.getCellData("Booking", "AccessCode", 2));
 		save.click();
 
 		return null;
@@ -289,7 +286,7 @@ public class AccessCodeBookingPage extends TestBase {
 	 * 
 	 */
 	public boolean verifyAccessCodeRatePlan()  {
-		String ActText =(e.getCellData("Booking", "RatePlan", 2));
+		String ActText =(ExcelData.getCellData("Booking", "RatePlan", 2));
 		System.out.println(ActText + " Actual Text");
 		String expText =accessCodeRatePlanBE.getText();
 		System.out.println(expText + " " + "ExpectedText");
@@ -309,7 +306,7 @@ public class AccessCodeBookingPage extends TestBase {
 	public AccessCodeBookingPage clickOnCreatedAccessCodeURL()  {
 		//	ratePlan.click();
 		//	accessCode.click();
-		//	selectRatePlan.sendKeys(e.getCellData("ACB1", "RatePlan", 2));
+		//	selectRatePlan.sendKeys(ExcelData.getCellData("ACB1", "RatePlan", 2));
 		//	SummerSpecialSS.click();
 		//	GO.click();
 		try {
@@ -331,8 +328,8 @@ public class AccessCodeBookingPage extends TestBase {
 	
 	public AccessCodeBookingPage goToCreatedAccessCodeURL()  {
 
-		inputArrivalDate.sendKeys(e.getCellData("Booking", "ArrivalD", 2));
-		inputDepartureDate.sendKeys(e.getCellData("Booking", "DepartureD", 2));
+		inputArrivalDate.sendKeys(ExcelData.getCellData("Booking", "ArrivalD", 2));
+		inputDepartureDate.sendKeys(ExcelData.getCellData("Booking", "DepartureD", 2));
 		checkAvailabilityInAccessCodeURL.click();
 		try {
 			Thread.sleep(3000);
@@ -342,30 +339,30 @@ public class AccessCodeBookingPage extends TestBase {
 		}
 		checkAvailability.click();
 		bookNow.click();
-		firstName.sendKeys(e.getCellData("URLPB2", "FirstName", 2));
-		lastName.sendKeys(e.getCellData("URLPB2", "LastName", 2));
-		email.sendKeys(e.getCellData("URLPB2", "email", 2));
+		firstName.sendKeys(ExcelData.getCellData("URLPB2", "FirstName", 2));
+		lastName.sendKeys(ExcelData.getCellData("URLPB2", "LastName", 2));
+		email.sendKeys(ExcelData.getCellData("URLPB2", "email", 2));
 
 		confirmDetails.click();
-		cardHolderName.sendKeys(e.getCellData("URLPB2", "CardHN", 2));
-		cardNumber.sendKeys(e.getCellData("URLPB2", "CardN", 2));
-		cardNumber.sendKeys(e.getCellData("URLPB2", "CardN", 2));
-		cardNumber.sendKeys(e.getCellData("URLPB2", "CardN", 2));
-		cardNumber.sendKeys(e.getCellData("URLPB2", "CardN", 2));
-		TestBase.implict(3);
+		cardHolderName.sendKeys(ExcelData.getCellData("URLPB2", "CardHN", 2));
+		cardNumber.sendKeys(ExcelData.getCellData("URLPB2", "CardN", 2));
+		cardNumber.sendKeys(ExcelData.getCellData("URLPB2", "CardN", 2));
+		cardNumber.sendKeys(ExcelData.getCellData("URLPB2", "CardN", 2));
+		cardNumber.sendKeys(ExcelData.getCellData("URLPB2", "CardN", 2));
+		Helper.implict(3);
 		expiryMonth.click();
 		expiryMonthJan.click();
 		expiryMonthYear.click();
 		expiryMonthYear2023.click();
-		securityCode.sendKeys(e.getCellData("URLPB2", "SCode", 2));
+		securityCode.sendKeys(ExcelData.getCellData("URLPB2", "SCode", 2));
 		selectCountry.click();
 		selectCountryInd.click();
-		enterLocation.sendKeys(e.getCellData("URLPB2", "Location", 2));
-		enterCity.sendKeys(e.getCellData("URLPB2", "City", 2));
+		enterLocation.sendKeys(ExcelData.getCellData("URLPB2", "Location", 2));
+		enterCity.sendKeys(ExcelData.getCellData("URLPB2", "City", 2));
 		enterState.click();
 		enterStateDelhi.click();
-		zipCode.sendKeys(e.getCellData("URLPB2", "ZipCode", 2));
-		phoneNumber.sendKeys(e.getCellData("URLPB2", "PhoneN", 2));
+		zipCode.sendKeys(ExcelData.getCellData("URLPB2", "ZipCode", 2));
+		phoneNumber.sendKeys(ExcelData.getCellData("URLPB2", "PhoneN", 2));
 		acceptTerm.click();
 		completeReservation.click();
 
@@ -390,12 +387,12 @@ public class AccessCodeBookingPage extends TestBase {
 	public AccessCodeBookingPage editCreatedAccessCode()  {
 		ratePlan.click();
 		accessCode.click();
-		selectRatePlan.sendKeys(e.getCellData("Booking", "RatePlan", 2));
+		selectRatePlan.sendKeys(ExcelData.getCellData("Booking", "RatePlan", 2));
 		SummerSpecialSS.click();
 		GO.click();
 		editAccessCode.click();
 		addAccessCodeText.clear();
-		addAccessCodeText.sendKeys(e.getCellData("Booking", "AccessCode2", 2));
+		addAccessCodeText.sendKeys(ExcelData.getCellData("Booking", "AccessCode2", 2));
 		save.click();
 
 		return null;
@@ -408,7 +405,7 @@ public class AccessCodeBookingPage extends TestBase {
 	 * 
 	 */
 	public boolean verifyAccessCodeEdited()  {
-		String ActText =(e.getCellData("Booking", "AccessCode2", 2));
+		String ActText =(ExcelData.getCellData("Booking", "AccessCode2", 2));
 		System.out.println(ActText + " Actual Text");
 		String expText =accessCodeName.getText();
 		System.out.println(expText + " " + "ExpectedText");
@@ -423,10 +420,10 @@ public class AccessCodeBookingPage extends TestBase {
 	}
 	public AccessCodeBookingPage EditedAccessCodeRatePlanInBE()  {
 		accessCodeEditOKBE.click();
-		inputArrivalDate.sendKeys(e.getCellData("Booking", "ArrivalD", 2));
+		inputArrivalDate.sendKeys(ExcelData.getCellData("Booking", "ArrivalD", 2));
 		inputDepartureDate.clear();
-		inputDepartureDate.sendKeys(e.getCellData("Booking", "DepartureD", 2));
-		searchOfferCode.sendKeys(e.getCellData("Booking", "AccessCode2", 2));
+		inputDepartureDate.sendKeys(ExcelData.getCellData("Booking", "DepartureD", 2));
+		searchOfferCode.sendKeys(ExcelData.getCellData("Booking", "AccessCode2", 2));
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e2) {
@@ -456,7 +453,7 @@ public class AccessCodeBookingPage extends TestBase {
 	public AccessCodeBookingPage deleteCreatedAccessCodeURL()  {
 		//	ratePlan.click();
 		//	accessCode.click();
-		//	selectRatePlan.sendKeys(e.getCellData("ACB1", "RatePlan", 2));
+		//	selectRatePlan.sendKeys(ExcelData.getCellData("ACB1", "RatePlan", 2));
 		//	SummerSpecialSS.click();
 		//	GO.click();
 		deleteAccessCode.click();

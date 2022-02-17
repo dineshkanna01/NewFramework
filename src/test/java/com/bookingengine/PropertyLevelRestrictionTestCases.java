@@ -11,6 +11,7 @@ import com.admin.pom.LoginPage;
 import com.admin.pom.PropertyBrandingPage;
 import com.be.pom.PropertyLevelRestrictionPage;
 
+import base.Helper;
 import base.TestBase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -59,65 +60,45 @@ public class PropertyLevelRestrictionTestCases extends TestBase {
 	public void BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_01() throws InterruptedException {
 		logger.info("CRS Started");
 		extentTest = extent.startTest("BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_01");
-
 		lp.login();
-
 		allureScreenshot("Logged In");
 		screenShot("Logged In");
-
 		bp.openBrands();
-
 		allureScreenshot("Brands Open");
 		screenShot("Brands Open");
-
 		bp.brandSelect();
-
 		pbp.selectProperty();
-
 		cp.openPropertyTab();
 		plrp.adminPropertyYeildRestriction();
 		plrp.adminAllowOption();
 		plrp.adminRemoverMaxLOS();
 		plrp.adminMinLeadTimeClear();
 		plrp.adminMaxLeadTimeClear();
-
 		allureScreenshot("Clearing all fields");
 		screenShot("Clearing all fields");
-
 		plrp.adminSave();
-
 		logger.info("Booking Engine Open");
-
-		openBEurlinNewTab1();
-
+//		openBEurlinNewTab1();
+		openURL("be_url2");
 		plrp.availabilityCheck();
 		String buttonCheck = plrp.verifyBookNowBtn();
 		Assert.assertEquals(buttonCheck, "BOOK NOW");
-
 		allureScreenshot("Booking Available");
 		screenShot("Booking Available");
-
-		switchWindow(0);
-
+		Helper.switchWindow(0);
 		plrp.adminPropertyYeildRestriction();
 		plrp.adminDoNotAllowOption();
-
 		allureScreenshot("Do not Allow Restriction");
 		screenShot("Do not Allow Restriction");
-
 		plrp.adminSave();
-
-		switchWindow(1);
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
 		Thread.sleep(2000);
-
 		allureScreenshot("Booking Not Available");
 		screenShot("Booking Not Available");
-
 		String noBookText = plrp.verifyNoBookingText();
 		Assert.assertEquals(noBookText, "Unfortunately, there are no available rooms");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		plrp.adminPropertyYeildRestriction();
 		plrp.adminAllowOption();
 		plrp.adminSave();
@@ -133,37 +114,27 @@ public class PropertyLevelRestrictionTestCases extends TestBase {
 	@Step("Verify same day check-in restriction 'Do not allow after Property' applied")
 	public void BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_02() throws InterruptedException {
 		extentTest = extent.startTest("BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_02");
-
-		switchWindow(1);
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
 		Thread.sleep(1000);
-
 		allureScreenshot("Booking Available");
 		screenShot("Booking Available");
-
 		String buttonCheck = plrp.verifyBookNowBtn();
 		Assert.assertEquals(buttonCheck, "BOOK NOW");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		plrp.adminPropertyYeildRestriction();
 		plrp.adminDoNotAllowAfterOption();
-
 		allureScreenshot("Do not Allow After Restriction");
 		screenShot("Do not Allow After Restriction");
-
 		plrp.adminSave();
-
-		switchWindow(1);
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
 		Thread.sleep(2000);
-
 		allureScreenshot("Booking Not Available");
 		screenShot("Booking Not Available");
-
 		String noBookText = plrp.verifyNoBookingText();
 		Assert.assertEquals(noBookText, "Unfortunately, there are no available rooms");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		plrp.adminPropertyYeildRestriction();
 		plrp.adminAllowOption();
 		plrp.adminSave();
@@ -179,8 +150,7 @@ public class PropertyLevelRestrictionTestCases extends TestBase {
 	@Step("Verify Max LOS restriction applied")
 	public void BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_03() throws InterruptedException {
 		extentTest = extent.startTest("BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_03");
-
-		switchWindow(1);
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
 		Thread.sleep(1000);
 		plrp.bookNow();
@@ -188,37 +158,27 @@ public class PropertyLevelRestrictionTestCases extends TestBase {
 		Thread.sleep(1000);
 		plrp.availabilityCheckForMaxLOS();
 		getDriver().navigate().refresh();
-
 		allureScreenshot("Booking Available");
 		screenShot("Booking Available");
-
 		String buttonCheck = plrp.verifyBookNowBtn();
 		Assert.assertEquals(buttonCheck, "BOOK NOW");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		plrp.adminPropertyYeildRestriction();
 		plrp.adminImposeMaxLOS();
-
 		allureScreenshot("MaxLOS Restriction");
 		screenShot("MaxLOS Restriction");
-
 		plrp.adminSave();
-
-		switchWindow(1);
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
 		Thread.sleep(2000);
-
 		allureScreenshot("MaxLOS Booking Not Available");
 		screenShot("MaxLOS Booking Not Available");
-
 		String maxLOSErrorText = plrp.verifyMaxLOSErrorText();
 		Assert.assertEquals(maxLOSErrorText, "MAXIMUM LENGTH OF STAY CONSTRAINT VIOLATED!");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		plrp.adminPropertyYeildRestriction();
 		plrp.adminRemoverMaxLOS();
 		plrp.adminSave();
-
 	}
 
 	@Test(priority = 4)
@@ -230,45 +190,34 @@ public class PropertyLevelRestrictionTestCases extends TestBase {
 	@Step("Verify Min Lead Time restriction applied")
 	public void BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_04() throws InterruptedException {
 		extentTest = extent.startTest("BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_04");
-
-		switchWindow(1);
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
 		Thread.sleep(1000);
 		plrp.bookNow();
 		plrp.startOver();
 		Thread.sleep(1000);
 		plrp.availabilityCheck();
-
 		allureScreenshot("Booking Available");
 		screenShot("Booking Available");
-
 		String buttonCheck = plrp.verifyBookNowBtn();
 		Assert.assertEquals(buttonCheck, "BOOK NOW");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		plrp.adminPropertyYeildRestriction();
 		plrp.adminMinLeadTime();
-
 		allureScreenshot("Min Lead Time Restriction");
 		screenShot("Min Lead Time Restriction");
-
 		plrp.adminSave();
-
-		switchWindow(1);
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
 		Thread.sleep(2000);
-
 		allureScreenshot("Booking Not Available");
 		screenShot("Booking Not Available");
-
 		String noBookText = plrp.verifyNoBookingText();
 		Assert.assertEquals(noBookText, "Unfortunately, there are no available rooms");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		plrp.adminPropertyYeildRestriction();
 		plrp.adminMinLeadTimeClear();
 		plrp.adminSave();
-
 	}
 
 	@Test(priority = 5)
@@ -280,42 +229,31 @@ public class PropertyLevelRestrictionTestCases extends TestBase {
 	@Step("Verify Max Lead Time restriction applied")
 	public void BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_05() throws InterruptedException {
 		extentTest = extent.startTest("BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_05");
-
-		switchWindow(1);
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
 		Thread.sleep(1000);
 		plrp.availabilityCheckForMaxLeadTime();
-
 		allureScreenshot("Booking Available");
 		screenShot("Booking Available");
-
 		String buttonCheck = plrp.verifyBookNowBtn();
 		Assert.assertEquals(buttonCheck, "BOOK NOW");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		plrp.adminPropertyYeildRestriction();
 		plrp.adminMaxLeadTime();
-
 		allureScreenshot("Max Lead Time Restriction");
 		screenShot("Max Lead Time Restriction");
-
 		plrp.adminSave();
-
-		switchWindow(1);
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
 		Thread.sleep(2000);
-
 		allureScreenshot("Booking Not Available");
 		screenShot("Booking Not Available");
-
 		String noBookText = plrp.verifyNoBookingText();
 		Assert.assertEquals(noBookText, "Unfortunately, there are no available rooms");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		plrp.adminPropertyYeildRestriction();
 		plrp.adminMaxLeadTimeClear();
 		plrp.adminSave();
-
 	}
 
 	@Test(priority = 6)
@@ -327,44 +265,34 @@ public class PropertyLevelRestrictionTestCases extends TestBase {
 	@Step("Verify Min Max Lead Time restriction applied")
 	public void BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_06() throws InterruptedException {
 		extentTest = extent.startTest("BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_06");
-
-		switchWindow(1);
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
 		Thread.sleep(1000);
 		plrp.availabilityCheckForMinMaxLeadTime();
 		Thread.sleep(1000);
 		allureScreenshot("Booking Available");
 		screenShot("Booking Available");
-
 		String buttonCheck = plrp.verifyBookNowBtn();
 		Assert.assertEquals(buttonCheck, "BOOK NOW");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		plrp.adminPropertyYeildRestriction();
 		plrp.adminMinLeadTime();
 		plrp.adminMaxLeadTime();
-
 		allureScreenshot("Min Max Lead Time Restriction");
 		screenShot("Min Max Lead Time Restriction");
-
 		plrp.adminSave();
-
-		switchWindow(1);
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
 		Thread.sleep(2000);
-
 		allureScreenshot("Booking Not Available");
 		screenShot("Booking Not Available");
-
 		String noBookText = plrp.verifyNoBookingText();
 		Assert.assertEquals(noBookText, "Unfortunately, there are no available rooms");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		plrp.adminPropertyYeildRestriction();
 		plrp.adminMinLeadTimeClear();
 		plrp.adminMaxLeadTimeClear();
 		plrp.adminSave();
-
 	}
 
 	@Test(priority = 7)
@@ -376,9 +304,7 @@ public class PropertyLevelRestrictionTestCases extends TestBase {
 	@Step("Verify All Property Level restriction applied with Max LOS error")
 	public void BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_07() throws InterruptedException {
 		extentTest = extent.startTest("BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_07");
-
-		switchWindow(1);
-
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
 		Thread.sleep(1000);
 		plrp.bookNow();
@@ -386,43 +312,33 @@ public class PropertyLevelRestrictionTestCases extends TestBase {
 		Thread.sleep(1000);
 		plrp.availabilityCheckForMinMaxLOSLeadTime();
 		getDriver().navigate().refresh();
-
 		allureScreenshot("Booking Available");
 		screenShot("Booking Available");
-
 		String buttonCheck = plrp.verifyBookNowBtn();
 		Assert.assertEquals(buttonCheck, "BOOK NOW");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		plrp.adminPropertyYeildRestriction();
 		plrp.adminDoNotAllowOption();
 		plrp.adminImposeMaxLOS();
 		plrp.adminMinLeadTime();
 		plrp.adminMaxLeadTime();
-
 		allureScreenshot("All Restriction");
 		screenShot("All Restriction");
-
 		plrp.adminSave();
-
-		switchWindow(1);
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
 		Thread.sleep(2000);
-
 		allureScreenshot("MaxLOS Booking Not Available");
 		screenShot("MaxLOS Booking Not Available");
-
 		String maxLOSErrorText = plrp.verifyMaxLOSErrorText();
 		Assert.assertEquals(maxLOSErrorText, "MAXIMUM LENGTH OF STAY CONSTRAINT VIOLATED!");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		plrp.adminPropertyYeildRestriction();
 		plrp.adminAllowOption();
 		plrp.adminRemoverMaxLOS();
 		plrp.adminMinLeadTimeClear();
 		plrp.adminMaxLeadTimeClear();
 		plrp.adminSave();
-
 	}
 
 	@Test(priority = 8)
@@ -434,62 +350,43 @@ public class PropertyLevelRestrictionTestCases extends TestBase {
 	@Step("Verify All Property Level restriction applied with room not available")
 	public void BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_08() throws InterruptedException {
 		extentTest = extent.startTest("BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_08");
-
-		switchWindow(1);
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
 		Thread.sleep(1000);
 		plrp.bookNow();
 		plrp.startOver();
 		Thread.sleep(1000);
 		plrp.availabilityCheckForMinMaxLOSLeadTime08();
-
 		allureScreenshot("Booking Available");
 		screenShot("Booking Available");
-
 		String buttonCheck = plrp.verifyBookNowBtn();
 		Assert.assertEquals(buttonCheck, "BOOK NOW");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		plrp.adminPropertyYeildRestriction();
 		plrp.adminDoNotAllowOption();
 		plrp.adminImposeMaxLOS();
 		plrp.adminMinLeadTime();
 		plrp.adminMaxLeadTime();
-
 		allureScreenshot("All Restriction");
 		screenShot("All Restriction");
-
 		plrp.adminSave();
-
-		switchWindow(1);
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
 		Thread.sleep(2000);
-
 		allureScreenshot("Booking Not Available");
 		screenShot("Booking Not Available");
-
 		String noBookText = plrp.verifyNoBookingText();
 		Assert.assertEquals(noBookText, "Unfortunately, there are no available rooms");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		plrp.adminPropertyYeildRestriction();
 		plrp.adminAllowOption();
 		plrp.adminRemoverMaxLOS();
 		plrp.adminMinLeadTimeClear();
 		plrp.adminMaxLeadTimeClear();
 		plrp.adminSave();
-
 		lp.logout();
-
 		logger.info("crs closed");
 		logger.info("Booking Engine Closed");
-
-	}
-
-	@AfterSuite
-	public void report() throws Exception {
-		mail();
-		cmdPrompt();
 	}
 
 }

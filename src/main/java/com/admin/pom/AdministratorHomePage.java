@@ -2,12 +2,10 @@ package com.admin.pom;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import base.Helper;
-import base.TestBase;
 import pages.AbstractBasePage;
 
 public class AdministratorHomePage extends AbstractBasePage {

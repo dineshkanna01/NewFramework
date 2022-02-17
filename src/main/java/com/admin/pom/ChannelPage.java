@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utility.ExcelData;
-import base.TestBase;
+import base.Helper;
 import pages.AbstractBasePage;
 
 /*
@@ -16,8 +16,6 @@ import pages.AbstractBasePage;
 */
 public class ChannelPage extends AbstractBasePage{
 	
-	ExcelData e = new ExcelData();
-
 	@FindBy(xpath = "//div[text()='Property Management']")
 	WebElement propertyManagementTab;
 
@@ -101,7 +99,7 @@ public class ChannelPage extends AbstractBasePage{
 	 */
 	
 	public ChannelPage openPropertyTab(){
-		TestBase.implict(3);
+		Helper.implict(3);
 		propertyManagementTab.click();
 		return null;
 	}
@@ -111,7 +109,7 @@ public class ChannelPage extends AbstractBasePage{
 	 */
 	
 	public void alertPopUp(){
-		TestBase.implict(3);
+		Helper.implict(3);
 		Alert alert = driver.switchTo().alert();
 		alert.accept();
 	}
@@ -121,9 +119,9 @@ public class ChannelPage extends AbstractBasePage{
 	 */
 	
 	public ChannelPage openChannels() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		channelsOption.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -133,9 +131,9 @@ public class ChannelPage extends AbstractBasePage{
 	
 	public ChannelPage selectingChannel(){
 		addNewChannel.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		selectChannel.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -145,15 +143,15 @@ public class ChannelPage extends AbstractBasePage{
 	
 	public ChannelPage addGDS() {
 		GDSChannel.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		channelType.click();
-		TestBase.implict(3);
-//		TestBase.explicit(3);
-		chainCode.sendKeys(e.getCellData("Channel", "ChainCode", 2));
-//		TestBase.explicit(3);
-		TestBase.implict(3);
-		hotelCode.sendKeys(e.getCellData("Channel", "HotelCode", 2));
-		TestBase.implict(3);
+		Helper.implict(3);
+//		Helper.explicit(3);
+		chainCode.sendKeys(ExcelData.getCellData("Channel", "ChainCode", 2));
+//		Helper.explicit(3);
+		Helper.implict(3);
+		hotelCode.sendKeys(ExcelData.getCellData("Channel", "HotelCode", 2));
+		Helper.implict(3);
 		return null;
 	}
 
@@ -174,7 +172,7 @@ public class ChannelPage extends AbstractBasePage{
 	
 	public ChannelPage saveButton() {
 		saveChannelButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -194,7 +192,7 @@ public class ChannelPage extends AbstractBasePage{
 	 */
 	
 	public ChannelPage deleteChannelSelected() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		selectToDelete.click();
 		return null;
 	}
@@ -215,9 +213,9 @@ public class ChannelPage extends AbstractBasePage{
 	 */
 	
 	public ChannelPage deleteButton() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		deleteButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -226,15 +224,15 @@ public class ChannelPage extends AbstractBasePage{
 	 */
 	
 	public ChannelPage addPMS() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		PMSChannel.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		newChannelPMS.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		channelTypePMS.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		selectChannelTypePMS.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -243,8 +241,8 @@ public class ChannelPage extends AbstractBasePage{
 	 */
 	
 	public ChannelPage URI() {
-		externalURI.sendKeys(e.getCellData("Channel", "ExternalURI", 2));
-		TestBase.implict(3);
+		externalURI.sendKeys(ExcelData.getCellData("Channel", "ExternalURI", 2));
+		Helper.implict(3);
 		return null;
 	}
 
@@ -256,7 +254,7 @@ public class ChannelPage extends AbstractBasePage{
 	public String verifyURIBlankText() {
 		String s = verifyURIBlankText.getText();
 		System.out.println(s);
-		TestBase.implict(3);
+		Helper.implict(3);
 		return s;
 	}
 
@@ -265,8 +263,8 @@ public class ChannelPage extends AbstractBasePage{
 	 */
 	
 	public ChannelPage retryInterval(){
-		retryInterval.sendKeys(e.getCellData("Channel", "RetryInterval", 2));
-		TestBase.implict(3);
+		retryInterval.sendKeys(ExcelData.getCellData("Channel", "RetryInterval", 2));
+		Helper.implict(3);
 		return null;
 	}
 
@@ -278,7 +276,7 @@ public class ChannelPage extends AbstractBasePage{
 	public String verifyRetryIntervalBlankText(){
 		String s = verifyRetryIntervalBlankText.getText();
 		System.out.println(s);
-		TestBase.implict(3);
+		Helper.implict(3);
 		return s;
 	}
 
@@ -287,8 +285,8 @@ public class ChannelPage extends AbstractBasePage{
 	 */
 	
 	public ChannelPage maxRetryCount(){
-		maxRetryCount.sendKeys(e.getCellData("Channel", "MaxRetryCount", 2));
-		TestBase.implict(3);
+		maxRetryCount.sendKeys(ExcelData.getCellData("Channel", "MaxRetryCount", 2));
+		Helper.implict(3);
 		return null;
 	}
 
@@ -300,7 +298,7 @@ public class ChannelPage extends AbstractBasePage{
 	public String verifyMaxRetryCountBlankText(){
 		String s = verifyMaxRetryCountBlankText.getText();
 		System.out.println(s);
-		TestBase.implict(3);
+		Helper.implict(3);
 		return s;
 	}
 

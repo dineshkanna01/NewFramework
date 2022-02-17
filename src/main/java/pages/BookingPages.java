@@ -7,12 +7,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utility.ExcelData;
-import base.TestBase;
+import base.Helper;
 
 public class BookingPages extends AbstractBasePage {
 
-	ExcelData e = new ExcelData();
-	
 	public BookingPages(WebDriver driver) {
 		super(driver);
 		PageFactory.initElements(driver, this);
@@ -98,55 +96,55 @@ public class BookingPages extends AbstractBasePage {
 	WebElement qtestCode;
 	
 	public BookingPages firstPage() throws Exception {
-		arrivalDate.sendKeys(e.getCellData("FirstPage", "dateIn", 2));
-		TestBase.implict(8);
+		arrivalDate.sendKeys(ExcelData.getCellData("FirstPage", "dateIn", 2));
+		Helper.implict(8);
 		departureDate.clear();
-		departureDate.sendKeys(e.getCellData("FirstPage", "dateOut", 2));
+		departureDate.sendKeys(ExcelData.getCellData("FirstPage", "dateOut", 2));
 		availability.click();
 		Thread.sleep(4000);
 //		gotIt.click();
 //		Thread.sleep(4000);
 		booknow.click();
-		TestBase.screenShot("FirstPage");
+		Helper.screenShot("FirstPage");
 		return null;
 	}
 	
 	public BookingPages secondpage() throws Exception {
-		firstname.sendKeys(e.getCellData("SecondPage", "firstName", 2));
-		lastname.sendKeys(e.getCellData("SecondPage", "lname", 2));
-		bookingEmail.sendKeys(e.getCellData("SecondPage", "email", 2));
-		feedBack.sendKeys(e.getCellData("SecondPage", "feedBack", 2));
+		firstname.sendKeys(ExcelData.getCellData("SecondPage", "firstName", 2));
+		lastname.sendKeys(ExcelData.getCellData("SecondPage", "lname", 2));
+		bookingEmail.sendKeys(ExcelData.getCellData("SecondPage", "email", 2));
+		feedBack.sendKeys(ExcelData.getCellData("SecondPage", "feedBack", 2));
 		confirmDetails.click();
-		TestBase.screenShot("SecondPage");
+		Helper.screenShot("SecondPage");
 		return null;
 	}
 	
 	public BookingPages thirdPage(String cardNum) throws Exception {
-		cardHolder.sendKeys(e.getCellData("ThirdPage", "cardHolder", 2));
-		TestBase.implict(8);
+		cardHolder.sendKeys(ExcelData.getCellData("ThirdPage", "cardHolder", 2));
+		Helper.implict(8);
 		cardNo.sendKeys(cardNum);
 		cardNo.sendKeys(cardNum);
 		cardNo.sendKeys(cardNum);
 		cardNo.sendKeys(cardNum);
-		expireMonth.sendKeys(e.getCellData("ThirdPage", "expireMonth", 2));
-		expireYear.sendKeys(e.getCellData("ThirdPage", "expireYear", 2));
-		SecCode.sendKeys(e.getCellData("ThirdPage", "SecCode", 2));
-		country.sendKeys(e.getCellData("ThirdPage", "country", 2));
-		streetAdd.sendKeys(e.getCellData("ThirdPage", "streetAdd", 2));
-		city.sendKeys(e.getCellData("ThirdPage", "city", 2));
-		state.sendKeys(e.getCellData("ThirdPage", "state", 2));
-		zipCode.sendKeys(e.getCellData("ThirdPage", "zipCode", 2));
-		phNo.sendKeys(e.getCellData("ThirdPage", "phNo", 2));
+		expireMonth.sendKeys(ExcelData.getCellData("ThirdPage", "expireMonth", 2));
+		expireYear.sendKeys(ExcelData.getCellData("ThirdPage", "expireYear", 2));
+		SecCode.sendKeys(ExcelData.getCellData("ThirdPage", "SecCode", 2));
+		country.sendKeys(ExcelData.getCellData("ThirdPage", "country", 2));
+		streetAdd.sendKeys(ExcelData.getCellData("ThirdPage", "streetAdd", 2));
+		city.sendKeys(ExcelData.getCellData("ThirdPage", "city", 2));
+		state.sendKeys(ExcelData.getCellData("ThirdPage", "state", 2));
+		zipCode.sendKeys(ExcelData.getCellData("ThirdPage", "zipCode", 2));
+		phNo.sendKeys(ExcelData.getCellData("ThirdPage", "phNo", 2));
 		accept.click();
 		subBook.click();
-		TestBase.screenShot("ThirdPage");
+		Helper.screenShot("ThirdPage");
 		return null;
 	}
 	
 	public BookingPages confirmPage() throws Exception {
 		String txtCode = qtestCode.getText();
 		System.out.println("Confirmation Code: "+txtCode);
-		TestBase.screenShot("ConfirmationID");
+		Helper.screenShot("ConfirmationID");
 		return null;
 	}
 	

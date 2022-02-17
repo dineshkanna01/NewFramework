@@ -10,6 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utility.ExcelData;
+import base.Helper;
 import base.TestBase;
 
 /*
@@ -19,8 +20,6 @@ import base.TestBase;
 
 public class SmartRateTestingPage extends TestBase {
 	
-	ExcelData e = new ExcelData();
-
 	@FindBy(xpath = "//a[text()='Edit']")
 	WebElement adminEditProperty;
 
@@ -191,7 +190,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public SmartRateTestingPage adminPropertyEdit() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		adminEditProperty.click();
 
 		return null;
@@ -202,7 +201,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public SmartRateTestingPage adminEnableSamrtRate() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		adminSmartRateEnable.click();
 
 		return null;
@@ -213,7 +212,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public SmartRateTestingPage adminDisableSamrtRate() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		adminSmartRateDisable.click();
 
 		return null;
@@ -224,7 +223,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public SmartRateTestingPage adminConfirmOkButton() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		adminConfirmOkButton.click();
 
 		return null;
@@ -235,7 +234,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public SmartRateTestingPage adminRatePlanTab()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -253,7 +252,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public boolean verifyadminManageSmartRate() {
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		if (adminManageSmartRate.isDisplayed())
 			System.out.println("Smart Rate is Enabled");
@@ -266,7 +265,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public SmartRateTestingPage adminSelectManageSmartRateOption() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		adminManageSmartRate.click();
 		return null;
 	}
@@ -282,7 +281,7 @@ public class SmartRateTestingPage extends TestBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		TestBase.implict(3);
+		Helper.implict(3);
 		adminEnableBasicPolicy.click();
 		try {
 			Thread.sleep(1000);
@@ -291,7 +290,7 @@ public class SmartRateTestingPage extends TestBase {
 			e.printStackTrace();
 		}
 		adminPolicyDropDown.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		adminSelectPolicy.click();
 		return null;
 	}
@@ -301,7 +300,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public SmartRateTestingPage adminSmartRateSaveButton() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		adminSmartRateSaveButton.click();
 		return null;
 	}
@@ -311,7 +310,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public String verifyAdminSmartRateSaveButton() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		String s = adminSmartRateSaveButton.getAttribute("value");
 		System.out.println(s);
 		return s;
@@ -322,7 +321,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public SmartRateTestingPage adminListAllRatePlan(){
-		TestBase.implict(5);
+		Helper.implict(5);
 		ratePlanListAll.click();
 		return null;
 
@@ -333,7 +332,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public SmartRateTestingPage editBARRatePlan() {
-		TestBase.implict(5);
+		Helper.implict(5);
 		editBARRatePlan.click();
 		enableSmartRate.click();
 		return null;
@@ -345,7 +344,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public SmartRateTestingPage editSmartRatePlan2() {
-		TestBase.implict(5);
+		Helper.implict(5);
 		editRatePlan2.click();
 		enableSmartRate.click();
 		return null;
@@ -358,7 +357,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public boolean verifRatePlan1AddenInSmartRate() {
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		if (verifySmartRatePlan1.isDisplayed())
 			System.out.println("Rate Plan 1 is added in Smart Rate");
@@ -372,7 +371,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public boolean verifRatePlan2AddenInSmartRate() {
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		if (verifySmartRatePlan2.isDisplayed())
 			System.out.println("Rate Plan 2 is added in Smart Rate");
@@ -392,7 +391,7 @@ public class SmartRateTestingPage extends TestBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		if (verifySmartRatePlanInBE.isDisplayed())
 			System.out.println("Smart Rate Plan is added in BE");
@@ -405,7 +404,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public SmartRateTestingPage SmartRatePlanOfferDetails()  {
-		TestBase.implict(5);
+		Helper.implict(5);
 		SmartRatePlanOfferDetails.click();
 		return null;
 
@@ -417,7 +416,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public boolean verifySmartRatePlanBasicPolicy() {
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		if (verifySmartRatePlanBasicPolicy.isDisplayed())
 			System.out.println("Basic policy set for Smart Rate Plan");
@@ -431,7 +430,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public boolean verifySmartRatePlanSpecialPolicy() {
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		if (verifySmartRatePlanBasicPolicy.isDisplayed())
 			System.out.println("Special policy set for Smart Rate Plan");
@@ -444,24 +443,24 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public SmartRateTestingPage availabilityCheck()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		checkInCalander.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		checkInDate.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 
 		String Date = checkInCalander.getAttribute("value");
 		System.out.println(Date);
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 		Calendar c = Calendar.getInstance();
-		int m = Integer.valueOf(e.getCellData("SmartRate", "DateGap", 2));
+		int m = Integer.valueOf(ExcelData.getCellData("SmartRate", "DateGap", 2));
 		c.add(Calendar.DAY_OF_MONTH, m);
 		String newDate = sdf.format(c.getTime());
 		System.out.println(newDate);
-		TestBase.implict(3);
+		Helper.implict(3);
 		
 		checkOutCalander.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		checkOutCalander.clear();
 		checkOutCalander.sendKeys(newDate);
 		try {
@@ -470,10 +469,10 @@ public class SmartRateTestingPage extends TestBase {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		TestBase.implict(3);
+		Helper.implict(3);
 		
 		checkAvailability.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -482,7 +481,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public SmartRateTestingPage adminSmartPolicy()  {
-//		TestBase.implict(5);
+//		Helper.implict(5);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -490,9 +489,9 @@ public class SmartRateTestingPage extends TestBase {
 			e.printStackTrace();
 		}
 		adminEnableSmartPolicy.click();
-		TestBase.implict(5);
+		Helper.implict(5);
 		adminSmartPolicyDropDown.click();
-		TestBase.implict(5);
+		Helper.implict(5);
 		adminSelectSmartPolicy.click();
 		return null;
 
@@ -503,7 +502,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public SmartRateTestingPage selectRateGrid()  {
-//		TestBase.implict(3);
+//		Helper.implict(3);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -517,7 +516,7 @@ public class SmartRateTestingPage extends TestBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		TestBase.implict(3);
+//		Helper.implict(3);
 		return null;
 	}
 
@@ -533,7 +532,7 @@ public class SmartRateTestingPage extends TestBase {
 			e.printStackTrace();
 		}
 		selectRatePlan.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -543,7 +542,7 @@ public class SmartRateTestingPage extends TestBase {
 
 	public SmartRateTestingPage continueButton(){
 		continueButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -552,7 +551,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public SmartRateTestingPage adminRateGriddateRange() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
 		Calendar c = Calendar.getInstance();
 		c.add(Calendar.DAY_OF_MONTH, 1);
@@ -560,7 +559,7 @@ public class SmartRateTestingPage extends TestBase {
 		checkInGridDate.sendKeys(newDate);
 		checkOutGridDate.sendKeys(newDate);
 		
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -570,7 +569,7 @@ public class SmartRateTestingPage extends TestBase {
 
 	public SmartRateTestingPage clickoverrideRoomCheckbox() {
 		overrideRoomHierarchy.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -580,7 +579,7 @@ public class SmartRateTestingPage extends TestBase {
 
 	public SmartRateTestingPage clickdailyRateInvbutton() {
 		dailyRateInvButton.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -590,11 +589,11 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public String adminVerifyRatePlanName() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		String s = adminVerifyRatePlanName.getText();
 		
 		System.out.println("Admin Rate Plan name:" +s);
-		TestBase.implict(3);
+		Helper.implict(3);
 		return s;
 	}
 
@@ -604,11 +603,11 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public String beVerifyRatePlanName()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		String s = beVerifyRatePlanName.getText();
 		
 		System.out.println("BE Rate Plan name:" +s);
-		TestBase.implict(3);
+		Helper.implict(3);
 		return s;
 	}
 
@@ -618,7 +617,7 @@ public class SmartRateTestingPage extends TestBase {
 
 	public SmartRateTestingPage selectALLRoomType()  {
 		selectRoomTypedropdwn.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		selectAllRoomType.click();
 		System.out.println("All Rooms selected");
 
@@ -630,9 +629,9 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public SmartRateTestingPage nullavailability() {
-		TestBase.implict(3);
-		rateGridAvailability.sendKeys(e.getCellData("SmartRate", "nullAvailability", 2));
-		TestBase.implict(3);
+		Helper.implict(3);
+		rateGridAvailability.sendKeys(ExcelData.getCellData("SmartRate", "nullAvailability", 2));
+		Helper.implict(3);
 		return null;
 	}
 
@@ -641,9 +640,9 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public SmartRateTestingPage availability() {
-		TestBase.implict(3);
-		rateGridAvailability.sendKeys(e.getCellData("SmartRate", "Availability", 2));
-		TestBase.implict(3);
+		Helper.implict(3);
+		rateGridAvailability.sendKeys(ExcelData.getCellData("SmartRate", "Availability", 2));
+		Helper.implict(3);
 		return null;
 	}
 
@@ -653,7 +652,7 @@ public class SmartRateTestingPage extends TestBase {
 
 	public SmartRateTestingPage clickQuickEntrybutton() {
 		quickEntryBtn.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -663,7 +662,7 @@ public class SmartRateTestingPage extends TestBase {
 
 	public SmartRateTestingPage clickUpdatebutton()  {
 		updateBtn.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -673,7 +672,7 @@ public class SmartRateTestingPage extends TestBase {
 
 	public SmartRateTestingPage clickConfirmbutton() {
 		confirmBtn.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -683,7 +682,7 @@ public class SmartRateTestingPage extends TestBase {
 
 	public SmartRateTestingPage radioButtonSmartRate() {
 		radioButtonSmartRate.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -696,7 +695,7 @@ public class SmartRateTestingPage extends TestBase {
 		String s = verifySmartRateAmount.getText();
 		String subS = s.substring(4);
 		System.out.println("Smart Rate Amount: "+subS);
-		TestBase.implict(3);
+		Helper.implict(3);
 		return subS;
 	}
 
@@ -706,7 +705,7 @@ public class SmartRateTestingPage extends TestBase {
 
 	public SmartRateTestingPage radioButtonOtherRate()  {
 		radioButtonOtherRate.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -719,7 +718,7 @@ public class SmartRateTestingPage extends TestBase {
 		String s = verifySmartRateAmount.getText();
 		String subS = s.substring(4);
 		System.out.println("Other Rate Amount: "+subS);
-		TestBase.implict(3);
+		Helper.implict(3);
 		return subS;
 	}
 
@@ -729,7 +728,7 @@ public class SmartRateTestingPage extends TestBase {
 
 	public SmartRateTestingPage smartRateOfferDetails() {
 		beSmartRateOfferDetails.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 
@@ -739,7 +738,7 @@ public class SmartRateTestingPage extends TestBase {
 
 	public String otherRateAmountDetails() {
 		beOtherRateOfferDetails.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		String s = beOtherRatePlanEachDayAmount.getText();
 		String subS = s.substring(4);
 		System.out.println("Each day Amount for other Rate Plan: "+subS);
@@ -752,7 +751,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public String firstDaySmartRateAmountDetails()  {
-		TestBase.implict(3);
+		Helper.implict(3);
 		String s = firstDayAmount.getText();
 		String subS = s.substring(4);
 		System.out.println("First day Amount for Smart Rate Plan: "+subS);
@@ -765,7 +764,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public String secondDaySmartRateAmountDetails(){
-		TestBase.implict(3);
+		Helper.implict(3);
 		String s = SecondDayAmount.getText();
 		String subS = s.substring(4);
 		System.out.println("Second day Amount for Smart Rate Plan: "+subS);
@@ -778,7 +777,7 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public String thirdDaySmartRateAmountDetails(){
-		TestBase.implict(3);
+		Helper.implict(3);
 		String s = thirdDayAmount.getText();
 		String subS = s.substring(4);
 		System.out.println("Third day Amount for Samrt Rate Plan: "+subS);
@@ -790,9 +789,9 @@ public class SmartRateTestingPage extends TestBase {
 	 */
 
 	public SmartRateTestingPage closeOfferDetails() {
-		TestBase.implict(3);
+		Helper.implict(3);
 		closeOfferDetails.click();
-		TestBase.implict(3);
+		Helper.implict(3);
 		return null;
 	}
 

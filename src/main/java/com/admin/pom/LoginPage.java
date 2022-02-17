@@ -7,7 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import Utility.ExcelData;
 import base.Helper;
-import base.TestBase;
 import pages.AbstractBasePage;
 
 /*
@@ -15,8 +14,6 @@ import pages.AbstractBasePage;
 * @Author Uzair Asar
 */
 public class LoginPage extends AbstractBasePage{
-
-	ExcelData e = new ExcelData();
 
 	@FindBy(xpath="//input[@name='j_username']")
 	WebElement username;
@@ -89,11 +86,11 @@ public class LoginPage extends AbstractBasePage{
 		Helper.implict(6);
 		username.click();
 		username.clear();;
-		username.sendKeys(e.getCellData("LoginPageData", "Username", 2));
+		username.sendKeys(ExcelData.getCellData("LoginPageData", "Username", 2));
 		Helper.implict(6);
 		password.click();
 		password.clear();
-		password.sendKeys(e.getCellData("LoginPageData", "Password", 2));
+		password.sendKeys(ExcelData.getCellData("LoginPageData", "Password", 2));
 		loginButton.click();
 
 		return null;
@@ -108,7 +105,7 @@ public class LoginPage extends AbstractBasePage{
 		Helper.explicit(username, 3).click();;
 //		username.click();
 		username.clear();
-		username.sendKeys(e.getCellData("LoginPageData", "Username", 2));
+		username.sendKeys(ExcelData.getCellData("LoginPageData", "Username", 2));
 		Helper.implict(3);
 		return null;
 	}
@@ -122,7 +119,7 @@ public class LoginPage extends AbstractBasePage{
 		password.click();
 		password.clear();
 		Helper.implict(3);
-		password.sendKeys(e.getCellData("LoginPageData", "Password", 2));
+		password.sendKeys(ExcelData.getCellData("LoginPageData", "Password", 2));
 		Helper.implict(3);
 		return null;
 	}
@@ -255,7 +252,7 @@ public class LoginPage extends AbstractBasePage{
 		}
 		username.click();
 		username.clear();
-		username.sendKeys(e.getCellData("LoginPageData", "InvalidUserName", 2));
+		username.sendKeys(ExcelData.getCellData("LoginPageData", "InvalidUserName", 2));
 		Helper.implict(3);
 		return null;
 
@@ -286,7 +283,7 @@ public class LoginPage extends AbstractBasePage{
 		password.click();
 		password.clear();
 
-		password.sendKeys(e.getCellData("LoginPageData", "InvalidPassword", 2));
+		password.sendKeys(ExcelData.getCellData("LoginPageData", "InvalidPassword", 2));
 		return null;
 
 	}

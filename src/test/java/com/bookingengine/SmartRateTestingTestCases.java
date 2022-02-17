@@ -17,6 +17,7 @@ import com.admin.pom.PropertyBrandingPage;
 import com.be.pom.PropertyLevelRestrictionPage;
 import com.be.pom.SmartRateTestingPage;
 
+import base.Helper;
 import base.TestBase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -59,7 +60,6 @@ public class SmartRateTestingTestCases extends TestBase {
 		srtp = new SmartRateTestingPage(getDriver());
 		npp = new NewPropertyPage(getDriver());
 		ahp = new AdministratorHomePage(getDriver());
-
 	}
 
 	@Test(priority = 1)
@@ -72,39 +72,27 @@ public class SmartRateTestingTestCases extends TestBase {
 	public void BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_01() {
 		logger.info("CRS Started");
 		extentTest = extent.startTest("BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_01");
-
 		lp.login();
-
 		allureScreenshot("Logged In");
 		screenShot("Logged In");
-
 		bp.openBrands();
-
 		allureScreenshot("Brands Open");
 		screenShot("Brands Open");
-
 		bp.brandSelect();
-
 		pbp.selectProperty();
-
 		cp.openPropertyTab();
 		srtp.adminPropertyEdit();
 		srtp.adminEnableSamrtRate();
-		
 		String editSave = npp.verifyEditSaveButton();
 		Assert.assertEquals(editSave, "Save");
-		
 		npp.propertyEditPageSaveButton();
 		srtp.adminConfirmOkButton();
 		srtp.adminRatePlanTab();
 		srtp.verifyadminManageSmartRate();
-		
 		allureScreenshot("Manage Smart rate Plan option");
 		screenShot("Manage Smart rate Plan option");
-
 		assertTrue(srtp.verifyadminManageSmartRate());
 		System.out.println("Smart Rate is Enabled");
-
 	}
 
 	@Test(priority = 2)
@@ -116,7 +104,6 @@ public class SmartRateTestingTestCases extends TestBase {
 	@Step("Verify rate plan added in smart rate plan")
 	public void BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_02() {
 		extentTest = extent.startTest("BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_02");
-
 //		srtp.adminSelectManageSmartRateOption();
 //		srtp.adminSmartRatePolicySelect();
 		srtp.adminListAllRatePlan();
@@ -126,19 +113,13 @@ public class SmartRateTestingTestCases extends TestBase {
 		srtp.adminSmartRateSaveButton();
 		srtp.adminSelectManageSmartRateOption();
 		srtp.adminSmartRatePolicySelect();
-		
 		String manageSmartRateButton = srtp.verifyAdminSmartRateSaveButton();
 		Assert.assertEquals(manageSmartRateButton, "Save");
-
 		allureScreenshot("Rate Plans Added");
 		screenShot("Rate Plans Added");
-		
 		assertTrue(srtp.verifRatePlan1AddenInSmartRate());
-
 		assertTrue(srtp.verifRatePlan2AddenInSmartRate());
-		
 		srtp.adminSmartRateSaveButton();
-
 	}
 
 	@Test(priority = 3)
@@ -150,28 +131,20 @@ public class SmartRateTestingTestCases extends TestBase {
 	@Step("Verify basic policy for smart rate plan")
 	public void BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_03() {
 		extentTest = extent.startTest("BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_03");
-		
 		logger.info("Booking Engine Started");
-		openBEurlinNewTab();
-
+//		openBEurlinNewTab();
+		openURL("be_url1");
 		srtp.availabilityCheck();
 		String buttonCheck = plrp.verifyBookNowBtn();
 		Assert.assertEquals(buttonCheck, "BOOK NOW");
-
 		allureScreenshot("Booking Available");
 		screenShot("Booking Available");
-
 		plrp.bookNow();
-
 		assertTrue(srtp.verifySmartRatePlanInBE());
-
 		srtp.SmartRatePlanOfferDetails();
-		
 		allureScreenshot("Basic Policy in Smart rate plan");
 		screenShot("Basic Policy in Smart rate plan");
-
 		assertTrue(srtp.verifySmartRatePlanBasicPolicy());
-
 	}
 
 	@Test(priority = 4)
@@ -181,38 +154,22 @@ public class SmartRateTestingTestCases extends TestBase {
 	@Feature("Feature1: Smart Rate Plan")
 	@Story("Story: Smart rate plan with smart ploicy")
 	@Step("Verify smart policy for smart rate plan")
-	public void BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_04() {
+	public void BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_04() throws Exception {
 		extentTest = extent.startTest("BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_04");
-
-		switchWindow(0);
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		Helper.switchWindow(0);
+		Thread.sleep(1000);
 		srtp.adminSelectManageSmartRateOption();
 		srtp.adminSmartPolicy();
-		
 		String manageSmartRateButton = srtp.verifyAdminSmartRateSaveButton();
 		Assert.assertEquals(manageSmartRateButton, "Save");
-		
 		srtp.adminSmartRateSaveButton();
-
-		switchWindow(1);
-
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
-
 		assertTrue(srtp.verifySmartRatePlanInBE());
-
 		srtp.SmartRatePlanOfferDetails();
-		
 		allureScreenshot("Samrt Policy in Smart rate plan");
 		screenShot("Smart Policy in Smart rate plan");
-
 		assertTrue(srtp.verifySmartRatePlanSpecialPolicy());
-
 	}
 
 	@Test(priority = 5)
@@ -224,8 +181,7 @@ public class SmartRateTestingTestCases extends TestBase {
 	@Step("Verify most affordable rates are there")
 	public void BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_05(){
 		extentTest = extent.startTest("BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_05");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		ahp.selectRatesandInventory();
 		srtp.selectRateGrid();
 		srtp.selectRatePlan();
@@ -238,19 +194,15 @@ public class SmartRateTestingTestCases extends TestBase {
 		srtp.clickQuickEntrybutton();
 		srtp.clickUpdatebutton();
 		srtp.clickConfirmbutton();
-
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		switchWindow(1);
-
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
 		getDriver().navigate().back();
-
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -264,18 +216,13 @@ public class SmartRateTestingTestCases extends TestBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		srtp.radioButtonSmartRate();
 		srtp.verifySmartRateAmount();
-		
 		allureScreenshot("Smart rate plan amount");
 		screenShot("Smart rate plan amount");
-		
 		srtp.radioButtonOtherRate();
-
 		srtp.verifyOtherRateAmount();
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		srtp.selectRatePlan();
 		srtp.continueButton();
 		srtp.adminRateGriddateRange();
@@ -286,7 +233,6 @@ public class SmartRateTestingTestCases extends TestBase {
 		srtp.clickQuickEntrybutton();
 		srtp.clickUpdatebutton();
 		srtp.clickConfirmbutton();
-
 	}
 
 	@Test(priority = 6)
@@ -298,39 +244,29 @@ public class SmartRateTestingTestCases extends TestBase {
 	@Step("Verify Amount of disbled rate plan can be seen")
 	public void BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_06(){
 		extentTest = extent.startTest("BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_06");
-
-		switchWindow(1);
-
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
-
 		String beRatePlan = srtp.beVerifyRatePlanName();
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		srtp.selectRatePlan();
 		srtp.continueButton();
 		srtp.adminRateGriddateRange();
 		srtp.clickoverrideRoomCheckbox();
 		srtp.clickdailyRateInvbutton();
-
 		String adminRatePlan = srtp.adminVerifyRatePlanName();
-
 		Assert.assertEquals(beRatePlan, adminRatePlan);
-
 		srtp.selectALLRoomType();
 		srtp.nullavailability();
 		srtp.clickQuickEntrybutton();
 		srtp.clickUpdatebutton();
 		srtp.clickConfirmbutton();
-
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
-		switchWindow(1);
-
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
 		try {
 			Thread.sleep(1000);
@@ -338,34 +274,24 @@ public class SmartRateTestingTestCases extends TestBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		srtp.smartRateOfferDetails();
-		
 		allureScreenshot("Smart rate plan amount of each day");
 		screenShot("Smart rate plan amount of each day");
-		
 		String firstDaySmartrateAmount = srtp.firstDaySmartRateAmountDetails();
 		String secondDaySmartrateAmount = srtp.secondDaySmartRateAmountDetails();
 		String thirdDaySmartrateAmount = srtp.thirdDaySmartRateAmountDetails();
-
 		srtp.closeOfferDetails();
-
 		String otherRatePalnAmount = srtp.otherRateAmountDetails();
-		
 		allureScreenshot("Other rate plan amount of each day");
 		screenShot("Other rate plan amount of each day");
-
 		Assert.assertNotEquals(firstDaySmartrateAmount, otherRatePalnAmount);
 		System.out.println("First Day Amount is taken from BAR rate plan that is close on Second Day");
 		Assert.assertEquals(secondDaySmartrateAmount, otherRatePalnAmount);
 		System.out.println("Second Day Amount is taken from the rate plan that is not close on Second Day");
-
 		Assert.assertNotEquals(thirdDaySmartrateAmount, otherRatePalnAmount);
 		System.out.println("Third Day Amount is taken from BAR rate plan that is close on Second Day");
-
 		srtp.closeOfferDetails();
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		srtp.selectRatePlan();
 		srtp.continueButton();
 		srtp.adminRateGriddateRange();
@@ -376,17 +302,13 @@ public class SmartRateTestingTestCases extends TestBase {
 		srtp.clickQuickEntrybutton();
 		srtp.clickUpdatebutton();
 		srtp.clickConfirmbutton();
-
 		cp.openPropertyTab();
 		srtp.adminPropertyEdit();
 		srtp.adminDisableSamrtRate();
-		
 		String editSave = npp.verifyEditSaveButton();
 		Assert.assertEquals(editSave, "Save");
-		
 		npp.propertyEditPageSaveButton();
 		srtp.adminConfirmOkButton();
-
 	}
 
 	@Test(priority = 7)
@@ -398,46 +320,31 @@ public class SmartRateTestingTestCases extends TestBase {
 	@Step("Verify Smart Rate not visible when one rate Plan attached")
 	public void BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_07() {
 		extentTest = extent.startTest("BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_07");
-
-		switchWindow(1);
-
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
-
-		switchWindow(0);
-
+		Helper.switchWindow(0);
 		srtp.adminPropertyEdit();
 		srtp.adminEnableSamrtRate();
-		
 		String editSave = npp.verifyEditSaveButton();
 		Assert.assertEquals(editSave, "Save");
-		
 		npp.propertyEditPageSaveButton();
 		srtp.adminConfirmOkButton();
-
 		srtp.adminRatePlanTab();
 		srtp.adminSelectManageSmartRateOption();
 		srtp.adminSmartRatePolicySelect();
-		
 		String manageSmartRateButton = srtp.verifyAdminSmartRateSaveButton();
 		Assert.assertEquals(manageSmartRateButton, "Save");
-		
 		srtp.adminSmartRateSaveButton();
 		srtp.adminListAllRatePlan();
 		srtp.editBARRatePlan();
-		
-		
-		
 		srtp.adminSmartRateSaveButton();
-
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		switchWindow(1);
-
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
 		try {
 			Thread.sleep(1000);
@@ -445,16 +352,12 @@ public class SmartRateTestingTestCases extends TestBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		allureScreenshot("Smart Rate Plan not there");
 		screenShot("Smart Rate Plan not there");
-
-		switchWindow(0);
-
+		Helper.switchWindow(0);
 		srtp.adminListAllRatePlan();
 		srtp.editSmartRatePlan2();
 		srtp.adminSmartRateSaveButton();
-
 	}
 
 	@Test(priority = 8)
@@ -466,40 +369,25 @@ public class SmartRateTestingTestCases extends TestBase {
 	@Step("Verify Smart Rate Plan removed")
 	public void BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_08() {
 		extentTest = extent.startTest("BookingEngine_BookingsToVerifyRestrictionsAppliedAtPropertyLevel_TC_08");
-
-		switchWindow(1);
-
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
-
-		switchWindow(0);
-
+		Helper.switchWindow(0);
 		cp.openPropertyTab();
 		srtp.adminPropertyEdit();
 		srtp.adminDisableSamrtRate();
-		
 		String editSave = npp.verifyEditSaveButton();
 		Assert.assertEquals(editSave, "Save");
-		
 		npp.propertyEditPageSaveButton();
-		
-		
-		
 		srtp.adminConfirmOkButton();
-		
 		lp.logout();
-		
 		logger.info("CRS Closed");
-		
-
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		switchWindow(1);
-
+		Helper.switchWindow(1);
 		getDriver().navigate().refresh();
 		try {
 			Thread.sleep(1000);
@@ -510,14 +398,7 @@ public class SmartRateTestingTestCases extends TestBase {
 		
 		allureScreenshot("Smart Rate Plan removed");
 		screenShot("Smart Rate Plan removed");
-		
 		logger.info("Booking Engine Closed");
-
 	}
 
-	@AfterSuite
-	public void report() throws Exception {
-		mail();
-		cmdPrompt();
-	}
 }

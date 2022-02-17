@@ -20,6 +20,7 @@ import com.be.pom.HouseControlRestrictionsPage;
 import com.be.pom.JCCBookingsPage;
 
 import Utility.ExcelData;
+import base.Helper;
 import base.TestBase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -69,24 +70,17 @@ public class HouseControlRestrictions extends TestBase {
 	public void HouseControlRestrictions_TC_01() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("HouseControlRestrictions_TC_01");
-
 		lp.login();
-
 		allureScreenshot("Login");
 		screenShot("Login");
-
 		ahp.selectBrand();
 		ahp.selectProperty2();
-
 		allureScreenshot("Property Selected");
 		screenShot("Property Selected");
-
 		ahp.selectRatesandInventory();
 		ahp.selectHouseInventoryRestrictions();
-
 		allureScreenshot("House Control Restrictions Page");
 		screenShot("House Control Restrictions Page");
-
 		hrp.selectDateRange();
 		hrp.clickSubmitButton();
 		hrp.openYieldControls();
@@ -96,24 +90,18 @@ public class HouseControlRestrictions extends TestBase {
 		hrp.clickQuickEntrybutton();
 		hrp.clickUpdateButton();
 		hrp.clickConfirmButton();
-
 		allureScreenshot("House Control Restrictions confirm");
 		screenShot("House Control Restrictions confirm");
-
-		openBEurlinNewTab();
-
+//		openBEurlinNewTab();
+		openURL("be_url1");
 		allureScreenshot("Booking Engine");
 		screenShot("Booking Engine");
-
 		jbp.selectDate();
 		jbp.clickAvailibilityButton();
-
 		allureScreenshot("House Control Restrictions min stay through booking engine");
 		screenShot("House Control Restrictions min stay through booking engine");
-
 		Assert.assertTrue(hrp.verificationStayThrough());
 		logger.info("TestCase Ended");
-
 	}
 
 	@Test(priority = 2)
@@ -126,8 +114,7 @@ public class HouseControlRestrictions extends TestBase {
 	public void HouseControlRestrictions_TC_02() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("HouseControlRestrictions_TC_02");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		hrp.selectDateRange();
 		hrp.clickSubmitButton();
 		hrp.openYieldControls();
@@ -137,22 +124,16 @@ public class HouseControlRestrictions extends TestBase {
 		hrp.clickQuickEntrybutton();
 		hrp.clickUpdateButton();
 		hrp.clickConfirmButton();
-
 		allureScreenshot("House Control Restrictions confirm");
 		screenShot("House Control Restrictions confirm");
-
-		switchWindow(1);
-		refreshBE();
-
+		Helper.switchWindow(1);
+		Helper.refreshBE();
 		hrp.selectDateTC02();
 		jbp.clickAvailibilityButton();
-
 		allureScreenshot("House Control Restrictions max stay through booking engine");
 		screenShot("House Control Restrictions max stay through booking engine");
-
 		Assert.assertTrue(hrp.verificationStayThrough());
 		logger.info("TestCase Ended");
-
 	}
 
 	@Test(priority = 3)
@@ -165,8 +146,7 @@ public class HouseControlRestrictions extends TestBase {
 	public void HouseControlRestrictions_TC_03() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("HouseControlRestrictions_TC_03");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		hrp.selectDateRange();
 		hrp.clickSubmitButton();
 		hrp.openYieldControls();
@@ -175,22 +155,16 @@ public class HouseControlRestrictions extends TestBase {
 		hrp.clickQuickEntrybutton();
 		hrp.clickUpdateButton();
 		hrp.clickConfirmButton();
-
 		allureScreenshot("House Control Restrictions confirm");
 		screenShot("House Control Restrictions confirm");
-
-		switchWindow(1);
-		refreshBE();
-
+		Helper.switchWindow(1);
+		Helper.refreshBE();
 		jbp.selectDate();
 		jbp.clickAvailibilityButton();
-
 		allureScreenshot("Book Now Visible");
 		screenShot("Book Now Visible");
-
 		Assert.assertTrue(hrp.verification_BookNowVisible());
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		hrp.selectDateRange();
 		hrp.clickSubmitButton();
 		hrp.closeYieldControls();
@@ -199,19 +173,14 @@ public class HouseControlRestrictions extends TestBase {
 		hrp.clickQuickEntrybutton();
 		hrp.clickUpdateButton();
 		hrp.clickConfirmButton();
-
-		switchWindow(1);
-		refreshBE();
-
+		Helper.switchWindow(1);
+		Helper.refreshBE();
 		jbp.selectDate();
 		jbp.clickAvailibilityButton();
-
 		allureScreenshot("Book Now not Visible");
 		screenShot("Book Now not Visible");
-
 		Assert.assertFalse(hrp.verification_BookNowNotVisible());
 		logger.info("TestCase Ended");
-
 	}
 
 	@Test(priority = 4)
@@ -224,8 +193,7 @@ public class HouseControlRestrictions extends TestBase {
 	public void HouseControlRestrictions_TC_04() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("HouseControlRestrictions_TC_04");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		hrp.selectDateRange();
 		hrp.clickSubmitButton();
 		hrp.openYieldControls();
@@ -234,22 +202,16 @@ public class HouseControlRestrictions extends TestBase {
 		hrp.clickQuickEntrybutton();
 		hrp.clickUpdateButton();
 		hrp.clickConfirmButton();
-
 		allureScreenshot("House Control Restrictions confirm");
 		screenShot("House Control Restrictions confirm");
-
-		switchWindow(1);
-		refreshBE();
-
+		Helper.switchWindow(1);
+		Helper.refreshBE();
 		jbp.selectDate();
 		jbp.clickAvailibilityButton();
-
 		allureScreenshot("Book Now Visible");
 		screenShot("Book Now Visible");
-
 		Assert.assertTrue(hrp.verification_BookNowVisible());
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		hrp.selectDateRange();
 		hrp.clickSubmitButton();
 		hrp.openYieldControls();
@@ -259,19 +221,14 @@ public class HouseControlRestrictions extends TestBase {
 		hrp.clickQuickEntrybutton();
 		hrp.clickUpdateButton();
 		hrp.clickConfirmButton();
-
-		switchWindow(1);
-		refreshBE();
-
+		Helper.switchWindow(1);
+		Helper.refreshBE();
 		jbp.selectDate();
 		jbp.clickAvailibilityButton();
-
 		allureScreenshot("Book Now not Visible");
 		screenShot("Book Now not Visible");
-
 		Assert.assertFalse(hrp.verification_BookNowNotVisible());
 		logger.info("TestCase Ended");
-
 	}
 
 	@Test(priority = 5)
@@ -284,8 +241,7 @@ public class HouseControlRestrictions extends TestBase {
 	public void HouseControlRestrictions_TC_05() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("HouseControlRestrictions_TC_05");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		hrp.selectDateRange();
 		hrp.clickSubmitButton();
 		hrp.openYieldControls();
@@ -295,22 +251,16 @@ public class HouseControlRestrictions extends TestBase {
 		hrp.clickQuickEntrybutton();
 		hrp.clickUpdateButton();
 		hrp.clickConfirmButton();
-
 		allureScreenshot("House Control Restrictions confirm");
 		screenShot("House Control Restrictions confirm");
-
-		switchWindow(1);
-		refreshBE();
-
+		Helper.switchWindow(1);
+		Helper.refreshBE();
 		jbp.selectDate();
 		jbp.clickAvailibilityButton();
-
 		allureScreenshot("Book Now not Visible");
 		screenShot("Book Now not Visible");
-
 		Assert.assertFalse(hrp.verification_BookNowNotVisible());
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		hrp.selectDateRange();
 		hrp.clickSubmitButton();
 		hrp.openYieldControls();
@@ -320,19 +270,14 @@ public class HouseControlRestrictions extends TestBase {
 		hrp.clickQuickEntrybutton();
 		hrp.clickUpdateButton();
 		hrp.clickConfirmButton();
-
-		switchWindow(1);
-		refreshBE();
-
+		Helper.switchWindow(1);
+		Helper.refreshBE();
 		jbp.selectDate();
 		jbp.clickAvailibilityButton();
-
 		allureScreenshot("Book Now Visible");
 		screenShot("Book Now Visible");
-
 		Assert.assertTrue(hrp.verification_BookNowVisible());
 		logger.info("TestCase Ended");
-
 	}
 
 	@Test(priority = 6)
@@ -345,55 +290,34 @@ public class HouseControlRestrictions extends TestBase {
 	public void HouseControlRestrictions_TC_06() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("HouseControlRestrictions_TC_06");
-
-		switchWindow(0);
+		Helper.switchWindow(0);
 		hrp.selectDateRange();
 		hrp.clickSubmitButton();
 		hrp.closeYieldControls();
 		hrp.selectDayofWeek();
 		hrp.clearAllMinLOS();
 		hrp.clearAllMaxLOS();
-
 		hrp.clickQuickEntrybutton();
 		hrp.clickUpdateButton();
 		hrp.clickConfirmButton();
-
 		allureScreenshot("House Control Restrictions confirm");
 		screenShot("House Control Restrictions confirm");
-
-		switchWindow(1);
-		refreshBE();
-
+		Helper.switchWindow(1);
+		Helper.refreshBE();
 		jbp.selectDate();
 		jbp.clickAvailibilityButton();
-
 		allureScreenshot("Book Now not Visible");
 		screenShot("Book Now not Visible");
-
 		Assert.assertFalse(hrp.verification_BookNowNotVisible());
-
-		refreshBE();
-
+		Helper.refreshBE();
 		hrp.selectDateTC06();
 		jbp.clickAvailibilityButton();
-
 		allureScreenshot("Book Now Visible");
 		screenShot("Book Now Visible");
-
 		Assert.assertTrue(hrp.verification_BookNowVisible());
-		switchWindow(0);
+		Helper.switchWindow(0);
 		lp.logout();
 		logger.info("TestCase Ended");
 	}
 
-	@AfterSuite
-	public void report() {
-		try {
-			mail();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		cmdPrompt();
-	}
 }
