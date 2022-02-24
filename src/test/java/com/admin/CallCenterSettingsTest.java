@@ -10,6 +10,7 @@ import com.admin.pom.CallCenterSettingsPage;
 import com.admin.pom.LoginPage;
 
 import Utility.ExcelData;
+import Utility.JiraPolicy;
 import base.TestBase;
 
 /*
@@ -39,6 +40,7 @@ public class CallCenterSettingsTest extends TestBase {
 	/*
 	 * Method for call center settings TC01
 	 */
+	@JiraPolicy(logTicketReady=true)
 	@Test
 	public void callCenterSettings_TC_01(){
 		extentTest = extent.startTest("callCenterSettings_TC_01");
@@ -61,6 +63,7 @@ public class CallCenterSettingsTest extends TestBase {
 	/*
 	 * Method for call center settings TC02
 	 */
+	@JiraPolicy(logTicketReady=true)
 	@Test
 	public void callCenterSettings_TC_02(){
 		extentTest = extent.startTest("callCenterSettings_TC_02");
