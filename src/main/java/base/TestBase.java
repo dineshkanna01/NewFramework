@@ -287,6 +287,19 @@ public class TestBase {
 
 		}
 	}
+	
+//	String downloadFilepath = System.getProperty("user.dir") + "\\target\\CrsReports";
+//	Map<String, Object> preferences = new Hashtable<String, Object>();
+//	preferences.put("profile.default_content_settings.popups", 0);
+//	preferences.put("download.prompt_for_download", "false");
+//	preferences.put("download.default_directory", downloadFilepath);
+//
+//	// disable flash and the PDF viewer
+//	preferences.put("plugins.plugins_disabled", new String[] { "Adobe Flash Player", "Chrome PDF Viewer" });
+//
+//	ChromeOptions options = new ChromeOptions();
+//	options.setExperimentalOption("prefs", preferences);
+//	options.addArguments("user-data-dir=C:\\Users\\Dinesh.Kanna\\AppData\\Local\\Google\\Chrome\\User Data");
 
 	//	Mobile responsive testing and it is for change dimension of width and heigth of the screen
 	@SuppressWarnings("deprecation")
@@ -304,7 +317,7 @@ public class TestBase {
 
 		getDriver().manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		getDriver().manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
-		getDriver().get("https://qatest1.qa-igt.reztrip3-qa.com/");
+		getDriver().get("https://mio.qa-igt.reztrip3-qa.com/");
 
 	}
 
@@ -482,8 +495,8 @@ public class TestBase {
 		try {
 			String JDBC_Driver = "com.mysql.jdbc.Driver";
 			String urlDB = "jdbc:mysql://localhost:3306/DBname";
-			String user = "dineshkanna";
-			String pass = "123456";
+			String user = "qadbuser";
+			String pass = "GLLTtpr5dbKLL";
 			Class.forName(JDBC_Driver);
 			Connection connect=DriverManager.getConnection(urlDB, user, pass);
 			return connect;
@@ -501,10 +514,9 @@ public class TestBase {
 		ResultSet result = statement.executeQuery();
 		ArrayList<String> array = new ArrayList<String>();
 		while (result.next()) {
-			array.add(result.getString("url"));
+			array.add(result.getString("dbUrl"));
 		}
 		return array;
-
 	}
 
 

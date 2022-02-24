@@ -26,10 +26,10 @@ public static Utilitylog logger;
 		logger=new Utilitylog(MobileBooking.class.getName());
 	}
 	
-	@BeforeMethod
-	public void setup() throws Exception {
-		mobileTest("Moto G4", 318, 850);
-	}
+//	@BeforeMethod
+//	public void setup() throws Exception {
+//		
+//	}
 	
 	@Test(priority=1)
 	@Description("Verify the Mobile Booking HomePage...")
@@ -39,7 +39,7 @@ public static Utilitylog logger;
 	@Story("Story: Mobile Booking Page")
 	@Step("Verify Mobile Booking Page Presence")
 	public void mobileBookPage() throws Exception {
-		
+		mobileTest("Moto G4", 318, 850);
 		logger.info("Booking Started");
 		MobileBookingPage mp = new MobileBookingPage(getDriver());
 		mp.completeReservation();
@@ -47,13 +47,12 @@ public static Utilitylog logger;
 		System.out.println("Title of Page : " +title);
 		Assert.assertEquals(title, "qatest1");
 		logger.info("Booking Ended");
-		
 	}
 	
-	@AfterMethod
-	public void browerClose() {
-		getDriver().quit();
-	}
+//	@AfterMethod
+//	public void browerClose() {
+//		getDriver().quit();
+//	}
 	
 
 }

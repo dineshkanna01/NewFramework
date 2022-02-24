@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utility.ExcelData;
+import base.Helper;
 import base.TestBase;
 
 public class MobileBookingPage extends AbstractBasePage{
@@ -32,6 +33,18 @@ ExcelData e = new ExcelData();
 	
 	@FindBy(xpath="//button[text()=\"Select Room\"]")
 	WebElement select;
+	
+	@FindBy(xpath="//button[@class=\"navbar_button text-capitalize\"]")
+	WebElement dDselect;
+	
+	@FindBy(xpath="(//button[@class=\"rangepicker_plus -theme-color\"])[1]")
+	WebElement addAdult;
+	
+	@FindBy(xpath="(//button[@class=\"rangepicker_plus -theme-color\"])[2]")
+	WebElement addChild;
+	
+	@FindBy(xpath="//input[@value=\"Done\"]")
+	WebElement done;
 	
 	@FindBy(xpath="(//span[@class=\"clearfix\"])[1]")
 	WebElement nextPage;
@@ -106,14 +119,17 @@ ExcelData e = new ExcelData();
 	WebElement cZip;
 	
 	
-	
-	
-	
 	public MobileBookingPage completeReservation() throws Exception {
 		
 		gotIt.click();
 		arrivalDate.click();
 		departureDate.click();
+		dDselect.click();
+		addAdult.click();
+		addChild.click();
+		done.click();
+		Thread.sleep(8000);
+//		Helper.implict(6);
 		select.click();
 		nextPage.click();
 		continu.click();
