@@ -20,9 +20,9 @@ public class JiraServiceProvider {
 		this.project=project;
 	}
 	
-	public void createJiraTicket(String issue, String summary, String description, String reporterName) {
+	public void createJiraTicket(String issueType, String summary, String description, String reporterName) {
 		try {
-			FluentCreate createIssue = jira.createIssue(project, issue);
+			FluentCreate createIssue = jira.createIssue(project, issueType);
 			createIssue.field(Field.SUMMARY, summary);
 			createIssue.field(Field.DESCRIPTION, description);
 			Issue execute = createIssue.execute();

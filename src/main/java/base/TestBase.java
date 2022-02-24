@@ -168,7 +168,7 @@ public class TestBase {
 
 			ChromeOptions options = new ChromeOptions();
 			options.setExperimentalOption("prefs", preferences);
-			options.addArguments("user-data-dir=C:\\Users\\Dinesh.Kanna\\AppData\\Local\\Google\\Chrome\\User Data");
+			options.addArguments("user-data-dir=C:\\Users\\automation\\AppData\\Local\\Google\\Chrome\\User Data");
 			tdriver.set(new ChromeDriver(options));
 		}
 		else if(browserName.equals("Firefox")) {

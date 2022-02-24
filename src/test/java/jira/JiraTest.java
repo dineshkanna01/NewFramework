@@ -46,8 +46,9 @@ public static Utilitylog logger;
 		
 		logger.info("Cancel Reservation started");
 		CancelBookingPage CP = new CancelBookingPage(getDriver());
-		CP.cancelBooking("QTEST1100002504", "dinesh.kanna@igtsolutions.com");
-		BrowserFactory.screenShot("cancellation page");
+		CP.cancelBooking("QTEST1100003164", "dinesh.kanna@igtsolutions.com");
+//		BrowserFactory.screenShot("cancellation page");
+		screenShot("cancellation page");
 		String title = CP.UrlTilte();
 		System.out.println(title);
 		Assert.assertEquals(title, "Reservation confirmation on qatest12");
@@ -57,7 +58,7 @@ public static Utilitylog logger;
 	
 	@AfterMethod
 	public void browerClose() {
-//		getDriver().quit();
+		getDriver().quit();
 	}
 	
 	
