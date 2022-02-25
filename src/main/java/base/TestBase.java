@@ -168,7 +168,7 @@ public class TestBase {
 
 			ChromeOptions options = new ChromeOptions();
 			options.setExperimentalOption("prefs", preferences);
-			options.addArguments("user-data-dir=C:\\Users\\automation\\AppData\\Local\\Google\\Chrome\\User Data");
+			options.addArguments("user-data-dir=C:\\Users\\Dinesh.Kanna\\AppData\\Local\\Google\\Chrome\\User Data");
 			tdriver.set(new ChromeDriver(options));
 		}
 		else if(browserName.equals("Firefox")) {
@@ -493,8 +493,8 @@ public class TestBase {
 	//	JDBC connection
 	public static Connection con() {
 		try {
-			String JDBC_Driver = "com.mysql.jdbc.Driver";
-			String urlDB = "jdbc:mysql://localhost:3306/DBname";
+			String JDBC_Driver = "com.mysql.cj.jdbc.Driver";
+			String urlDB = "jdbc:mysql://localhost:3306/pegsDB";
 			String user = "qadbuser";
 			String pass = "GLLTtpr5dbKLL";
 			Class.forName(JDBC_Driver);
@@ -510,7 +510,6 @@ public class TestBase {
 	public static ArrayList<String> select(String query) throws Exception  {
 		Connection conn = con();
 		PreparedStatement statement = conn.prepareStatement(query);
-
 		ResultSet result = statement.executeQuery();
 		ArrayList<String> array = new ArrayList<String>();
 		while (result.next()) {
@@ -540,7 +539,7 @@ public class TestBase {
 
 
 	@SuppressWarnings("static-access")
-	static String BASE_URL = ConfigManager.getInstance().getString("base_url");
+	static String BASE_URL = ConfigManager.getInstance().getString("base_url2");
 
 	//	RestAssured for API Rest Calls
 	public static void TestResponse(String fileXmlName) throws Exception {
@@ -565,7 +564,7 @@ public class TestBase {
 
 		String responseBody = response.getBody().asString();
 		System.out.println("Respose Body : " +responseBody);
-		Assert.assertEquals(responseBody.contains("Success"), true);
+//		Assert.assertEquals(responseBody.contains("Success"), true);
 
 		System.out.println("Headers : "+response.getHeaders()+"\n");
 
@@ -644,15 +643,6 @@ public class TestBase {
 				.build();
 
 	}
-	// Booking Engine Url and Switching the tabs
-//	public void openBEurlinNewTab() {
-//		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
-//		String a = "window.open('about:blank','_blank');";
-//		((JavascriptExecutor) getDriver()).executeScript(a);
-//		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
-//		getDriver().switchTo().window(tab.get(1));
-//		getDriver().get("https://alh.qa-igt.reztrip3-qa.com/");
-//	}
 
 	// Booking Engine UrlParameter and Switching the tabs
 	public static void openBEUrlParameter() {
@@ -665,16 +655,6 @@ public class TestBase {
 				+ "Blast&utm_medium=Email&utm_term=Offer&utm_campaign=August-2021-Email-Blast\r\n");
 	}
 
-//	public void openBEurlinNewTabJCC() {
-//		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
-//		String a = "window.open('about:blank','_blank');";
-//		((JavascriptExecutor) getDriver()).executeScript(a);
-//		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
-//		getDriver().switchTo().window(tab.get(1));
-//		// getDriver().get("https://alh.qa-igt.reztrip3-qa.com/");
-//		getDriver().get("https://h1qa1.qa-igt.reztrip3-qa.com/");
-//	}
-
 	public void openURL(String url) {
 		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
 		String a = "window.open('about:blank','_blank');";
@@ -682,30 +662,8 @@ public class TestBase {
 		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
 		getDriver().switchTo().window(tab.get(1));
 		getDriver().get(prop.getProperty(url));
-//		getDriver().get("https://alh.qa-igt.reztrip3-qa.com/cc/dashboard?hotel_id=ALH#/home/");
 	}
 	
-//	https://westinsep.qa-igt.reztrip3-qa.com/
-	
-//	public void openBEurlinNewTab1() {
-//		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
-//		String a = "window.open('about:blank','_blank');";
-//		((JavascriptExecutor) getDriver()).executeScript(a);
-//		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
-//		getDriver().switchTo().window(tab.get(1));
-//		getDriver().get("https://westinsep.qa-igt.reztrip3-qa.com/");
-//	}
-	
-//	https://mio.qa-igt.reztrip3-qa.com/
-	
-//	public void openBEurlinNewTab2() {
-//		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
-//		String a = "window.open('about:blank','_blank');";
-//		((JavascriptExecutor) getDriver()).executeScript(a);
-//		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
-//		getDriver().switchTo().window(tab.get(1));
-//		getDriver().get("https://mio.qa-igt.reztrip3-qa.com/");
-//	}
 
 	public void refreshBEJCC() {
 		getDriver().get("https://h1qa1.qa-igt.reztrip3-qa.com/");
@@ -713,6 +671,15 @@ public class TestBase {
 
 	public static WebDriver getDriver() {
 		return tdriver.get();
+	}
+	
+	public void openBEurlinNewTabShift4() {
+		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
+		String a = "window.open('about:blank','_blank');";
+		((JavascriptExecutor) getDriver()).executeScript(a);
+		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
+		getDriver().switchTo().window(tab.get(1));
+		getDriver().get("https://h1qa1.qa-igt.reztrip3-qa.com/");
 	}
 	
 	

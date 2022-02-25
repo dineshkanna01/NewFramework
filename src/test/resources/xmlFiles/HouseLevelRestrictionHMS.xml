@@ -1,0 +1,29 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+	<SOAP-ENV:Header>
+		<wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" SOAP-ENV:mustUnderstand="1">
+			<wsse:UsernameToken wsu:Id="UsernameToken-edd9764c-5cb1-4dad-9a60-285efd9b2b16">
+				<wsse:Username>sacqa6_hms</wsse:Username>
+				<wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">MkoL4IH60byHHBDp</wsse:Password>
+			</wsse:UsernameToken>
+		</wsse:Security>
+	</SOAP-ENV:Header>
+	<SOAP-ENV:Body>
+		<OTA_HotelAvailNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="8b548276-0a91-4005-a62e-77e820c35d85" MessageContentCode="3" TimeStamp="2022-02-24T09:44:31.026Z" Version="1.0">
+			<POS>
+				<Source>
+					<RequestorID ID="REZTRIP" Type="22"/>
+				</Source>
+			</POS>
+			<AvailStatusMessages HotelCode="sacqa6">
+				<AvailStatusMessage BookingLimitMessageType="SetLimit">
+					<StatusApplicationControl End="2022-03-27" InvTypeCode="SS1" RatePlanCode="BAR" Start="2022-03-25"/>
+					<RestrictionStatus Restriction="Master" Status="Open"/>
+				</AvailStatusMessage>
+				<AvailStatusMessage>
+					<StatusApplicationControl End="2022-03-27" InvTypeCode="SS1" RatePlanCode="BAR" Start="2022-03-25"/>
+					<RestrictionStatus Restriction="Arrival" Status="Open"/>
+				</AvailStatusMessage>
+			</AvailStatusMessages>
+		</OTA_HotelAvailNotifRQ>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

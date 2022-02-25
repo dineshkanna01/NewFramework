@@ -12,7 +12,7 @@ import logfile.Utilitylog;
 import java.util.logging.Logger;
 
 public class RestAssuredPost extends TestBase{
-
+	
 	public static final Logger LOGGER = Logger.getLogger(RestAssuredPost.class.getName());
 	public static Utilitylog logger;
 
@@ -27,6 +27,55 @@ public class RestAssuredPost extends TestBase{
 		RestAssured.useRelaxedHTTPSValidation();
 		System.out.println("------------Execution Started------------");
 	}
+	
+	@Test()
+	public void roomRateLevelRestrictionHMS() throws Exception {
+		logger.info("------------RoomRateLevelRestriction HMS Execution Started------------");
+		extentTest = extent.startTest("roomRateLevelRestrictionHMS");
+		TestResponse("RoomRateLevelRestrictionHMS");
+		logger.info("------------RoomRateLevelRestriction HMS Execution Ended------------");
+		logger.info("--------------DataBase Validation-----------");
+		select("SELECT * FROM intg_audit_ari WHERE propertyCode= 'SACQA6' AND interfaceCode= 'opera' ORDER BY id DESC;");
+	}
+	
+//	@Test()
+	public void rateLevelRestrictionHMS() throws Exception {
+		logger.info("------------RateLevelRestriction HMS Execution Started------------");
+		extentTest = extent.startTest("rateLevelRestrictionHMS");
+		TestResponse("RateLevelRestrictionHMS");
+		logger.info("------------RateLevelRestriction HMS Execution Ended------------");
+	}
+	
+//	@Test()
+	public void houseLevelRestrictionHMS() throws Exception {
+		logger.info("------------HouseLevelRestriction HMS Execution Started------------");
+		extentTest = extent.startTest("houseLevelRestrictionHMS");
+		TestResponse("HouseLevelRestrictionHMS");
+		logger.info("------------HouseLevelRestriction HMS Execution Ended------------");
+	}
+	
+//	@Test()
+	public void invCountNotifRQ() throws Exception {
+		logger.info("------------InvCountNotifRQ HMS Execution Started------------");
+		extentTest = extent.startTest("invCountNotifRQ");
+		TestResponse("InvCountNotifRQ");
+		logger.info("------------InvCountNotifRQ HMS Execution Ended------------");
+	}
+	
+//	@Test()
+	public void ratePlanNotifRQ() throws Exception {
+		logger.info("------------RatePlanNotifRQ HMS Execution Started------------");
+		extentTest = extent.startTest("ratePlanNotifRQ");
+		TestResponse("RatePlanNotifRQ");
+		logger.info("------------RatePlanNotifRQ HMS Execution Ended------------");
+	}
+	
+//	@Test()
+	public void resNotifRQ() throws Exception {
+		logger.info("------------InBound Reservation HMS Execution Started------------");
+		TestResponse("ResNotifRQ");
+		logger.info("------------InBound Reservation HMS Execution Ended------------");
+	}
 
 //	@Test()
 	public void availNotif() throws Exception {
@@ -35,7 +84,7 @@ public class RestAssuredPost extends TestBase{
 		logger.info("------------AvailNotif Execution Ended------------");
 	}
 
-	@Test()
+//	@Test()
 	public void rateAmnt() throws Exception {
 		logger.info("------------RateAmount Execution Started------------");
 		TestResponse("RateAmount");

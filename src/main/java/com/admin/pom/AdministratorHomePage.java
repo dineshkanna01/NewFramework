@@ -137,6 +137,21 @@ public class AdministratorHomePage extends AbstractBasePage {
 
 	@FindBy(xpath = "//*[@id=\"10\"]/li[2]/a")
 	WebElement houseInvandRest;
+	
+	@FindBy(xpath = "//a[contains(@href,'PropertyDefaults')]")
+	WebElement propertyDefault;
+
+	@FindBy(name="enableIATA")
+	WebElement iataRadioButtonYes;
+	
+	@FindBy(name="Save")
+	WebElement saveButton;
+	
+	@FindBy(id="12")
+	WebElement dynamicPricingRules;
+	
+	@FindBy(id="add_new_dpr")
+	WebElement addNewDPR;
 
 	/*
 	 * Method to select brand
@@ -421,6 +436,79 @@ public class AdministratorHomePage extends AbstractBasePage {
 	 */
 	public AdministratorHomePage selectHouseInventoryRestrictions() {
 		houseInvandRest.click();
+		Helper.implict(3);
+		return null;
+	}
+	
+	/*
+	 * Method to select property Default
+	 */
+	public AdministratorHomePage selectpropertyDefault() {
+		propertyDefault.click();
+		Helper.implict(5);
+		return null;
+	}
+	
+	/*
+	 * Method to select yes Radio Button IATA
+	 */
+	public AdministratorHomePage yesRadioButtonIATA() {
+		iataRadioButtonYes.click();
+		Helper.implict(5);
+		return null;
+	}
+	
+	/*
+	 * Method to click Save Button
+	 */
+	public AdministratorHomePage clickSaveButton() {
+		saveButton.click();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	/*
+	 * Method to click on House Inventory & Restriction
+	 */
+	public AdministratorHomePage clickOnDynamicPricingRulesTab() {
+		dynamicPricingRules.click();
+		Helper.implict(3);
+		return null;
+	}
+	
+	/*
+	 * Method to click Add New For DPR
+	 */
+	public AdministratorHomePage clickOnAddNewDPR() {
+		addNewDPR.click();
+		Helper.implict(3);
+		return null;
+	}
+	
+	/*
+	 * Method to select brand JCC
+	 */
+
+	public AdministratorHomePage selectBrandPaymentGateway() {
+		brands.click();
+		Helper.implict(3);
+		brandNameJCC.click();
+		Helper.implict(3);
+		return null;
+	}
+
+	/*
+	 * Method to select property JCC
+	 */
+
+	public AdministratorHomePage selectPropertyPaymentGateway() {
+		propertyJCC.click();
+		Helper.implict(3);
+		propertySelectButton.click();
 		Helper.implict(3);
 		return null;
 	}

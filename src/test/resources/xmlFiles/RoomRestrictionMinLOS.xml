@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><?Label SACQA6|RAVR|59074319|SUCCESS?>
+<Ravr xmlns="ravr.fidelio.2.0" rateCriteria="RATECODE"
+	roomCriteria="ROOMTYPE">
+	<HotelReference>
+		<hotelCode>SACQA6</hotelCode>
+	</HotelReference>
+	<TimeSpan timeUnitType="DAY">
+		<startTime>2022-02-25T00:00:00.000</startTime>
+		<numberOfTimeUnits>1</numberOfTimeUnits>
+	</TimeSpan>
+	<days>2</days>
+	<DaysOfWeek>
+		<monday>1</monday>
+		<tuesday>1</tuesday>
+		<wednesday>1</wednesday>
+		<thursday>1</thursday>
+		<friday>1</friday>
+		<saturday>1</saturday>
+		<sunday>1</sunday>
+	</DaysOfWeek>
+	<currentRestrictionCode>A_MINLOS</currentRestrictionCode>
+	<RavrDetails>
+		<RavrDetail roomAvailability="A_MINLOS">
+			<roomType>SS1</roomType>
+		</RavrDetail>
+	</RavrDetails>
+</Ravr>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:a="http://www.w3.org/2005/08/addressing">
+	<s:Header>
+		<a:Action s:mustUnderstand="1">http://htng.org/OTA/2010A/OTA_HotelInvCountNotifRQ_SubmitRequest
+		</a:Action>
+		<a:MessageID>ee1f111c-5c78-435d-9e5e-a10323a98505</a:MessageID>
+		<a:To s:mustUnderstand="1">https://ttconnect-us.ttaws.com/ttconnect/services/soap/ota/2008a/HotelService/clid/sfohus_hms
+		</a:To>
+		<a:ReplyTo>
+			<a:Address>https://hmsvault.hms.inforcloudsuite.com/liaisonRouter/HMS-HTNG-CRS/USSTRP/DIVAUSSF_PRD-USSF
+			</a:Address>
+		</a:ReplyTo>
+		<TimeStamp xmlns="http://htng.org/1.3/Header">2019-09-27T12:44:11.397</TimeStamp>
+		<CorrelationID
+			xmlns="http://htng.org/PWSWG/2007/02/AsyncHeaders">7cd66f02-83cc-4785-af9c-802a51d9bfbb</CorrelationID>
+		<ReplyTo xmlns="http://htng.org/PWSWG/2007/02/AsyncHeaders">
+			<a:Address>https://hmsvault.hms.inforcloudsuite.com/liaisonRouter/HMS-HTNG-CRS/USSTRP/DIVAUSSF_PRD-USSF
+			</a:Address>
+		</ReplyTo>
+	</s:Header>
+	<s:Body>
+		<OTA_HotelInvCountNotifRQ
+			xmlns="http://www.opentravel.org/OTA/2003/05"
+			EchoToken="b7b4a26c-b00d-4bb8-a615-9c1386d18188"
+			TimeStamp="2022-02-24T09:29:23.459Z" Version="1.000">
+			<Inventories HotelCode="sacqa6">
+				<Inventory>
+					<StatusApplicationControl End="2022-03-29"
+						InvTypeCode="SS1" RatePlanCode="BAR" Start="2022-03-29" />
+					<InvCounts>
+						<InvCount Count="52" CountType="2" />
+					</InvCounts>
+				</Inventory>
+			</Inventories>
+		</OTA_HotelInvCountNotifRQ>
+	</s:Body>
+</s:Envelope>

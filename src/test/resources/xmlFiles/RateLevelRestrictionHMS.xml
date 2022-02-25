@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:a="http://www.w3.org/2005/08/addressing">
+	<s:Header>
+		<a:Action s:mustUnderstand="1">http://htng.org/OTA/2010A/OTA_HotelAvailNotifRQ_SubmitRequest
+		</a:Action>
+		<a:MessageID>2839cf12-f59c-4e2f-9576-ed893204af8f</a:MessageID>
+		<a:To s:mustUnderstand="1">https://ttconnect-us.ttaws.com/ttconnect/services/soap/ota/2008a/HotelService/clid/jsr_hms
+		</a:To>
+		<a:ReplyTo>
+			<a:Address>https://hmsvault.hms.inforcloudsuite.com/liaisonRouter/HMS-HTNG-CRS/MLLTRT/MARYLANDLC_PRD-BWILL
+			</a:Address>
+		</a:ReplyTo>
+		<TimeStamp xmlns="http://htng.org/1.3/Header">2021-09-27T12:35:26.524</TimeStamp>
+		<CorrelationID
+			xmlns="http://htng.org/PWSWG/2007/02/AsyncHeaders">a654ca98-a9ca-4825-b1ad-a148b2c8a95d</CorrelationID>
+		<ReplyTo xmlns="http://htng.org/PWSWG/2007/02/AsyncHeaders">
+			<a:Address>https://hmsvault.hms.inforcloudsuite.com/liaisonRouter/HMS-HTNG-CRS/MLLTRT/MARYLANDLC_PRD-BWILL
+			</a:Address>
+		</ReplyTo>
+	</s:Header>
+	<s:Body>
+		<OTA_HotelAvailNotifRQ
+			xmlns="http://www.opentravel.org/OTA/2003/05"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			MessageContentCode="1" TimeStamp="2021-09-27T12:35:26.524"
+			Version="1.002"
+			xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 OTA_HotelAvailNotifRQ.xsd">
+			<AvailStatusMessages HotelCode="sacqa6">
+				<AvailStatusMessage
+					BookingLimitMessageType="RemoveLimit">
+					<StatusApplicationControl End="2022-03-27"
+						RatePlanCode="BAR" Start="2022-03-25" />
+					<RestrictionStatus Restriction="Master"
+						Status="Open" />
+				</AvailStatusMessage>
+			</AvailStatusMessages>
+		</OTA_HotelAvailNotifRQ>
+	</s:Body>
+</s:Envelope>

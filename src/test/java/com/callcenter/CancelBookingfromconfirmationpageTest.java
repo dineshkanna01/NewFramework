@@ -1,17 +1,13 @@
 package com.callcenter;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.admin.pom.AdministratorHomePage;
 import com.admin.pom.LoginPage;
-import com.admin.pom.RatesandInventoryPage;
 import com.cc.pom.CancelBookingfromconfirmationpagePage;
 import com.cc.pom.NormalSingleRoomBookingandverifyRateGridupdatePage;
-
-import Utility.ExcelData;
 import base.Helper;
 import base.TestBase;
 import io.qameta.allure.Description;
@@ -27,16 +23,12 @@ import logfile.Utilitylog;
  * Test class for CancelBookingfromconfirmationpageTest
  * @author Rudraksh Aggarwal
  */
-
-public class CancelBookingfromconfirmationpageTest extends TestBase 	{
-
+public class CancelBookingfromconfirmationpageTest extends TestBase {
 	public static Utilitylog logger;
 
 	// objects
-	ExcelData e = new ExcelData();
 	LoginPage lp;
 	AdministratorHomePage ahp;
-	RatesandInventoryPage rip;
 	NormalSingleRoomBookingandverifyRateGridupdatePage nsrb;
 	CancelBookingfromconfirmationpagePage cbcp;
 
@@ -49,10 +41,8 @@ public class CancelBookingfromconfirmationpageTest extends TestBase 	{
 	public void setup() {
 		lp = new LoginPage(getDriver());
 		ahp = new AdministratorHomePage(getDriver());
-		rip = new RatesandInventoryPage(getDriver());
 		nsrb = new NormalSingleRoomBookingandverifyRateGridupdatePage(getDriver());
 		cbcp = new CancelBookingfromconfirmationpagePage(getDriver());
-
 	}
 
 	@Test(priority = 1)
@@ -65,48 +55,34 @@ public class CancelBookingfromconfirmationpageTest extends TestBase 	{
 	public void CancelBookingfromconfirmationpageTest_TC01() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("CancelBookingfromconfirmationpageTest_TC01");
-
 		lp.login();
 		allureScreenshot("Login");
 		screenShot("Login");
-
 		ahp.selectBrand();
 		ahp.selectProperty2();
-
 		allureScreenshot("Property Selected");
 		screenShot("Property Selected");
-
 		openURL("cc_url");
-
 		nsrb.enterCCuser();
-
 		allureScreenshot("Call Center");
 		screenShot("Call Center");
-
 		nsrb.selectDateRangeCCTC01();
 		nsrb.clickAvailibilityButton();
-		nsrb.selectRoomModify();
+		nsrb.selectRoom();
 		nsrb.clickpaymentButton();
-
 		allureScreenshot("Call Center payment details");
 		screenShot("Call Center payment details");
-
 		nsrb.inputGuestDetails();
 		nsrb.inputCardDetailsTC01();
 		nsrb.inputBillingAddress();
 		nsrb.selectTermsAndConditonCheckbox();
 		nsrb.clickCompleteReservation();
-
 		Assert.assertTrue(nsrb.verifyConfirmationCode());
-
 		allureScreenshot("Call Center booking confirmation code");
 		screenShot("Call Center booking confirmation code");
-
 		Assert.assertTrue(cbcp.verifyCancelBookingTC01());
-
-		allureScreenshot("Call Center booking Cancellation codenfirmation");
-		screenShot("Call Center booking Cancellation codenfirmation");
-
+		allureScreenshot("Call Center booking Cancellation confirmation");
+		screenShot("Call Center booking Cancellation confirmation");
 		logger.info("TestCase Ended");
 	}
 
@@ -120,13 +96,10 @@ public class CancelBookingfromconfirmationpageTest extends TestBase 	{
 	public void CancelBookingfromconfirmationpageTest_TC02() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("CancelBookingfromconfirmationpageTest_TC02");
-
 		Helper.switchWindow(1);
 		Assert.assertTrue(cbcp.verifyCancelBookingTC02());
-
-		allureScreenshot("Call Center booking Cancellation codenfirmation");
-		screenShot("Call Center booking Cancellation codenfirmation");
-
+		allureScreenshot("Call Center booking Cancellation confirmation");
+		screenShot("Call Center booking Cancellation confirmation");
 		logger.info("TestCase Ended");
 	}
 
@@ -140,12 +113,9 @@ public class CancelBookingfromconfirmationpageTest extends TestBase 	{
 	public void CancelBookingfromconfirmationpageTest_TC03() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("CancelBookingfromconfirmationpageTest_TC03");
-
 		Assert.assertTrue(cbcp.verifyCancelBookingTC03());
-
 		allureScreenshot("Call Center cancelled booking not verified if email is incorrect");
 		screenShot("Call Center cancelled booking not verified if email is incorrect");
-
 		logger.info("TestCase Ended");
 	}
 
@@ -159,13 +129,10 @@ public class CancelBookingfromconfirmationpageTest extends TestBase 	{
 	public void CancelBookingfromconfirmationpageTest_TC04() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("CancelBookingfromconfirmationpageTest_TC04");
-
 		Assert.assertTrue(cbcp.verifyCancelBookingTC04());
 		allureScreenshot("Call Center cancelled booking not verified if confirmation code is incorrect");
 		screenShot("Call Center cancelled booking not verified if confirmation code is incorrect");
-
 		logger.info("TestCase Ended");
-
 	}
 
 	@Test(priority = 5)
@@ -185,5 +152,4 @@ public class CancelBookingfromconfirmationpageTest extends TestBase 	{
 		lp.logout();
 		logger.info("TestCase Ended");
 	}
-
 }

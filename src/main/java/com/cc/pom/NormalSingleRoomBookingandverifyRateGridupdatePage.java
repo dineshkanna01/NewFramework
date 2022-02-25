@@ -14,22 +14,6 @@ import Utility.ExcelData;
 import base.Helper;
 import base.TestBase;
 /*
- * POM class for package com.cc.pom;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
-import Utility.ExcelData;
-import base.Helper;
-import base.TestBase;
-/*
  * POM class for NormalSingleRoomBookingandverifyRateGridupdatePage
  * @author Rudraksh Aggarwal
  */
@@ -320,7 +304,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdatePage extends TestBase
 	}
 	
 	/*
-	 * Method to click select Date Range TC01
+	 * Method to click select Date Range cc TC01
 	 */
 	public NormalSingleRoomBookingandverifyRateGridupdatePage selectDateRangeCCTC01() {
 		// TO GET CURRENT DATE
@@ -338,11 +322,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdatePage extends TestBase
 		SimpleDateFormat formatter = new SimpleDateFormat("YYYY-MM-dd");
 		nextDaydate = formatter.format(after);
 		System.out.println("next day date for cc " + nextDaydate);
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		Helper.explicit(checkInDate, 10);
 		checkInDate.sendKeys(currentDate);
 		checkInDate.click();
 		try {
@@ -357,7 +337,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdatePage extends TestBase
 	}
 	
 	/*
-	 * Method to click select Date Range TC02
+	 * Method to click select Date Range cc TC02
 	 */
 	public NormalSingleRoomBookingandverifyRateGridupdatePage selectDateRangeCCTC02() {
 		// TO GET CURRENT DATE
@@ -465,7 +445,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdatePage extends TestBase
 	}
 	
 	/*
-	 * Method to select Room for TC08 modify bookings from confirmation pagae
+	 * Method to select Room for TC08 modify bookings from confirmation page
 	 */
 	public void selectRoomTC08mbcp() {
 		try {
@@ -562,7 +542,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdatePage extends TestBase
 		Helper.implict(1);
 		Select d = new Select(state);
 		d.selectByVisibleText("Delhi");
-		Helper.implict(1);
+		Helper.explicit(zipCode,2);
 		zipCode.clear();
 		zipCode.sendKeys(ExcelData.CC_getCellData("NormalSingleRoomBookingData", "Zipcode", 2));
 		Helper.implict(1);

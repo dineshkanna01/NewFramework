@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s:Envelope xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+    <s:Header>
+        <a:Action s:mustUnderstand="1">http://htng.org/OTA/2010A/OTA_HotelRatePlanNotifRQ_SubmitRequest</a:Action>
+        <a:MessageID>7611fe14-4eeb-4cdd-8dbb-db1fc12ae1f8</a:MessageID>
+        <a:To s:mustUnderstand="1">http://qa2-ttconnect.ttaws.com/services/soap/ota/2008a/HotelServiceAsync/clid/sacqa6_hms</a:To>
+        <a:ReplyTo>
+            <a:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</a:Address>
+        </a:ReplyTo>
+        <TimeStamp xmlns="http://htng.org/1.3/Header">2019-09-27T18:05:26.081</TimeStamp>
+        <CorrelationID xmlns="http://htng.org/PWSWG/2008/02/AsyncHeaders">18303d5d-c5a1-43ce-aeab-4c50fddfe233</CorrelationID>
+        <ReplyTo xmlns="http://htng.org/PWSWG/2008/02/AsyncHeaders">
+            <a:Address>https://hmsliaison37.inforcloudsuite.com:443/262TRT</a:Address>
+        </ReplyTo>
+    </s:Header>
+    <s:Body>
+        <OTA_HotelRatePlanNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" MessageContentCode="8" TimeStamp="2019-09-27T18:05:26.08" Version="1.001" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 OTA_HotelRatePlanNotifRQ.xsd">
+            <RatePlans HotelCode="SACQA6">
+                <RatePlan End="2022-03-27" IsCommissionable="true" MarketCode="BAR" RatePlanCategory="BAR" RatePlanCode="BAR" RatePlanNotifType="Delta" RatePlanStatusType="Active" RestrictedDisplayIndicator="false" Start="2022-03-25">
+                    <Rates>
+                        <Rate CurrencyCode="USD" End="2022-03-27" Fri="true" InvTypeCode="SS1" Mon="true" RateTimeUnit="Day" Sat="true" Start="2022-03-25" Sun="true" Thur="true" Tue="true" UnitMultiplier="1" Weds="true">
+                            <BaseByGuestAmts>
+                                <BaseByGuestAmt AgeQualifyingCode="10" AmountBeforeTax="200.0000" NumberOfGuests="1"/>
+                                <BaseByGuestAmt AgeQualifyingCode="10" AmountBeforeTax="200.0000" NumberOfGuests="2"/>
+                                <BaseByGuestAmt AgeQualifyingCode="10" AmountBeforeTax="400.0000" NumberOfGuests="3"/>
+                                <BaseByGuestAmt AgeQualifyingCode="10" AmountBeforeTax="333.0000" NumberOfGuests="4"/>
+                            </BaseByGuestAmts>
+                        </Rate>
+                    </Rates>
+                    <Description Name="ShortDescription">
+                        <Text>BAR 2018</Text>
+                    </Description>
+                    <Description Name="LongDescription">
+                        <Text>BAR</Text>
+                    </Description>
+                </RatePlan>
+            </RatePlans>
+        </OTA_HotelRatePlanNotifRQ>
+    </s:Body>
+</s:Envelope>

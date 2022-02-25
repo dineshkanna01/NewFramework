@@ -93,7 +93,7 @@ public class CancelBookingfromconfirmationpagePage extends TestBase {
 		}
 		String cancelhead = cancelCodeHead.getText();
 		String code1 = cancelCode.getText();
-		System.out.println(cancelhead + "and cancellation code is:" + code1);
+		System.out.println(cancelhead + " and cancellation code is:" + code1);
 		Helper.switchWindow(0);
 		selectReports();
 		selectSearchReservationReport();

@@ -1,5 +1,6 @@
 package Utility;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -8,7 +9,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
@@ -25,6 +30,11 @@ public class ExcelData {
 	public static XSSFSheet sheet;
 	public static XSSFRow row;
 	public static XSSFCell cell;
+	
+	static HSSFWorkbook workbook1;
+	static HSSFSheet sheet1;
+	static HSSFCell cell1;
+	static HSSFRow row1;
 
 	public static String getCellData(String sheetName, String colName, int rowNo) {
 		FileInputStream fileInputStream;
@@ -137,4 +147,69 @@ public class ExcelData {
 		return true;
 	}
 
+
+	@SuppressWarnings("resource")
+	public static boolean write_CellDataBU(String name, int rNum, int cNum, String Data) {
+		try {
+			String path = System.getProperty("user.dir") + "\\target\\BookingTemplate\\ResUpload" + " "
+					+ "Template.xls";
+			FileInputStream fis = new FileInputStream(path);
+			HSSFWorkbook workbook1 = new HSSFWorkbook(fis, false);
+			HSSFSheet sheet1 = (HSSFSheet) workbook1.getSheet(name); // sheet at 1st tab
+			int lastRow = sheet1.getLastRowNum();
+			for (int i = 1; i <= lastRow; i++) {
+
+				if (sheet1.getRow(rNum) == null) {
+					sheet1.createRow(rNum);
+				}
+
+				HSSFRow row1 = sheet1.getRow(rNum);// 2nd row (index =1)
+				HSSFCell cell1 = (HSSFCell) row1.createCell(cNum);// column in which you want to set data
+				cell1.setCellValue(Data); // Data that you want to save in excel
+				FileOutputStream fos = new FileOutputStream(path);
+				workbook1.write(fos);
+				fos.close();
+			}
+			System.out.println("value updated in excel");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return true;
+	}
+
+	public static String getCellDataResUpload(String sheetName, int colName, int rowNo) {
+		FileInputStream fileInputStream;
+		try {
+			File dir = new File(System.getProperty("user.dir") + "\\target\\BookingTemplate");
+			File[] files = dir.listFiles();
+			if (files == null || files.length == 0) {
+				return null;
+			}
+
+			File lastModifiedFile = files[0];
+			for (int i = 1; i < files.length; i++) {
+				if (lastModifiedFile.lastModified() < files[i].lastModified()) {
+					lastModifiedFile = files[i];
+				}
+			}
+			fileInputStream = new FileInputStream(lastModifiedFile);
+
+			try {
+				workbook1 = new HSSFWorkbook(fileInputStream);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			sheet1 = workbook1.getSheet(sheetName);
+
+			String data = sheet1.getRow(rowNo).getCell(colName).getStringCellValue();
+			return data;
+
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			return "data not available";
+		}
+
+	}
 }

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope
+	xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<soap:Header>
+		<wsse:Security
+			xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+			soap:mustUnderstand="1">
+			<wsse:UsernameToken>
+				<wsse:Username>rategain</wsse:Username>
+				<wsse:Password
+					Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">cirYb9TPs7YuTrV9</wsse:Password>
+			</wsse:UsernameToken>
+		</wsse:Security>
+	</soap:Header>
+	<soap:Body>
+		<OTA_HotelResNotifRQ
+			xmlns="http://www.opentravel.org/OTA/2003/05"
+			EchoToken="e1c1bef8-01f3-455e-a433-658d9eff952c" ResStatus="Commit"
+			TimeStamp="2022-05-13T09:25:02.1460785-05:00" Version="1.003">
+			<POS>
+				<Source>
+					<RequestorID ID="RateGain" Type="22" />
+					<BookingChannel>
+						<CompanyName Code="EXPG">Expedia</CompanyName>
+					</BookingChannel>
+				</Source>
+			</POS>
+			<HotelReservations>
+				<HotelReservation
+					CreateDateTime="2022-05-13T00:00:00" CreatorID="RateGain">
+					<UniqueID ID="220220224-2" Type="14" />
+					<RoomStays>
+						<RoomStay>
+							<RoomRates>
+								<RoomRate NumberOfUnits="1" RatePlanCode="BAR"
+									RoomTypeCode="SS1">
+									<Rates>
+										<Rate EffectiveDate="2022-03-15" ExpireDate="2022-03-16"
+											RateTimeUnit="Day" UnitMultiplier="1">
+											<Base AmountAfterTax="158.14" AmountBeforeTax="140.10"
+												CurrencyCode="USD" />
+										</Rate>
+									</Rates>
+								</RoomRate>
+							</RoomRates>
+							<GuestCounts IsPerRoom="1">
+								<GuestCount AgeQualifyingCode="10" Count="1" />
+							</GuestCounts>
+							<TimeSpan End="2022-03-16" Start="2022-03-15" />
+							<Guarantee GuaranteeCode="Credit Card"
+								GuaranteeType="GuaranteeRequired">
+								<GuaranteesAccepted>
+									<GuaranteeAccepted>
+										<PaymentCard CardCode="VS" CardNumber="REDACTED"
+											CardType="1" ExpireDate="0725">
+											<CardHolderName>Visa VirtualCard</CardHolderName>
+										</PaymentCard>
+									</GuaranteeAccepted>
+								</GuaranteesAccepted>
+							</Guarantee>
+							<Total AmountAfterTax="158.14" AmountBeforeTax="140.10"
+								CurrencyCode="USD">
+								<Taxes Amount="18.04" CurrencyCode="USD" />
+							</Total>
+							<BasicPropertyInfo HotelCode="SACQA6" />
+							<ResGuestRPHs>
+								<ResGuestRPH RPH="1" />
+							</ResGuestRPHs>
+							<Comments>
+								<Comment GuestViewable="1">
+									<Text>Room, 2 Queen Beds (Upper Floor)#4[215108921]:
+										BookingSource: Hotels.com
+									</Text>
+								</Comment>
+								<Comment GuestViewable="0">
+									<Text>Room, 2 Queen Beds (Upper Floor)#4[215108921]:
+										GuestContactDetail: CountryAccessCode : 0 AreaCityCode : 0
+										PhoneNumber : 8503045518
+									</Text>
+								</Comment>
+								<Comment GuestViewable="0">
+									<Text>Room, 2 Queen Beds (Upper Floor)#4[215108921]:
+										PaymentMode:Expedia Virtual Card will be activated from the
+										day of Check-in.
+									</Text>
+								</Comment>
+							</Comments>
+							<SpecialRequests>
+								<SpecialRequest RequestCode="text"
+									RequestMsg="1.23-2 queen beds" />
+								<SpecialRequest RequestCode="text"
+									RequestMsg="2.1-Non-Smoking" />
+								<SpecialRequest RequestCode="text"
+									RequestMsg="5-Expedia Virtual Card will be activated from the day of Check-in." />
+							</SpecialRequests>
+						</RoomStay>
+					</RoomStays>
+					<ResGuests>
+						<ResGuest PrimaryIndicator="true" ResGuestRPH="1">
+							<Profiles>
+								<ProfileInfo>
+									<Profile ProfileType="1">
+										<Customer>
+											<PersonName>
+												<GivenName>David</GivenName>
+												<Surname>Smith</Surname>
+											</PersonName>
+											<Telephone DefaultInd="1" FormattedInd="0"
+												PhoneNumber="8503045518" PhoneTechType="1" />
+											<Email EmailType="1">davidwarner@smith.com</Email>
+											<Address>
+												<AddressLine>NA</AddressLine>
+											</Address>
+										</Customer>
+									</Profile>
+								</ProfileInfo>
+							</Profiles>
+						</ResGuest>
+					</ResGuests>
+					<ResGlobalInfo>
+						<HotelReservationIDs>
+							<HotelReservationID ResID_Type="14"
+								ResID_Value="220220224-2" />
+						</HotelReservationIDs>
+					</ResGlobalInfo>
+				</HotelReservation>
+			</HotelReservations>
+		</OTA_HotelResNotifRQ>
+	</soap:Body></soap:Envelope>

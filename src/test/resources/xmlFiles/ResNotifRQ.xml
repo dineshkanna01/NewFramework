@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><s:Envelope xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+  <s:Header>
+    <a:Action s:mustUnderstand="1">http://htng.org/OTA/2010A/OTA_HotelResNotifRQ_SubmitRequest</a:Action>
+    <a:MessageID>4056ad98-a84d-4230-b2ce-93aee3250720</a:MessageID>
+    <a:To s:mustUnderstand="1">https://ttconnect-us.ttaws.com/ttconnect/services/soap/ota/2008a/HotelService/clid/jsr_hms</a:To>
+    <a:ReplyTo>
+      <a:Address>https://hmsvault.hms.inforcloudsuite.com/liaisonRouter/HMS-HTNG-CRS/144TRT/HERSHA_PRD-144</a:Address>
+    </a:ReplyTo>
+    <TimeStamp xmlns="http://htng.org/1.3/Header">2022-08-28T17:10:19.48</TimeStamp>
+    <CorrelationID xmlns="http://htng.org/PWSWG/2007/02/AsyncHeaders">30fde6e0-9043-4a8d-a0e9-621e089d7320</CorrelationID>
+    <ReplyTo xmlns="http://htng.org/PWSWG/2007/02/AsyncHeaders">
+      <a:Address>https://hmsvault.hms.inforcloudsuite.com/liaisonRouter/HMS-HTNG-CRS/144TRT/HERSHA_PRD-144</a:Address>
+    </ReplyTo>
+  </s:Header>
+  <s:Body>
+    <OTA_HotelResNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ResStatus="Modify" TimeStamp="2022-08-28T17:10:19.48" Version="3.002" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 OTA_HotelResNotifRQ.xsd">
+      <POS>
+        <Source>
+          <RequestorID ID="PMS" Type="22"/>
+          <BookingChannel Primary="true" Type="4">
+            <CompanyName Code="RezTripCallCenter"/>
+          </BookingChannel>
+        </Source>
+      </POS>
+      <HotelReservations>
+        <HotelReservation CreateDateTime="2022-08-28T00:00:00" CreatorID="REZTRIP" ResStatus="Reserved">
+          <UniqueID ID="220220224-1" Type="10"/>
+          <RoomStays>
+            <RoomStay MarketCode="SMERF">
+              <RatePlans>
+                <RatePlan RatePlanCode="BAR">
+                  <RatePlanInclusions TaxInclusive="false"/>
+                </RatePlan>
+              </RatePlans>
+              <RoomRates>
+                <RoomRate InvBlockCode="" NumberOfUnits="1" RatePlanCategory="BAR" RatePlanCode="BAR" RoomTypeCode="SS1">
+                  <Rates>
+                    <Rate EffectiveDate="2022-03-30" ExpireDate="2022-03-31" RateTimeUnit="Day" UnitMultiplier="1">
+                      <Base AmountBeforeTax="270.0000" CurrencyCode="USD"/>
+                    </Rate>
+                  </Rates>
+                </RoomRate>
+              </RoomRates>
+              <GuestCounts IsPerRoom="true">
+                <GuestCount AgeQualifyingCode="10" Count="2"/>
+				<GuestCount AgeQualifyingCode="8" Count="1"/>
+              </GuestCounts>
+              <TimeSpan End="2022-03-31" Start="2022-03-30"/>
+              <Guarantee GuaranteeCode="CC" GuaranteeType="CC/DC/Voucher">
+								<GuaranteesAccepted>
+									<GuaranteeAccepted GuaranteeID="CC">
+										<PaymentCard CardNumber="REDACTED" CardType="MC" ExpireDate="1220">
+											<CardHolderName>CREDIT CARD NAME</CardHolderName>
+										</PaymentCard>
+									</GuaranteeAccepted>
+								</GuaranteesAccepted>
+							</Guarantee>
+              <Total AmountBeforeTax="270.0000" CurrencyCode="USD"/>
+              <BasicPropertyInfo HotelCode="SACQA6"/>
+              <ResGuestRPHs>
+                <ResGuestRPH RPH="1"/>
+              </ResGuestRPHs>
+            </RoomStay>
+          </RoomStays>
+          <ResGuests>
+            <ResGuest PrimaryIndicator="true" ResGuestRPH="1">
+              <Profiles>
+                <ProfileInfo>
+                  <Profile ProfileType="1">
+                    <Customer>
+                      <PersonName>
+                        <GivenName>Paula</GivenName>
+                        <Surname>Roache</Surname>
+                      </PersonName>
+                      <Telephone DefaultInd="true" FormattedInd="false" PhoneNumber="0" PhoneTechType="1"/>
+                      <Email DefaultInd="true">x@x.com</Email>
+                      <RelatedTraveler>
+                        <PersonName>
+                          <GivenName>Warren</GivenName>
+                          <Surname>Roache</Surname>
+                        </PersonName>
+                      </RelatedTraveler>
+                      <CustLoyalty MembershipID="123456"/>
+                    </Customer>
+                  </Profile>
+                </ProfileInfo>
+              </Profiles>
+            </ResGuest>
+          </ResGuests>
+          <ResGlobalInfo>
+            <HotelReservationIDs>
+              <HotelReservationID ResID_Source="PMS" ResID_Type="10" ResID_Value="220220224-1"/>
+            </HotelReservationIDs>
+          </ResGlobalInfo>
+        </HotelReservation>
+      </HotelReservations>
+    </OTA_HotelResNotifRQ>
+  </s:Body>
+</s:Envelope>
