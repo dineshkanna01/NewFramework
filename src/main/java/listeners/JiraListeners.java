@@ -24,7 +24,7 @@ public class JiraListeners implements ITestListener{
 	public void onTestFailure(ITestResult result) {
 		JiraPolicy jiraPolicy = result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(JiraPolicy.class);
 		boolean ticketReady = jiraPolicy.logTicketReady();
-		JiraServiceProvider jirasp=new JiraServiceProvider("https://dkanna.atlassian.net/", "sekardineshkanna@gmail.com", "6v8pCYTz7opgZJY9brYe0421", "FW");
+		JiraServiceProvider jirasp=new JiraServiceProvider("https://dkanna.atlassian.net/", "sekardineshkanna@gmail.com", "tNrU7tYS81cu8EHVA0zTCBA2", "FW");
 		String issueSummary=result.getMethod().getConstructorOrMethod().getMethod().getName() +"failed due to issue or exception";
 		String issueDescription = result.getThrowable().getMessage();
 		issueDescription.concat(ExceptionUtils.getFullStackTrace(result.getThrowable()));

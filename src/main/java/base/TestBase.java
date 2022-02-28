@@ -417,7 +417,7 @@ public class TestBase {
 
 	}
 
-	@BeforeTest
+//	@BeforeTest
 	//	public void setExtent(){
 	//		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 	//		extent = new ExtentReports(System.getProperty("user.dir")+"/Html/ExtentReport.html", true);
@@ -426,7 +426,7 @@ public class TestBase {
 	//	Report generation for Extend Report
 	public void generateReport() {
 
-		initilization_Admin();// for single time login and logout
+//		initilization_Admin();// for single time login and logout
 
 		DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
 		Date date = new Date();
@@ -437,7 +437,7 @@ public class TestBase {
 		TestBase.extent = new ExtentReports(f1, Boolean.valueOf(true));
 	}
 
-	@AfterTest
+//	@AfterTest
 	public void endReport(){
 		extent.flush();
 		extent.close();
@@ -458,7 +458,7 @@ public class TestBase {
 	}
 
 
-	@AfterMethod
+//	@AfterMethod
 	public void tearDown(ITestResult result) throws IOException{
 
 		if(result.getStatus()==ITestResult.FAILURE){
@@ -484,7 +484,7 @@ public class TestBase {
 		extent.endTest(extentTest); //ending test and ends the current test and prepare to create html report
 	}
 	
-	@AfterSuite
+//	@AfterSuite
 	public void report() {
 		mail();
 		cmdPrompt();
