@@ -152,6 +152,21 @@ public class AdministratorHomePage extends AbstractBasePage {
 	
 	@FindBy(id="add_new_dpr")
 	WebElement addNewDPR;
+	
+	@FindBy(xpath = "(//a[contains(@href,'/admin/action/displayRatePlanTaxes.do?brand_id=20&prop_id=85')])[1]")
+	WebElement ratePlanTaxes;
+	
+	@FindBy(xpath = "//div[text()='Group Blocks']")
+	WebElement groupBlockTab;
+	
+	@FindBy(id = "add_new_groupblcok")
+	WebElement addNewGroupBlock;
+	
+	@FindBy(xpath = "//a[contains(@href,'/admin/action/retrieveG')]")
+	WebElement listAllGroupBlock;
+
+	@FindBy(xpath = "(//a[contains(@href,'/admin/action/ret')])[1]")
+	WebElement listAllRatePlan;
 
 	/*
 	 * Method to select brand
@@ -509,6 +524,42 @@ public class AdministratorHomePage extends AbstractBasePage {
 		propertyJCC.click();
 		Helper.implict(3);
 		propertySelectButton.click();
+		Helper.implict(3);
+		return null;
+	}
+	
+	/*
+	 * Method to click on Group Block Tab
+	 */
+	public AdministratorHomePage clickOnGroupBlockTab() {
+		groupBlockTab.click();
+		Helper.implict(3);
+		return null;
+	}
+	
+	/*
+	 * Method to click on Add New Group Block
+	 */
+	public AdministratorHomePage clickOnAddNewGroupBlock() {
+		addNewGroupBlock.click();
+		Helper.implict(3);
+		return null;
+	}
+	
+	/*
+	 * Method to click on List All Group Block
+	 */
+	public AdministratorHomePage clickOnListAllGroupBlock() {
+		listAllGroupBlock.click();
+		Helper.implict(3);
+		return null;
+	}
+	
+	/*
+	 * Method to click on List All Rate Plan
+	 */
+	public AdministratorHomePage clickOnListAllRatePlan() {
+		listAllRatePlan.click();
 		Helper.implict(3);
 		return null;
 	}

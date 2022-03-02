@@ -31,7 +31,7 @@ public class RestAssuredPost extends TestBase{
 	@Test()
 	public void roomRateLevelRestrictionHMS() throws Exception {
 		logger.info("------------RoomRateLevelRestriction HMS Execution Started------------");
-		extentTest = extent.startTest("roomRateLevelRestrictionHMS");
+//		extentTest = extent.startTest("roomRateLevelRestrictionHMS");
 		TestResponse("RoomRateLevelRestrictionHMS");
 		logger.info("------------RoomRateLevelRestriction HMS Execution Ended------------");
 		logger.info("--------------DataBase Validation-----------");

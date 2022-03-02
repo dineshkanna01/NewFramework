@@ -131,9 +131,6 @@ public class Helper extends TestBase{
 		String currentDate = dateFormat.format(date);
 		System.out.println("current day date " + currentDate);
 		sleep(3000);
-
-		// WebElement a= getDriver().findElement(By.xpath("(//*[text()='"+ currentDate+
-		// "'])[1]"));
 		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
 		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//*[text()='" + currentDate + "'])[1]")));
 		try {
@@ -174,4 +171,14 @@ public class Helper extends TestBase{
 		 return null;
 	}
 
+	public static WebElement abcd(String xpath) {
+		WebElement name = getDriver().findElement(By.xpath(xpath));
+		return name;
+		}
+	
+	public static void refreshURL() {
+        getDriver().navigate().to("https://mio.qa-igt.reztrip3-qa.com/mobile");
+  }
+
+	
 }

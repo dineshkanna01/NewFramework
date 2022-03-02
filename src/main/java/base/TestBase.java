@@ -303,7 +303,7 @@ public class TestBase {
 
 	//	Mobile responsive testing and it is for change dimension of width and heigth of the screen
 	@SuppressWarnings("deprecation")
-	public static void mobileTest(String emulation, int w, int h) throws Exception {
+	public static void mobileTest(String emulation, int w, int h) {
 		WebDriverManager.chromedriver().setup();
 		Map<String, String> deviceMobEmu= new HashMap<String, String>();
 		deviceMobEmu.put("deviceName", emulation);
@@ -417,7 +417,7 @@ public class TestBase {
 
 	}
 
-//	@BeforeTest
+	@BeforeTest
 	//	public void setExtent(){
 	//		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 	//		extent = new ExtentReports(System.getProperty("user.dir")+"/Html/ExtentReport.html", true);
@@ -437,7 +437,7 @@ public class TestBase {
 		TestBase.extent = new ExtentReports(f1, Boolean.valueOf(true));
 	}
 
-//	@AfterTest
+	@AfterTest
 	public void endReport(){
 		extent.flush();
 		extent.close();
@@ -458,7 +458,7 @@ public class TestBase {
 	}
 
 
-//	@AfterMethod
+	@AfterMethod
 	public void tearDown(ITestResult result) throws IOException{
 
 		if(result.getStatus()==ITestResult.FAILURE){
@@ -493,8 +493,8 @@ public class TestBase {
 	//	JDBC connection
 	public static Connection con() {
 		try {
-			String JDBC_Driver = "com.mysql.cj.jdbc.Driver";
-			String urlDB = "jdbc:mysql://localhost:3306/pegsDB";
+			String JDBC_Driver = "com.mysql.jdbc.Driver";
+			String urlDB = "jdbc:mysql://aurora-qa2-cluster.cluster-cdxmeh9zn3o2.us-east-1.rds.amazonaws.com:3306/";
 			String user = "qadbuser";
 			String pass = "GLLTtpr5dbKLL";
 			Class.forName(JDBC_Driver);
