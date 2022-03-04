@@ -150,6 +150,7 @@ public class ModifyBookingfromconfirmationpagePage extends TestBase {
 	 * 
 	 */
 	public boolean verifyConfirmationCode() {
+		Helper.waitVisibility(50,"//thead[@class=\"confirmation-table-head\"]/tr/td[last()]/dl/dt");
 		if (confirmcodeHeading.isDisplayed()) {
 			String codehead = confirmcodeHeading.getText();
 			String code = confirmcode.getText();
@@ -201,6 +202,7 @@ public class ModifyBookingfromconfirmationpagePage extends TestBase {
 	 */
 	public void getDatesBefore() {
 		String datesbe = cpDates.getText();
+		datesbe =datesbe.toLowerCase();
 		System.out.println("Dates before " + datesbe);
 		ExcelData.write_CellData("NormalSingleRoomBookingData", 1, 22, datesbe);
 	}
@@ -210,6 +212,7 @@ public class ModifyBookingfromconfirmationpagePage extends TestBase {
 	 */
 	public void getDatesAfter() {
 		String datesaf = cpDates.getText();
+		datesaf =datesaf.toLowerCase();
 		System.out.println("Dates after " + datesaf);
 		ExcelData.write_CellData("NormalSingleRoomBookingData", 1, 23, datesaf);
 	}

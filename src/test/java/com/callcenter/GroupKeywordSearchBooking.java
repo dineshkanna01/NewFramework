@@ -237,6 +237,7 @@ public class GroupKeywordSearchBooking extends TestBase {
 		gksb.deleteRatePlans();
 		ahp.clickRatePlanCategories();
 		rcp.deleteCategory();
+		Helper.sleep(1000);
 		lp.logout();
 		logger.info("TestCase Ended");
 	}

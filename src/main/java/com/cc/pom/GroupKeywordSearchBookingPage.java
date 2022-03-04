@@ -55,7 +55,6 @@ public class GroupKeywordSearchBookingPage extends TestBase {
 	WebElement rateGridRate;
 	@FindBy(xpath = "(//a[text()='Select'])[2]")
 	WebElement selectRoom;
-	
 	@FindBy(xpath = "//tr[@class='ratePlanHeader'][last()]")
 	WebElement categoryNameDel;
 	@FindBy(name = "button2")

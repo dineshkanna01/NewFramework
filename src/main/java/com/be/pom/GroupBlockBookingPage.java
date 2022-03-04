@@ -344,7 +344,7 @@ public class GroupBlockBookingPage extends TestBase {
 		Helper.implict(1);
 		shortDescription.sendKeys(ExcelData.getCellData("GroupBlockBooking", "ShortDescription", 2));
 		Helper.implict(1);
-		pegsImage.sendKeys("C:\\Users\\Sudhakar.Mourya\\Downloads\\Pegasus image.png");
+		pegsImage.sendKeys(".\\testData\\DB.jpg");
 		Helper.implict(3);
 		roomCheckbox.click();
 		DateFormat dateFormat = new SimpleDateFormat("MM/dd/YY");

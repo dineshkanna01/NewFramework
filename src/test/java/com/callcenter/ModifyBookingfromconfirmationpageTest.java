@@ -145,12 +145,12 @@ public class ModifyBookingfromconfirmationpageTest extends TestBase {
 	}
 
 	@Test(priority = 3)
-	@Description("User should be able to modify a call center booking from confirmation page for stay dates through edit search")
+	@Description("User should be able to modify a call center booking from confirmation page for number of Adults and Children through edit search")
 	@Severity(SeverityLevel.CRITICAL)
 	@Epic("EP01")
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
-	@Step("User should be able to modify a call center booking from confirmation page for stay dates through edit search")
+	@Step("User should be able to modify a call center booking from confirmation page for number of Adults and Children through edit search")
 	public void ModifyBookingfromconfirmationpageTest_TC03() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("ModifyBookingfromconfirmationpageTest_TC03");

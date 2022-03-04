@@ -167,6 +167,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdatePage extends TestBase
 	 * Method to click New Reservation
 	 */
 	public NormalSingleRoomBookingandverifyRateGridupdatePage clickNewReservation() {
+		Helper.explicit(ccNewRes, 60);
 		ccNewRes.click();
 		Helper.implict(5);
 		return null;

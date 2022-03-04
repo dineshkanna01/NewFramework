@@ -167,6 +167,9 @@ public class AdministratorHomePage extends AbstractBasePage {
 
 	@FindBy(xpath = "(//a[contains(@href,'/admin/action/ret')])[1]")
 	WebElement listAllRatePlan;
+	
+	@FindBy(xpath = "//*[contains(@href,'manageRatePlanAccessCode')]")
+	WebElement manageAccessCode;
 
 	/*
 	 * Method to select brand
@@ -561,6 +564,24 @@ public class AdministratorHomePage extends AbstractBasePage {
 	public AdministratorHomePage clickOnListAllRatePlan() {
 		listAllRatePlan.click();
 		Helper.implict(3);
+		return null;
+	}
+	
+	/*
+	 * Method to click manage Access Code
+	 */
+	public AdministratorHomePage clickmanageAccessCode() {
+		manageAccessCode.click();
+		Helper.implict(3);
+		return null;
+	}
+	
+	/*
+	 * Method to click List All RatePlan
+	 */
+	public AdministratorHomePage clickListAllRatePlan() {
+		listAllRatePlan.click();
+		Helper.implict(10);
 		return null;
 	}
 

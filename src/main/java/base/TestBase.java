@@ -426,7 +426,7 @@ public class TestBase {
 	//	Report generation for Extend Report
 	public void generateReport() {
 
-//		initilization_Admin();// for single time login and logout
+		initilization_Admin();// for single time login and logout
 
 		DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
 		Date date = new Date();

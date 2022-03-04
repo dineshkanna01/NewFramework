@@ -47,29 +47,29 @@ public class Helper extends TestBase{
 	}
 
 	public static JavascriptExecutor js = (JavascriptExecutor)getDriver();
-	
+
 	public static String javaScript(String xPath) {
 		WebElement element = getDriver().findElement(By.xpath(xPath));
 		js.executeScript("arguments[0].click();", element);
 		return xPath;
 	}
-	
+
 	public static String jsSendkeys(String xPath, String argName) {
 		WebElement element = getDriver().findElement(By.xpath(xPath));
 		js.executeScript("arguments[0].click();", element);
 		js.executeScript("arguments[0].value='"+argName+"';", element);
 		return xPath;
 	}
-	
+
 	public static void scrollBy(int v1, int v2) {
 		js.executeScript("window.scrollBy("+v1+", "+v2+")");
 	}
-	
+
 	public static void eleXpath(String xPath, String data) {
 		WebElement a = getDriver().findElement(By.xpath(xPath));
 		a.sendKeys(data);
 	}
-	
+
 
 	/*
 	 * Method to click view button for same cc code as in confirmation page
@@ -85,24 +85,24 @@ public class Helper extends TestBase{
 		// "']/following::button[1]"));
 		// e.click();
 	}
-	
+
 	public static void coXpath() {
 		String a = ExcelData.getCellData("MobileB", "Country", 2);
-		 WebElement e = getDriver().findElement(By.xpath("(//li[text()='"+a+"'])[1]"));
-				 e.click();
+		WebElement e = getDriver().findElement(By.xpath("(//li[text()='"+a+"'])[1]"));
+		e.click();
 	}
-	
+
 	public static void coXpath2() {
 		String a = ExcelData.getCellData("MobileB", "Country", 2);
-		 WebElement e = getDriver().findElement(By.xpath("//li[@ng-click=\"select(item)\"]"));
-				 e.click();
+		WebElement e = getDriver().findElement(By.xpath("//li[@ng-click=\"select(item)\"]"));
+		e.click();
 	}
-	
+
 	public static void stXpath() {
 		//select[@placeholder="State"]//child::option[text()="Delhi"]
 		String a = ExcelData.getCellData("MobileB", "State", 2);
 		WebElement e = getDriver().findElement(By.xpath("//select[@placeholder=\"State\"]//child::option[text()='"+a+"']"));
-				 e.click();
+		e.click();
 	}
 
 	/*
@@ -120,11 +120,11 @@ public class Helper extends TestBase{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void refreshAdmin(String url) {
 		getDriver().get(prop.getProperty(url));
 	}
-	
+
 	public static void currentDate() {
 		DateFormat dateFormat = new SimpleDateFormat("dd");
 		Date date = new Date();
@@ -139,7 +139,7 @@ public class Helper extends TestBase{
 			System.out.println("NA");
 		}
 	}
-	
+
 	public static void nextDate() {
 		String nextDaydate = "";
 		Date date2 = new Date();
@@ -158,27 +158,51 @@ public class Helper extends TestBase{
 		}
 
 	}
-	
+
 	public static WebElement actions(WebElement ele) {
 		Actions a = new Actions(driver);
 		a.moveToElement(ele).perform();
-//		a.click();
+		//		a.click();
 		return ele;
 	}
-	
+
 	public static WebElement xPath(String xpathName) {
 		WebElement w = getDriver().findElement(By.xpath(xpathName));
-		 return null;
+		return null;
 	}
 
 	public static WebElement abcd(String xpath) {
 		WebElement name = getDriver().findElement(By.xpath(xpath));
 		return name;
-		}
-	
-	public static void refreshURL() {
-        getDriver().navigate().to("https://mio.qa-igt.reztrip3-qa.com/mobile");
-  }
+	}
 
-	
+	public static void refreshURL() {
+		getDriver().navigate().to("https://mio.qa-igt.reztrip3-qa.com/mobile");
+	}
+
+	/*
+	 * Method to click view button for same cc code as in confirmation page for rt3viceversatc
+	 * 
+	 */
+	@SuppressWarnings("deprecation")
+	public static void clickviewButtonRt3ViceVersa() {
+		String a = ExcelData.CC_getCellData("NormalSingleRoomBookingData", "CCcodeBE", 2);
+		WebDriverWait wait = new WebDriverWait(getDriver(),120);
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='" + a + "']/following::button[1]")));
+		element.click();
+		// WebElement e = getDriver().findElement(By.xpath("//*[text()='" + a +
+		// "']/following::button[1]"));
+		// e.click();
+	}
+
+	/*
+	 * Method to wait till element is visible
+	 * 
+	 */
+	public static void waitVisibility(int wait2 ,String xpath) {
+		WebDriverWait wait = new WebDriverWait(getDriver(),wait2);
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+	}
+
+
 }
