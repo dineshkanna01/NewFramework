@@ -1,8 +1,8 @@
 package com.callcenter;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.admin.pom.AdministratorHomePage;
 import com.admin.pom.LoginPage;
@@ -36,6 +36,7 @@ public class ModifybookingusingLookup extends TestBase {
 	ModifyBookingfromconfirmationpagePage mbcp;
 	ModifybookingusingLookupPage mblp;
 	ReportsPage rep;
+	SoftAssert soft;
 
 	public ModifybookingusingLookup() {
 		super();
@@ -50,6 +51,7 @@ public class ModifybookingusingLookup extends TestBase {
 		mbcp = new ModifyBookingfromconfirmationpagePage(getDriver());
 		mblp = new ModifybookingusingLookupPage(getDriver());
 		rep = new ReportsPage(getDriver());
+		soft = new SoftAssert();
 	}
 
 	@Test(priority = 1)
@@ -59,9 +61,9 @@ public class ModifybookingusingLookup extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user is able to Modify guest details for the booking using email and confirmation code in lookup in call Center")
-	public void CancelbookingusingLookup_TC_01() {
+	public void CallCenter_ModifybookingusingLookup_TC_01() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CancelbookingusingLookup_TC_01");
+		extentTest = extent.startTest("CallCenter_ModifybookingusingLookup_01");
 		lp.login();
 		allureScreenshot("Login");
 		screenShot("Login");
@@ -84,14 +86,14 @@ public class ModifybookingusingLookup extends TestBase {
 		nsrb.inputBillingAddress();
 		nsrb.selectTermsAndConditonCheckbox();
 		nsrb.clickCompleteReservation();
-		Assert.assertTrue(mbcp.verifyConfirmationCode());
+		soft.assertTrue(mbcp.verifyConfirmationCode());
 		mbcp.getGuestDetailsbefore();
 		allureScreenshot("GuestDetails before");
 		screenShot("GuestDetails before");
 		Helper.switchWindow(0);
 		ahp.selectReports();
 		rep.selectSearchReservationReport();
-		Assert.assertTrue(mbcp.searchReservation());
+		soft.assertTrue(mbcp.searchReservation());
 		allureScreenshot("Booking in Report");
 		screenShot("Booking in Report");
 		Helper.switchWindow(1);
@@ -106,7 +108,7 @@ public class ModifybookingusingLookup extends TestBase {
 		mbcp.getGuestDetailsafter();
 		allureScreenshot("GuestDetails after");
 		screenShot("GuestDetails after");
-		Assert.assertTrue(mbcp.verifyGuestDetailsModify());
+		soft.assertTrue(mbcp.verifyGuestDetailsModify());
 		logger.info("TestCase Ended");
 	}
 
@@ -117,9 +119,9 @@ public class ModifybookingusingLookup extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user is able to Modify guest details for the booking using Last name and email in lookup in call Center")
-	public void CancelbookingusingLookup_TC_02() {
+	public void CallCenter_ModifybookingusingLookup_TC_02() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CancelbookingusingLookup_TC_02");
+		extentTest = extent.startTest("CallCenter_ModifybookingusingLookup_TC_02");
 		mbcp.getGuestDetailsbefore();
 		allureScreenshot("GuestDetails before");
 		screenShot("GuestDetails before");
@@ -135,7 +137,7 @@ public class ModifybookingusingLookup extends TestBase {
 		mbcp.getGuestDetailsafter();
 		allureScreenshot("GuestDetails after");
 		screenShot("GuestDetails after");
-		Assert.assertTrue(mbcp.verifyGuestDetailsModify());
+		soft.assertTrue(mbcp.verifyGuestDetailsModify());
 		logger.info("TestCase Ended");
 	}
 
@@ -146,9 +148,9 @@ public class ModifybookingusingLookup extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user is able to Modify guest details for the booking using Arrival Date and email in lookup in call Center")
-	public void CancelbookingusingLookup_TC_03() {
+	public void CallCenter_ModifybookingusingLookup_TC_03() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CancelbookingusingLookup_TC_03");
+		extentTest = extent.startTest("CallCenter_ModifybookingusingLookup_TC_03");
 		mbcp.getGuestDetailsbefore();
 		allureScreenshot("GuestDetails before");
 		screenShot("GuestDetails before");
@@ -163,7 +165,7 @@ public class ModifybookingusingLookup extends TestBase {
 		mbcp.getGuestDetailsafter();
 		allureScreenshot("GuestDetails after");
 		screenShot("GuestDetails after");
-		Assert.assertTrue(mbcp.verifyGuestDetailsModify());
+		soft.assertTrue(mbcp.verifyGuestDetailsModify());
 		logger.info("TestCase Ended");
 	}
 
@@ -174,9 +176,9 @@ public class ModifybookingusingLookup extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user is able to Modify guest details for the booking using Arrival Date and email in lookup in call Center")
-	public void CancelbookingusingLookup_TC_04() {
+	public void CallCenter_ModifybookingusingLookup_TC_04() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CancelbookingusingLookup_TC_04");
+		extentTest = extent.startTest("CallCenter_ModifybookingusingLookup_TC_04");
 		mbcp.getGuestDetailsbefore();
 		allureScreenshot("GuestDetails before");
 		screenShot("GuestDetails before");
@@ -191,7 +193,7 @@ public class ModifybookingusingLookup extends TestBase {
 		mbcp.getGuestDetailsafter();
 		allureScreenshot("GuestDetails after");
 		screenShot("GuestDetails after");
-		Assert.assertTrue(mbcp.verifyGuestDetailsModify());
+		soft.assertTrue(mbcp.verifyGuestDetailsModify());
 		logger.info("TestCase Ended");
 	}
 
@@ -202,9 +204,9 @@ public class ModifybookingusingLookup extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user is able to Modify room details for the booking using Confirmation code and email in lookup in call Center")
-	public void CancelbookingusingLookup_TC_05() {
+	public void CallCenter_ModifybookingusingLookup_TC_05() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CancelbookingusingLookup_TC_04");
+		extentTest = extent.startTest("CallCenter_ModifybookingusingLookup_TC_04");
 		mbcp.verifyRoomTypebefore();
 		allureScreenshot("RoomType before");
 		screenShot("RoomType before");
@@ -220,7 +222,7 @@ public class ModifybookingusingLookup extends TestBase {
 		mbcp.verifyRoomTypeafter();
 		allureScreenshot("RoomType after");
 		screenShot("RoomType after");
-		Assert.assertTrue(mbcp.verifyRoomModify());
+		soft.assertTrue(mbcp.verifyRoomModify());
 		logger.info("TestCase Ended");
 	}
 
@@ -231,9 +233,9 @@ public class ModifybookingusingLookup extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user is able to Modify Room for the booking using Last name and email in lookup in call Center")
-	public void CancelbookingusingLookup_TC_06() {
+	public void CallCenter_ModifybookingusingLookup_TC_06() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CancelbookingusingLookup_TC_06");
+		extentTest = extent.startTest("CallCenter_ModifybookingusingLookup_TC_06");
 		mbcp.verifyRoomTypebefore();
 		allureScreenshot("RoomType before");
 		screenShot("RoomType before");
@@ -251,7 +253,7 @@ public class ModifybookingusingLookup extends TestBase {
 		mbcp.verifyRoomTypeafter();
 		allureScreenshot("RoomType after");
 		screenShot("RoomType after");
-		Assert.assertTrue(mbcp.verifyRoomModify());
+		soft.assertTrue(mbcp.verifyRoomModify());
 		logger.info("TestCase Ended");
 	}
 
@@ -262,9 +264,9 @@ public class ModifybookingusingLookup extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user is able to Modify room details for the booking using Last 4 digits of credit card and email in lookup in call Center")
-	public void CancelbookingusingLookup_TC_07() {
+	public void CallCenter_ModifybookingusingLookup_TC_07() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CancelbookingusingLookup_TC_07");
+		extentTest = extent.startTest("CallCenter_ModifybookingusingLookup_TC_07");
 		mbcp.verifyRoomTypebefore();
 		allureScreenshot("RoomType before");
 		screenShot("RoomType before");
@@ -281,7 +283,7 @@ public class ModifybookingusingLookup extends TestBase {
 		mbcp.verifyRoomTypeafter();
 		allureScreenshot("RoomType after");
 		screenShot("RoomType after");
-		Assert.assertTrue(mbcp.verifyRoomModify());
+		soft.assertTrue(mbcp.verifyRoomModify());
 		logger.info("TestCase Ended");
 	}
 
@@ -292,9 +294,9 @@ public class ModifybookingusingLookup extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user is able to Modify room details for the booking using Last 4 digits of credit card and last name in lookup in call Center")
-	public void CancelbookingusingLookup_TC_08() {
+	public void CallCenter_ModifybookingusingLookup_TC_08() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CancelbookingusingLookup_TC_08");
+		extentTest = extent.startTest("CallCenter_ModifybookingusingLookup_TC_08");
 		mbcp.verifyRoomTypebefore();
 		allureScreenshot("RoomType before");
 		screenShot("RoomType before");
@@ -312,7 +314,7 @@ public class ModifybookingusingLookup extends TestBase {
 		mbcp.verifyRoomTypeafter();
 		allureScreenshot("RoomType after");
 		screenShot("RoomType after");
-		Assert.assertTrue(mbcp.verifyRoomModify());
+		soft.assertTrue(mbcp.verifyRoomModify());
 		logger.info("TestCase Ended");
 	}
 
@@ -323,15 +325,15 @@ public class ModifybookingusingLookup extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user is not able to Modify room details for the booking using incorrect Last 4 digits of credit card and email in lookup in call Center")
-	public void CancelbookingusingLookup_TC_09() {
+	public void CallCenter_ModifybookingusingLookup_TC_09() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CancelbookingusingLookup_TC_08");
+		extentTest = extent.startTest("CallCenter_ModifybookingusingLookup_TC_08");
 		mbcp.verifyRoomTypebefore();
 		allureScreenshot("RoomType before");
 		screenShot("RoomType before");
 		screenShot("GuestDetails before");
 		mblp.clickNewReservation();
-		Assert.assertTrue(mblp.verifyBookingTC09());
+		soft.assertTrue(mblp.verifyBookingTC09());
 		screenShot("error message");
 		screenShot("error message");
 		Helper.switchWindow(0);

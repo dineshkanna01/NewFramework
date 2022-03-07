@@ -64,7 +64,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdate extends TestBase {
 		screenShot("Property Selected");
 		ahp.selectRatesandInventory();
 		rip.selectRateGrid();
-		nsrb.selectRatePlan();
+		nsrb.selectRatePlanRateGrid();
 		rip.continueButton();
 		nsrb.selectDateRangeTC01();
 		rip.clickoverrideRoomCheckbox();
@@ -97,7 +97,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdate extends TestBase {
 		allureScreenshot("Call Center Confirmation Page");
 		screenShot("Call Center Confirmation Page");
 		Helper.switchWindow(0);
-		nsrb.selectRatePlan();
+		nsrb.selectRatePlanRateGrid();
 		rip.continueButton();
 		nsrb.selectDateRangeTC01();
 		rip.clickoverrideRoomCheckbox();
@@ -122,7 +122,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdate extends TestBase {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("CallCentre_NormalSingleRoomBookingandverifyRateGridupdate_TC_02");
 		rip.selectRateGrid();
-		nsrb.selectRatePlan();
+		nsrb.selectRatePlanRateGrid();
 		rip.continueButton();
 		nsrb.selectDateRangeTC02();
 		allureScreenshot("Date Range Rate Grid");
@@ -153,7 +153,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdate extends TestBase {
 		screenShot("Confirmation Page");
 		Assert.assertTrue(nsrb.verifyConfirmationCode());
 		Helper.switchWindow(0);
-		nsrb.selectRatePlan();
+		nsrb.selectRatePlanRateGrid();
 		rip.continueButton();
 		nsrb.selectDateRangeTC02();
 		rip.clickoverrideRoomCheckbox();

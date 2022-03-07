@@ -1,16 +1,11 @@
 package com.admin;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
 import com.admin.pom.AdministratorHomePage;
 import com.admin.pom.LoginPage;
 import com.admin.pom.SmartPoliciesPage;
-
 import base.TestBase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -25,21 +20,19 @@ import logfile.Utilitylog;
  * Test class for Smart Policies
  * @author Rudraksh Aggarwal
  */
-public class SmartPolicy_Scenario extends TestBase{
+public class SmartPolicy_Scenario extends TestBase {
 
 	public static Utilitylog logger;
 
-	
 	// objects
 	LoginPage lp;
 	AdministratorHomePage ahp;
 	SmartPoliciesPage spp;
-	
+
 	public SmartPolicy_Scenario() {
 		super();
 		logger = new Utilitylog(SmartPolicy_Scenario.class.getName());
 	}
-
 
 	@BeforeMethod
 	public void setup() {
@@ -55,40 +48,28 @@ public class SmartPolicy_Scenario extends TestBase{
 	@Feature("Feature1:SmartPolcies")
 	@Story("Smart Policies Page")
 	@Step("Verify user is able to add smart policy")
-	public void SmartPolicy_TC_01()  {
+	public void SmartPolicy_TC_01() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("SmartPolicy_TC_01");
-
 		lp.login();
 		allureScreenshot("Login");
 		screenShot("Login");
-
 		ahp.selectBrand();
 		ahp.selectProperty();
-
 		allureScreenshot("Property Selected");
 		screenShot("Property Selected");
-
 		ahp.clickSmartPoliciesTab();
 		ahp.clickAddNewSmartPolicies();
-
 		allureScreenshot("Smart Policies Page");
 		screenShot("Smart Policies Page");
-
 		spp.inputTextFieldsSmartPoliciesTc01();
 		spp.selectCategoryFromDropdown();
 		spp.clickOnSave();
-		
-
 		Assert.assertTrue(spp.verifySmartPolicyName());
-
 		allureScreenshot("Smart Policies Created");
 		screenShot("Smart Policies Created");
-		
 		spp.deleteSmartPolicies();
 		Assert.assertTrue(spp.verifySmartPolicyName_Delete());
-	
-
 		logger.info("TestCase Ended");
 	}
 
@@ -99,10 +80,9 @@ public class SmartPolicy_Scenario extends TestBase{
 	@Feature("Feature1:SmartPolcies")
 	@Story("Smart Policies Page")
 	@Step("Verify user is able to Add or Delete Smart Policy")
-	public void SmartPolicy_TC_02()  {
+	public void SmartPolicy_TC_02() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("SmartPolicy_TC_02");
-
 		/*
 		 * lp.login(); allureScreenshot("Login"); screenShot("Login");
 		 * 
@@ -111,26 +91,18 @@ public class SmartPolicy_Scenario extends TestBase{
 		 * allureScreenshot("Property Selected"); screenShot("Property Selected");
 		 * ahp.clickSmartPoliciesTab();
 		 */
-
 		ahp.clickAddNewSmartPolicies();
-
 		allureScreenshot("Smart Policies Page");
 		screenShot("Smart Policies Page");
-
 		spp.inputTextFieldsSmartPoliciesTc02();
 		spp.selectCategoryFromDropdown();
 		spp.clickOnSave();
-
 		allureScreenshot("Smart Policies Created");
 		screenShot("Smart Policies Created");
-
 		Assert.assertTrue(spp.verifySmartPolicyName());
-
 		spp.deleteSmartPolicies();
-
 		allureScreenshot("Smart Policies Deleted");
 		screenShot("Smart Policies Deleted");
-
 		Assert.assertTrue(spp.verifySmartPolicyName_Delete());
 		logger.info("TestCase Ended");
 	}
@@ -142,10 +114,9 @@ public class SmartPolicy_Scenario extends TestBase{
 	@Feature("Feature1:SmartPolcies")
 	@Story("Smart Policies Page")
 	@Step("Verify user is not able to add smart policy having same name")
-	public void SmartPolicy_TC_03()  {
+	public void SmartPolicy_TC_03() {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("SmartPolicy_TC_03");
-
 		/*
 		 * lp.login(); allureScreenshot("Login"); screenShot("Login");
 		 * 
@@ -155,46 +126,25 @@ public class SmartPolicy_Scenario extends TestBase{
 		 * 
 		 * ahp.clickSmartPoliciesTab();
 		 */
-		
 		ahp.clickAddNewSmartPolicies();
-
 		allureScreenshot("Smart Policies Page");
 		screenShot("Smart Policies Page");
-
 		spp.inputTextFieldsSmartPoliciesTc03();
 		spp.selectCategoryFromDropdown();
 		spp.clickOnSave();
-
 		allureScreenshot("Smart Policies Created");
 		screenShot("Smart Policies Created");
-
 		Assert.assertTrue(spp.verifySmartPolicyName());
-
 		ahp.clickAddNewSmartPolicies();
 		spp.inputTextFieldsSmartPoliciesTc03();
 		spp.selectCategoryFromDropdown();
 		spp.clickOnSave();
-
 		Assert.assertTrue(spp.verifyDuplicateErrorMessage_tc03());
-
 		allureScreenshot("Duplicate Policy error message");
 		screenShot("Duplicate Policy error message");
-
 		spp.clickOnCancel();
 		spp.deleteSmartPolicies();
-
 		lp.logout();
 		logger.info("TestCase Ended");
-	}
-
-	@AfterSuite
-	public void report()  {
-		try {
-			mail();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		cmdPrompt();
 	}
 }

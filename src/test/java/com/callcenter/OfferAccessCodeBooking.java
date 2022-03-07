@@ -154,7 +154,7 @@ public class OfferAccessCodeBooking extends TestBase {
 		rpp.clickSaveButton();
 		Assert.assertTrue(oacb.verifyAccessCodeAdminTC02());
 		allureScreenshot("Access Code Admin");
-		allureScreenshot("Access Code Admin");
+		screenShot("Access Code Admin");
 		Assert.assertEquals(ExcelData.CC_getCellData("NormalSingleRoomBookingData", "AccessCodeAdmin", 3),
 				ExcelData.CC_getCellData("OfferAccessCodeBooking", "AccCode", 3));
 		openURL("cc_url");

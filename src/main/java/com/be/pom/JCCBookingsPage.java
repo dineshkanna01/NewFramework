@@ -78,12 +78,7 @@ public class JCCBookingsPage extends AbstractBasePage {
 	 * 
 	 */
 	public JCCBookingsPage selectDate() {
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Helper.explicit(calender, 30);
 		calender.click();
 		Helper.implict(2);
 		checkInDate.click();
@@ -97,7 +92,7 @@ public class JCCBookingsPage extends AbstractBasePage {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		avalilibiltyButton.click();
@@ -109,12 +104,7 @@ public class JCCBookingsPage extends AbstractBasePage {
 	 * 
 	 */
 	public JCCBookingsPage clickBookNowButton() {
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Helper.explicit(bookNow, 50);
 		bookNow.click();
 		Helper.implict(4);
 		return null;
@@ -124,10 +114,13 @@ public class JCCBookingsPage extends AbstractBasePage {
 	 * 
 	 */
 	public JCCBookingsPage inputGuestDetails() {
+		firstName.clear();
 		firstName.sendKeys(ExcelData.getCellData("JCCBookings", "FirstName", 2));
 		Helper.implict(1);
+		lastName.clear();
 		lastName.sendKeys(ExcelData.getCellData("JCCBookings", "LastName", 2));
 		Helper.implict(1);
+		email.clear();
 		email.sendKeys(ExcelData.getCellData("JCCBookings", "Email", 2));
 		Helper.implict(1);
 		return null;
@@ -155,6 +148,7 @@ public class JCCBookingsPage extends AbstractBasePage {
 	 * 
 	 */
 	public JCCBookingsPage inputCardDetailsTC01() {
+		cardName.clear();
 		cardName.sendKeys(ExcelData.getCellData("JCCBookings", "CardName", 2));
 		cardNumber.sendKeys(ExcelData.getCellData("JCCBookings", "CardNumber1", 2));
 		cardNumber.sendKeys(ExcelData.getCellData("JCCBookings", "CardNumber2", 2));
@@ -205,6 +199,7 @@ public class JCCBookingsPage extends AbstractBasePage {
 		Select d = new Select(state);
 		d.selectByVisibleText("Delhi");
 		Helper.implict(1);
+		zipCode.clear();
 		zipCode.sendKeys(ExcelData.getCellData("JCCBookings", "Zipcode", 2));
 		Helper.implict(1);
 		return null;
@@ -214,6 +209,7 @@ public class JCCBookingsPage extends AbstractBasePage {
 	 * 
 	 */
 	public JCCBookingsPage inputadditionalContactInfo() {
+		phNum.clear();
 		phNum.sendKeys(ExcelData.getCellData("JCCBookings", "PhoneNumber", 2));
 		Helper.implict(1);
 		return null;

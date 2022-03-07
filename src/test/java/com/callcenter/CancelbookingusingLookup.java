@@ -1,8 +1,8 @@
 package com.callcenter;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.admin.pom.AdministratorHomePage;
 import com.admin.pom.LoginPage;
@@ -23,6 +23,7 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import logfile.Utilitylog;
+
 /*
  * Test class for CancelbookingusingLookup
  * @author Rudraksh Aggarwal
@@ -39,6 +40,7 @@ public class CancelbookingusingLookup extends TestBase {
 	CancelbookingusingLookupPage cblp;
 	CancelBookingfromconfirmationpagePage cbcp;
 	ReportsPage rep;
+	SoftAssert soft;
 
 	public CancelbookingusingLookup() {
 		super();
@@ -55,6 +57,7 @@ public class CancelbookingusingLookup extends TestBase {
 		cblp = new CancelbookingusingLookupPage(getDriver());
 		cbcp = new CancelBookingfromconfirmationpagePage(getDriver());
 		rep = new ReportsPage(getDriver());
+		soft = new SoftAssert();
 	}
 
 	@Test(priority = 1)
@@ -64,9 +67,9 @@ public class CancelbookingusingLookup extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user is able to Cancel the booking using Confirmation code and email in lookup in call Center")
-	public void CancelbookingusingLookup_TC_01() {
+	public void CallCenter_CancelbookingusingLookup_TC_01() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CancelbookingusingLookup_TC_01");
+		extentTest = extent.startTest("CallCenter_CancelbookingusingLookup_TC_01");
 		lp.login();
 		allureScreenshot("Login");
 		screenShot("Login");
@@ -89,22 +92,22 @@ public class CancelbookingusingLookup extends TestBase {
 		nsrb.inputBillingAddress();
 		nsrb.selectTermsAndConditonCheckbox();
 		nsrb.clickCompleteReservation();
-		Assert.assertTrue(mbcp.verifyConfirmationCode());
+		soft.assertTrue(mbcp.verifyConfirmationCode());
 		mblp.clickNewReservation();
 		cblp.cancelBookingLookupTC01();
-		Assert.assertTrue(cblp.verifyCancelBookinglookup());
+		soft.assertTrue(cblp.verifyCancelBookinglookup());
 		allureScreenshot("Call Center booking Cancellation confirmation from lookup");
 		screenShot("Call Center booking Cancellation confirmation from lookup");
 		Helper.switchWindow(0);
 		ahp.selectReports();
 		rep.selectSearchReservationReport();
-		Assert.assertTrue(cblp.verifyCancelBookingTC01reports());
+		soft.assertTrue(cblp.verifyCancelBookingTC01reports());
 		allureScreenshot("Call Center booking Cancellation confirmation from reports");
 		screenShot("Call Center booking Cancellation confirmation from reports");
 		Helper.switchWindow(1);
 		logger.info("TestCase Ended");
 	}
-	
+
 	@Test(priority = 2)
 	@Description("Verify user is able to Cancel the booking using Last name and email in lookup in call Center")
 	@Severity(SeverityLevel.CRITICAL)
@@ -112,9 +115,9 @@ public class CancelbookingusingLookup extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user is able to Cancel the booking using Last name and email in lookup in call Center")
-	public void CancelbookingusingLookup_TC_02() {
+	public void CallCenter_CancelbookingusingLookup_TC_02() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CancelbookingusingLookup_TC_02");	
+		extentTest = extent.startTest("CallCenter_CancelbookingusingLookup_TC_02");
 		Helper.refresh();
 		nsrb.selectDateRangeCCTC01();
 		nsrb.clickAvailibilityButton();
@@ -127,17 +130,17 @@ public class CancelbookingusingLookup extends TestBase {
 		nsrb.inputBillingAddress();
 		nsrb.selectTermsAndConditonCheckbox();
 		nsrb.clickCompleteReservation();
-		Assert.assertTrue(mbcp.verifyConfirmationCode());
+		soft.assertTrue(mbcp.verifyConfirmationCode());
 		mblp.getGuestDetailsLName();
 		mblp.clickNewReservation();
 		cblp.cancelBookingLookupTC02();
-		Assert.assertTrue(cblp.verifyCancelBookinglookup());
+		soft.assertTrue(cblp.verifyCancelBookinglookup());
 		allureScreenshot("Call Center booking Cancellation confirmation from lookup");
 		screenShot("Call Center booking Cancellation confirmation from lookup");
 		logger.info("TestCase Ended");
 		logger.info("TestCase Ended");
 	}
-	
+
 	@Test(priority = 3)
 	@Description("Verify user is able to Cancel the booking using Arrival Date and email in lookup in call Center")
 	@Severity(SeverityLevel.CRITICAL)
@@ -145,9 +148,9 @@ public class CancelbookingusingLookup extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user is able to Cancel the booking using Arrival Date and email in lookup in call Center")
-	public void CancelbookingusingLookup_TC_03() {
+	public void CallCenter_CancelbookingusingLookup_TC_03() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CancelbookingusingLookup_TC_03");
+		extentTest = extent.startTest("CallCenter_CancelbookingusingLookup_TC_03");
 		Helper.refresh();
 		nsrb.selectDateRangeCCTC01();
 		nsrb.clickAvailibilityButton();
@@ -160,15 +163,15 @@ public class CancelbookingusingLookup extends TestBase {
 		nsrb.inputBillingAddress();
 		nsrb.selectTermsAndConditonCheckbox();
 		nsrb.clickCompleteReservation();
-		Assert.assertTrue(mbcp.verifyConfirmationCode());
+		soft.assertTrue(mbcp.verifyConfirmationCode());
 		mblp.clickNewReservation();
 		cblp.cancelBookingLookupTC03();
-		Assert.assertTrue(cblp.verifyCancelBookinglookup());
+		soft.assertTrue(cblp.verifyCancelBookinglookup());
 		allureScreenshot("Call Center booking Cancellation confirmation from lookup");
 		screenShot("Call Center booking Cancellation confirmation from lookup");
 		logger.info("TestCase Ended");
 	}
-	
+
 	@Test(priority = 4)
 	@Description("Verify user is able to Cancel the booking using Last 4 digits of credit card and email in lookup in call Center")
 	@Severity(SeverityLevel.CRITICAL)
@@ -176,9 +179,9 @@ public class CancelbookingusingLookup extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user is able to Cancel the booking using Last 4 digits of credit card and email in lookup in call Center")
-	public void CancelbookingusingLookup_TC_04() {
+	public void CallCenter_CancelbookingusingLookup_TC_04() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CancelbookingusingLookup_TC_04");
+		extentTest = extent.startTest("CallCenter_CancelbookingusingLookup_TC_04");
 		Helper.refresh();
 		nsrb.selectDateRangeCCTC01();
 		nsrb.clickAvailibilityButton();
@@ -191,15 +194,15 @@ public class CancelbookingusingLookup extends TestBase {
 		nsrb.inputBillingAddress();
 		nsrb.selectTermsAndConditonCheckbox();
 		nsrb.clickCompleteReservation();
-		Assert.assertTrue(mbcp.verifyConfirmationCode());
+		soft.assertTrue(mbcp.verifyConfirmationCode());
 		mblp.clickNewReservation();
 		cblp.cancelBookingLookupTC04();
-		Assert.assertTrue(cblp.verifyCancelBookinglookup());
+		soft.assertTrue(cblp.verifyCancelBookinglookup());
 		allureScreenshot("Call Center booking Cancellation confirmation from lookup");
 		screenShot("Call Center booking Cancellation confirmation from lookup");
 		logger.info("TestCase Ended");
 	}
-	
+
 	@Test(priority = 5)
 	@Description("Verify user is not able to Cancel the booking using incorrect Last 4 digits of credit card and email in lookup in call Center")
 	@Severity(SeverityLevel.CRITICAL)
@@ -207,10 +210,11 @@ public class CancelbookingusingLookup extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user is not able to Cancel the booking using incorrect Last 4 digits of credit card and email in lookup in call Center")
-	public void CancelbookingusingLookup_TC_05() {
+	public void CallCenter_CancelbookingusingLookup_TC_05() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CancelbookingusingLookup_TC_05");
-		Helper.refresh();;
+		extentTest = extent.startTest("CallCenter_CancelbookingusingLookup_TC_05");
+		Helper.refresh();
+		;
 		nsrb.selectDateRangeCCTC01();
 		nsrb.clickAvailibilityButton();
 		nsrb.selectRoom();
@@ -220,18 +224,17 @@ public class CancelbookingusingLookup extends TestBase {
 		nsrb.inputGuestDetails();
 		nsrb.inputCardDetailsTC01();
 		nsrb.inputBillingAddress();
-		
+
 		nsrb.selectTermsAndConditonCheckbox();
 		nsrb.clickCompleteReservation();
-		Assert.assertTrue(mbcp.verifyConfirmationCode());
+		soft.assertTrue(mbcp.verifyConfirmationCode());
 		mblp.clickNewReservation();
-		Assert.assertTrue(cblp.cancelBookingLookupTC05());
+		soft.assertTrue(cblp.cancelBookingLookupTC05());
 		allureScreenshot("Call Center booking not cancelled");
 		screenShot("Call Center booking not cancelled");
 		Helper.switchWindow(0);
 		lp.logout();
 		logger.info("TestCase Ended");
 	}
-
 
 }

@@ -170,6 +170,9 @@ public class AdministratorHomePage extends AbstractBasePage {
 	
 	@FindBy(xpath = "//*[contains(@href,'manageRatePlanAccessCode')]")
 	WebElement manageAccessCode;
+	
+	@FindBy(xpath = "//a[contains(@href,'manageBedTypes')]")
+	WebElement bedType;
 
 	/*
 	 * Method to select brand
@@ -585,4 +588,12 @@ public class AdministratorHomePage extends AbstractBasePage {
 		return null;
 	}
 
+	/*
+	 * Method to click bed Type
+	 */
+	public AdministratorHomePage bedType() {
+		bedType.click();
+		Helper.implict(3);
+		return null;
+	}
 }

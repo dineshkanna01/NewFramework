@@ -109,7 +109,7 @@ public class RatePlanCategoriesPage extends AbstractBasePage{
 		return null;
 	}
 	/*
-	 * Method to verify policy name
+	 * Method to verify category name
 	 * 
 	 * @return boolean value
 	 */

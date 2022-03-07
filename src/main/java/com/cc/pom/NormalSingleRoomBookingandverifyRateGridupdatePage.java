@@ -174,11 +174,13 @@ public class NormalSingleRoomBookingandverifyRateGridupdatePage extends TestBase
 	}
 	
 	/*
-	 * Method to select Rate Plan
+	 * Method to select Rate Plan Rate grid update
 	 */
-	public NormalSingleRoomBookingandverifyRateGridupdatePage selectRatePlan() {
-		selectRatePlan.click();
-		Helper.implict(3);
+	public NormalSingleRoomBookingandverifyRateGridupdatePage selectRatePlanRateGrid() {
+		Helper.sleep(2000);
+		String a = (ExcelData.CC_getCellData("NormalSingleRoomBookingData", "RoomAvailable", 3));
+		WebElement rp = getDriver().findElement(By.xpath("//a[text()='" + a + "']/following::input[2]"));
+		rp.click();
 		return null;
 	}
 	

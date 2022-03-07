@@ -54,9 +54,9 @@ public class VerifyingCCSettingsAnnouncementfromAdmintoBookingUI extends TestBas
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user should able to see Announcement in the the CC booking engine when announcement is activated")
-	public void CallCentre_VerifyingCCSettingsAnnouncementfromAdmintoBookingUI_TC01() {
+	public void CallCentre_VerifyingCCSettingsAnnouncementfromAdmintoBookingUI_TC_01() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CallCentre_VerifyingCCSettingsAnnouncementfromAdmintoBookingUI_TC01");
+		extentTest = extent.startTest("CallCentre_VerifyingCCSettingsAnnouncementfromAdmintoBookingUI_TC_01");
 		lp.login();
 		allureScreenshot("Login");
 		screenShot("Login");
@@ -94,9 +94,9 @@ public class VerifyingCCSettingsAnnouncementfromAdmintoBookingUI extends TestBas
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user should not be able to see Announcement in the the CC booking engine when announcement text is provided and activation status is no")
-	public void CallCentre_VerifyingCCSettingsAnnouncementfromAdmintoBookingUI_TC02() {
+	public void CallCentre_VerifyingCCSettingsAnnouncementfromAdmintoBookingUI_TC_02() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CallCentre_VerifyingCCSettingsAnnouncementfromAdmintoBookingUI_TC02");
+		extentTest = extent.startTest("CallCentre_VerifyingCCSettingsAnnouncementfromAdmintoBookingUI_TC_02");
 		ahp.callCenterSettings();
 		vcsaab.inputDetailsTC02();
 		vcsaab.clickSaveButton();
@@ -123,9 +123,9 @@ public class VerifyingCCSettingsAnnouncementfromAdmintoBookingUI extends TestBas
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user should not be able to see Announcement in the the CC booking engine when announcement activation status is no")
-	public void CallCentre_VerifyingCCSettingsAnnouncementfromAdmintoBookingUI_TC03() {
+	public void CallCentre_VerifyingCCSettingsAnnouncementfromAdmintoBookingUI_TC_03() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CallCentre_VerifyingCCSettingsAnnouncementfromAdmintoBookingUI_TC03");
+		extentTest = extent.startTest("CallCentre_VerifyingCCSettingsAnnouncementfromAdmintoBookingUI_TC_03");
 		Helper.switchWindow(0);
 		ahp.callCenterSettings();
 		vcsaab.inputDetailsTC03();

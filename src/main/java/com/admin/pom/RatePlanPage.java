@@ -172,7 +172,11 @@ public class RatePlanPage extends AbstractBasePage {
 	 */
 	public RatePlanPage clickSaveButton() {
 		saveButton.click();
-		Helper.implict(3);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 	/*

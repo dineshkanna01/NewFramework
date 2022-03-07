@@ -69,9 +69,9 @@ public class BookingwithIATAcode extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user is able to do the configuration for IATA code booking")
-	public void CallCenter_DenialReasonineverypageofbooking_TC_01() {
+	public void CallCenter_BookingwithIATAcode_TC_01() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CallCenter_DenialReasonineverypageofbooking_TC_01");
+		extentTest = extent.startTest("CallCenter_BookingwithIATAcode_TC_01");
 		lp.login();
 		allureScreenshot("Login");
 		screenShot("Login");
@@ -100,9 +100,9 @@ public class BookingwithIATAcode extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user is able to booking the reservation with IATA code")
-	public void CallCenter_DenialReasonineverypageofbooking_TC_02() {
+	public void CallCenter_BookingwithIATAcode_TC_02() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CallCenter_DenialReasonineverypageofbooking_TC_02");
+		extentTest = extent.startTest("CallCenter_BookingwithIATAcode_TC_02");
 		openURL("cc_url");
 		nsrb.enterCCuser();
 		allureScreenshot("Call Center");
@@ -133,9 +133,9 @@ public class BookingwithIATAcode extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("User should verify the reservation with confirmation code")
-	public void CallCenter_DenialReasonineverypageofbooking_TC_03() {
+	public void CallCenter_BookingwithIATAcode_TC_03() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CallCenter_DenialReasonineverypageofbooking_TC_03");
+		extentTest = extent.startTest("CallCenter_BookingwithIATAcode_TC_03");
 		mblp.clickNewReservation();
 		bwic.bookinglookupIATATC01();
 		Assert.assertTrue(bwic.getCCcodeIATA());
@@ -152,9 +152,9 @@ public class BookingwithIATAcode extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user is able to Modify  the reservation with IATA code")
-	public void CallCenter_DenialReasonineverypageofbooking_TC_04() {
+	public void CallCenter_BookingwithIATAcode_TC_04() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CallCenter_DenialReasonineverypageofbooking_TC_04");
+		extentTest = extent.startTest("CallCenter_BookingwithIATAcode_TC_04");
 		mblp.clickNewReservation();
 		nsrb.selectDateRangeCCTC01();
 		bwic.inputIATACODE();
@@ -201,9 +201,9 @@ public class BookingwithIATAcode extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify user is able to Cancel  the reservation with IATA code")
-	public void CallCenter_DenialReasonineverypageofbooking_TC_05() {
+	public void CallCenter_BookingwithIATAcode_TC_05() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CallCenter_DenialReasonineverypageofbooking_TC_05");
+		extentTest = extent.startTest("CallCenter_BookingwithIATAcode_TC_05");
 		mblp.clickNewReservation();
 		nsrb.selectDateRangeCCTC01();
 		bwic.inputIATACODE();

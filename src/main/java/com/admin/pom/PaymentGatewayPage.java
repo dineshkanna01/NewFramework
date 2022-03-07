@@ -58,12 +58,13 @@ public class PaymentGatewayPage extends AbstractBasePage {
 	 * Method to verify JCC Auto Populate
 	 */
 
-	public PaymentGatewayPage verifyJCCAutoPopulate() {
+	public boolean  verifyJCCAutoPopulate() {
 		if (enableButton.isSelected()) {
 			System.out.println("Values are autopopulated");
+			return true;
 		} else
 			System.out.println("Values are not autopopulated");
-		return null;
+		return false;
 
 	}
 

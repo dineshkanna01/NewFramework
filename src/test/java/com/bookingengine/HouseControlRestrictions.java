@@ -1,24 +1,11 @@
 package com.bookingengine;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.util.Date;
-import java.util.TimeZone;
-
-import org.joda.time.DateTime;
 import org.testng.Assert;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
-
 import com.admin.pom.AdministratorHomePage;
 import com.admin.pom.LoginPage;
-import com.admin.pom.PaymentGatewayPage;
 import com.be.pom.HouseControlRestrictionsPage;
 import com.be.pom.JCCBookingsPage;
-
 import Utility.ExcelData;
 import base.Helper;
 import base.TestBase;
@@ -30,28 +17,25 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import logfile.Utilitylog;
-
 /*
  * Test class for HouseControlRestrictions
  * @author Rudraksh Aggarwal
  */
-
 public class HouseControlRestrictions extends TestBase {
-
+	
 	public static Utilitylog logger;
-
+	
 	// objects
 	ExcelData e = new ExcelData();
 	LoginPage lp;
 	AdministratorHomePage ahp;
 	JCCBookingsPage jbp;
 	HouseControlRestrictionsPage hrp;
-
 	public HouseControlRestrictions() {
 		super();
 		logger = new Utilitylog(JCCBookings.class.getName());
 	}
-
+	
 	@BeforeMethod
 	public void setup() {
 		lp = new LoginPage(getDriver());
@@ -59,7 +43,7 @@ public class HouseControlRestrictions extends TestBase {
 		jbp = new JCCBookingsPage(getDriver());
 		hrp = new HouseControlRestrictionsPage(getDriver());
 	}
-
+	
 	@Test(priority = 1)
 	@Description("User should be able to create House Restrictions Open Min Stay Through")
 	@Severity(SeverityLevel.CRITICAL)
@@ -92,7 +76,6 @@ public class HouseControlRestrictions extends TestBase {
 		hrp.clickConfirmButton();
 		allureScreenshot("House Control Restrictions confirm");
 		screenShot("House Control Restrictions confirm");
-//		openBEurlinNewTab();
 		openURL("be_url1");
 		allureScreenshot("Booking Engine");
 		screenShot("Booking Engine");
@@ -103,7 +86,7 @@ public class HouseControlRestrictions extends TestBase {
 		Assert.assertTrue(hrp.verificationStayThrough());
 		logger.info("TestCase Ended");
 	}
-
+	
 	@Test(priority = 2)
 	@Description("User should be able to create House Restrictions Open Max Stay Through")
 	@Severity(SeverityLevel.CRITICAL)
@@ -135,7 +118,7 @@ public class HouseControlRestrictions extends TestBase {
 		Assert.assertTrue(hrp.verificationStayThrough());
 		logger.info("TestCase Ended");
 	}
-
+	
 	@Test(priority = 3)
 	@Description("User should be able to create House Restrictions Closed")
 	@Severity(SeverityLevel.CRITICAL)
@@ -182,7 +165,7 @@ public class HouseControlRestrictions extends TestBase {
 		Assert.assertFalse(hrp.verification_BookNowNotVisible());
 		logger.info("TestCase Ended");
 	}
-
+	
 	@Test(priority = 4)
 	@Description("User should be able to create House Restrictions Open Closed to Arrival")
 	@Severity(SeverityLevel.CRITICAL)
@@ -230,7 +213,7 @@ public class HouseControlRestrictions extends TestBase {
 		Assert.assertFalse(hrp.verification_BookNowNotVisible());
 		logger.info("TestCase Ended");
 	}
-
+	
 	@Test(priority = 5)
 	@Description("User should be able to remove and add availability")
 	@Severity(SeverityLevel.CRITICAL)
@@ -279,7 +262,7 @@ public class HouseControlRestrictions extends TestBase {
 		Assert.assertTrue(hrp.verification_BookNowVisible());
 		logger.info("TestCase Ended");
 	}
-
+	
 	@Test(priority = 6)
 	@Description("User should be able to create House Control Restriction Days of Week Closed")
 	@Severity(SeverityLevel.CRITICAL)
@@ -319,5 +302,4 @@ public class HouseControlRestrictions extends TestBase {
 		lp.logout();
 		logger.info("TestCase Ended");
 	}
-
 }

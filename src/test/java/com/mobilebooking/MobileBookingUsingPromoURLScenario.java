@@ -1,15 +1,11 @@
 package com.mobilebooking;
 
-import java.awt.AWTException;
-
-import org.openqa.selenium.Point;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.admin.pom.AdministratorHomePage;
 import com.admin.pom.LoginPage;
 import com.mb.pom.MobileBookingUsingPromoURLPages;
-import com.mb.pom.MobileBookingsWithValidOfferCodePage;
 
 import base.TestBase;
 import io.qameta.allure.Description;
@@ -59,12 +55,6 @@ public class MobileBookingUsingPromoURLScenario extends TestBase{
 			PURL.clickRatePlan();
 			PURL.editRatePlan();
 			PURL.copyPromoURL();
-			try {
-				Thread.sleep(10000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			
 	}
 

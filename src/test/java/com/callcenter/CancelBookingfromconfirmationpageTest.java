@@ -52,9 +52,9 @@ public class CancelBookingfromconfirmationpageTest extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("User should be able to cancel a call center booking from confirmation page")
-	public void CancelBookingfromconfirmationpageTest_TC01() {
+	public void CallCenter_CancelBookingfromconfirmationpageTest_TC_01() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CancelBookingfromconfirmationpageTest_TC01");
+		extentTest = extent.startTest("CallCenter_CancelBookingfromconfirmationpageTest_TC_01");
 		lp.login();
 		allureScreenshot("Login");
 		screenShot("Login");
@@ -93,9 +93,9 @@ public class CancelBookingfromconfirmationpageTest extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("User should be able to Verify a Cancelled booking")
-	public void CancelBookingfromconfirmationpageTest_TC02() {
+	public void CallCenter_CancelBookingfromconfirmationpageTest_TC_02() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CancelBookingfromconfirmationpageTest_TC02");
+		extentTest = extent.startTest("CallCenter_CancelBookingfromconfirmationpageTest_TC_02");
 		Helper.switchWindow(1);
 		Assert.assertTrue(cbcp.verifyCancelBookingTC02());
 		allureScreenshot("Call Center booking Cancellation confirmation");
@@ -110,9 +110,9 @@ public class CancelBookingfromconfirmationpageTest extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("User should be not be able to Verify a Cancelled booking if Email is incorrect and Confirmation code is correct")
-	public void CancelBookingfromconfirmationpageTest_TC03() {
+	public void CallCenter_CancelBookingfromconfirmationpageTest_TC_03() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CancelBookingfromconfirmationpageTest_TC03");
+		extentTest = extent.startTest("CallCenter_CancelBookingfromconfirmationpageTest_TC_03");
 		Assert.assertTrue(cbcp.verifyCancelBookingTC03());
 		allureScreenshot("Call Center cancelled booking not verified if email is incorrect");
 		screenShot("Call Center cancelled booking not verified if email is incorrect");
@@ -126,9 +126,9 @@ public class CancelBookingfromconfirmationpageTest extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("User should be not be able to Verify a Cancelled booking if Email is correct and Confirmation code is incorrect")
-	public void CancelBookingfromconfirmationpageTest_TC04() {
+	public void CallCenter_CancelBookingfromconfirmationpageTest_TC_04() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CancelBookingfromconfirmationpageTest_TC04");
+		extentTest = extent.startTest("CallCenter_CancelBookingfromconfirmationpageTest_TC_04");
 		Assert.assertTrue(cbcp.verifyCancelBookingTC04());
 		allureScreenshot("Call Center cancelled booking not verified if confirmation code is incorrect");
 		screenShot("Call Center cancelled booking not verified if confirmation code is incorrect");
@@ -142,9 +142,9 @@ public class CancelBookingfromconfirmationpageTest extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("User should be not be able to Verify a Cancelled booking if both Emailand confirmation code are incorrect")
-	public void CancelBookingfromconfirmationpageTest_TC05() {
+	public void CallCenter_CancelBookingfromconfirmationpageTest_TC_05() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("CancelBookingfromconfirmationpageTest_TC05");
+		extentTest = extent.startTest("CallCenter_CancelBookingfromconfirmationpageTest_TC_05");
 		Assert.assertTrue(cbcp.verifyCancelBookingTC05());
 		allureScreenshot("Call Center cancelled booking not verified if both email & confirmation code is incorrect");
 		screenShot("Call Center cancelled booking not verified if both email & confirmation code is incorrect");

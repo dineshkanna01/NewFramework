@@ -54,9 +54,9 @@ public class ModifyBookingfromconfirmationpageTest extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("User should be able to modify a call center booking from confirmation page for room type through edit search")
-	public void ModifyBookingfromconfirmationpageTest_TC01() {
+	public void CallCenter_ModifyBookingfromconfirmationpageTest_TC_01() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("ModifyBookingfromconfirmationpageTest_TC01");
+		extentTest = extent.startTest("CallCenter_ModifyBookingfromconfirmationpageTest_TC_01");
 		lp.login();
 		allureScreenshot("Login");
 		screenShot("Login");
@@ -120,9 +120,9 @@ public class ModifyBookingfromconfirmationpageTest extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("User should be able to modify a call center booking from confirmation page for stay dates through edit search")
-	public void ModifyBookingfromconfirmationpageTest_TC02() {
+	public void CallCenter_ModifyBookingfromconfirmationpageTest_TC_02() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("ModifyBookingfromconfirmationpageTest_TC02");
+		extentTest = extent.startTest("CallCenter_ModifyBookingfromconfirmationpageTest_TC_02");
 		mbcp.getDatesBefore();
 		allureScreenshot("Dates Before");
 		screenShot("Dates Before");
@@ -151,9 +151,9 @@ public class ModifyBookingfromconfirmationpageTest extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("User should be able to modify a call center booking from confirmation page for number of Adults and Children through edit search")
-	public void ModifyBookingfromconfirmationpageTest_TC03() {
+	public void CallCenter_ModifyBookingfromconfirmationpageTest_TC_03() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("ModifyBookingfromconfirmationpageTest_TC03");
+		extentTest = extent.startTest("CallCenter_ModifyBookingfromconfirmationpageTest_TC_03");
 		mbcp.getNumOfAdultsAndChildrenbefore();
 		allureScreenshot("Num Of Adults And Children before");
 		screenShot("Num Of Adults And Children before");
@@ -182,9 +182,9 @@ public class ModifyBookingfromconfirmationpageTest extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("User should be able to modify a call center booking from confirmation page for Guest Details")
-	public void ModifyBookingfromconfirmationpageTest_TC04() {
+	public void CallCenter_ModifyBookingfromconfirmationpageTest_TC_04() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("ModifyBookingfromconfirmationpageTest_TC04");
+		extentTest = extent.startTest("CallCenter_ModifyBookingfromconfirmationpageTest_TC_04");
 		mbcp.getGuestDetailsbefore();
 		allureScreenshot("GuestDetails before");
 		screenShot("GuestDetails before");
@@ -209,9 +209,9 @@ public class ModifyBookingfromconfirmationpageTest extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("User should be able to do a call center booking without AddOns from confirmation page and then modify it to have AddOns through edit search")
-	public void ModifyBookingfromconfirmationpageTest_TC05() {
+	public void CallCenter_ModifyBookingfromconfirmationpageTest_TC_05() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("ModifyBookingfromconfirmationpageTest_TC05");
+		extentTest = extent.startTest("CallCenter_ModifyBookingfromconfirmationpageTest_TC_05");
 		mbcp.getOtherServicesBefore();
 		mbcp.modify();
 		allureScreenshot("Modify");
@@ -240,9 +240,9 @@ public class ModifyBookingfromconfirmationpageTest extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("User should be able to modify a call center booking from confirmation page for Bed Type Preferences through modify button through edit search")
-	public void ModifyBookingfromconfirmationpageTest_TC06() {
+	public void CallCenter_ModifyBookingfromconfirmationpageTest_TC_06() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("ModifyBookingfromconfirmationpageTest_TC06");
+		extentTest = extent.startTest("CallCenter_ModifyBookingfromconfirmationpageTest_TC_06");
 		mbcp.getBedTypebefore();
 		mbcp.modify();
 		allureScreenshot("Modify");
@@ -273,9 +273,9 @@ public class ModifyBookingfromconfirmationpageTest extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("User should be able to modify a call center booking from confirmation page for Bed Type Preferences through Edit request button")
-	public void ModifyBookingfromconfirmationpageTest_TC07() {
+	public void CallCenter_ModifyBookingfromconfirmationpageTest_TC_07() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("ModifyBookingfromconfirmationpageTest_TC07");
+		extentTest = extent.startTest("CallCenter_ModifyBookingfromconfirmationpageTest_TC_07");
 		mbcp.getBedTypebefore();
 		allureScreenshot("BedType before");
 		screenShot("BedType before");
@@ -298,9 +298,9 @@ public class ModifyBookingfromconfirmationpageTest extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("User should be able to modify a call center booking from confirmation page for room type")
-	public void ModifyBookingfromconfirmationpageTest_TC08() {
+	public void CallCenter_ModifyBookingfromconfirmationpageTest_TC_08() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("ModifyBookingfromconfirmationpageTest_TC08");
+		extentTest = extent.startTest("CallCenter_ModifyBookingfromconfirmationpageTest_TC_08");
 		mbcp.verifyRoomTypebefore();
 		allureScreenshot("RoomType before");
 		screenShot("RoomType before");
@@ -331,9 +331,9 @@ public class ModifyBookingfromconfirmationpageTest extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("User should be able to do a call center booking with AddOns from confirmation page and then modify for No AddOns through edit search")
-	public void ModifyBookingfromconfirmationpageTest_TC09() {
+	public void CallCenter_ModifyBookingfromconfirmationpageTest_TC_09() {
 		logger.info("TestCase Started");
-		extentTest = extent.startTest("ModifyBookingfromconfirmationpageTest_TC09");
+		extentTest = extent.startTest("CallCenter_ModifyBookingfromconfirmationpageTest_TC_09");
 		nsrb.clickNewReservation();
 		nsrb.selectDateRangeCCTC01();
 		nsrb.clickAvailibilityButton();

@@ -100,7 +100,7 @@ public class ReportsPage extends AbstractBasePage {
 	}
 
 	/*
-	 * Method to selectProductionReport
+	 * Method to select search Reservation Report
 	 */
 	public ReportsPage selectSearchReservationReport() {
 		searchReservationReport.click();

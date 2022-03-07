@@ -1,5 +1,8 @@
 package base;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,32 +23,6 @@ import Utility.ExcelData;
 public class Helper extends TestBase{
 
 	public static WebDriver driver;
-	@SuppressWarnings("deprecation")
-	public static WebElement explicit(WebElement name, int sec) {
-		WebDriverWait wait = new WebDriverWait(getDriver(), sec);
-		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(name));
-		return element;
-	}
-
-	public static void refreshBE() {
-		getDriver().get("https://alh.qa-igt.reztrip3-qa.com/");
-	}
-
-	public static ArrayList<String> switchTabs() {
-		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
-		return tab;
-	}
-
-	public static void switchWindow(int num) {
-		getDriver().switchTo().window(switchTabs().get(num));
-	}
-
-	//	Waits
-	@SuppressWarnings("deprecation")
-	public static void implict(int num) {
-		getDriver().manage().timeouts().implicitlyWait(num, TimeUnit.SECONDS);
-	}
-
 	public static JavascriptExecutor js = (JavascriptExecutor)getDriver();
 
 	public static String javaScript(String xPath) {
@@ -75,27 +52,13 @@ public class Helper extends TestBase{
 		a.click();
 	}
 
-	/*
-	 * Method to click view button for same cc code as in confirmation page
-	 * 
-	 */
-	@SuppressWarnings("deprecation")
-	public static void clickviewButton() {
-		String a = ExcelData.CC_getCellData("NormalSingleRoomBookingData", "ConfirmationCode", 2);
-		WebDriverWait wait = new WebDriverWait(getDriver(),120);
-		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='" + a + "']/following::button[1]")));
-		element.click();
-		// WebElement e = getDriver().findElement(By.xpath("//*[text()='" + a +
-		// "']/following::button[1]"));
-		// e.click();
-	}
-
 	public static void coXpath() {
 		String a = ExcelData.getCellData("MobileB", "Country", 2);
 		WebElement e = getDriver().findElement(By.xpath("(//li[text()='"+a+"'])[1]"));
 		e.click();
 	}
 
+	@SuppressWarnings("unused")
 	public static void coXpath2() {
 		String a = ExcelData.getCellData("MobileB", "Country", 2);
 		WebElement e = getDriver().findElement(By.xpath("//li[@ng-click=\"select(item)\"]"));
@@ -109,26 +72,11 @@ public class Helper extends TestBase{
 		e.click();
 	}
 
-	/*
-	 * Method to refresh
-	 * 
-	 */
-	public static void refresh() {
-		getDriver().navigate().refresh();
-	}
-
-	public static void sleep(int num) {
-		try {
-			Thread.sleep(num);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
-
 	public static void refreshAdmin(String url) {
 		getDriver().get(prop.getProperty(url));
 	}
 
+	@SuppressWarnings("deprecation")
 	public static void currentDate() {
 		DateFormat dateFormat = new SimpleDateFormat("dd");
 		Date date = new Date();
@@ -170,6 +118,7 @@ public class Helper extends TestBase{
 		return ele;
 	}
 
+	@SuppressWarnings("unused")
 	public static WebElement xPath(String xpathName) {
 		WebElement w = getDriver().findElement(By.xpath(xpathName));
 		return null;
@@ -184,6 +133,89 @@ public class Helper extends TestBase{
 		getDriver().navigate().to("https://mio.qa-igt.reztrip3-qa.com/mobile");
 	}
 
+
+	public static void mouseOver(String path) {
+		Actions action = new Actions(getDriver());
+		WebElement a = getDriver().findElement(By.xpath(path));
+		action.moveToElement(a).contextClick(a).perform();
+	}
+	
+	public static void robotClass() {
+		Robot r;
+		try {
+			r = new Robot();
+			for (int i = 1; i <=5; i++) {
+				r.keyPress(KeyEvent.VK_DOWN);
+				r.keyRelease(KeyEvent.VK_DOWN);
+			}
+			r.keyPress(KeyEvent.VK_ENTER);
+			r.keyRelease(KeyEvent.VK_ENTER);
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	/*
+	 * Method for explicit wait
+	 */
+	public static WebElement explicit(WebElement name, int sec) {
+		WebDriverWait wait = new WebDriverWait(getDriver(), sec);
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(name));
+		return element;
+	}
+
+	/*
+	 * Method to reopen BE in same tab
+	 * 
+	 */
+	public static void refreshBE() {
+		sleep(1000);
+		getDriver().get("https://alh.qa-igt.reztrip3-qa.com/");
+	}
+	
+	/*
+	 * Method to reopen cc in same tab
+	 * 
+	 */
+	public static void refreshCC() {
+		sleep(1000);
+		getDriver().get("https://alh.qa-igt.reztrip3-qa.com/cc");
+	}
+
+	public static ArrayList<String> switchTabs() {
+		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
+		return tab;
+	}
+
+	/*
+	 * Method to switch window
+	 * 
+	 */
+	public static void switchWindow(int num) {
+		getDriver().switchTo().window(switchTabs().get(num));
+	}
+
+	/*
+	 * Method for implicit wait
+	 * 
+	 */
+	public static void implict(int num) {
+		getDriver().manage().timeouts().implicitlyWait(num, TimeUnit.SECONDS);
+	}
+
+	/*
+	 * Method to click view button for same cc code as in confirmation page
+	 * 
+	 */
+	@SuppressWarnings("deprecation")
+	public static void clickviewButton() {
+		String a = ExcelData.CC_getCellData("NormalSingleRoomBookingData", "ConfirmationCode", 2);
+		WebDriverWait wait = new WebDriverWait(getDriver(),120);
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='" + a + "']/following::button[1]")));
+		element.click();
+	}
+	
 	/*
 	 * Method to click view button for same cc code as in confirmation page for rt3viceversatc
 	 * 
@@ -194,11 +226,27 @@ public class Helper extends TestBase{
 		WebDriverWait wait = new WebDriverWait(getDriver(),120);
 		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='" + a + "']/following::button[1]")));
 		element.click();
-		// WebElement e = getDriver().findElement(By.xpath("//*[text()='" + a +
-		// "']/following::button[1]"));
-		// e.click();
 	}
 
+	/*
+	 * Method to refresh
+	 * 
+	 */
+	public static void refresh() {
+		getDriver().navigate().refresh();
+	}
+	/*
+	 * Method to wait 
+	 * 
+	 */
+	public static void sleep(int num) {
+		try {
+		Thread.sleep(num);
+		} catch (InterruptedException e) {
+		e.printStackTrace();
+		}
+		}
+	
 	/*
 	 * Method to wait till element is visible
 	 * 
@@ -207,6 +255,4 @@ public class Helper extends TestBase{
 		WebDriverWait wait = new WebDriverWait(getDriver(),wait2);
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 	}
-
-
 }
