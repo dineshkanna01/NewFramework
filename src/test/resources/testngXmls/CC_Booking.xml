@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+		<test name="NormalSingleRoomBookingandverifyRateGridupdate">
+		<classes>
+			<class
+				name="com.callcenter.NormalSingleRoomBookingandverifyRateGridupdate" />
+		</classes>
+	</test>
+
+	<test name="ModifyBookingfromconfirmationpageTest">
+		<classes>
+			<class
+				name="com.callcenter.ModifyBookingfromconfirmationpageTest" />
+		</classes>
+	</test>
+
+	<test name="CancelBookingfromconfirmationpageTest">
+		<classes>
+			<class
+				name="com.callcenter.CancelBookingfromconfirmationpageTest" />
+		</classes>
+	</test>
+
+	<test name="ModifybookingusingLookup">
+		<classes>
+			<class name="com.callcenter.ModifybookingusingLookup" />
+		</classes>
+	</test>
+
+	<test name="CancelbookingusingLookup">
+		<classes>
+			<class name="com.callcenter.CancelbookingusingLookup" />
+		</classes>
+	</test>
+
+	<test name="VerifyingCCSettingsAnnouncementfromAdmintoBookingUI">
+		<classes>
+			<class
+				name="com.callcenter.VerifyingCCSettingsAnnouncementfromAdmintoBookingUI" />
+		</classes>
+	</test>
+
+
+	<test name="DenialReasonineverypageofbooking">
+		<classes>
+			<class name="com.callcenter.DenialReasonineverypageofbooking" />
+		</classes>
+	</test>
+
+
+	<test name="BookingwithIATAcode">
+		<classes>
+			<class name="com.callcenter.BookingwithIATAcode" />
+		</classes>
+	</test>
+
+	<test name="GroupKeywordSearchBooking">
+		<classes>
+			<class name="com.callcenter.GroupKeywordSearchBooking" />
+		</classes>
+	</test>
+
+	<test name="OfferAccessCodeBooking">
+		<classes>
+			<class name="com.callcenter.OfferAccessCodeBooking" />
+		</classes>
+	</test>
+
+	<test name="ModifyRT3BookingfromCCsiteandviceversa">
+		<classes>
+			<class
+				name="com.callcenter.ModifyRT3BookingfromCCsiteandviceversa" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

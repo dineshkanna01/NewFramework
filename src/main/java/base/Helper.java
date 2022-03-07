@@ -70,6 +70,10 @@ public class Helper extends TestBase{
 		a.sendKeys(data);
 	}
 
+	public static void clickEle(String xPath) {
+		WebElement a = getDriver().findElement(By.xpath(xPath));
+		a.click();
+	}
 
 	/*
 	 * Method to click view button for same cc code as in confirmation page
