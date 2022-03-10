@@ -53,6 +53,7 @@ import logfile.Utilitylog;
 		public void NormalBookingsWithInvalidOfferCode_TC_01()  {
 			extentTest = extent.startTest("NormalBookingsWithInvalidOfferCode_TC_01");
 			logger.info("TestCase Started");
+			getDriver().quit();
 			mobileTest("Moto G4", 318, 850);
 			ioc.invalidOfferCodeReservation();
 			Assert.assertTrue(ioc.verifyInvalidOfferCode());

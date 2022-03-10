@@ -118,6 +118,34 @@ public class ExcelData {
 		}
 
 	}
+	
+	@SuppressWarnings({ "unused", "resource" })
+	public static boolean write_MBCellData(String name, int rNum, int cNum, String Data) {
+		String path = System.getProperty("user.dir") + "\\src\\test\\resources\\testData\\Admin_Data.xlsx";
+		try {
+			FileInputStream fis = new FileInputStream(path);
+			try {
+				Workbook workbook = new XSSFWorkbook(fis);
+			} catch (Exception e) {
+			}
+		} catch (Exception e) {
+		}
+		Sheet sheet = workbook.getSheet(name); // sheet at 1st tab
+		int lastRow = sheet.getLastRowNum();
+		for (int i = 1; i <= lastRow; i++) {
+			Row row = sheet.getRow(rNum);// 2nd row (index =1)
+			Cell cell = row.createCell(cNum);// column in which you want to set data
+			cell.setCellValue(Data); // Data that you want to save in excel
+			try {
+				FileOutputStream fos = new FileOutputStream(path);
+				workbook.write(fos);
+				fos.close();
+			} catch (Exception e) {
+			}
+		}
+		System.out.println("value updated in excel");
+		return true;
+	}
 
 	@SuppressWarnings({ "unused", "resource" })
 	public static boolean write_CellData(String name, int rNum, int cNum, String Data) {

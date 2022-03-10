@@ -140,7 +140,7 @@ public class ModifyandCancelMobileBookingsfromLookupLinkPages extends TestBase {
 	}
 
 	/*
-	 * Method to get Confirmation code
+	 * Method to get Confirmation mail code
 	 */
 	public AboutThePropertyPages getConfirmationMailId() {
 		String b = confirmMailId.getText();
@@ -210,7 +210,7 @@ public class ModifyandCancelMobileBookingsfromLookupLinkPages extends TestBase {
 		}
 	}
 	/*
-	 * Method to verify reservation
+	 * Method to verify call Hotel Option
 	 * 
 	 */
 	public boolean verifyCallHotelOption() {

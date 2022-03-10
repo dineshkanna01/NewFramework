@@ -23,10 +23,13 @@ public class NormalSingleRoomBookingandverifyRateGridupdatePage extends TestBase
 	
 	@FindBy(xpath = "//*[@name='startDate']")
 	WebElement startdate;
+	
 	@FindBy(xpath = "//*[@name='endDate']")
 	WebElement enddate;
+	
 	@FindBy(xpath = "//*[@name='C1361']")
 	WebElement selectRatePlan;
+	
 	@FindBy(xpath = "//button[@type='button']")
 	WebElement selectRoomTypedropdwn;
 	@FindBy(xpath = "//*[@class='ms-selectall global']")

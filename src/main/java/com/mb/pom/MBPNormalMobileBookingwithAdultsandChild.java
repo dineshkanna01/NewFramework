@@ -76,7 +76,6 @@ public class MBPNormalMobileBookingwithAdultsandChild extends TestBase {
 	 * 
 	 */
 	public MBPNormalMobileBookingwithAdultsandChild noAdultTC02() {
-		Helper.sleep(3000);
 		Helper.javaScript("//button[@class=\"navbar_button text-capitalize\"]");
 		Helper.javaScript("(//button[@class='rangepicker_plus -theme-color'])[1]");
 		Helper.javaScript("(//button[@class='rangepicker_plus -theme-color'])[1]");

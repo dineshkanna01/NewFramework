@@ -1,15 +1,22 @@
 package com.mobilebooking;
 
 import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.admin.pom.AdministratorHomePage;
 import com.admin.pom.LoginPage;
+import com.mb.pom.MBPNormalMobileBookingwithAdultsandChild;
+import com.mb.pom.MobileBookingsWithInvalidOfferCodePage;
 import com.mb.pom.MobileBookingsWithValidOfferCodePage;
 
+import base.Helper;
 import base.TestBase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -48,10 +55,10 @@ public class MobileBookingsWithValidOfferCodeScenario extends TestBase {
 	@Feature("Feature1:Mobile bookings with valid offer code scenario")
 	@Story("Mobile bookings with valid offer code scenario")
 	@Step("Verify that user is getting access code rate plan in BE")
-	public void NormalBookingsWithInvalidOfferCode_TC_01()   {
+	public void NormalBookingsWithInvalidOfferCode_TC_01() {
 		extentTest = extent.startTest("NormalBookingsWithInvalidOfferCode_TC_01");
 		lp.clickClearButton();
-		lp.login();
+		//lp.login();
 		ahp.selectBrand();
 		ahp.selectProperty3();
 		voc.createAccessCode1();
@@ -74,6 +81,7 @@ public class MobileBookingsWithValidOfferCodeScenario extends TestBase {
 		screenShot("Access Code edited");
 		Assert.assertTrue(voc.verifyAccessCodeEdited());
 	}
+
 	@Test(priority = 3)
 	@Description("Verify that user is  able to do bookings with edited offer code")
 	@Severity(SeverityLevel.CRITICAL)
@@ -98,10 +106,12 @@ public class MobileBookingsWithValidOfferCodeScenario extends TestBase {
 		allureScreenshot("Confirmation page");
 		screenShot("Confirmation page");
 		Assert.assertTrue(voc.verifyConfirmationCode());
+		Helper.switchWindow(0);
+		voc.deleteCreatedAccessCodeURL();
+		Assert.assertTrue(voc.verifyAccessCodeDeleted());
+		allureScreenshot("AccessCodeRatePlanDeleted");
+		screenShot("AccessCodeRatePlanAfterDeleted");
+		lp.logout();
 		logger.info("TestCase Ended");
-
-
-
-
 	}
 }

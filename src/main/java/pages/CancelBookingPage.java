@@ -49,12 +49,13 @@ public class CancelBookingPage extends AbstractBasePage{
 	
 	public CancelBookingPage cancelBooking(String code, String email) throws Exception {
 		myBooking.click();
-		Helper.implict(3);
+//		Helper.implict(3);
+		Thread.sleep(3000);
 		conCode.sendKeys(code);
 		conEmail.sendKeys(email);
-		Helper.implict(3);
+//		Helper.implict(3);
 		lookup.click();
-		Helper.implict(3);
+//		Helper.implict(3);
 //		String txtCode = qtestCode.getText();
 //		Thread.sleep(1000);
 //		System.out.println("Cancellation ID: "+txtCode);

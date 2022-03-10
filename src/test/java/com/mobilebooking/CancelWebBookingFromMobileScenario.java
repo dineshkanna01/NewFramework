@@ -7,9 +7,7 @@ import org.testng.annotations.Test;
 import com.admin.pom.AdministratorHomePage;
 import com.admin.pom.LoginPage;
 import com.mb.pom.CancelWebBookingFromMobilePages;
-import com.mb.pom.MobileBookingUsingPromoURLPages;
 
-import base.Helper;
 import base.TestBase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -47,19 +45,16 @@ public class CancelWebBookingFromMobileScenario  extends TestBase{
 	@Feature("Feature1:Cancel Web Booking From Mobile Scenario")
 	@Story("Cancel Web Booking From Mobile Scenario")
 	@Step("Verify user should able to Cancel Web Booking From Mobile ")
-	public void MobileBookingUsingPromoURL_TC_01()  {
-		extentTest = extent.startTest("CancelWebBookingFromMobileScenario");
-
+	public void CancelWebBookingFromMobileScenario_TC_01()  {
+	extentTest = extent.startTest("CancelWebBookingFromMobileScenario");
+	//getDriver().quit();
 	openURL("be_url3");
-	//cwfm.selectDate();
+	cwfm.selectDate();
 	cwfm.webBEReservation();
-	//Assert.assertTrue(cwfm.displayConfirmationCode());
 	cwfm.getConfirmationNo();
-//	cwfm.getConfirmationMailId();
-	
 	allureScreenshot("WebBooking Successful");
 	screenShot("Cancel WebBooking Successful");
-	//cwfm.getConfirmationMailId();
+	getDriver().quit();
 	mobileTest("Moto G4", 318,850);
 	cwfm.cancelinMobWebBEReservation();
 	cwfm.scrollDownTen();
@@ -67,7 +62,6 @@ public class CancelWebBookingFromMobileScenario  extends TestBase{
 	allureScreenshot("Cancel WebBooking From Mobile");
 	screenShot("Cancel WebBooking From Mobile");
 	Assert.assertTrue(cwfm.verifyMobileCancellationCode());
-
 }
 	
 }

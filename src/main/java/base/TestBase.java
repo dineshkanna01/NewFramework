@@ -493,7 +493,7 @@ public class TestBase {
 	//	JDBC connection
 	public static Connection con() {
 		try {
-			String JDBC_Driver = "com.mysql.jdbc.Driver";
+			String JDBC_Driver = "com.mysql.cj.jdbc.Driver";
 			String urlDB = "jdbc:mysql://aurora-qa2-cluster.cluster-cdxmeh9zn3o2.us-east-1.rds.amazonaws.com:3306/";
 			String user = "qadbuser";
 			String pass = "GLLTtpr5dbKLL";

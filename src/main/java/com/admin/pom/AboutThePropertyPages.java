@@ -394,6 +394,7 @@ public class AboutThePropertyPages extends AbstractBasePage {
 		Helper.implict(3);
 		return null;
 	}
+	
 	/*
 	* Method to click on Add a room
 	* 

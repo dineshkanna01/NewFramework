@@ -8,22 +8,32 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Utility.ExcelData;
+import Utility.TestUtils;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Helper extends TestBase{
 
 	public static WebDriver driver;
 	public static JavascriptExecutor js = (JavascriptExecutor)getDriver();
+	public static Robot r;
+	public static Actions action = new Actions(getDriver());
 
 	public static String javaScript(String xPath) {
 		WebElement element = getDriver().findElement(By.xpath(xPath));
@@ -135,7 +145,7 @@ public class Helper extends TestBase{
 
 
 	public static void mouseOver(String path) {
-		Actions action = new Actions(getDriver());
+		
 		WebElement a = getDriver().findElement(By.xpath(path));
 		action.moveToElement(a).contextClick(a).perform();
 	}
@@ -153,7 +163,64 @@ public class Helper extends TestBase{
 		} catch (AWTException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static String paste() {
+//		r.keyPress(KeyEvent.VK_CONTROL);
+//		r.keyPress(KeyEvent.VK_V);
+//		r.keyRelease(KeyEvent.VK_CONTROL);
+//		r.keyRelease(KeyEvent.VK_V);
+		Helper.sleep(3000);
+		action.sendKeys(Keys.COMMAND, "l").sendKeys(Keys.ENTER).build().perform();
+		action.sendKeys(Keys.COMMAND, "v").sendKeys(Keys.ENTER).build().perform();
+		Helper.sleep(3000);
+		return null;
 		
+	}
+	
+	public static void copyAndPaste() {
+		WebElement promoUrl = getDriver().findElement(By.xpath("//a[contains(text(),'promoRate')]"));
+		String attribute = promoUrl.getAttribute("href");
+		System.out.println("copiedUrl: "+attribute);
+//		js.executeScript("window.open(\""+attribute+"\")");
+		Helper.sleep(10000);
+	}
+	
+	public static void copiedUrl(String emulation, int w, int h) {
+		WebElement promoUrl = getDriver().findElement(By.xpath("//a[contains(text(),'promoRate')]"));
+		String attribute = promoUrl.getAttribute("href");
+		System.out.println("copiedUrl: "+attribute);
+		WebDriverManager.chromedriver().setup();
+		Map<String, String> deviceMobEmu= new HashMap<String, String>();
+		deviceMobEmu.put("deviceName", emulation);
+		//		deviceMobEmu.put("deviceName", "Moto G4");
+		ChromeOptions chromeOptions=new ChromeOptions();
+		chromeOptions.setExperimentalOption("mobileEmulation", deviceMobEmu);
+		tdriver.set(new ChromeDriver(chromeOptions));
+
+		Dimension d = new Dimension(w, h);
+		getDriver().manage().window().setSize(d);
+
+//		getDriver().manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+//		getDriver().manage().timeouts().implicitlyWait(TestUtils.IMPLICITWAIT, TimeUnit.SECONDS);
+		getDriver().get(attribute);
+		String title = getDriver().getTitle();
+		System.out.println(title);
+		String currentUrl = getDriver().getCurrentUrl();
+		System.out.println(currentUrl);
+		Helper.sleep(3000);
+//		String data = ExcelData.getCellData("LoginPageData", "UrlData", 5);
+//		System.out.println("Verify Url: "+data);
+//		getDriver().get("https://www.google.co.in/");
+	}
+	
+	public static void openNewTab() {
+		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
+		String a = "window.open('about:blank','_blank');";
+		((JavascriptExecutor) getDriver()).executeScript(a);
+		ArrayList<String> tab = new ArrayList<String>(getDriver().getWindowHandles());
+		getDriver().switchTo().window(tab.get(1));
+//		getDriver().get("https://www.google.co.in/");
 	}
 	
 	/*

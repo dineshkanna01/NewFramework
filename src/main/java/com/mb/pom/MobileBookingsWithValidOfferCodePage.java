@@ -50,6 +50,15 @@ public class MobileBookingsWithValidOfferCodePage  extends TestBase{
 	@FindBy(xpath = "(//td[@width='300'])[last()]")
 	WebElement accessCodeName;
 	
+	@FindBy(xpath = "//a[text()='Delete']")
+	WebElement deleteAccessCode;
+
+	@FindBy(xpath = "//span[text()='OK']")
+	WebElement deleteAccessCodeOK;
+
+	@FindBy(xpath = "//font[text()='There are no rate plan access codes to display.']")
+	WebElement accessCodeDeletedWarning;
+	
 	public String UrlTilte() {
 		return driver.getTitle();
 
@@ -293,6 +302,35 @@ public boolean verifyAccessCodeEdited()  {
 		return true;
 	} else {
 		System.out.println("access code rate plan not edited");
+		return false;
+
+	}
+}
+/*
+ * Method to delete Access Code 
+ * 
+ */
+public AccessCodeBookingPage deleteCreatedAccessCodeURL()  {
+	//	ratePlan.click();
+	//	accessCode.click();
+	//	selectRatePlan.sendKeys(ExcelData.getCellData("ACB1", "RatePlan", 2));
+	//	SummerSpecialSS.click();
+	//	GO.click();
+	deleteAccessCode.click();
+	deleteAccessCodeOK.click();
+	return null;	
+}
+
+/*
+ * Method to verify Access Code deleted
+ * 
+ */
+public boolean verifyAccessCodeDeleted()  {
+	if (accessCodeDeletedWarning.isDisplayed()) {
+		System.out.println("Access Code deleted");
+		return true;
+	} else {
+		System.out.println("Access Code not deleted");
 		return false;
 
 	}

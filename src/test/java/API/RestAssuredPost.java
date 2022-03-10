@@ -35,7 +35,7 @@ public class RestAssuredPost extends TestBase{
 		TestResponse("RoomRateLevelRestrictionHMS");
 		logger.info("------------RoomRateLevelRestriction HMS Execution Ended------------");
 		logger.info("--------------DataBase Validation-----------");
-		select("SELECT * FROM intg_audit_ari WHERE propertyCode= 'SACQA6' AND interfaceCode= 'opera' ORDER BY id DESC;");
+		select("SELECT * FROM intg_interface;");
 	}
 	
 //	@Test()

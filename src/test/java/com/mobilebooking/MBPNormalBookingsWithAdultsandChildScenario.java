@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.admin.pom.LoginPage;
 import com.mb.pom.MBPNormalMobileBookingwithAdultsandChild;
 
 import base.Helper;
@@ -22,11 +23,12 @@ public class MBPNormalBookingsWithAdultsandChildScenario extends TestBase {
 
 	public static Utilitylog logger;
 	MBPNormalMobileBookingwithAdultsandChild mbp;
-
+	LoginPage lp;
 	public MBPNormalBookingsWithAdultsandChildScenario() {
 		super();
 		logger = new Utilitylog(MBPNormalBookingsWithAdultsandChildScenario.class.getName());
 		mbp= new MBPNormalMobileBookingwithAdultsandChild(getDriver());
+		lp = new LoginPage(getDriver());
 	}
 	@Test(priority = 1)
 	@Description("Verify that user is getting access code rate plan in BE")
@@ -38,6 +40,7 @@ public class MBPNormalBookingsWithAdultsandChildScenario extends TestBase {
 	public void NormalBookingsWithAdultsandChildScenario_TC_01()  {
 		extentTest = extent.startTest("NormalBookingsWithAdultsandChildScenario_TC_01");
 		logger.info("TestCase Started");
+		getDriver().quit();
 		mobileTest("Moto G4", 318,850);
 		mbp.dateSelection();
 		allureScreenshot("Date selected");
@@ -52,11 +55,11 @@ public class MBPNormalBookingsWithAdultsandChildScenario extends TestBase {
 		screenShot("Confirmation page");
 		Assert.assertTrue(mbp.verifyConfirmationCode());
 		logger.info("TestCase Ended");
-		//getDriver().close();
+//		getDriver().close();
 		//getDriver().quit();
-
-	}
-
+	
+}
+	
 	@Test(priority = 2)
 	@Description("Verify that user is getting access code rate plan in BE")
 	@Severity(SeverityLevel.CRITICAL)
@@ -84,7 +87,7 @@ public class MBPNormalBookingsWithAdultsandChildScenario extends TestBase {
 		Assert.assertTrue(mbp.verifyConfirmationCode());
 		logger.info("TestCase Ended");
 	}
-
+	
 	@Test(priority = 3)
 	@Description("Verify that user is getting access code rate plan in BE")
 	@Severity(SeverityLevel.CRITICAL)
@@ -111,7 +114,6 @@ public class MBPNormalBookingsWithAdultsandChildScenario extends TestBase {
 		screenShot("Confirmation page");
 		Assert.assertTrue(mbp.verifyConfirmationCode());
 		logger.info("TestCase Ended");
-
 	}
 
 }

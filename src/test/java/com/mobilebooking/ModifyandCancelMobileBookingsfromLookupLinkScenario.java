@@ -20,11 +20,7 @@ import io.qameta.allure.Story;
 import logfile.Utilitylog;
 
 public class ModifyandCancelMobileBookingsfromLookupLinkScenario extends TestBase {
-	
-
-	
-		
-		public static Utilitylog logger;
+	public static Utilitylog logger;
 
 		public ModifyandCancelMobileBookingsfromLookupLinkScenario() {
 			super();
@@ -50,7 +46,7 @@ public class ModifyandCancelMobileBookingsfromLookupLinkScenario extends TestBas
 		@Step("Verify user should able to do mobile booking and cancellation using look up")
 		public void MobileBookingUsingPromoURL_TC_01()  {
 			extentTest = extent.startTest("ModifyandCancelMobileBookingsfromLookupLinkScenario");
-
+			getDriver().quit();
 		mobileTest("Moto G4", 318,850);
 		mcblp.dateSelection();
 		allureScreenshot("Date selected");
@@ -81,8 +77,8 @@ public class ModifyandCancelMobileBookingsfromLookupLinkScenario extends TestBas
 		@Story("Cancel Mobile Bookings from Lookup Link Scenario")
 		@Step("Verify user should able to do mobile booking and modify using look up")
 		public void MobileBookingUsingPromoURL_TC_02()  {
-			extentTest = extent.startTest("ModifyandCancelMobileBookingsfromLookupLinkScenario");
-
+		extentTest = extent.startTest("ModifyandCancelMobileBookingsfromLookupLinkScenario");
+		getDriver().quit();
 		mobileTest("Moto G4", 318,850);
 		mcblp.dateSelection();
 		allureScreenshot("Date selected");
@@ -103,7 +99,8 @@ public class ModifyandCancelMobileBookingsfromLookupLinkScenario extends TestBas
 		allureScreenshot("Cancel Booking From Mobile lookup");
 		screenShot("Cancel Booking From Mobile look up");
 		Assert.assertTrue(mcblp.verifyCallHotelOption());
-		//Assert.assertTrue(mcblp.verifyMobileCancellationCode());
+		getDriver().close();
+		
 	}
 		
 	}
