@@ -288,19 +288,6 @@ public class TestBase {
 		}
 	}
 	
-//	String downloadFilepath = System.getProperty("user.dir") + "\\target\\CrsReports";
-//	Map<String, Object> preferences = new Hashtable<String, Object>();
-//	preferences.put("profile.default_content_settings.popups", 0);
-//	preferences.put("download.prompt_for_download", "false");
-//	preferences.put("download.default_directory", downloadFilepath);
-//
-//	// disable flash and the PDF viewer
-//	preferences.put("plugins.plugins_disabled", new String[] { "Adobe Flash Player", "Chrome PDF Viewer" });
-//
-//	ChromeOptions options = new ChromeOptions();
-//	options.setExperimentalOption("prefs", preferences);
-//	options.addArguments("user-data-dir=C:\\Users\\Dinesh.Kanna\\AppData\\Local\\Google\\Chrome\\User Data");
-
 	//	Mobile responsive testing and it is for change dimension of width and heigth of the screen
 	@SuppressWarnings("deprecation")
 	public static void mobileTest(String emulation, int w, int h) {
@@ -418,11 +405,6 @@ public class TestBase {
 	}
 
 	@BeforeTest
-	//	public void setExtent(){
-	//		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-	//		extent = new ExtentReports(System.getProperty("user.dir")+"/Html/ExtentReport.html", true);
-	//	}
-
 	//	Report generation for Extend Report
 	public void generateReport() {
 
@@ -529,11 +511,6 @@ public class TestBase {
 		System.out.println(map.get("AadharNumber"));
 		System.out.println(map.get("DateofBirth"));
 
-		//		map=helper.readJsonFile("addUser1","UserManagementTest.json");
-		//		System.out.println(map);
-		//		System.out.println(map.get("userName"));
-		//		System.out.println(map.get("AadharNumber"));
-		//		System.out.println(map.get("DateofBirth"));
 		return value;
 	}
 
