@@ -22,24 +22,34 @@ public class PaymentGatewayPage extends AbstractBasePage {
 
 	@FindBy(xpath = "//input[@name='enabled']")
 	WebElement enableButton;
+	
 	@FindBy(xpath = "(//input[@type='radio'])[3]")
 	WebElement yesButton;
+	
 	@FindBy(xpath = "(//input[@type='radio'])[4]")
 	WebElement noButton;
+	
 	@FindBy(xpath = "//select[@name='selectedPaymentGateway']")
 	WebElement paymentGateway;
+	
 	@FindBy(xpath = "//input[@name='merchantId']")
 	WebElement merchantId;
+	
 	@FindBy(xpath = "//input[@name='accessCode']")
 	WebElement accessCode;
+	
 	@FindBy(xpath = "//input[@name='secureHashSecret']")
 	WebElement secureHashSecret;
+	
 	@FindBy(xpath = "//input[@name='delay']")
 	WebElement delayTime;
+	
 	@FindBy(xpath = "//input[@name='orderValidDuration']")
 	WebElement orderTime;
+	
 	@FindBy(xpath = "//input[@value='Update']")
 	WebElement updateButton;
+	
 	@FindBy(xpath = "//h1[text()='Administrator Home']")
 	WebElement administratorName;
 

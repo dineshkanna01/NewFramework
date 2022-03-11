@@ -14,14 +14,19 @@ public class DenialReasonineverypageofbookingPage extends TestBase {
 
 	@FindBy(xpath = "//a[@data-target=\"#denial_reason\"]")
 	WebElement denialReasonField;
+	
 	@FindBy(name = "reason")
 	WebElement reason;
+	
 	@FindBy(xpath = "//textarea[@id=\"exampleTextarea\"]")
 	WebElement commentField;
+	
 	@FindBy(xpath = "//button[@type=\"submit\"]")
 	WebElement saveReason;
+	
 	@FindBy(xpath = "//button[text()='Start Over']")
 	WebElement startOver;
+	
 	@FindBy(xpath = "//h3[text()='Reason for denial']")
 	WebElement denialPopupHead;
 

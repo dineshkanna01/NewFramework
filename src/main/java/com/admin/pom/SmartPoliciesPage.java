@@ -18,18 +18,25 @@ public class SmartPoliciesPage extends AbstractBasePage{
 	
 	@FindBy(xpath = "//*[@name='name']")
 	WebElement inputPolicyName;
+	
 	@FindBy(xpath = "//*[@name='defaultPolicyId']")
 	WebElement categoryDropdown;
+	
 	@FindBy(xpath = "//*[@value='Save']")
 	WebElement saveButton;
+	
 	@FindBy(xpath = "//*[@value='Cancel']")
 	WebElement cancelButton;
+	
 	@FindBy(xpath = "((//*[@name='policyIdCheckbox'])[last()]/following::td)[1]")
 	WebElement policyNameVerify;
+	
 	@FindBy(xpath = "(//*[@name='policyIdCheckbox'])[last()]")
 	WebElement policyNameCheckbox;
+	
 	@FindBy(xpath = "//*[@value='Delete']")
 	WebElement deleteButton;
+	
 	@FindBy(xpath = "//font[text()=' Smart Policies not found']")
 	WebElement e3;
 	

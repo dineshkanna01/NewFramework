@@ -24,66 +24,97 @@ public class ModifyBookingfromconfirmationpagePage extends TestBase {
 
 	@FindBy(xpath = "//a[text()='Modify']")
 	WebElement modifyButton;
+	
 	@FindBy(xpath = "//div[text()='Cancel']")
 	WebElement cancelButton;
+	
 	@FindBy(xpath = "//button[text()='Yes']")
 	WebElement yesButtonModify;
+	
 	@FindBy(xpath = "//*[@name='confirmationNumber']")
 	WebElement confirmationNo;
+	
 	@FindBy(name = "quickSearchResults")
 	WebElement quickSearchButton;
+	
 	@FindBy(xpath = "//thead[@class=\"confirmation-table-head\"]/tr/td[last()]/dl/dt")
 	WebElement confirmcodeHeading;
+	
 	@FindBy(xpath = "//thead[@class=\"confirmation-table-head\"]/tr/td[last()]/dl/dd")
 	WebElement confirmcode;
+	
 	@FindBy(xpath = "//a[text()='Edit search']")
 	WebElement editSearchButton;
+	
 	@FindBy(xpath = "(//*[text()='Room'])[1]")
 	WebElement confirmRoomHeading;
+	
 	@FindBy(xpath = "(//*[text()='Room'])[1]/following::dd[1]")
 	WebElement confirmRoomType;
+	
 	@FindBy(xpath = "//a[contains(@href,'confirmationCode')]")
 	WebElement reportCC;
+	
 	@FindBy(xpath = "//*[text()='Dates']/following::div[1]")
 	WebElement cpDates;
+	
 	@FindBy(name = "start")
 	WebElement checkInDate;
+	
 	@FindBy(name = "end")
 	WebElement checkOutDate;
+	
 	@FindBy(xpath = "//*[text()='Adults']")
 	WebElement adults;
+	
 	@FindBy(xpath = "//*[text()='Adults']/following::dd[1]")
 	WebElement noOfAdults;
+	
 	@FindBy(xpath = "//*[text()='Adults']")
 	WebElement children;
+	
 	@FindBy(xpath = "//*[text()='Children']/following::dd[1]")
 	WebElement noOfChildren;
+	
 	@FindBy(xpath = "(//select[contains(@class,'rooms-adults')])[last()]")
 	WebElement adultDropdown;
+	
 	@FindBy(xpath = "//button[@data-target=\"#rooms-modal\"][last()]")
 	WebElement childDropdown1;
+	
 	@FindBy(xpath = "(//select[contains(@class,'rooms-children')])[1]")
 	WebElement childDropdown2;
+	
 	@FindBy(xpath = "(//select[contains(@class,'rooms-children')])[2]")
 	WebElement childDropdown3;
+	
 	@FindBy(xpath = "(//button[text()='Done'])[1]")
 	WebElement doneButton;
+	
 	@FindBy(xpath = "(//*[text()='Guest Details'])[1]/following::dd[1]")
 	WebElement guestDetails;
+	
 	@FindBy(id = "customer-confirm-first-name")
 	WebElement fName;
+	
 	@FindBy(id = "customer-last-name")
 	WebElement lName;
+	
 	@FindBy(id = "customer-confirm-email")
 	WebElement email;
+	
 	@FindBy(xpath = "(//*[text()='Bed Type Preference'])[1]/following::dd[1]")
 	WebElement bedType;
+	
 	@FindBy(xpath = "//input[@value=\"Recalculate\"]")
 	WebElement recalculateButton;
+	
 	@FindBy(xpath = "//dt[text()='Other services']/following::dd[1]")
 	WebElement otherServicesCharge;
+	
 	@FindBy(xpath = "//button[text()='Edit request']")
 	WebElement editReqButton;
+	
 	@FindBy(xpath = "//button[text()='SAVE']")
 	WebElement saveButton;
 

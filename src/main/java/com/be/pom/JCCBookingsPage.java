@@ -17,50 +17,73 @@ public class JCCBookingsPage extends AbstractBasePage {
 	
 	@FindBy(id = "search_arrival_date")
 	WebElement calender;
+	
 	@FindBy(xpath = "//td[@class='active day']")
 	WebElement checkInDate;
+	
 	@FindBy(id = "check-availability-btn")
 	WebElement avalilibiltyButton;
+	
 	@FindBy(xpath = "(//button[@type='submit'])[last()]")
 	WebElement bookNow;
+	
 	@FindBy(name = "booking[first_name]")
 	WebElement firstName;
+	
 	@FindBy(name = "booking[last_name]")
 	WebElement lastName;
+	
 	@FindBy(id = "booking_email")
 	WebElement email;
+	
 	@FindBy(xpath = "//button[@aria-label='confirm reservation']")
 	WebElement confirmDetails;
+	
 	@FindBy(id = "card_holder_name")
 	WebElement cardName;
+	
 	@FindBy(id = "card_number")
 	WebElement cardNumber;
+	
 	@FindBy(id = "expiration_date_month")
 	WebElement expiryMonthDropdown;
+	
 	@FindBy(id = "expiration_date_year")
 	WebElement expiryYearDropdown;
+	
 	@FindBy(id = "security_code")
 	WebElement secCode;
+	
 	@FindBy(id = "booking_country")
 	WebElement country;
+	
 	@FindBy(id = "booking_street_address1")
 	WebElement add1;
+	
 	@FindBy(name = "booking[city]")
 	WebElement city;
+	
 	@FindBy(name = "state")
 	WebElement state;
+	
 	@FindBy(name = "booking[zip_code]")
 	WebElement zipCode;
+	
 	@FindBy(id = "booking_phone_number")
 	WebElement phNum;
+	
 	@FindBy(xpath = "//input[@ng-model='booking.accepted']")
 	WebElement termsConditions;
+	
 	@FindBy(xpath = "//input[@name='commit']")
 	WebElement completeReservation;
+	
 	@FindBy(id = "summary_reservation_confirmation_code")
 	WebElement confirmCodes;
+	
 	@FindBy(xpath = "(//strong[text()='BAR'])[1]")
 	WebElement ratePLanBar;
+	
 	@FindBy(xpath = "//div[@class='error-message']")
 	WebElement errorMessageJCC;
 	

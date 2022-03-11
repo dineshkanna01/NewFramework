@@ -1,13 +1,16 @@
 package com.callcenter;
-import org.testng.Assert;
+
+import java.io.IOException;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
 import com.admin.pom.AdministratorHomePage;
 import com.admin.pom.LoginPage;
 import com.admin.pom.RatesandInventoryPage;
 import com.cc.pom.NormalSingleRoomBookingandverifyRateGridupdatePage;
 
-import base.Helper;
 import base.TestBase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -31,6 +34,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdate extends TestBase {
 	AdministratorHomePage ahp;
 	RatesandInventoryPage rip;
 	NormalSingleRoomBookingandverifyRateGridupdatePage nsrb;
+	SoftAssert soft;
 
 	public NormalSingleRoomBookingandverifyRateGridupdate() {
 		super();
@@ -43,6 +47,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdate extends TestBase {
 		ahp = new AdministratorHomePage(getDriver());
 		rip = new RatesandInventoryPage(getDriver());
 		nsrb = new NormalSingleRoomBookingandverifyRateGridupdatePage(getDriver());
+		soft = new SoftAssert();
 	}
 
 	@Test(priority = 1)
@@ -52,7 +57,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdate extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify the Room availability in rate Grid after Single room booking in Call Center for 1 day")
-	public void CallCentre_NormalSingleRoomBookingandverifyRateGridupdate_TC_01() {
+	public void CallCentre_NormalSingleRoomBookingandverifyRateGridupdate_TC_01() throws IOException {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("CallCentre_NormalSingleRoomBookingandverifyRateGridupdate_TC_01");
 		lp.login();
@@ -70,6 +75,9 @@ public class NormalSingleRoomBookingandverifyRateGridupdate extends TestBase {
 		rip.clickoverrideRoomCheckbox();
 		rip.clickdailyRateInvbutton();
 		nsrb.selectALLRoomType();
+		nsrb.unSelectALLRoomType();
+		nsrb.selectFirstRoomType();
+		nsrb.getFirstRoomName();
 		allureScreenshot("Rate Grid");
 		screenShot("Rate Grid");
 		nsrb.inputFieldRoomAvailable();
@@ -77,37 +85,17 @@ public class NormalSingleRoomBookingandverifyRateGridupdate extends TestBase {
 		nsrb.clickQuickEntrybutton();
 		nsrb.clickUpdateButton();
 		nsrb.clickConfirmButton();
-		openURL("cc_url");
-		nsrb.enterCCuser();
-		nsrb.selectDateRangeCCTC01();
-		allureScreenshot("Call Center");
-		screenShot("Call Center");
-		nsrb.clickAvailibilityButton();
-		Assert.assertTrue(nsrb.verifyRoomsAvailibilty());
-		nsrb.selectRoomModify();
-		nsrb.clickpaymentButton();
-		nsrb.inputGuestDetails();
-		nsrb.inputCardDetailsTC01();
-		nsrb.inputBillingAddress();
-		nsrb.selectTermsAndConditonCheckbox();
-		allureScreenshot("Payment Details");
-		screenShot("Payment Details");
-		nsrb.clickCompleteReservation();
-		Assert.assertTrue(nsrb.verifyConfirmationCode());
-		allureScreenshot("Call Center Confirmation Page");
-		screenShot("Call Center Confirmation Page");
-		Helper.switchWindow(0);
 		nsrb.selectRatePlanRateGrid();
 		rip.continueButton();
 		nsrb.selectDateRangeTC01();
 		rip.clickoverrideRoomCheckbox();
 		rip.clickdailyRateInvbutton();
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		Assert.assertTrue(nsrb.verifyRateGridUpdateTC01());
+		nsrb.selectALLRoomType();
+		nsrb.unSelectALLRoomType();
+		nsrb.selectFirstRoomType();
+		soft.assertTrue(nsrb.takeSSandCompareBeforeAfterRateGridUpdate1Day("beforeRateGridupdate1Day",
+				"afterRateGridupdate1Day"));
+
 		logger.info("TestCase Ended");
 	}
 
@@ -118,7 +106,7 @@ public class NormalSingleRoomBookingandverifyRateGridupdate extends TestBase {
 	@Feature("Feature1:Call Center")
 	@Story("Call Center")
 	@Step("Verify the Room availability in rate Grid after Single room booking in Call Center for 7 days")
-	public void CallCentre_NormalSingleRoomBookingandverifyRateGridupdate_TC_02() {
+	public void CallCentre_NormalSingleRoomBookingandverifyRateGridupdate_TC_02() throws IOException {
 		logger.info("TestCase Started");
 		extentTest = extent.startTest("CallCentre_NormalSingleRoomBookingandverifyRateGridupdate_TC_02");
 		rip.selectRateGrid();
@@ -130,36 +118,27 @@ public class NormalSingleRoomBookingandverifyRateGridupdate extends TestBase {
 		rip.clickoverrideRoomCheckbox();
 		rip.clickdailyRateInvbutton();
 		nsrb.selectALLRoomType();
+		nsrb.unSelectALLRoomType();
+		nsrb.selectFirstRoomType();
+		nsrb.getFirstRoomName();
 		nsrb.inputFieldRoomAvailable();
 		nsrb.openYieldControls();
 		nsrb.clickQuickEntrybutton();
 		nsrb.clickUpdateButton();
 		nsrb.clickConfirmButton();
-		Helper.switchWindow(1);
-		nsrb.clickNewReservation();
-		allureScreenshot("New Reservation");
-		screenShot("New Reservation");
-		nsrb.selectDateRangeCCTC02();
-		nsrb.clickAvailibilityButton();
-		Assert.assertTrue(nsrb.verifyRoomsAvailibilty());
-		nsrb.selectRoomModify();
-		nsrb.clickpaymentButton();
-		nsrb.inputGuestDetails();
-		nsrb.inputCardDetailsTC01();
-		nsrb.inputBillingAddress();
-		nsrb.selectTermsAndConditonCheckbox();
-		nsrb.clickCompleteReservation();
-		allureScreenshot("Confirmation Page");
-		screenShot("Confirmation Page");
-		Assert.assertTrue(nsrb.verifyConfirmationCode());
-		Helper.switchWindow(0);
 		nsrb.selectRatePlanRateGrid();
 		rip.continueButton();
 		nsrb.selectDateRangeTC02();
 		rip.clickoverrideRoomCheckbox();
 		rip.clickdailyRateInvbutton();
-		Assert.assertTrue(nsrb.verifyRateGridUpdateTC02());
+		nsrb.selectALLRoomType();
+		nsrb.unSelectALLRoomType();
+		nsrb.selectFirstRoomType();
+		nsrb.scroll();
+		soft.assertTrue(nsrb.takeSSandCompareBeforeAfterRateGridUpdate7Days("beforeRateGridupdate7Days",
+				"afterRateGridupdate7Days"));
 		lp.logout();
+		nsrb.delFolder();
 		logger.info("TestCase Ended");
 	}
 }

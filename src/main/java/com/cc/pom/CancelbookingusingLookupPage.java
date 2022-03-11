@@ -21,34 +21,49 @@ public class CancelbookingusingLookupPage extends TestBase {
 
 	@FindBy(xpath = "//button[text()='OK']")
 	WebElement okButtonCancel;
+	
 	@FindBy(xpath = "//div[@data-search='lookup']")
 	WebElement lookupButton;
+	
 	@FindBy(xpath = "(//input[@type='email'])[1]")
 	WebElement lookupEmail;
+	
 	@FindBy(xpath = "//input[@id='lookup-field-confirmationNo']")
 	WebElement lookupCCcode;
+	
 	@FindBy(id = "lookup-field-lastName")
 	WebElement lookupLName;
+	
 	@FindBy(id = "lookup-field-arrival-date")
 	WebElement lookupDate;
+	
 	@FindBy(id = "lookup-field-creditcard")
 	WebElement ccDig;
+	
 	@FindBy(xpath = "(//button[text()='Go'])[1]")
 	WebElement goButton;
+	
 	@FindBy(xpath = "//div[text()='Reservation Cancelled']")
 	WebElement reservationCancelMsg;
+	
 	@FindBy(xpath = "//div[text()='Cancel']")
 	WebElement cancelButton;
+	
 	@FindBy(xpath = "//div[contains(@ng-click,'summaryCtrl.initiateCancel')]")
 	WebElement cancelButton1;
+	
 	@FindBy(xpath = "//button[contains(@class,'btn-success')]")
 	WebElement yesButtonCancel;
+	
 	@FindBy(xpath = "//*[@name='confirmationNumber']")
 	WebElement confirmationNo;
+	
 	@FindBy(name = "quickSearchResults")
 	WebElement quickSearchButton;
+	
 	@FindBy(xpath = "//span[text()='Sorry, there are no reservations matching your search criteria']")
 	WebElement noResFoundMsg;
+	
 	@FindBy(xpath = "(//span[@class='announcement-text'])[last()]")
 	WebElement announcementText;
 

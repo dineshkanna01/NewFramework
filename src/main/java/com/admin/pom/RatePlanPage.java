@@ -20,58 +20,85 @@ public class RatePlanPage extends AbstractBasePage {
 	
 	@FindBy(name = "name")
 	WebElement name;
+	
 	@FindBy(name = "rateCode")
 	WebElement ratePlanCode;
+	
 	@FindBy(name = "shortDescription")
 	WebElement shortDescription;
+	
 	@FindBy(name = "bookingSDate")
 	WebElement startDate;
+	
 	@FindBy(name = "checkInSDate")
 	WebElement firstCheckInDate;
+	
 	@FindBy(xpath = "//*[@value='1041#Incredible Room']")
 	WebElement roomCheckbox;
+	
 	@FindBy(name = "save")
 	WebElement saveButton;
+	
 	@FindBy(name = "button2")
 	WebElement deleteButton;
+	
 	@FindBy(xpath = "//input[@value='Yes']")
 	WebElement yesButton;
+	
 	@FindBy(xpath = "//input[@name='floatingRate' and @value='N']")
 	WebElement deriveRatesNoButton;
+	
 	@FindBy(xpath = "//input[@name='floatingRate' and @value='Y']")
 	WebElement deriveRatesYesButton;
+	
 	@FindBy(xpath = "(//td[@tf_colkey='name'])[last()]")
 	WebElement verifyRatePlanName;
+	
 	@FindBy(xpath = "(//td[@tf_colkey='isFloatingRate'])[last()]")
 	WebElement verifyRateTypeAssociation;
+	
 	@FindBy(xpath = "(//*[@name='rateIdCheckbox'])[last()]")
 	WebElement ratePlanCheckbox;
+	
 	@FindBy(id = "rate_difference_0")
 	WebElement roomTextBox;
+	
 	@FindBy(name = "AttachAddons")
 	WebElement addOnAttach;
+	
 	@FindBy(xpath = "(//input[@name='selectedItems'])[last()]")
 	WebElement selectAddOn;
+	
 	@FindBy(xpath = "//input[@value='Add']")
 	WebElement addButton;
+	
 	@FindBy(xpath = "//select[@name='classification']")
 	WebElement classifications;
+	
 	@FindBy(name = "selectedCategoryId")
 	WebElement category;
+	
 	@FindBy(xpath = "//select[@name='classification']/option")
 	List<WebElement> classificationsList;
+	
 	@FindBy(xpath = "//tr[@class='ratePlanHeader'][last()]")
 	WebElement categoryName;
+	
 	@FindBy(xpath = "//div[@class='banner_right_col']/a[1]")
 	WebElement crossProperty;
+	
 	@FindBy(xpath = "//*[@value='Select Property']")
 	WebElement propertySelectButton;
+	
 	@FindBy(xpath = "//*[@value='118']")
 	WebElement property;
+	
 	@FindBy(xpath = "//h1[text()='Application Error']")
 	WebElement errorMessage;
+	
 	@FindBy(xpath = "//*[text()='Duplicate Code']")
 	WebElement duplicate;
+	
 	@FindBy(xpath = "//*[@value='Cancel']")
 	WebElement cancelButton;
 	

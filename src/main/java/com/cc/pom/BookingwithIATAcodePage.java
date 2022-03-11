@@ -17,28 +17,40 @@ public class BookingwithIATAcodePage extends TestBase {
 
 	@FindBy(id = "iata-code-input")
 	WebElement iataCodeField;
+	
 	@FindBy(xpath = "//div[@data-search='lookup']")
 	WebElement lookupButton;
+	
 	@FindBy(xpath = "(//input[@type='email'])[1]")
 	WebElement lookupEmail;
+	
 	@FindBy(xpath = "//input[@id='lookup-field-confirmationNo']")
 	WebElement lookupCCcode;
+	
 	@FindBy(xpath = "(//button[text()='Go'])[1]")
 	WebElement goButton;
+	
 	@FindBy(xpath = "//dt[text()='Reztrip conf code']/following::dd[1]")
 	WebElement ccCodeIATA;
+	
 	@FindBy(xpath = "//div[text()='Cancel']")
 	WebElement cancelButton;
+	
 	@FindBy(xpath = "//button[contains(@class,'btn-success')]")
 	WebElement yesButtonCancel;
+	
 	@FindBy(xpath = "//span[text()='Sorry, there are no reservations matching your search criteria']")
 	WebElement noResFoundMsg;
+	
 	@FindBy(xpath = "//*[@name='confirmationNumber']")
 	WebElement confirmationNo;
+	
 	@FindBy(name = "quickSearchResults")
 	WebElement quickSearchButton;
+	
 	@FindBy(xpath = "//*[text()='Your reservation has been cancelled']")
 	WebElement cancelCodeHead;
+	
 	@FindBy(xpath = "//div[@class='bootbox-body']/strong")
 	WebElement cancelCode;
 

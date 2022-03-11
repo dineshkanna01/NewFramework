@@ -27,48 +27,70 @@ public class RatesandInventoryPage extends AbstractBasePage {
 
 	@FindBy(xpath = "//*[@id='10']/li[3]/a")
 	WebElement rateGrid;
+	
 	@FindBy(xpath = "//*[@name='C1361']")
 	WebElement selectRatePlan;
+	
 	@FindBy(xpath = "//*[@name='C1668']")
 	WebElement selectRatePlan2;
+	
 	@FindBy(xpath = "//*[@value='Continue']")
 	WebElement continueButton;
+	
 	@FindBy(xpath = "//*[@name='startDate']")
 	WebElement startdate;
+	
 	@FindBy(xpath = "//*[@name='endDate']")
 	WebElement enddate;
+	
 	@FindBy(xpath = "//*[@name='overrideRoomHierarchy']")
 	WebElement overrideRoomHierarchy;
+	
 	@FindBy(xpath = "//*[@value='Daily Rate & Inventory']")
 	WebElement dailyRateInvButton;
+	
 	@FindBy(xpath = "//*[@id='rate_1361']")
 	WebElement rate;
+	
 	@FindBy(xpath = "//span[text()='Standard Room']")
 	WebElement selectRoomTypedropdwn;
+	
 	@FindBy(xpath = "//span[text()='3 selected']")
 	WebElement selectedRoomTypedropdwn;
+	
 	@FindBy(xpath = "//*[@class='ms-selectall global']")
 	WebElement selectAllRoomType;
+	
 	@FindBy(xpath = "//*[@value='Quick Entry']")
 	WebElement quickEntryBtn;
+	
 	@FindBy(xpath = "//*[@value='Confirm']")
 	WebElement confirmBtn;
+	
 	@FindBy(xpath = "//*[@value='Update']")
 	WebElement updateBtn;
+	
 	@FindBy(xpath = "(//*[@value='true'])[1]")
 	WebElement stickyRateCheck;
+	
 	@FindBy(xpath = "(//*[@value='true'])[2]")
 	WebElement stickyInvCheck;
+	
 	@FindBy(xpath = "(//*[@value='false'])[3]")
 	WebElement stickyRateUncheck;
+	
 	@FindBy(xpath = "(//*[@value='false'])[4]")
 	WebElement stickyInvUncheck;
+	
 	@FindBy(xpath = "//*[@id='maxLOS_1361']")
 	WebElement maxLOS;
+	
 	@FindBy(xpath = "//*[@id='minLOS_1361']")
 	WebElement minLOS;
+	
 	@FindBy(xpath = "//*[@id='O_1361']")
 	WebElement openYieldControl;
+	
 	@FindBy(xpath = "//*[@id='C_1361']")
 	WebElement closedYieldControl;
 

@@ -134,7 +134,7 @@ public class JCCBookings extends TestBase {
 //		pgp.selectPaymentGateway(ExcelData.getCellData("JCCBookings", "paymentGateway", 2));
 //
 //		pgp.verifyJCCAutoPopulate();
-		openURL("be_url4");
+		openURL("be_url_jcc");
 		jbp.selectDate();
 		jbp.clickAvailibilityButton();
 		jbp.clickBookNowButton();
@@ -186,7 +186,7 @@ public class JCCBookings extends TestBase {
 //		pgp.selectPaymentGateway(ExcelData.getCellData("JCCBookings", "paymentGateway", 2));
 //
 //		pgp.verifyJCCAutoPopulate();
-		openURL("be_url4");
+		openURL("be_url_jcc");
 		// refreshBE();
 		jbp.selectDate();
 		jbp.clickAvailibilityButton();

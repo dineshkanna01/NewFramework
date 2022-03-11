@@ -18,42 +18,61 @@ public class CancelBookingfromconfirmationpagePage extends TestBase {
 	
 	@FindBy(xpath = "//thead[@class=\"confirmation-table-head\"]/tr/td[last()]/dl/dd")
 	WebElement confirmcode;
+	
 	@FindBy(xpath = "//div[text()='Cancel']")
 	WebElement cancelButton;
+	
 	@FindBy(xpath = "//button[text()='Yes']")
 	WebElement yesButtonModify;
+	
 	@FindBy(xpath = "//button[contains(@class,'btn-success')]")
 	WebElement yesButtonCancel;
+	
 	@FindBy(xpath = "//*[@name='confirmationNumber']")
 	WebElement confirmationNo;
+	
 	@FindBy(xpath = "//*[text()='Your reservation has been cancelled']")
 	WebElement cancelCodeHead;
+	
 	@FindBy(xpath = "//div[@class='bootbox-body']/strong")
 	WebElement cancelCode;
+	
 	@FindBy(xpath = "//button[text()='OK']")
 	WebElement okButtonCancel;
+	
 	@FindBy(xpath = "//div[@data-search='lookup']")
 	WebElement lookupButton;
+	
 	@FindBy(xpath = "(//input[@type='email'])[1]")
 	WebElement lookupEmail;
+	
 	@FindBy(xpath = "//input[@id='lookup-field-confirmationNo']")
 	WebElement lookupCCcode;
+	
 	@FindBy(xpath = "(//button[text()='Go'])[1]")
 	WebElement goButton;
+	
 	@FindBy(xpath = "//div[text()='Reservation Cancelled']")
 	WebElement reservationCancelMsg;
+	
 	@FindBy(xpath = "//a[text()='Edit search']")
 	WebElement editSearchButton;
+	
 	@FindBy(xpath = "//*[@id='13' and text()='Reports']")
 	WebElement reports;
+	
 	@FindBy(xpath = "//*[contains(@href,'quickSearch')]")
 	WebElement searchReservationReport;
+	
 	@FindBy(name = "quickSearchResults")
 	WebElement quickSearchButton;
+	
 	@FindBy(xpath = "//span[text()='Sorry, there are no reservations matching your search criteria']")
 	WebElement noResFoundMsg;
+	
 	@FindBy(xpath = "//div[contains(@class,'confirmation-number')]")
 	WebElement conNo;
+	
 	@FindBy(xpath = "(//span[@class='announcement-text'])[last()]")
 	WebElement announcementText;
 	

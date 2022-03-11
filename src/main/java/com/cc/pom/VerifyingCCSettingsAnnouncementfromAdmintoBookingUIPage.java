@@ -19,32 +19,46 @@ public class VerifyingCCSettingsAnnouncementfromAdmintoBookingUIPage extends Tes
 
 	@FindBy(name = "announcement")
 	WebElement announcementText;
+	
 	@FindBy(name = "save")
 	WebElement saveButton;
+	
 	@FindBy(xpath = "//span[contains(@class,'announcement-text ng-binding')]")
 	WebElement announcementVerify;
+	
 	@FindBy(id = "user_login")
 	WebElement username;
+	
 	@FindBy(id = "user_password")
 	WebElement password;
+	
 	@FindBy(xpath = "//input[@value='Sign In']")
 	WebElement signIn;
+	
 	@FindBy(xpath = "//a[text()='Portal settings']")
 	WebElement portalSetting;
+	
 	@FindBy(xpath = "//input[@placeholder='Filter']")
 	WebElement filter;
+	
 	@FindBy(xpath = "//*[text()=' Search']")
 	WebElement search;
+	
 	@FindBy(xpath = "//li[contains(@class,'edit_member_link')]")
 	WebElement pencilEdit;
+	
 	@FindBy(xpath = "//i[contains(@class,'icon-question-sign')]")
 	WebElement resetCacheTab;
+	
 	@FindBy(xpath = "//button[contains(@class,'btn-danger')]")
 	WebElement sureButton;
+	
 	@FindBy(xpath = "//*[@name='_save']")
 	WebElement save;
+	
 	@FindBy(xpath = "//div[contains(@class,'alert ')]")
 	WebElement subdomainSuccessfullyUpdated;
+	
 	@FindBy(xpath = "//span[text()='Log out']")
 	WebElement logoutSubDomain;
 

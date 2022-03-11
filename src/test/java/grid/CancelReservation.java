@@ -41,7 +41,7 @@ public class CancelReservation extends TestReport{
 	public void setup(String portNo) throws Exception {
 
 		if (portNo.equalsIgnoreCase("4455")) {
-			nodeURL = "http://192.168.1.5:4444/wd/hub";
+			nodeURL = "http://192.168.29.138:4444/wd/hub";
 			DesiredCapabilities capabilities= new DesiredCapabilities();
 			capabilities.setBrowserName("chrome");
 			capabilities.setPlatform(Platform.WIN10);
@@ -61,7 +61,7 @@ public class CancelReservation extends TestReport{
 			logger=new Utilitylog(HomePageTests.class.getName());
 
 		}else if(portNo.equalsIgnoreCase("4456")) {
-			nodeURL = "http://192.168.1.5:4444/wd/hub";
+			nodeURL = "http://192.168.29.138:4444/wd/hub";
 
 			DesiredCapabilities capabilities= new DesiredCapabilities();
 			capabilities.setBrowserName("firefox");
@@ -98,7 +98,7 @@ public class CancelReservation extends TestReport{
 		
 	}
 	
-	@Test(priority=3)
+//	@Test(priority=3)
 	public void cancel2() throws Exception {
 		logger.info("Cancel Reservation started");
 		extentTest = extent.startTest("Second Cancellation");

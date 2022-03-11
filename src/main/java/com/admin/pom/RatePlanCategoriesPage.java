@@ -17,14 +17,19 @@ public class RatePlanCategoriesPage extends AbstractBasePage{
 	
 	@FindBy(xpath = "//*[@name='Submit3']")
 	WebElement saveButton;
+	
 	@FindBy(xpath = "//*[@id='addNewCategoryButton']/input")
 	WebElement addNewCategoryButton;
+	
 	@FindBy(xpath = "//input[@name='categoryName']")
 	WebElement categoryName;
+	
 	@FindBy(xpath = "(//*[@name='editCategoryLink'])[1]")
 	WebElement verifyCategoryName;
+	
 	@FindBy(xpath = "(//*[@name='deleteCategoryLink'])[1]")
 	WebElement deleteCategory;
+	
 	@FindBy(xpath = "//*[@id='showSuccessMessage']")
 	WebElement verifyMessageDelete;
 	

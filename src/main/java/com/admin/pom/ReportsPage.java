@@ -29,64 +29,94 @@ public class ReportsPage extends AbstractBasePage {
 
 	@FindBy(xpath = "//*[contains(@href,'ProductionDetails')]")
 	WebElement productionReport;
+	
 	@FindBy(xpath = "//*[contains(@href,'quickSearch')]")
 	WebElement searchReservationReport;
+	
 	@FindBy(xpath = "//*[contains(@href,'BookingDetails')]")
 	WebElement bookingReport;
+	
 	@FindBy(xpath = "//*[@name='fromDate']")
 	WebElement fromDate;
+	
 	@FindBy(xpath = "//*[@name='toDate']")
 	WebElement toDate;
+	
 	@FindBy(xpath = "//input[@name='arrivalFromDate']")
 	WebElement arrivalFromDate;
+	
 	@FindBy(xpath = "//input[@name='arrivalToDate']")
 	WebElement arrivalToDate;
+	
 	@FindBy(xpath = "//*[@name='checkOutFromDate']")
 	WebElement checkoutFromDate;
+	
 	@FindBy(xpath = "//*[@name='checkOutToDate']")
 	WebElement checkoutToDate;
+	
 	@FindBy(xpath = "//*[@name='bookingFromDate']")
 	WebElement bookingFromDate;
+	
 	@FindBy(xpath = "//*[@name='bookingToDate']")
 	WebElement bookingToDate;
+	
 	@FindBy(xpath = "//*[@value='roomType']")
 	WebElement roomType;
+	
 	@FindBy(xpath = "//*[@value='View Report']")
 	WebElement viewReport;
+	
 	@FindBy(xpath = "//*[@value='Quick Search']")
 	WebElement quickSearch;
+	
 	@FindBy(xpath = "(//*[contains(text(),'compiled on')])[2]")
 	WebElement compileText;
+	
 	@FindBy(xpath = "(//*[text()='Search Reservation Report'])[last()]")
 	WebElement verifySearchResReport;
+	
 	@FindBy(xpath = "//*[@value='rateType']")
 	WebElement rateType;
+	
 	@FindBy(xpath = "//*[@value='rateClassification']")
 	WebElement rateClassification;
+	
 	@FindBy(xpath = "//*[@name='confirmationNumber']")
 	WebElement confirmationNo;
+	
 	@FindBy(xpath = "//*[@value='booking']")
 	WebElement bookings;
+	
 	@FindBy(xpath = "//*[@value='cancellation']")
 	WebElement cancellations;
+	
 	@FindBy(xpath = "//*[@value='Detailed Report']")
 	WebElement detailed;
+	
 	@FindBy(xpath = "//*[@value='Statistical Report']")
 	WebElement statistical;
+	
 	@FindBy(xpath = "//*[@value='arrival']")
 	WebElement arrival_BR;
+	
 	@FindBy(xpath = "//*[@value='stayThrough']")
 	WebElement stayThrough_BR;
+	
 	@FindBy(xpath = "//span[text()='PDF']")
 	WebElement pdfBTN;
+	
 	@FindBy(xpath = "//span[text()='Excel']")
 	WebElement excelBTN;
+	
 	@FindBy(xpath = "//input[@value='Submit']")
 	WebElement submitBTN;
+	
 	@FindBy(xpath = "//select[@name='reportFormat']")
 	WebElement pdfXcelDrpDwn;
+	
 	@FindBy(xpath = "//option[text()='PDF']")
 	WebElement pdfBookingRep;
+	
 	@FindBy(xpath = "//option[text()='EXCEL']")
 	WebElement excelBookingRep;
 

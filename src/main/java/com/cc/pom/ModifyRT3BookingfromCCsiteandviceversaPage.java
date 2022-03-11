@@ -25,62 +25,91 @@ public class ModifyRT3BookingfromCCsiteandviceversaPage extends TestBase {
 
 	@FindBy(xpath = "//a[text()='My bookings']")
 	WebElement myBookings;
+	
 	@FindBy(name = "confirmation_code")
 	WebElement ccField;
+	
 	@FindBy(name = "email")
 	WebElement Email;
+	
 	@FindBy(xpath = "(//*[@type='submit'])[1]")
 	WebElement lookUp;
+	
 	@FindBy(xpath = "//th[@id=\"summary_reservation_confirmation_code\"]/strong")
 	WebElement ccBE;
+	
 	@FindBy(xpath = "//a[text()='Change reservation']")
 	WebElement changeReservation;
+	
 	@FindBy(xpath = "//span[text()='Yes']")
 	WebElement yesButton;
+	
 	@FindBy(xpath = "//td[@headers='summary_reservation_title']")
 	WebElement confirmRoomType;
+	
 	@FindBy(id = "search_arrival_date")
 	WebElement calender;
+	
 	@FindBy(xpath = "//strong[contains(@aria-label,'-')]")
 	WebElement cpDateBE;
+	
 	@FindBy(name = "booking[first_name]")
 	WebElement firstName;
+	
 	@FindBy(name = "booking[last_name]")
 	WebElement lastName;
+	
 	@FindBy(id = "booking_email")
 	WebElement email;
+	
 	@FindBy(xpath = "//td[@headers=\"summary_reservation_guest_details\"]")
 	WebElement guestDetailsBE;
+	
 	@FindBy(xpath = "//input[@value='PKG']")
 	WebElement addOnParking;
+	
 	@FindBy(xpath = "//span[text()='Other Services']/following::strong[1]")
 	WebElement otherServicesChargeBE;
+	
 	@FindBy(xpath = "//dt[text()='Other services']/following::dd[1]")
 	WebElement otherServicesChargeCC;
+	
 	@FindBy(xpath = "//dt[text()='Grand total']/following::dd[1]")
 	WebElement grandTotalCC;
+	
 	@FindBy(xpath = "//span[text()='Grand total']/following::strong[1]")
 	WebElement grandTotalBE;
+	
 	@FindBy(xpath = "//div[@data-search='lookup']")
 	WebElement lookupButton;
+	
 	@FindBy(xpath = "(//input[@type='email'])[1]")
 	WebElement lookupEmail;
+	
 	@FindBy(xpath = "//input[@id='lookup-field-confirmationNo']")
 	WebElement lookupCCcode;
+	
 	@FindBy(xpath = "(//button[text()='Go'])[1]")
 	WebElement goButton;
+	
 	@FindBy(xpath = "//dt[text()='Reztrip conf code']/following::dd[1]")
 	WebElement ccCodeCClookup;
+	
 	@FindBy(xpath = "//div[text()='Modify']")
 	WebElement modifyButton;
+	
 	@FindBy(xpath = "//button[text()='Yes']")
 	WebElement yesButtonModify;
+	
 	@FindBy(name = "start")
 	WebElement checkInDate;
+	
 	@FindBy(name = "end")
 	WebElement checkOutDate;
+	
 	@FindBy(xpath = "//dt[text()='Rate']/following::dd[1]")
 	WebElement getRateCCconfirmPage;
+	
 	@FindBy(xpath = "//th[text()='Offer']/following::td[1]")
 	WebElement getRateBEconfirmPage;
 

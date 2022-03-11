@@ -18,30 +18,43 @@ public class AddOnsPage extends AbstractBasePage {
 	
 	@FindBy(xpath = "//input[@name='name']")
 	WebElement nameTextField;
+	
 	@FindBy(xpath = "//input[@name='code']")
 	WebElement codeTextField;
+	
 	@FindBy(xpath = "//textarea[@name='shortDesc']")
 	WebElement shortDescriptionTextField;
+	
 	@FindBy(xpath = "//input[@name='price']")
 	WebElement priceField;
+	
 	@FindBy(xpath = "//*[@name='save' and @class='input']")
 	WebElement savebutton;
+	
 	@FindBy(xpath = "(//*[@type='checkbox'])[last()]")
 	WebElement selectCheckbox;
+	
 	@FindBy(xpath = "//*[@name='delete']")
 	WebElement deleteButton;
+	
 	@FindBy(xpath = "//*[@value='Yes']")
 	WebElement yesButton;
+	
 	@FindBy(xpath = "//*[text()='Duplicate Code']")
 	WebElement duplicate;
+	
 	@FindBy(xpath = "//input[@type='radio' and @value='true']")
 	WebElement addOnActive;
+	
 	@FindBy(name = "addOnStartDate")
 	WebElement addOnStartDate;
+	
 	@FindBy(xpath = "(//*[contains(@href,'/admin/action/editAddOn.do')])[last()]")
 	WebElement e2;
+	
 	@FindBy(xpath = "//li[text()='No Add On available ']")
 	WebElement e3;
+	
 	@FindBy(xpath = "//*[@value='Cancel']")
 	WebElement cancelButton;
 	

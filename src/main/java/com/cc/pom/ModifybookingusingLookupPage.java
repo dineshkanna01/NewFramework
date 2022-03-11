@@ -24,76 +24,112 @@ public class ModifybookingusingLookupPage extends TestBase {
 
 	@FindBy(xpath = "//thead[@class=\"confirmation-table-head\"]/tr/td[last()]/dl/dd")
 	WebElement confirmcode;
+	
 	@FindBy(xpath = "//div[text()='Cancel']")
 	WebElement cancelButton;
+	
 	@FindBy(xpath = "//div[contains(@ng-click,'summaryCtrl.initiateCancel')]")
 	WebElement cancelButton1;
+	
 	@FindBy(xpath = "//div[text()='Modify']")
 	WebElement modifyButton;
+	
 	@FindBy(xpath = "//button[text()='Yes']")
 	WebElement yesButtonModify;
+	
 	@FindBy(xpath = "//button[contains(@class,'btn-success')]")
 	WebElement yesButtonCancel;
+	
 	@FindBy(xpath = "//*[@name='confirmationNumber']")
 	WebElement confirmationNo;
+	
 	@FindBy(xpath = "//*[text()='Your reservation has been cancelled']")
 	WebElement cancelCodeHead;
+	
 	@FindBy(xpath = "//div[@class='bootbox-body']/strong")
 	WebElement cancelCode;
+	
 	@FindBy(xpath = "//button[text()='OK']")
 	WebElement okButtonCancel;
+	
 	@FindBy(xpath = "//div[@data-search='lookup']")
 	WebElement lookupButton;
+	
 	@FindBy(xpath = "(//input[@type='email'])[1]")
 	WebElement lookupEmail;
+	
 	@FindBy(xpath = "//input[@id='lookup-field-confirmationNo']")
 	WebElement lookupCCcode;
+	
 	@FindBy(id = "lookup-field-lastName")
 	WebElement lookupLName;
+	
 	@FindBy(id = "lookup-field-arrival-date")
 	WebElement lookupDate;
+	
 	@FindBy(id = "lookup-field-creditcard")
 	WebElement ccDig;
+	
 	@FindBy(xpath = "(//button[text()='Go'])[1]")
 	WebElement goButton;
+	
 	@FindBy(xpath = "//div[text()='Reservation Cancelled']")
 	WebElement reservationCancelMsg;
+	
 	@FindBy(xpath = "//a[text()='Edit search']")
 	WebElement editSearchButton;
+	
 	@FindBy(xpath = "//*[@id='13' and text()='Reports']")
 	WebElement reports;
+	
 	@FindBy(xpath = "//*[contains(@href,'quickSearch')]")
 	WebElement searchReservationReport;
+	
 	@FindBy(name = "quickSearchResults")
 	WebElement quickSearchButton;
+	
 	@FindBy(xpath = "//span[text()='Sorry, there are no reservations matching your search criteria']")
 	WebElement noResFoundMsg;
+	
 	@FindBy(xpath = "//div[contains(@class,'confirmation-number')]")
 	WebElement conNo;
+	
 	@FindBy(xpath = "(//span[@class='announcement-text'])[last()]")
 	WebElement announcementText;
+	
 	@FindBy(xpath = "//button[text()='View']")
 	WebElement viewButton;
+	
 	@FindBy(xpath = "(//*[text()='Guest Details'])[1]/following::dd[1]")
 	WebElement guestDetails;
+	
 	@FindBy(id = "customer-confirm-first-name")
 	WebElement fName;
+	
 	@FindBy(id = "customer-last-name")
 	WebElement lName;
+	
 	@FindBy(id = "customer-confirm-email")
 	WebElement email;
+	
 	@FindBy(xpath = "//button[text()='Edit']")
 	WebElement editButton;
+	
 	@FindBy(id = "edit-fName")
 	WebElement editFname;
+	
 	@FindBy(id = "edit-lName")
 	WebElement editLname;
+	
 	@FindBy(xpath = "//button[text()='Save']")
 	WebElement savebutton;
+	
 	@FindBy(xpath = "//button[text()='New Reservation']")
 	WebElement ccNewRes;
+	
 	@FindBy(xpath = "(//span[contains(@class,'circle')])[2]")
 	WebElement minusButton;
+	
 	@FindBy(xpath = "(//a[text()='Select'])[2]")
 	WebElement selectRoom2;
 

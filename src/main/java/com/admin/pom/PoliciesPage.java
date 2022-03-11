@@ -18,30 +18,43 @@ public class PoliciesPage extends AbstractBasePage{
 	
 	@FindBy(xpath = "//*[@value='Delete']")
 	WebElement deleteButton;
+	
 	@FindBy(xpath = "//*[@name='name']")
 	WebElement policyName;
+	
 	@FindBy(xpath = "//*[@name='code']")
 	WebElement policyCode;
+	
 	@FindBy(xpath = "//a[text()='Add a new Cancellation window']")
 	WebElement addanewCancellationwindow;
+	
 	@FindBy(xpath = "//*[@name='endInterval']")
 	WebElement cancellationWindow;
+	
 	@FindBy(xpath = "//*[@value='Save']")
 	WebElement save;
+	
 	@FindBy(xpath = "(//input[@name='deductionValue'])[3]")
 	WebElement inputFlatFee;
+	
 	@FindBy(xpath = "(//input[@name='prePaymentValues'])[3]")
 	WebElement inputFixedAmountDeposit;
+	
 	@FindBy(xpath = "(//input[@name='prePaymentValues'])[2]")
 	WebElement inputNumberOfNights;
+	
 	@FindBy(xpath = "(//input[@name='prePaymentValues'])[1]")
 	WebElement percentageOfAmount;
+	
 	@FindBy(xpath = "(//*[@name='policyIdCheckbox'])[last()]")
 	WebElement policyNameCheckbox;
+	
 	@FindBy(xpath = "((//*[@name='policyIdCheckbox'])[last()]/following::td)[1]")
 	WebElement policyNameVerify;
+	
 	@FindBy(xpath = "//*[@name='selectedGuaranteeId']")
 	WebElement guarenteeDropdown;
+	
 	@FindBy(xpath = "//*[@value='Cancel']")
 	WebElement cancelButton;
 	

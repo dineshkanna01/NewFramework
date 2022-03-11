@@ -21,44 +21,63 @@ public class GroupKeywordSearchBookingPage extends TestBase {
 
 	@FindBy(xpath = "//*[@id='addNewCategoryButton']/input")
 	WebElement addNewCategoryButton;
+	
 	@FindBy(xpath = "//input[@name='categoryName']")
 	WebElement categoryName;
+	
 	@FindBy(xpath = "(//*[@name='editCategoryLink'])[1]")
 	WebElement verifyCategoryName;
+	
 	@FindBy(name = "name")
 	WebElement name;
+	
 	@FindBy(name = "rateCode")
 	WebElement ratePlanCode;
+	
 	@FindBy(name = "shortDescription")
 	WebElement shortDescription;
+	
 	@FindBy(name = "bookingSDate")
 	WebElement startDate;
 	@FindBy(name = "checkInSDate")
 	WebElement firstCheckInDate;
+	
 	@FindBy(xpath = "//*[@value='All']")
 	WebElement roomCheckbox;
+	
 	@FindBy(name = "selectedCategoryId")
 	WebElement category;
+	
 	@FindBy(xpath = "//select[@name='classification']")
 	WebElement classifications;
+	
 	@FindBy(id = "chkCallCenter")
 	WebElement callCenterCheckbox;
+	
 	@FindBy(xpath = "//button[text()='Create Search Tag']")
 	WebElement searchTagButton;
+	
 	@FindBy(name = "rateSearchTag")
 	WebElement searchTagField;
+	
 	@FindBy(id = "group-plan-input")
 	WebElement groupKeywordFieldCC;
+	
 	@FindBy(xpath = "//button[text()='Search Group Rate']")
 	WebElement searchGroupButton;
+	
 	@FindBy(xpath = "(//input[contains(@id,'rate_')])[1]")
 	WebElement rateGridRate;
+	
 	@FindBy(xpath = "(//a[text()='Select'])[2]")
 	WebElement selectRoom;
+	
 	@FindBy(xpath = "//tr[@class='ratePlanHeader'][last()]")
 	WebElement categoryNameDel;
+	
 	@FindBy(name = "button2")
 	WebElement deleteButton;
+	
 	@FindBy(xpath = "//input[@value='Yes']")
 	WebElement yesButton;
 

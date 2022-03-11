@@ -39,66 +39,96 @@ public class VerifyingFilters_allthelinksandSortingonAvailabilityPagePage extend
 
 	@FindBy(xpath = "//*[@id='addNewCategoryButton']/input")
 	WebElement addNewCategoryButton;
+	
 	@FindBy(xpath = "//input[@name='categoryName']")
 	WebElement categoryName;
+	
 	@FindBy(xpath = "(//*[@name='editCategoryLink'])[1]")
 	WebElement verifyCategoryName;
+	
 	@FindBy(name = "name")
 	WebElement name;
+	
 	@FindBy(xpath = "(//input[contains(@id,'rate_')])[1]")
 	WebElement rateGridRate;
+	
 	@FindBy(xpath = "//a[@href='#/rates/all/']")
 	WebElement rateTabCC;
+	
 	@FindBy(xpath = "//span[text()='Group by room type'][last()]")
 	WebElement grouByroomTabCC;
+	
 	@FindBy(name = "rateCode")
 	WebElement ratePlanCode;
+	
 	@FindBy(name = "shortDescription")
 	WebElement shortDescription;
+	
 	@FindBy(name = "bookingSDate")
 	WebElement startDate;
+	
 	@FindBy(name = "checkInSDate")
 	WebElement firstCheckInDate;
+	
 	@FindBy(xpath = "//*[@value='All']")
 	WebElement roomCheckbox;
+	
 	@FindBy(name = "selectedCategoryId")
 	WebElement category;
+	
 	@FindBy(xpath = "//span[contains(@class,\"bootstrap-switch-handle-off\")]")
 	WebElement groupByRatePlan;
+	
 	@FindBy(xpath = "//select[contains(@class,\"price-sort-select\")]")
 	WebElement priceFilterDropdown;
+	
 	@FindBy(xpath = "(//a[contains(@class,'hotel-room-name') and contains(@data-target,'#roomInfoModal')])[1]")
 	WebElement groupbyRoom;
+	
 	@FindBy(xpath = "(//*[text()='BAR'])[1]/preceding::input[1]")
 	WebElement rpBar;
+	
 	@FindBy(xpath = "(//a[contains(@href,'displayEditRoom')])[1]")
 	WebElement editRoom;
+	
 	@FindBy(xpath = "(//a[contains(@href,'displayEditRoom')])[1]/preceding::td[3]")
 	WebElement roomNameAdmin;
 	@FindBy(xpath = "(//input[contains(@id,'selectedBedId')])[last()]/following::td[1]")
 	WebElement bedTypeNameAdmin;
+	
 	@FindBy(xpath = "(//input[contains(@id,'selectedBedId')])[last()]")
 	WebElement bedTypeNameAdminCheckBox;
+	
 	@FindBy(xpath = "//input[@name ='save'][2]")
 	WebElement savebutton;
+	
 	@FindBy(xpath = "//a[contains(@href,'method=addNew')]")
 	WebElement addNewBedType;
+	
 	@FindBy(name = "name")
 	WebElement bedNameField;
+	
 	@FindBy(name = "code")
 	WebElement bedCodeField;
+	
 	@FindBy(xpath = "//input[@name='save']")
 	WebElement saveBedType;
+	
 	@FindBy(xpath = "(//a[text()='Delete'])[last()]")
 	WebElement deleteBedType;
+	
 	@FindBy(xpath = "//span[text()='OK']")
 	WebElement ok;
+	
 	@FindBy(xpath = "//tr[@class='ratePlanHeader'][last()]")
 	WebElement categoryNameDel;
+	
 	@FindBy(name = "button2")
 	WebElement deleteButton;
+	
 	@FindBy(xpath = "//input[@value='Yes']")
 	WebElement yesButton;
+	
 	@FindBy(xpath = "(//a[text()='Select'])[1]")
 	WebElement selectRoom;
 

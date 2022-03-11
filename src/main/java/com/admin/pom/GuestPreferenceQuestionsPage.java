@@ -17,30 +17,43 @@ public class GuestPreferenceQuestionsPage extends AbstractBasePage {
 	
 	@FindBy(xpath = "//*[@name='selectionType']")
 	WebElement selectionTypeDropdown;
+	
 	@FindBy(xpath = "//*[@name='selectionType']/option[1]")
 	WebElement selectionSingleType;
+	
 	@FindBy(xpath = "//*[@name='selectionType']/option[2]")
 	WebElement selectionMultipleType;
+	
 	@FindBy(xpath = "//*[@name='selectionType']/option[3]")
 	WebElement selectionFreeTextType;
+	
 	@FindBy(xpath = "//*[@name='questionText']")
 	WebElement questionTextField;
+	
 	@FindBy(xpath = "//*[@name='questionLabel']")
 	WebElement questionLabelTextField;
+	
 	@FindBy(xpath = "//*[@id='optionLabel']")
 	WebElement option1Label;
+	
 	@FindBy(xpath = "//*[@id='optionTextIndex_1']")
 	WebElement option1GuestQuestion;
+	
 	@FindBy(xpath = "//*[@name='save']")
 	WebElement savebutton;
+	
 	@FindBy(xpath = "(//a[text()='Delete'])[last()]")
 	WebElement deletebutton;
+	
 	@FindBy(xpath = "//*[text()='OK']")
 	WebElement oKbutton;
+	
 	@FindBy(xpath = "(//*[contains(@href,'editQuestion')])[last()]")
 	WebElement editButton;
+	
 	@FindBy(xpath = "//*[@id='dataTable']/tbody/tr[last()]/td[2]")
 	WebElement e2;
+	
 	@FindBy(xpath = "(//*[text()='Guest Preference Questions']/following::font)[last()]")
 	WebElement e3;
 	

@@ -26,62 +26,91 @@ public class OfferAccessCodeBookingPage extends TestBase {
 
 	@FindBy(xpath = "//*[@id='addNewCategoryButton']/input")
 	WebElement addNewCategoryButton;
+	
 	@FindBy(xpath = "//input[@name='categoryName']")
 	WebElement categoryName;
+	
 	@FindBy(xpath = "(//*[@name='editCategoryLink'])[1]")
 	WebElement verifyCategoryName;
+	
 	@FindBy(name = "name")
 	WebElement name;
+	
 	@FindBy(name = "rateCode")
 	WebElement ratePlanCode;
+	
 	@FindBy(name = "shortDescription")
 	WebElement shortDescription;
+	
 	@FindBy(name = "bookingSDate")
 	WebElement startDate;
+	
 	@FindBy(name = "checkInSDate")
 	WebElement firstCheckInDate;
+	
 	@FindBy(xpath = "//*[@value='All']")
 	WebElement roomCheckbox;
+	
 	@FindBy(name = "selectedCategoryId")
 	WebElement category;
+	
 	@FindBy(name = "selectedRatePlanName")
 	WebElement rpAc;
+	
 	@FindBy(name = "go")
 	WebElement go;
+	
 	@FindBy(xpath = "//*[contains(@onclick,'addNewRatePlanToAccessCode')]")
 	WebElement clickAddAccessCode;
+	
 	@FindBy(name = "accessCode")
 	WebElement acField;
+	
 	@FindBy(xpath = "(//td[contains(@id,'accessCode_')])[last()]")
 	WebElement acVerify;
+	
 	@FindBy(xpath = "(//*[text()='Edit'])[last()]")
 	WebElement editAC;
+	
 	@FindBy(xpath = "//input[@id='offer-code-input']")
 	WebElement ocCCField;
+	
 	@FindBy(xpath = "//a[contains(text(),'offer code')]")
 	WebElement rpnameCC;
+	
 	@FindBy(xpath = "(//a[text()='Select'])[2]")
 	WebElement selectRoom;
+	
 	@FindBy(xpath = "//div[text()='Cancel']")
 	WebElement cancelButton;
+	
 	@FindBy(xpath = "//button[contains(@class,'btn-success')]")
 	WebElement yesButtonCancel;
+	
 	@FindBy(xpath = "//*[text()='Your reservation has been cancelled']")
 	WebElement cancelCodeHead;
+	
 	@FindBy(xpath = "//div[@class='bootbox-body']/strong")
 	WebElement cancelCode;
+	
 	@FindBy(xpath = "//button[text()='OK']")
 	WebElement okButtonCancel;
+	
 	@FindBy(xpath = "(//a[text()='Delete'])[last()]")
 	WebElement deleteAC;
+	
 	@FindBy(xpath = "//span[text()='OK']")
 	WebElement okDeleteAC;
+	
 	@FindBy(xpath = "//div[@ng-show=\"!alternatehotelsmessage\"]")
 	WebElement error;
+	
 	@FindBy(xpath = "//tr[@class='ratePlanHeader'][last()]")
 	WebElement categoryNameDel;
+	
 	@FindBy(name = "button2")
 	WebElement deleteButton;
+	
 	@FindBy(xpath = "//input[@value='Yes']")
 	WebElement yesButton;
 

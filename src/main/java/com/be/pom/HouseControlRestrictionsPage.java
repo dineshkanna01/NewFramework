@@ -23,42 +23,61 @@ public class HouseControlRestrictionsPage extends TestBase {
 	
 	@FindBy(xpath = "//*[@name='startDate']")
 	WebElement startdate;
+	
 	@FindBy(xpath = "//*[@name='endDate']")
 	WebElement enddate;
+	
 	@FindBy(xpath = "//input[@value='Submit']")
 	WebElement submit;
+	
 	@FindBy(xpath = "(//input[@value='O'])[1]")
 	WebElement openYieldControl;
+	
 	@FindBy(xpath = "(//input[@value='C'])[1]")
 	WebElement closeYieldControl;
+	
 	@FindBy(xpath = "//*[@id='minLOS']")
 	WebElement minLos;
+	
 	@FindBy(xpath = "//*[@id='maxLOS']")
 	WebElement maxLos;
+	
 	@FindBy(xpath = "//*[@value='Quick Entry']")
 	WebElement quickEntryBtn;
+	
 	@FindBy(xpath = "//input[@name='btnUpdate']")
 	WebElement updateButton;
+	
 	@FindBy(xpath = "//input[@value='Confirm']")
 	WebElement confirmButton;
+	
 	@FindBy(xpath = "//div[@id='errorAlertPopup']/div")
 	WebElement popupStayThrough;
+	
 	@FindBy(id = "search_arrival_date")
 	WebElement calender;
+	
 	@FindBy(id = "search_departure_date")
 	WebElement calenderCheckOut;
+	
 	@FindBy(xpath = "//td[@class='active day']")
 	WebElement checkInDate;
+	
 	@FindBy(xpath = "//*[contains(@name,'minLOS_')]")
 	List<WebElement> allMinLOS;
+	
 	@FindBy(xpath = "//*[contains(@name,'maxLOS_')]")
 	List<WebElement> allMaxLOS;
+	
 	@FindBy(xpath = "(//button[@type='submit'])[last()]")
 	WebElement bookNow;
+	
 	@FindBy(xpath = "(//input[@value=\"CTA\"])[1]")
 	WebElement cta;
+	
 	@FindBy(name = "noOfRoomsAvailable")
 	WebElement roomsAvailable;
+	
 	@FindBy(xpath = "//input[@value='All']")
 	WebElement allRadioButton;
 	

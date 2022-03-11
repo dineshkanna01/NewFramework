@@ -322,4 +322,12 @@ public class Helper extends TestBase{
 		WebDriverWait wait = new WebDriverWait(getDriver(),wait2);
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 	}
+	
+	/*
+	* Method to open config IBE
+	*
+	*/
+	public static void openconfigIBE() {
+	getDriver().get("https://demo.qa-igt.reztrip3-qa.com/IBEconfig/");
+	}
 }
